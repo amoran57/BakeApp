@@ -1,0 +1,245 @@
+[
+{
+    "name": "Crumpets",
+    "id": 1001,
+    "prepTime": 15,
+    "bakeTime": 15,
+    "totalTime": 105,
+    "imageName": "crumpet",
+    "type": "breads",
+    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+    "ingredients": [
+         "1 1/2 cups (340g) lukewarm water",
+         "1 cup (227g) lukewarm milk",
+         "2 tablespoons (28g) melted butter",
+        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+         "2 1/2 teaspoons instant yeast",
+         "1 teaspoon baking powder",
+         "1 1/4 teaspoons salt"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here."},
+        {"stepNum": 2,
+            "ins":
+        "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes."},
+        {"stepNum": 3,
+            "ins":
+        "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here."},
+        {"stepNum": 4,
+            "ins":
+        "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK."},
+        {"stepNum": 5,
+            "ins":
+        "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops."},
+        {"stepNum": 6,
+            "ins": "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."}
+                ]
+},
+
+{
+    "name": "Pastry",
+    "id": 1002,
+    "prepTime": 15,
+    "bakeTime": 15,
+    "totalTime": 105,
+    "imageName": "crumpet",
+    "type": "pastries",
+    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+    "ingredients": [
+         "1 1/2 cups (340g) lukewarm water",
+         "1 cup (227g) lukewarm milk",
+         "2 tablespoons (28g) melted butter",
+        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+         "2 1/2 teaspoons instant yeast",
+         "1 teaspoon baking powder",
+         "1 1/4 teaspoons salt"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here."},
+        {"stepNum": 2,
+            "ins":
+        "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes."},
+        {"stepNum": 3,
+            "ins":
+        "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here."},
+        {"stepNum": 4,
+            "ins":
+        "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK."},
+        {"stepNum": 5,
+            "ins":
+        "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops."},
+        {"stepNum": 6,
+            "ins": "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."}
+                ]
+},
+
+{
+    "name": "Cake",
+    "id": 1003,
+    "prepTime": 15,
+    "bakeTime": 15,
+    "totalTime": 105,
+    "imageName": "crumpet",
+    "type": "cakes",
+    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+    "ingredients": [
+         "1 1/2 cups (340g) lukewarm water",
+         "1 cup (227g) lukewarm milk",
+         "2 tablespoons (28g) melted butter",
+        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+         "2 1/2 teaspoons instant yeast",
+         "1 teaspoon baking powder",
+         "1 1/4 teaspoons salt"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here."},
+        {"stepNum": 2,
+            "ins":
+        "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes."},
+        {"stepNum": 3,
+            "ins":
+        "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here."},
+        {"stepNum": 4,
+            "ins":
+        "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK."},
+        {"stepNum": 5,
+            "ins":
+        "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops."},
+        {"stepNum": 6,
+            "ins": "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."}
+                ]
+},
+
+{
+    "name": "Cookie",
+    "id": 1004,
+    "prepTime": 15,
+    "bakeTime": 15,
+    "totalTime": 105,
+    "imageName": "crumpet",
+    "type": "cookies",
+    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+    "ingredients": [
+         "1 1/2 cups (340g) lukewarm water",
+         "1 cup (227g) lukewarm milk",
+         "2 tablespoons (28g) melted butter",
+        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+         "2 1/2 teaspoons instant yeast",
+         "1 teaspoon baking powder",
+         "1 1/4 teaspoons salt"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here."},
+        {"stepNum": 2,
+            "ins":
+        "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes."},
+        {"stepNum": 3,
+            "ins":
+        "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here."},
+        {"stepNum": 4,
+            "ins":
+        "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK."},
+        {"stepNum": 5,
+            "ins":
+        "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops."},
+        {"stepNum": 6,
+            "ins": "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."}
+                ]
+},
+
+{
+    "name": "Other",
+    "id": 1005,
+    "prepTime": 15,
+    "bakeTime": 15,
+    "totalTime": 300,
+    "imageName": "crumpet",
+    "type": "other",
+    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+    "ingredients": [
+         "1 1/2 cups (340g) lukewarm water",
+         "1 cup (227g) lukewarm milk",
+         "2 tablespoons (28g) melted butter",
+        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+         "2 1/2 teaspoons instant yeast",
+         "1 teaspoon baking powder",
+         "1 1/4 teaspoons salt"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here."},
+        {"stepNum": 2,
+            "ins":
+        "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes."},
+        {"stepNum": 3,
+            "ins":
+        "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here."},
+        {"stepNum": 4,
+            "ins":
+        "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK."},
+        {"stepNum": 5,
+            "ins":
+        "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops."},
+        {"stepNum": 6,
+            "ins": "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."}
+                ]
+},
+{
+    "name": "Chocolate Chip Cookies",
+    "id": 1006,
+    "prepTime": 25,
+    "bakeTime": 12,
+    "totalTime": 45,
+    "imageName": "ChocChip",
+    "type": "cookies",
+    "sysIng": ["brown sugar", "sugar", "butter", "salt", "vanilla", "vinegar", "baking soda", "egg", "flour", "chocolate chips"],
+    "ingredients": [
+         "2/3 cup light brown sugar, firmly packed",
+         "2/3 cup granulated sugar",
+         "3/4 cup unsalted butter, room temperature",
+        "3/4 teaspoon salt",
+         "2 teaspoons vanilla extract",
+         "1 teaspoon vinegar",
+         "1 teaspoon baking soda",
+         "1 large egg",
+         "2 cups King Arthur Unbleached All-Purpose Flour",
+         "1 1/2 cups semisweet chocolate chips"
+                ],
+    "instructions": [
+        { "stepNum": 1,
+            "ins":
+        "Preheat the oven to 375 degrees Fahrenheit Lightly grease (or line with parchment) two baking sheets"},
+        {"stepNum": 2,
+            "ins":
+        "In a large bowl, combine the sugars, butter, salt, vanilla extract, vinegar, and baking soda, beating until smooth and creamy"},
+        {"stepNum": 3,
+            "ins":
+        "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined."},
+        {"stepNum": 4,
+            "ins":
+        "Mix in the flour, then the chips."},
+        {"stepNum": 5,
+            "ins":
+        "Scoop 1 1/4-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread."},
+        {"stepNum": 6,
+            "ins": "Bake the cookies for 11 to 12 minutes, until edges are golden brown."},
+        {"stepNum": 7,
+            "ins": "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
+        }
+                ]
+}
+
+
+]
+
+
+ 
