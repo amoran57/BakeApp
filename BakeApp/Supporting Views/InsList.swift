@@ -11,7 +11,7 @@ import SwiftUI
 
 struct InsList: View {
     //input as array of Instructions
-    var insList: [Instructions]
+    var insList: [String]
 
     var body: some View {
         VStack {
@@ -28,15 +28,15 @@ struct InsList: View {
             
             //list of ingredients
             VStack {
-                ForEach(self.insList, id: \.self) { instr in
+                ForEach(0..<self.insList.count) { index in
                     HStack(alignment: .top) {
-                        Text("Step \(instr.stepNum):")
+                        Text("Step \(index+1):")
                             .foregroundColor(K.textColor)
                             .italic()
                             .font(.system(size: 20))
                             .frame(width: 80, alignment: .center)
                         
-                        Text(instr.ins)
+                        Text(self.insList[index])
                             .foregroundColor(K.textColor)
                             .font(.system(size: 16))
                             .frame(width: 280, alignment: .leading)
