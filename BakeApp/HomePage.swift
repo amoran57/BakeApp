@@ -102,8 +102,7 @@ struct HomePage: View {
                             .foregroundColor(K.textColor)
                     }
                     
-                }.navigationBarTitle("")
-                .navigationBarHidden(true)
+                }
             }
         }
     }

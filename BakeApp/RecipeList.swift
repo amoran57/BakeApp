@@ -33,12 +33,10 @@ struct RecipeList: View {
                 ForEach(self.practiceArray, id: \.self) { row in
                     SideList(typeOfBakedGood: String(row))
                 }
-                .navigationBarTitle("Recipes")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: self.btnBack)
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+            .navigationBarTitle("Recipes")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: self.btnBack)
         }
     }
 }
