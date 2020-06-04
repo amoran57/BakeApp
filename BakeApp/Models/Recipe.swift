@@ -16,7 +16,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var name: String
     fileprivate var imageName: String
     var ingredients: [String]
-    var instructions: [Instructions]
+    var instructions: [String]
     var totalTime: Int
     var bakeTime: Int
     var prepTime: Int
@@ -111,11 +111,3 @@ extension String {
         }
     }
 }
-
-//defines data structure for "Instructions" type in "Recipe"
-struct Instructions: Hashable, Codable {
-    var stepNum: Int
-    var ins: String
-    
-}
-
