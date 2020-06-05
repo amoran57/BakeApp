@@ -1,0 +1,122 @@
+We don't have yeast
+Current array of missing ingredients: ["yeast"]
+We don't have raisins
+Current array of missing ingredients: ["yeast", "raisins"]
+Successfully created array of missing ingredients: ["yeast", "raisins"]
+Checking Crumpets:
+Checking milk against the missing ingredient yeast
+Checking milk against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking yeast against the missing ingredient yeast
+yeast is required for recipe Crumpets, but that ingredient is not on hand.
+Checking yeast against the missing ingredient raisins
+Checking baking powder against the missing ingredient yeast
+Checking baking powder against the missing ingredient raisins
+Checking salt against the missing ingredient yeast
+Checking salt against the missing ingredient raisins
+Checking Chocolate Sheet Cake:
+Checking sugar against the missing ingredient yeast
+Checking sugar against the missing ingredient raisins
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking cocoa powder against the missing ingredient yeast
+Checking cocoa powder against the missing ingredient raisins
+Checking baking soda against the missing ingredient yeast
+Checking baking soda against the missing ingredient raisins
+Checking egg against the missing ingredient yeast
+Checking egg against the missing ingredient raisins
+Checking vanilla against the missing ingredient yeast
+Checking vanilla against the missing ingredient raisins
+Checking milk against the missing ingredient yeast
+Checking milk against the missing ingredient raisins
+Checking powdered sugar against the missing ingredient yeast
+Checking powdered sugar against the missing ingredient raisins
+Checking Banana Bread:
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking baking soda against the missing ingredient yeast
+Checking baking soda against the missing ingredient raisins
+Checking banana against the missing ingredient yeast
+Checking banana against the missing ingredient raisins
+Checking milk against the missing ingredient yeast
+Checking milk against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking baking powder against the missing ingredient yeast
+Checking baking powder against the missing ingredient raisins
+Checking salt against the missing ingredient yeast
+Checking salt against the missing ingredient raisins
+Checking sugar against the missing ingredient yeast
+Checking sugar against the missing ingredient raisins
+Checking brown sugar against the missing ingredient yeast
+Checking brown sugar against the missing ingredient raisins
+Checking egg against the missing ingredient yeast
+Checking egg against the missing ingredient raisins
+Checking Peanut Butter Oatmeal Cookies:
+Checking brown sugar against the missing ingredient yeast
+Checking brown sugar against the missing ingredient raisins
+Checking sugar against the missing ingredient yeast
+Checking sugar against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking peanut butter against the missing ingredient yeast
+Checking peanut butter against the missing ingredient raisins
+Checking egg against the missing ingredient yeast
+Checking egg against the missing ingredient raisins
+Checking baking soda against the missing ingredient yeast
+Checking baking soda against the missing ingredient raisins
+Checking salt against the missing ingredient yeast
+Checking salt against the missing ingredient raisins
+Checking oatmeal against the missing ingredient yeast
+Checking oatmeal against the missing ingredient raisins
+Checking Scones:
+Checking sugar against the missing ingredient yeast
+Checking sugar against the missing ingredient raisins
+Checking baking soda against the missing ingredient yeast
+Checking baking soda against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking raisins against the missing ingredient yeast
+Checking raisins against the missing ingredient raisins
+raisins is required for recipe Scones, but that ingredient is not on hand.
+Checking baking powder against the missing ingredient yeast
+Checking baking powder against the missing ingredient raisins
+Checking salt against the missing ingredient yeast
+Checking salt against the missing ingredient raisins
+Checking sour cream against the missing ingredient yeast
+Checking sour cream against the missing ingredient raisins
+Checking egg against the missing ingredient yeast
+Checking egg against the missing ingredient raisins
+Checking Chocolate Chip Cookies:
+Checking brown sugar against the missing ingredient yeast
+Checking brown sugar against the missing ingredient raisins
+Checking sugar against the missing ingredient yeast
+Checking sugar against the missing ingredient raisins
+Checking butter against the missing ingredient yeast
+Checking butter against the missing ingredient raisins
+Checking salt against the missing ingredient yeast
+Checking salt against the missing ingredient raisins
+Checking vanilla against the missing ingredient yeast
+Checking vanilla against the missing ingredient raisins
+Checking vinegar against the missing ingredient yeast
+Checking vinegar against the missing ingredient raisins
+Checking baking soda against the missing ingredient yeast
+Checking baking soda against the missing ingredient raisins
+Checking egg against the missing ingredient yeast
+Checking egg against the missing ingredient raisins
+Checking flour against the missing ingredient yeast
+Checking flour against the missing ingredient raisins
+Checking chocolate chips against the missing ingredient yeast
+Checking chocolate chips against the missing ingredient raisins
+4 recipes passed the ingredients filter.
+Successfully filtered by both ingredients and time limits. 3 recipes passed the filters!
+Generated index number: 1
