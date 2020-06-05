@@ -19,8 +19,11 @@ struct FilterByTime {
     
     mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> [Recipe] {
         //creates array of recipes to filter; this array is pre-filtered by ingredient
-        let inputRecipes:[Recipe]? = recipeScreener.filterByIngredients(input:input)
-        var validRecipes:[Recipe] = inputRecipes ?? recipeData
+        let inputRecipes:[Recipe] = recipeScreener.filterByIngredients(input:input)
+        
+        var validRecipes = inputRecipes.count > 0 ? inputRecipes : recipeData
+        
+//        var validRecipes:[Recipe] = inputRecipes ?? recipeData
         var totalTime:TimeLimit?
         var prepTime:TimeLimit?
         var bakeTime:TimeLimit?
@@ -59,7 +62,7 @@ struct FilterByTime {
             }
         }
         
-        if inputRecipes != nil && validRecipes.count > 0  {
+        if inputRecipes.count > 0 && validRecipes.count > 0  {
             print("Successfully filtered by both ingredients and time limits. \(validRecipes.count) recipes passed the filters!")
             couldNotFilter = false
             couldNotFilterByIng = false
@@ -67,13 +70,13 @@ struct FilterByTime {
             return validRecipes
         }
         else {
-            if let filteredByIngredients = recipeScreener.filterByIngredients(input:input) {
+            if inputRecipes.count > 0 {
                 //if time limits are untenable, returns array only filtered by ingredients
-                print("Filtered by ingredients, but was unable to filter by requested time limits. \(filteredByIngredients.count) recipes passed the filters!")
+                print("Filtered by ingredients, but was unable to filter by requested time limits. \(inputRecipes.count) recipes passed the filters!")
                 couldNotFilterByTime = true
                 couldNotFilter = false
                 couldNotFilterByIng = false
-                return filteredByIngredients
+                return inputRecipes
             } else if validRecipes.count > 0 {
                 print("Filtered by time, but was unable to filter by ingredients. \(validRecipes.count) recipes passed the filters!")
                 couldNotFilterByIng = true

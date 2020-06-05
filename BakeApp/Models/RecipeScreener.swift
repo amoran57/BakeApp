@@ -10,20 +10,16 @@ import SwiftUI
 import CoreData
 
 struct RecipeScreener {
-
+    
     //this function is called EVERY TIME an IngTile is pressed. It performs this loop EVERY TIME!!!
-    func missingIngredients(input:FetchedResults<IngredientsOwned>) -> [String]? {
-        var missing:[String] = ["k"]
+    func missingIngredients(input:FetchedResults<IngredientsOwned>) -> [String] {
+        var missing = [String]()
         for counter in 0..<input.count {
-//            print("Looping through ingredients to find false values. Loop number: \(counter)")
+            //            print("Looping through ingredients to find false values. Loop number: \(counter)")
             let ingredient = input[counter]
             if ingredient.isOwned == false {
                 print("We don't have \(ingredient.ingredientName ?? "nameless ingredient")")
-                if missing[0] == "k" {
-                    missing[0] = (ingredient.ingredientName!)
-                } else {
-                    missing.append(ingredient.ingredientName!)
-                }
+                missing.append(ingredient.ingredientName!)
                 print("Current array of missing ingredients: \(missing)")
             }
         }
@@ -31,9 +27,11 @@ struct RecipeScreener {
         return missing
     }
     
-    func filterByIngredients(input:FetchedResults<IngredientsOwned>) -> [Recipe]? {
+    func filterByIngredients(input:FetchedResults<IngredientsOwned>) -> [Recipe] {
         var validRecipes:[Recipe] = recipeData
+        let missingIngArray = self.missingIngredients(input:input)
         
+
         //declaring this function allows us to stop the loop and move on to the next recipe
         //immediately when we remove a recipe from the list
         func checkIngInRecipe(missingIngArray:[String], recipe:Recipe) {
@@ -55,8 +53,8 @@ struct RecipeScreener {
             }
         }
         
-        //check if there are any ingredients missing
-        if let missingIngArray = self.missingIngredients(input:input) {
+        //only run if necessary
+        if missingIngArray.count > 0 {
             //loop through each recipe in the system
             for recipe in recipeData {
                 checkIngInRecipe(missingIngArray: missingIngArray, recipe: recipe)
