@@ -10,15 +10,13 @@ import SwiftUI
 import CoreData
 
 struct RecipeScreener {
-//    @Environment(\.managedObjectContext) var managedObjectContext
-//    @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
-    
+
+    //this function is called EVERY TIME an IngTile is pressed. It performs this loop EVERY TIME!!!
     func missingIngredients(input:FetchedResults<IngredientsOwned>) -> [String]? {
         var missing:[String] = ["k"]
         for counter in 0..<input.count {
 //            print("Looping through ingredients to find false values. Loop number: \(counter)")
             let ingredient = input[counter]
-//            print("Currently checking bool value for ingredient: \(ingredient.ingredientName ?? "this ingredient has no name") has a value of \(ingredient.isOwned)")
             if ingredient.isOwned == false {
                 print("We don't have \(ingredient.ingredientName ?? "nameless ingredient")")
                 if missing[0] == "k" {
@@ -38,11 +36,13 @@ struct RecipeScreener {
         //check if there are any ingredients missing
         if let missingIngArray = self.missingIngredients(input:input) {
             //loop through each recipe in the system
-            for recipe in recipeData {
+            for recipe in validRecipes {
+                print("Checking \(recipe.name):")
                 //for each recipe, loop through the ingredients
                 for ingRequired in recipe.sysIng {
                     //for each ingredient, loop it against the missing ingredients
                     for ingMissing in missingIngArray {
+                        print("Checking \(ingRequired) against the missing ingredient \(ingMissing)")
                         //check if the recipe has that ingredient
                         if ingMissing.lowercased() == ingRequired.lowercased() {
                             print("\(ingRequired) is required for recipe \(recipe.name), but that ingredient is not on hand.")
@@ -56,13 +56,10 @@ struct RecipeScreener {
                 }
             }
         }
-        if validRecipes.count > 0 {
-            print("\(validRecipes.count) recipes passed the ingredients filter.")
-            return validRecipes
-        } else {
-            print("No recipes passed the ingredients filter.")
-            return nil
-        }
+        
+        print("\(validRecipes.count) recipes passed the ingredients filter.")
+        return validRecipes
+        
     }
 }
 

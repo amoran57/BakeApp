@@ -93,8 +93,12 @@ struct FilterByTime {
     }
     
     mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> Recipe {
-        let randNum = Int.random(in: 0..<filterByTime(ingredientData: input, timeData: timeData).count)
+        
+        let filteredRecipeList = filterByTime(ingredientData: input, timeData: timeData)
+        
+        let randNum = Int.random(in: 0..<filteredRecipeList.count)
         print("Generated index number: \(randNum)")
-        return filterByTime(ingredientData: input, timeData: timeData)[randNum]
+        let returnedRecipe = filteredRecipeList[randNum]
+        return returnedRecipe
     }
 }
