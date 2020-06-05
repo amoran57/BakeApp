@@ -31,67 +31,8 @@ extension Recipe {
     }
 }
 
-//converts the Integer values for totalTime, bakeTime, prepTime to natural language Strings
-extension Recipe {
-     func totTimeText() -> String {
-        if (totalTime % 60) == 0 {
-            if totalTime == 60 {
-                       return String("1 hour")
-            } else {
-                return String("\(Int(floor(Double(totalTime) / 60))) hours")
-            }
-        } else {
-        if  totalTime > 120 {
-            return String("\(Int(floor(Double(totalTime) / 60))) hours, \(totalTime % 60) minutes")
-        } else if  totalTime > 60 {
-            return String("1 hour, \(totalTime % 60) minutes")
-        }
-        else {
-            return String("\(totalTime) minutes")
-        }
-        }
-    }
-    
-     func prepTimeText() -> String {
-        if (prepTime % 60) == 0 {
-            if prepTime == 60 {
-                       return String("1 hour")
-            } else {
-                return String("\(Int(floor(Double(prepTime) / 60))) hours")
-            }
-        } else {
-        if  prepTime > 120 {
-            return String("\(Int(floor(Double(prepTime) / 60))) hours, \(prepTime % 60) minutes")
-        } else if  prepTime > 60 {
-            return String("1 hour, \(prepTime % 60) minutes")
-        }
-        else {
-            return String("\(prepTime) minutes")
-        }
-        }
-    }
-    
-     func bakeTimeText() -> String {
-        if (bakeTime % 60) == 0 {
-            if bakeTime == 60 {
-                       return String("1 hour")
-            } else {
-                return String("\(Int(floor(Double(bakeTime) / 60))) hours")
-            }
-        } else {
-        if  bakeTime > 120 {
-            return String("\(Int(floor(Double(bakeTime) / 60))) hours, \(bakeTime % 60) minutes")
-        } else if  bakeTime > 60 {
-            return String("1 hour, \(bakeTime % 60) minutes")
-        }
-        else {
-            return String("\(bakeTime) minutes")
-        }
-        }
-    }
-}
 
-extension String {
+extension Recipe {
     func timeToText(time:Int) -> String {
         if (time % 60) == 0 {
             if time == 60 {
@@ -110,4 +51,17 @@ extension String {
             }
         }
     }
+    
+    var totTimeText:String {
+        timeToText(time: totalTime)
+    }
+    
+    var prepTimeText:String {
+        timeToText(time: prepTime)
+    }
+    
+    var bakeTimeText:String {
+        timeToText(time: bakeTime)
+    }
+    
 }

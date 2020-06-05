@@ -25,19 +25,19 @@ struct RecipeDetail: View {
                 .fontWeight(.bold)
             
             //total time
-            Text("Total time: \(recipe.totTimeText())")
+            Text("Total time: \(recipe.totTimeText)")
                 .foregroundColor(K.textColor)
             .font(.system(size: 20))
             
             //prep and bake times
             HStack {
-                Text("Prep time: \(recipe.prepTimeText())")
+                Text("Prep time: \(recipe.prepTimeText)")
                     .foregroundColor(K.textColor)
                     .multilineTextAlignment(.trailing)
                 Text("|")
                     .foregroundColor(K.textColor)
                     .multilineTextAlignment(.center)
-                Text("Bake time: \(recipe.bakeTimeText())")
+                Text("Bake time: \(recipe.bakeTimeText)")
                     .foregroundColor(K.textColor)
                     .multilineTextAlignment(.leading)
             }.font(.system(size: 12))
