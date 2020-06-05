@@ -205,6 +205,70 @@
             "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
             
         ]
+    },
+    
+    {
+        "name": "Snickerdoodles",
+        "id": 1007,
+        "prepTime": 15,
+        "bakeTime": 10,
+        "totalTime": 30,
+        "imageName": "crumpet",
+        "type": "cookies",
+        "sysIng": ["sugar", "butter", "flour", "egg", "baking soda", "vanilla", "cream of tartar", "salt", "cinnamon"],
+        "ingredients": [
+            "1 cup softened butter",
+            "1 ½ cups sugar",
+            "2 eggs",
+            "2 teaspoons vanilla",
+            "2 ¾ cup cup flour",
+            "2 teaspoons cream of tartar",
+            "½ teaspoon baking soda",
+            "½ teaspoon salt",
+            "3 tablespoons sugar",
+            "1 tablespoon cinnamon"
+        ],
+        
+        "instructions": [
+            "Preheat oven to 400 degrees F (200 degrees C).",
+            "In a large mixing bowl, cream butter and sugar until fluffy. Add eggs and vanilla.",
+            "Blend in flour, cream of tartar, baking soda, and salt. Shape dough by rounded spoonfuls into balls.",
+            "In a small bowl, stir together sugar and cinnamon.",
+            "Roll the balls of dough in the sugar-cinnamon mixture. Make sure that the balls are completely covered.",
+            "Place balls on an uncreased baking sheet, about 2 inches apart.",
+            "Bake 8-12 minutes, until the cookies are well set. Let them cool on the sheet for several minutes."
+        ]
+    },
+    
+    {
+        "name": "Easy Bread",
+        "id": 1008,
+        "prepTime": 25,
+        "bakeTime": 40,
+        "totalTime": 180,
+        "imageName": "crumpet",
+        "type": "breads",
+        "sysIng": ["sugar", "flour", "yeast", "salt"],
+        "ingredients": [
+            "1 tablespoon active dry yeast",
+            "1 tablespoon sugar",
+            "1 tablespoon salt",
+            "2 cups warm water (about 105°F, not more than 110°F)",
+            "5 1/2 to 6 cups flour",
+            "Additional flour (or cornmeal) for dusting",
+            "Boiling water"
+        ],
+        "instructions": [
+            "In a large bowl, mix yeast, sugar, salt and water until the yeast is dissolved.", "Gradually add the flour, one cup at a time, and mix thoroughly--the dough should begin to pull away from the sides of the bowl.",
+            "Turn the dough out onto a floured surface to knead.",
+            "To knead the dough, fold the far edge of the dough back over on itself towards you. Push the heels of your hand into the dough, and push away. After each push, rotate the dough 90°. Repeat for about 10 minutes, sprinkling only enough flour on your kneading surface to prevent sticking.",
+            "Next, grease the mixing bowl with some olive oil, butter, or non-stick spray.",
+            "Put the dough in the bowl and turn it over once to grease the top. Cover the bowl with a damp, warm towel and keep in a warm place until the dough roughly doubles in size--about 1 to 2 hours.",
+            "Punch down the dough with your fist and briefly knead out any air bubbles. Cut the dough in half and shape into two French-style loaves.",
+            "Sprinkle a baking sheet with flour or cornmeal, and place the loaves on the sheet. Let the loaves rest for 5 minutes.",
+            "Lightly slash the tops of the loaves 3 or more times diagonally and brush them with cold water.",
+            "Bake at 400°F for 35 to 45 minutes, until the loaves are golden brown. They should sound hollow when tapped."
+        ]
     }
 ]
  
