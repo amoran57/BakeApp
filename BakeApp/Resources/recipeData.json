@@ -1,208 +1,212 @@
 [
-{
-    "name": "Crumpets",
-    "id": 1001,
-    "prepTime": 15,
-    "bakeTime": 15,
-    "totalTime": 105,
-    "imageName": "crumpet",
-    "type": "breads",
-    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
-    "ingredients": [
-         "1 1/2 cups (340g) lukewarm water",
-         "1 cup (227g) lukewarm milk",
-         "2 tablespoons (28g) melted butter",
-        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-         "2 1/2 teaspoons instant yeast",
-         "1 teaspoon baking powder",
-         "1 1/4 teaspoons salt"
-                ],
-    "instructions": [
-           "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
-
-           "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
+    {
+        "name": "Crumpets",
+        "id": 1001,
+        "prepTime": 15,
+        "bakeTime": 15,
+        "totalTime": 105,
+        "imageName": "crumpet",
+        "type": "breads",
+        "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+        "ingredients": [
+            "1 1/2 cups (340g) lukewarm water",
+            "1 cup (227g) lukewarm milk",
+            "2 tablespoons (28g) melted butter",
+            "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
+            "2 1/2 teaspoons instant yeast",
+            "1 teaspoon baking powder",
+            "1 1/4 teaspoons salt"
+        ],
+        "instructions": [
+            "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
+            
+            "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
+            
+            "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
+            
+            "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
+            
+            "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
+            
+            "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
+        ]
+    },
     
-           "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
-
-           "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
-
-           "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
-
-     "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-                   ]
-},
-
-{
-    "name": "Pastry",
-    "id": 1002,
-    "prepTime": 15,
-    "bakeTime": 15,
-    "totalTime": 105,
-    "imageName": "crumpet",
-    "type": "pastries",
-    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
-    "ingredients": [
-         "1 1/2 cups (340g) lukewarm water",
-         "1 cup (227g) lukewarm milk",
-         "2 tablespoons (28g) melted butter",
-        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-         "2 1/2 teaspoons instant yeast",
-         "1 teaspoon baking powder",
-         "1 1/4 teaspoons salt"
-                ],
-    "instructions": [
-           "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
-
-           "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
     
-           "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
-
-           "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
-
-           "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
-
-     "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-                   ]
-},
-
-{
-    "name": "Cake",
-    "id": 1003,
-    "prepTime": 15,
-    "bakeTime": 15,
-    "totalTime": 105,
-    "imageName": "crumpet",
-    "type": "cakes",
-    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
-    "ingredients": [
-         "1 1/2 cups (340g) lukewarm water",
-         "1 cup (227g) lukewarm milk",
-         "2 tablespoons (28g) melted butter",
-        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-         "2 1/2 teaspoons instant yeast",
-         "1 teaspoon baking powder",
-         "1 1/4 teaspoons salt"
-                ],
-    "instructions": [
-           "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
-
-           "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
+    {
+        "name": "Chocolate Sheet Cake",
+        "id": 1002,
+        "prepTime": 30,
+        "bakeTime": 20,
+        "totalTime": 110,
+        "imageName": "crumpet",
+        "type": "cakes",
+        "sysIng": ["sugar", "flour", "butter", "cocoa powder", "baking soda", "egg", "vanilla", "milk", "powdered sugar"],
+        "ingredients": [
+            "2 cups white sugar",
+            "2 cups all-purpose flour",
+            "1 cup butter, melted",
+            "1 cup water",
+            "4 tablespoons cocoa powder",
+            "1 teaspoon baking soda",
+            "½ cup milk",
+            "2 eggs",
+            "1 teaspoon vanilla extract",
+            "½ cup butter",
+            "3 tablespoons unsweetened cocoa powder",
+            "5 tablespoons milk",
+            "3 1/2 cups (1 box) confectioners' sugar"
+        ],
+        "instructions": [
+            "Preheat oven to 350 degrees F (175 degrees C). Grease a 9x13 inch pan.",
+            "Mix white sugar and flour in a large bowl.",
+            "Combine 1 cup melted butter, water, and 3 tablespoons cocoa powder in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Pour melted butter mixture over sugar and flour; beat well.",
+            "Beat in baking soda, 1/2 cup milk, eggs, and vanilla extract. Pour batter into prepared pan.",
+            "Bake in preheated oven until a toothpick inserted into the center of cake comes out clean, 20 to 25 minutes. Remove from oven and allow to cool on a wire rack.",
+            "Combine remaining 1/2 cup butter, 3 tablespoons cocoa powder, and milk in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Beat powdered sugar into the butter mixture, mixing until frosting is smooth. Pour over cooled cake."
+        ]
+    },
     
-           "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
-
-           "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
-
-           "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
-
-     "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-                   ]
-},
-
-{
-    "name": "Cookie",
-    "id": 1004,
-    "prepTime": 15,
-    "bakeTime": 15,
-    "totalTime": 105,
-    "imageName": "crumpet",
-    "type": "cookies",
-    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
-    "ingredients": [
-         "1 1/2 cups (340g) lukewarm water",
-         "1 cup (227g) lukewarm milk",
-         "2 tablespoons (28g) melted butter",
-        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-         "2 1/2 teaspoons instant yeast",
-         "1 teaspoon baking powder",
-         "1 1/4 teaspoons salt"
-                ],
-    "instructions": [
-               "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
-
-               "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
-        
-               "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
-
-               "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
-
-               "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
-
-         "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-                       ]
-},
-
-{
-    "name": "Other",
-    "id": 1005,
-    "prepTime": 15,
-    "bakeTime": 15,
-    "totalTime": 300,
-    "imageName": "crumpet",
-    "type": "other",
-    "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
-    "ingredients": [
-         "1 1/2 cups (340g) lukewarm water",
-         "1 cup (227g) lukewarm milk",
-         "2 tablespoons (28g) melted butter",
-        "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-         "2 1/2 teaspoons instant yeast",
-         "1 teaspoon baking powder",
-         "1 1/4 teaspoons salt"
-                ],
-   "instructions": [
-           "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
-
-           "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
     
-           "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
-
-           "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
-
-           "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
-
-     "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-                   ]
-},
-{
-    "name": "Chocolate Chip Cookies",
-    "id": 1006,
-    "prepTime": 25,
-    "bakeTime": 12,
-    "totalTime": 45,
-    "imageName": "ChocChip",
-    "type": "cookies",
-    "sysIng": ["brown sugar", "sugar", "butter", "salt", "vanilla", "vinegar", "baking soda", "egg", "flour", "chocolate chips"],
-    "ingredients": [
-         "2/3 cup light brown sugar, firmly packed",
-         "2/3 cup granulated sugar",
-         "3/4 cup unsalted butter, room temperature",
-        "3/4 teaspoon salt",
-         "2 teaspoons vanilla extract",
-         "1 teaspoon vinegar",
-         "1 teaspoon baking soda",
-         "1 large egg",
-         "2 cups King Arthur Unbleached All-Purpose Flour",
-         "1 1/2 cups semisweet chocolate chips"
-                ],
-    "instructions": [
-
-           "Preheat the oven to 375 degrees Fahrenheit Lightly grease (or line with parchment) two baking sheets",
-
-           "In a large bowl, combine the sugars, butter, salt, vanilla extract, vinegar, and baking soda, beating until smooth and creamy",
-
-           "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined.",
-
-           "Mix in the flour, then the chips.",
-
-           "Scoop 1 1/4-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread.",
-
-    "Bake the cookies for 11 to 12 minutes, until edges are golden brown.",
-
-    "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
-           
-                   ]
-}
+    {
+        "name": "Banana Bread",
+        "id": 1003,
+        "prepTime": 15,
+        "bakeTime": 70,
+        "totalTime": 85,
+        "imageName": "crumpet",
+        "type": "breads",
+        "sysIng": ["flour", "baking soda", "banana", "milk", "butter", "baking powder", "salt", "sugar", "brown sugar", "egg"],
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "1 teaspoon baking powder",
+            "1 teaspoon baking soda",
+            "1 teaspoon salt",
+            "3 ripe bananas, mashed",
+            "1 tablespoon milk",
+            "2 teaspoons vanilla",
+            "1 teaspoon ground cinnamon, or to taste (optional)",
+            "½ cup butter, softened",
+            "½ cup white sugar",
+            "½ cup brown sugar",
+            "2 eggs",
+            "1 cup semisweet chocolate chips (optional)"
+        ],
+        "instructions": [
+            "Preheat oven to 325 degrees F (165 degrees C). Grease a 9x5-inch loaf pan.",
+            "Mix flour, baking powder, baking soda, and salt in a bowl. Stir bananas, milk, vanilla, and (optionally) cinnamon in another bowl.",
+            "Beat butter and both sugars in a third bowl until light and fluffy. Add eggs, one at a time, to butter mixture; beat thoroughly after adding each egg.",
+            "Stir the banana mixture into the butter mixture. Next, stir in the dry mixture until thoroughly blended.",
+            "Optional: Fold in chocolate chips.",
+            "Pour batter into the loaf pan.",
+            "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 70 minutes. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
+        ]
+    },
+    
+    
+    {
+        "name": "Peanut Butter Oatmeal Cookies",
+        "id": 1004,
+        "prepTime": 15,
+        "bakeTime": 15,
+        "totalTime": 60,
+        "imageName": "crumpet",
+        "type": "cookies",
+        "sysIng": ["brown sugar", "sugar", "butter", "flour", "peanut butter", "egg", "baking soda", "salt", "oatmeal"],
+        "ingredients": [
+            "1 cup butter, chilled",
+            "¾ cup packed brown sugar",
+            "¾ cup white sugar",
+            "1 cup peanut butter",
+            "2 eggs",
+            "1 ½ cups all-purpose flour",
+            "2 teaspoons baking soda",
+            "1 teaspoon salt",
+            "1 ½ cup quick-cooking oats"
+        ],
+        "instructions": [
+            "Preheat oven to 350 degrees F (175 degrees C).",
+            "In a large bowl, cream together chilled butter, brown sugar, white sugar, and peanut butter until smooth. Beat in the eggs one at a time until well blended.",
+            "In a separate bowl, combine the flour, baking soda, and salt; stir into the creamed mixture.",
+            "Mix in the oats until just combined. Drop by teaspoonfuls onto ungreased cookie sheets.",
+            "Bake for 10 to 15 minutes in the preheated oven, or until just light brown. Cool."
+        ]
+    },
+    
+    
+    {
+        "name": "Scones",
+        "id": 1005,
+        "prepTime": 20,
+        "bakeTime": 17,
+        "totalTime": 75,
+        "imageName": "crumpet",
+        "type": "pastries",
+        "sysIng": ["sugar", "baking soda", "butter", "flour", "raisins", "baking powder", "salt", "sour cream", "egg"],
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "⅓ cup sugar",
+            "1 teaspoon baking powder",
+            "¼ teaspoon baking soda",
+            "½ teaspoon salt",
+            "8 tablespoons unsalted butter, frozen",
+            "½ cup raisins (or dried currants)",
+            "½ cup sour cream",
+            "1 large egg"
+        ],
+        "instructions": [
+            "Adjust oven rack to lower-middle position and preheat oven to 400 degrees.",
+            "In a medium bowl, mix flour, 1/3 cup sugar, baking powder, baking soda and salt.",
+            "Using a cheese grater, grate the butter into the flour mixture. Work the butter in with your fingers until the mixture resembles coarse meal.",
+            "Stir in the raisins.",
+            "In a small bowl, whisk sour cream and egg until smooth.",
+            "Using a fork, stir sour cream mixture into flour mixture until large dough clumps form. Use your hands to press the dough against the bowl into a ball.",
+            "Place on a lightly floured surface and pat into a 7- to 8-inch circle about 3/4-inch thick. Sprinkle with remaining 1 tsp. of sugar.",
+            "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart.",
+            "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
+        ]
+    },
+    
+    {
+        "name": "Chocolate Chip Cookies",
+        "id": 1006,
+        "prepTime": 25,
+        "bakeTime": 12,
+        "totalTime": 45,
+        "imageName": "ChocChip",
+        "type": "cookies",
+        "sysIng": ["brown sugar", "sugar", "butter", "salt", "vanilla", "vinegar", "baking soda", "egg", "flour", "chocolate chips"],
+        "ingredients": [
+            "2/3 cup light brown sugar, firmly packed",
+            "2/3 cup granulated sugar",
+            "3/4 cup unsalted butter, room temperature",
+            "3/4 teaspoon salt",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon vinegar",
+            "1 teaspoon baking soda",
+            "1 large egg",
+            "2 cups King Arthur Unbleached All-Purpose Flour",
+            "1 1/2 cups semisweet chocolate chips"
+        ],
+        "instructions": [
+            
+            "Preheat the oven to 375 degrees Fahrenheit Lightly grease (or line with parchment) two baking sheets",
+            
+            "In a large bowl, combine the sugars, butter, salt, vanilla extract, vinegar, and baking soda, beating until smooth and creamy",
+            
+            "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined.",
+            
+            "Mix in the flour, then the chips.",
+            
+            "Scoop 1 1/4-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread.",
+            
+            "Bake the cookies for 11 to 12 minutes, until edges are golden brown.",
+            
+            "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
+            
+        ]
+    }
 ]
-
-
+ 
+ 
  
