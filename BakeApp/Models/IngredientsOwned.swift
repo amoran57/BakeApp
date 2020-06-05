@@ -12,13 +12,14 @@ import CoreData
 public class IngredientsOwned:NSManagedObject, Identifiable {
     @NSManaged public var ingredientName:String?
     @NSManaged public var isOwned:Bool
+    @NSManaged public var instances:Int16
 }
 
 extension IngredientsOwned {
     static func getAllIngStatus() -> NSFetchRequest<IngredientsOwned> {
         let request:NSFetchRequest<IngredientsOwned> = IngredientsOwned.fetchRequest() as! NSFetchRequest<IngredientsOwned>
         
-        let sortDescriptor = NSSortDescriptor(key: "ingredientName", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "instances", ascending: false)
         
         request.sortDescriptors = [sortDescriptor]
         

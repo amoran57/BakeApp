@@ -9,7 +9,22 @@
 import Foundation
 
 struct SetUpIng: Hashable {
-        
+     
+    
+    static func AllIng (list: [Recipe]) -> [String] {
+        //creates the non-unique string array and the unique one
+        var unIng:[String] = []
+        //fills it with the ingredients from every recipe
+        ///loops through every recipe
+        for counter1 in 0..<list.count {
+            ///for every recipe, loops through "sysIng" array
+            for counter2 in 0..<list[counter1].sysIng.count {
+                unIng.append(list[counter1].sysIng[counter2])
+            }
+        }
+        //now we have an array with each ingredient. But we want each ingredient in order of frequency, and only once
+        return unIng
+    }
     //extract an array of only the unique "sysIng" items
     static func uniqueIng (list: [Recipe]) -> [String] {
         //creates the non-unique string array and the unique one

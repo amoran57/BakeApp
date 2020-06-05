@@ -26,23 +26,3 @@ extension Array where Element: Comparable & Hashable {
         return self.sorted(by: { current, next in occurencesDict[current]! > occurencesDict[next]!})
     }
 }
-
-//for the view in the future, we will want an array of certain-sized arrays of ingredients
-//this code allows us to pass the unique array into a chunked array
-
-extension Array {
-func chunked(into size:Int) -> [[Element]] {
-    
-    var chunkedArray = [[Element]]()
-    
-    for index in 0...self.count {
-        if index % size == 0 && index != 0 {
-            chunkedArray.append(Array(self[(index - size)..<index]))
-        } else if(index == self.count) {
-            chunkedArray.append(Array(self[index - 1..<index]))
-        }
-    }
-    
-    return chunkedArray
-}
-}

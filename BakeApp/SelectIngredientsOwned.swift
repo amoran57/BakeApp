@@ -127,6 +127,17 @@ struct SelectIngredientsOwned: View {
                     ingredient.ingredientName = ing
                     ingredient.isOwned = true
                     
+                    var occurences:Int16 = 0
+                    
+                    for counter in 0..<SetUpIng.AllIng(list: recipeData).count {
+                        let ingName = SetUpIng.AllIng(list: recipeData)[counter]
+                        if ingName == ing {
+                            occurences += 1
+                        }
+                    }
+                    
+                    ingredient.instances = occurences
+                    
                     do {
                         try self.managedObjectContext.save()
                     } catch {
