@@ -13,7 +13,6 @@ struct TimeSlider: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
-    
     var sliderName:String
     @State var sliderPosition:Double
     
@@ -36,79 +35,25 @@ struct TimeSlider: View {
                 .foregroundColor(K.textColor)
         }
     }
-    
-    func setSliderValue(input:Bool) -> Double? {
-            var value:TimeLimit?
-            var sliderSpot:Double?
-            if sliderName == K.Time.totalTime {
-                for counter in 0..<self.timeValue.count {
-                    if timeValue[counter].timeType == K.Time.totalTime {
-                        value = timeValue[counter]
-                    }
-                }
-            } else if sliderName == K.Time.prepTime {
-                for counter in 0..<self.timeValue.count {
-                    if timeValue[counter].timeType == K.Time.prepTime {
-                        value = timeValue[counter]
-                    }
-                }
-            } else if sliderName == K.Time.bakeTime {
-                for counter in 0..<self.timeValue.count {
-                    if timeValue[counter].timeType == K.Time.bakeTime {
-                        value = timeValue[counter]
-                    }
-                }
-            }
-        sliderSpot = value?.timeLength
-        return sliderSpot
-        
-    }
-    
-    
-    func deleteItem(item:String) {
-        if item == K.Time.totalTime || item == K.Time.prepTime || item == K.Time.bakeTime {
-            var itemToDelete = false
-            if self.timeValue.count > 0 {
-            for counter in 0...self.timeValue.count-1 {
-                if self.timeValue[counter].timeType == item {
-                    let deleteItem = self.timeValue[counter]
-                    itemToDelete = true
-                    self.managedObjectContext.delete(deleteItem)
-                    print("Successfully deleted duplicate item.")
-                }
-            }
-            if !itemToDelete {
+  
+    func buttonPressed() {
+        //identify current slider
+        for counter in 0...self.timeValue.count-1 {
+            if self.timeValue[counter].timeType == self.sliderName {
+                //create constants to represent current slider and current value
+                let currentSlider = self.timeValue[counter]
+                let updateVal = self.sliderPosition/60
+                //update the appropriate ManagedObject in the context
+                currentSlider.setValue(updateVal, forKey: "timeLength")
                 
-                print("Could not find item to delete.")
+                //push changes to CoreData
+                do {
+                    try self.managedObjectContext.save()
+                    print("Successfully saved item.")
+                } catch {
+                    print(error)
+                }
             }
-        } else {
-            print("No duplicate to delete; proceeding to create new item.")
-        }
-        }
-    }
-    
-    
-    //the parent view will call this function when the continue button is pressed within the parent view
-    func buttonPressed() {  //delete duplicate
-        self.deleteItem(item: self.sliderName ?? K.Time.totalTime)
-        
-        //create item to add
-        let timeLimit = TimeLimit(context: self.managedObjectContext)
-        timeLimit.timeLength = self.sliderPosition/60
-        timeLimit.timeType = self.sliderName ?? K.Time.totalTime
-        
-        //save new item
-        do {
-            try self.managedObjectContext.save()
-            print("Successfully saved item.")
-        } catch {
-            print(error)
         }
     }
 }
-
-//    struct TimeSlider_Previews: PreviewProvider {
-//        static var previews: some View {
-//            TimeSlider()
-//        }
-//}
