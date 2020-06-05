@@ -33,27 +33,33 @@ struct RecipeScreener {
     
     func filterByIngredients(input:FetchedResults<IngredientsOwned>) -> [Recipe]? {
         var validRecipes:[Recipe] = recipeData
+        
+        //declaring this function allows us to stop the loop and move on to the next recipe
+        //immediately when we remove a recipe from the list
+        func checkIngInRecipe(missingIngArray:[String], recipe:Recipe) {
+            //for each recipe, loop through the ingredients
+            for ingRequired in recipe.sysIng {
+                //for each ingredient, loop it against the missing ingredients
+                for ingMissing in missingIngArray {
+                    //check if the recipe has that ingredient
+                    if ingMissing.lowercased() == ingRequired.lowercased() {
+                        print("\(ingRequired) is required for recipe \(recipe.name), but that ingredient is not on hand.")
+                        //get the index number of that recipe in the recipeData array
+                        if let index = validRecipes.firstIndex(of: recipe) {
+                            //remove the recipe at that index
+                            validRecipes.remove(at: index)
+                        }
+                        return
+                    }
+                }
+            }
+        }
+        
         //check if there are any ingredients missing
         if let missingIngArray = self.missingIngredients(input:input) {
             //loop through each recipe in the system
-            for recipe in validRecipes {
-                print("Checking \(recipe.name):")
-                //for each recipe, loop through the ingredients
-                for ingRequired in recipe.sysIng {
-                    //for each ingredient, loop it against the missing ingredients
-                    for ingMissing in missingIngArray {
-                        print("Checking \(ingRequired) against the missing ingredient \(ingMissing)")
-                        //check if the recipe has that ingredient
-                        if ingMissing.lowercased() == ingRequired.lowercased() {
-                            print("\(ingRequired) is required for recipe \(recipe.name), but that ingredient is not on hand.")
-                            //get the index number of that recipe in the recipeData array
-                            if let index = validRecipes.firstIndex(of: recipe) {
-                                //remove the recipe at that index
-                                validRecipes.remove(at: index)
-                            }
-                        }
-                    }
-                }
+            for recipe in recipeData {
+                checkIngInRecipe(missingIngArray: missingIngArray, recipe: recipe)
             }
         }
         
