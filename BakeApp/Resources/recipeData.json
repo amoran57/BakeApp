@@ -7,7 +7,7 @@
         "totalTime": 105,
         "imageName": "crumpet",
         "type": "breads",
-        "sysIng": ["water", "milk", "butter", "flour", "yeast", "baking powder", "salt"],
+        "sysIng": ["milk", "butter", "flour", "yeast", "baking powder", "salt"],
         "ingredients": [
             "1 1/2 cups (340g) lukewarm water",
             "1 cup (227g) lukewarm milk",

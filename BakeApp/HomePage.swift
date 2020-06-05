@@ -32,8 +32,9 @@ struct HomePage: View {
     //repeatedly between views. This may actually be a good thing?
     
     var body: some View {
-        
+
         return GeometryReader { geometry in
+           
             NavigationView {
                 VStack {
                     recipeData[self.activeImageIndex].image

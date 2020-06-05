@@ -24,11 +24,7 @@ struct IngTile: View {
             self.trueFalse = self.ingStatus[self.counter].isOwned
             
             //toggle bool value
-            if self.trueFalse! {
-                self.trueFalse = false
-            } else {
-                self.trueFalse = true
-            }
+            self.trueFalse = !self.trueFalse!
             
             //delete item from CoreData to prevent duplicate
             self.deleteItem(ingName: self.ingStatus[self.counter].ingredientName!)
