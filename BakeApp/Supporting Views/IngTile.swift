@@ -19,39 +19,23 @@ struct IngTile: View {
     var body: some View {
         
         Button(action: {
+            
+            let ingredient = self.ingStatus[self.counter]
             //fetch bool value
-
-            self.trueFalse = self.ingStatus[self.counter].isOwned
+            self.trueFalse = ingredient.isOwned
             
             //toggle bool value
             self.trueFalse = !self.trueFalse!
             
-            //delete item from CoreData to prevent duplicate
-            self.deleteItem(ingName: self.ingStatus[self.counter].ingredientName!)
+            //update value
+            ingredient.setValue(self.trueFalse, forKey: "isOwned")
             
-            //create new item with desired value
-            let ingredient = IngredientsOwned(context: self.managedObjectContext)
-            ingredient.ingredientName = self.ingStatus[self.counter].ingredientName
-            ingredient.isOwned = self.trueFalse!
-            
-            //save new item to CoreData
+            //save updated value to CoreData
             do {
                 try self.managedObjectContext.save()
             } catch {
                 print(error)
             }
-            
-//            let deleteItem = self.ingStatus[14]
-//            self.managedObjectContext.delete(deleteItem)
-//
-            if self.ingStatus.count == 0 {
-            for ing in SetUpIng.list {
-                self.deleteItem(ingName: ing)
-                let ingredient = IngredientsOwned(context: self.managedObjectContext)
-                ingredient.ingredientName = ing
-                ingredient.isOwned = true
-            }
-        }
         })
         {
             if self.ingStatus[counter].isOwned  {
@@ -71,20 +55,6 @@ struct IngTile: View {
                     .background(K.blue)
                     .cornerRadius(10)
             }
-        }
-    }
-    
-    func deleteItem(ingName:String) {
-        var itemToDelete = false
-        for counter in 0...self.ingStatus.count-1 {
-            if self.ingStatus[counter].ingredientName?.lowercased() == ingName.lowercased() {
-                let deleteItem = ingStatus[counter]
-                itemToDelete = true
-                self.managedObjectContext.delete(deleteItem)
-            }
-        }
-        if !itemToDelete {
-            print("Check your spelling; unable to delete requested item.")
         }
     }
 }
