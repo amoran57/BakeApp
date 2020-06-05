@@ -27,14 +27,15 @@ struct HomePage: View {
     
     @Binding var returnedFromIngSelect:Bool?
     var returnedFromTimeSelect:Bool?
-   
+    
     //the chosen recipe will always show up, even when you toggle
     //repeatedly between views. This may actually be a good thing?
     
+    
+    
     var body: some View {
-
         return GeometryReader { geometry in
-           
+            
             NavigationView {
                 VStack {
                     recipeData[self.activeImageIndex].image
@@ -44,11 +45,11 @@ struct HomePage: View {
                         .padding(.top, -450)
                         .shadow(radius: 10)
                         .onReceive(self.imageSwitchTimer) { _ in
-                        // Go to the next image.
-                        self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
+                            // Go to the next image.
+                            self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
                     }
                     
-
+                    
                     
                     ZStack {
                         if self.returnedFromIngSelect ?? false {
@@ -60,7 +61,7 @@ struct HomePage: View {
                     
                     NavigationLink(
                         destination: RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))
-                    )
+                        )
                     {
                         Image(K.bakeButton)
                             .renderingMode(.original)
@@ -105,7 +106,58 @@ struct HomePage: View {
                     
                 }
             }
+        }.onAppear(perform: setCoreData)
+    }
+    
+    func setCoreData() {
+        //double-checks that CoreData is empty before proceeding
+        if self.ingStatus.count == 0 {
+            var counter = 0
+            for ing in SetUpIng.list {
+                let ingredient = IngredientsOwned(context: self.managedObjectContext)
+                ingredient.ingredientName = ing
+                ingredient.isOwned = true
+                
+                var occurences:Int16 = 0
+                
+                for counter in 0..<SetUpIng.AllIng(list: recipeData).count {
+                    let ingName = SetUpIng.AllIng(list: recipeData)[counter]
+                    if ingName == ing {
+                        occurences += 1
+                    }
+                }
+                
+                ingredient.instances = occurences
+                
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                    print(error)
+                }
+                counter += 1
+                print("Initialized ingredient number \(counter).")
+            }
+            print("Finished initializing ingredients.")
         }
+        
+        if self.timeValue.count == 0 {
+            var counter = 0
+            for time in SetUpIng.timeList {
+                let timeLimit = TimeLimit(context: self.managedObjectContext)
+                timeLimit.timeType = time
+                timeLimit.timeLength = 300
+                
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                    print(error)
+                }
+                counter += 1
+                print("Completed loop \(counter) for time limit initialization.")
+            }
+            print("Finished initializing time limits.")
+        }
+
     }
 }
 

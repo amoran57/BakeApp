@@ -49,6 +49,7 @@ struct SelectIngredientsOwned: View {
                     .padding(.top, -50)
                 
                 //body of view
+                ScrollView {
                 VStack {
                     ForEach(0..<self.secondNumber()) { number in
                         //returns HStacks of length numPerLine
@@ -63,6 +64,7 @@ struct SelectIngredientsOwned: View {
                         }
                         .padding(.leading)
                     }
+                }
                 }
                 
                 
@@ -113,39 +115,6 @@ struct SelectIngredientsOwned: View {
     func fourthNumber(number:Int) -> Int {
         let fourthNumber = numPerLine! + numPerLine!*number
         return fourthNumber
-    }
-    
-    //this function only runs the first time the app is used, and initializes the CoreData
-    //for each ingredient, setting each ingredient's isOwned value to true
-    func setCoreData() {
-        //only runs if passed by parent view HomePage
-        if self.setData {
-            //double-checks that CoreData is empty before proceeding
-            if self.ingStatus.count == 0 {
-                for ing in SetUpIng.list {
-                    let ingredient = IngredientsOwned(context: self.managedObjectContext)
-                    ingredient.ingredientName = ing
-                    ingredient.isOwned = true
-                    
-                    var occurences:Int16 = 0
-                    
-                    for counter in 0..<SetUpIng.AllIng(list: recipeData).count {
-                        let ingName = SetUpIng.AllIng(list: recipeData)[counter]
-                        if ingName == ing {
-                            occurences += 1
-                        }
-                    }
-                    
-                    ingredient.instances = occurences
-                    
-                    do {
-                        try self.managedObjectContext.save()
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-        }
     }
 }
 //

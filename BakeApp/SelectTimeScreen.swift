@@ -19,28 +19,6 @@ struct SelectTimeScreen: View {
     
     var setData:Bool?
     
-    //this function only runs the first time the app is used, and initializes the CoreData
-    //for each ingredient, setting each ingredient's isOwned value to true
-    func setCoreData() {
-        //only runs if passed by parent view HomePage
-        if self.setData ?? false {
-            //double-checks that CoreData is empty before proceeding
-            if self.timeValue.count == 0 {
-                for time in SetUpIng.timeList {
-                    let timeLimit = TimeLimit(context: self.managedObjectContext)
-                    timeLimit.timeType = time
-                    timeLimit.timeLength = 300
-                    
-                    do {
-                        try self.managedObjectContext.save()
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-        }
-    }
-    
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .full
