@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		6F0968AF247FF71600F5741D /* IngredientsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968AE247FF71600F5741D /* IngredientsOwned.swift */; };
 		6F0968B1247FFEA800F5741D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968B0247FFEA800F5741D /* Extensions.swift */; };
+		6F1F30F8248BD71800F8FC93 /* SeeAllIng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */; };
+		6F1F30FF248BDA2000F8FC93 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F30FA248BDA2000F8FC93 /* Raleway-Bold.ttf */; };
+		6F1F3100248BDA2000F8FC93 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F30FB248BDA2000F8FC93 /* Raleway-Regular.ttf */; };
+		6F1F3101248BDA2000F8FC93 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F30FC248BDA2000F8FC93 /* Raleway-Light.ttf */; };
+		6F1F3102248BDA2000F8FC93 /* Raleway-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F30FD248BDA2000F8FC93 /* Raleway-LightItalic.ttf */; };
+		6F1F3103248BDA2000F8FC93 /* Raleway-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F30FE248BDA2000F8FC93 /* Raleway-Italic.ttf */; };
 		6F757B97248463B100064839 /* FilterByTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F757B96248463B100064839 /* FilterByTime.swift */; };
 		6F9B05BA24819039004D5D3D /* IngTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B05B924819039004D5D3D /* IngTile.swift */; };
 		6F9B05BC24819BDD004D5D3D /* SelectIngredientsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B05BB24819BDD004D5D3D /* SelectIngredientsOwned.swift */; };
@@ -41,6 +47,12 @@
 /* Begin PBXFileReference section */
 		6F0968AE247FF71600F5741D /* IngredientsOwned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsOwned.swift; sourceTree = "<group>"; };
 		6F0968B0247FFEA800F5741D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllIng.swift; sourceTree = "<group>"; };
+		6F1F30FA248BDA2000F8FC93 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		6F1F30FB248BDA2000F8FC93 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		6F1F30FC248BDA2000F8FC93 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		6F1F30FD248BDA2000F8FC93 /* Raleway-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-LightItalic.ttf"; sourceTree = "<group>"; };
+		6F1F30FE248BDA2000F8FC93 /* Raleway-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Italic.ttf"; sourceTree = "<group>"; };
 		6F757B96248463B100064839 /* FilterByTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByTime.swift; sourceTree = "<group>"; };
 		6F9B05B924819039004D5D3D /* IngTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngTile.swift; sourceTree = "<group>"; };
 		6F9B05BB24819BDD004D5D3D /* SelectIngredientsOwned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIngredientsOwned.swift; sourceTree = "<group>"; };
@@ -83,6 +95,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F1F30F9248BD9C400F8FC93 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6F1F30FA248BDA2000F8FC93 /* Raleway-Bold.ttf */,
+				6F1F30FE248BDA2000F8FC93 /* Raleway-Italic.ttf */,
+				6F1F30FC248BDA2000F8FC93 /* Raleway-Light.ttf */,
+				6F1F30FD248BDA2000F8FC93 /* Raleway-LightItalic.ttf */,
+				6F1F30FB248BDA2000F8FC93 /* Raleway-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		6FD74DDB2471F1A600D8FB80 = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +131,13 @@
 				6FD74DE92471F1A600D8FB80 /* SceneDelegate.swift */,
 				6F9B05C02481B30A004D5D3D /* HomePage.swift */,
 				6F9B05BB24819BDD004D5D3D /* SelectIngredientsOwned.swift */,
+				6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */,
 				6FEBE87A2482D218003C1ABF /* SelectTimeScreen.swift */,
 				6FD74E092471F26200D8FB80 /* RecipeDetail.swift */,
 				6FD74E082471F26200D8FB80 /* RecipeList.swift */,
 				6FD74E112471F2C500D8FB80 /* Resources */,
 				6FD74E142471F38900D8FB80 /* Supporting Views */,
+				6F1F30F9248BD9C400F8FC93 /* Fonts */,
 				6FD74DF02471F1AA00D8FB80 /* Assets.xcassets */,
 				6FD74DF52471F1AA00D8FB80 /* LaunchScreen.storyboard */,
 				6FD74DF82471F1AA00D8FB80 /* Info.plist */,
@@ -227,8 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FD74DF72471F1AA00D8FB80 /* LaunchScreen.storyboard in Resources */,
+				6F1F3103248BDA2000F8FC93 /* Raleway-Italic.ttf in Resources */,
+				6F1F3100248BDA2000F8FC93 /* Raleway-Regular.ttf in Resources */,
 				6FD74E102471F2BD00D8FB80 /* recipeData.json in Resources */,
+				6F1F3102248BDA2000F8FC93 /* Raleway-LightItalic.ttf in Resources */,
+				6F1F3101248BDA2000F8FC93 /* Raleway-Light.ttf in Resources */,
 				6FD74DF42471F1AA00D8FB80 /* Preview Assets.xcassets in Resources */,
+				6F1F30FF248BDA2000F8FC93 /* Raleway-Bold.ttf in Resources */,
 				6FD74DF12471F1AA00D8FB80 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +279,7 @@
 				6F9B05C52481B982004D5D3D /* RectangleButton.swift in Sources */,
 				6F9B05BA24819039004D5D3D /* IngTile.swift in Sources */,
 				6FD74E032471F1E200D8FB80 /* SetUpIng.swift in Sources */,
+				6F1F30F8248BD71800F8FC93 /* SeeAllIng.swift in Sources */,
 				6FD74DE82471F1A600D8FB80 /* AppDelegate.swift in Sources */,
 				6FEBE87724829E21003C1ABF /* TimeLimit.swift in Sources */,
 				6F9B05BC24819BDD004D5D3D /* SelectIngredientsOwned.swift in Sources */,

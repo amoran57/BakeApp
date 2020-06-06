@@ -11,16 +11,12 @@ import SwiftUI
 //This is the ingredient selection page, where users can indicate whether they are missing certain ingredients
 
 struct SelectIngredientsOwned: View {
+    //CoreData setup
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
+    //setup for custom back button
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    let recipeScreener = RecipeScreener()
-    var numPerLine:Int? = 3
-    var setData:Bool
-    
-    
-    
+    //custom back button
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -30,27 +26,27 @@ struct SelectIngredientsOwned: View {
             Text("Back")
         }.foregroundColor(K.blue)
     }.buttonStyle(PlainButtonStyle())
-        
     }
-    
-    var body: some View {
 
-        
+    //number of tiles per line
+    var numPerLine:Int? = 3
+
+    var body: some View {
         return GeometryReader { geometry in
             
             VStack {
-                //text heading
-                Text("What are you missing?")
-                    .foregroundColor(K.textColor)
-                    .font(.system(size:24))
-                    .bold()
-                    .padding(.leading)
-                    .padding(.top, -50)
+//                //text heading
+//                Text("What are you missing?")
+//                    .foregroundColor(K.textColor)
+//                    .font(.system(size:24))
+//                    .bold()
+//                    .padding(.leading)
+//                    .padding(.top, -50)
                 
                 //body of view
                 ScrollView {
                 VStack {
-                    ForEach(0..<self.secondNumber()) { number in
+                    ForEach(0..<5) { number in
                         //returns HStacks of length numPerLine
                         HStack {
                             ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
@@ -61,10 +57,9 @@ struct SelectIngredientsOwned: View {
                                 }
                             }
                         }
-                        .padding(.leading)
                     }
                 }
-                }
+                }.navigationBarTitle("Missing:")
                 
                 
                 ZStack {
@@ -82,6 +77,12 @@ struct SelectIngredientsOwned: View {
                 
                 //continue button
                 HStack {
+                    NavigationLink(destination: SeeAllIng()) {
+                        Text("See all ingredients")
+                    }
+                    
+                    Spacer()
+                    
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     })
@@ -92,15 +93,16 @@ struct SelectIngredientsOwned: View {
                     }.buttonStyle(PlainButtonStyle())
                     
                 }.padding(.bottom)
-                    .padding(.leading, geometry.size.width - 140)
+                    .padding(.horizontal)
+//                    .padding(.leading, geometry.size.width - 140)
                 
             }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                .fixedSize(horizontal: false, vertical: true)
+                //use custom back button
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: self.btnBack)
         }
     }
-    
+    //functions to calculate the grid-style view of ingredient tiles
     func secondNumber() -> Int {
         let secondNumber = ((self.ingStatus.count-1)/numPerLine!)+1
         return secondNumber
@@ -116,9 +118,3 @@ struct SelectIngredientsOwned: View {
         return fourthNumber
     }
 }
-//
-//struct PracticeIngList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SelectIngredientsOwned()
-//    }
-//}

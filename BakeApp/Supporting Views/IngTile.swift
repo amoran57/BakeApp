@@ -48,7 +48,6 @@ struct IngTile: View {
             } else {
                 //appearance if isOwned == false
                 Text(self.ingStatus[counter].ingredientName!)
-                    .bold()
                     .foregroundColor(Color.white)
                     .strikethrough()
                     .padding()

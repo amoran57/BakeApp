@@ -16,8 +16,7 @@ struct SelectTimeScreen: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let formatter = DateComponentsFormatter()
-    
-    var setData:Bool?
+
     
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]

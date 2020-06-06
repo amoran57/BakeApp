@@ -269,6 +269,98 @@
             "Lightly slash the tops of the loaves 3 or more times diagonally and brush them with cold water.",
             "Bake at 400°F for 35 to 45 minutes, until the loaves are golden brown. They should sound hollow when tapped."
         ]
+    },
+    
+
+    {
+        "name": "Blonde Brownies",
+        "id": 1009,
+        "prepTime": 15,
+        "bakeTime": 25,
+        "totalTime": 40,
+        "imageName": "crumpet",
+        "type": "other",
+        "sysIng": ["brown sugar", "butter", "flour", "egg", "baking powder", "salt", "vanilla"],
+        "ingredients": [
+            "1/4 cup butter",
+    "1 cup light brown sugar",
+    "1 egg",
+    "1/2 teaspoon vanilla",
+    "3/4 cup flour",
+    "1 teaspoon baking powder",
+    "1/2 teaspoon salt"
+                    ],
+        "instructions": [
+    "Preheat oven to 350°F, and grease an 8x8-inch pan",
+              "Melt butter. Remove from heat. Add brown sugar; blend well and cool.",
+    "Add egg and vanilla, and mix well.",
+    "Add the dry ingredients (flour, baking powder, and salt). Mix well.",
+    "Pour into the 8x8-inch pan and bake at 350°F for 25 minutes."
+        ]
+    },
+    
+
+    {
+        "name": "Brownies",
+        "id": 1010,
+        "prepTime": 15,
+        "bakeTime": 35,
+        "totalTime": 50,
+        "imageName": "crumpet",
+        "type": "other",
+        "sysIng": ["sugar", "butter", "flour", "vanilla", "egg", "cocoa powder", "salt", "chocolate chips"],
+        "ingredients": [
+            "1 cup butter",
+    "3 cups white sugar",
+    "1 tablespoon vanilla",
+    "4 eggs",
+    "1 ½ cups flour",
+    "1 cup cocoa powder",
+    "½ teaspoon salt",
+    "½ teaspoon baking soda (optional)",
+    "1 cup chocolate chips"
+                    ],
+        "instructions": [
+              "Preheat oven to 350°F (175°C). Lightly grease a 9x13-inch pan.",
+    "Melt the butter and, in a large bowl, combine with the sugar and vanilla.",
+    "Beat in the eggs, one at a time, and mix well after adding each egg.",
+    "In a separate bowl, whisk together flour, cocoa powder, and salt (and, optionally, the baking soda).",
+    "Gradually stir the flour mixture into the egg mixture until blended.",
+    "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
+    "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
+        ]
+    },
+    
+
+    {
+        "name": "Honey Whole Wheat Bread",
+        "id": 1011,
+        "prepTime": 40,
+        "bakeTime": 40,
+        "totalTime": 285,
+        "imageName": "crumpet",
+        "type": "breads",
+        "sysIng": ["flour", "yeast", "vegetable oil", "honey", "salt"],
+        "ingredients": [
+            "1 cup lukewarm water",
+    "1 packet (2 1/2 teaspoons) yeast",
+    "1 teaspoon salt",
+    "1/4 cup honey",
+    "3 1/2 cups whole wheat flour",
+    "2 tablespoons vegetable oil",
+    "2 tablespoons butter (optional)"
+                    ],
+        "instructions": [
+              "In a large bowl, mix together the warm water, the yeast, the salt, and the honey, until the mixture is consistent throughout.",
+    "Add in 2 cups of flour and the vegetable oil, and beat until smooth.",
+    "Stir in the remaining flour until the dough begins to leave the sides of the bowl. Dough should be soft and easy to handle.",
+    "Let the dough sit 20-30 minutes, then transfer to lightly oiled surface and knead for about 8 minutes. Dough should be supple",
+    "Transfer the dough to a greased bowl, cover with a warm, damp cloth, and let sit 1-2 hours, until puffy (dough need not necessarily be doubled in size).",
+    "Return the dough to a lightly oiled surface and shape into a loaf; place the loaf in a loaf pan and cover with greased plastic wrap.",
+    "Let rise until dough is an inch over the top of the pan in the center (about 1-2 hours). As the dough finishes rising, preheat the oven to 350°F.",
+    "Bake the bread for 30 minutes; do not overbake. If needed, tent the loaf with aluminum foil after the first 20 minutes, to prevent browning; whole wheat flour means this bread will tend to brown.",
+    "Remove from oven and let cool on a rack. If desired, rub the crust with butter to create a softer crust. Let bread cool completely before slicing."
+        ]
     }
 ]
  

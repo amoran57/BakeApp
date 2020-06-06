@@ -21,12 +21,7 @@ struct HomePage: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
-    
-    //alerts the view whether the ingredient and time filters could be applied
-    var lackIngData:Bool { self.ingStatus.count == 0 }
-    var lackTimeData:Bool {self.timeValue.count == 0}
 
-    
     var body: some View {
         return GeometryReader { geometry in
             
@@ -70,18 +65,19 @@ struct HomePage: View {
                         } else {
                             Text("Ready to generate your recipe!")
                         }
-                    }.font(.system(size:12))
+                    }
+                    .font(.system(size:12))
                         .foregroundColor(K.textColor)
                         .multilineTextAlignment(.center)
                         .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                        NavigationLink(destination: SelectIngredientsOwned(setData: self.lackIngData)) {
+                        NavigationLink(destination: SelectIngredientsOwned()) {
                             RectangleButton(text:"I'm short on ingredients.")
                         }
                  
                    //link to time selection page (SelectTImeScreen)
-                        NavigationLink(destination: SelectTimeScreen(setData: self.lackTimeData)) {
+                        NavigationLink(destination: SelectTimeScreen()) {
                             RectangleButton(text:"I'm short on time.")
                         }
                     

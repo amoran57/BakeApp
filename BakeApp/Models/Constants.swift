@@ -23,6 +23,13 @@ struct K {
         static let prepTime = "Prep Time"
     }
     
+    struct Font {
+        static let raleway = "Raleway-Regular"
+        static let light = "Raleway-Light"
+        static let bold = "Raleway-Bold"
+        static let italic = "Raleway-Italic"
+    }
+    
     struct IngString {
         static let water = "water"
         static let milk = "milk"
