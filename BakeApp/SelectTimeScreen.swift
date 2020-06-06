@@ -22,7 +22,6 @@ struct SelectTimeScreen: View {
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .full
-        setCoreData()
         
         return GeometryReader { geometry in
             VStack {

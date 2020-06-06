@@ -8,36 +8,31 @@
 
 import SwiftUI
 
+//create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
 
 struct HomePage: View {
-    
+    //fetch CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
+    //slideshow:
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
-    
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
     
+    //alerts the view whether the ingredient and time filters could be applied
     var lackIngData:Bool { self.ingStatus.count == 0 }
-    
     var lackTimeData:Bool {self.timeValue.count == 0}
-    
-    @Binding var returnedFromIngSelect:Bool?
-    var returnedFromTimeSelect:Bool?
-    
-    //the chosen recipe will always show up, even when you toggle
-    //repeatedly between views. This may actually be a good thing?
-    
-    
+
     
     var body: some View {
         return GeometryReader { geometry in
             
             NavigationView {
                 VStack {
+                    //image slideshow on top
                     recipeData[self.activeImageIndex].image
                         .resizable()
                         .frame(width: 500, height: 500)
@@ -50,15 +45,10 @@ struct HomePage: View {
                     }
                     
                     
+                   Spacer()
+                    .frame(height: geometry.size.height/24)
                     
-                    ZStack {
-                        if self.returnedFromIngSelect ?? false {
-                            Text("Ingredient filters applied!")
-                        } else if self.returnedFromTimeSelect ?? false {
-                            Text("Time filters applied!")
-                        }
-                    }.frame(height: geometry.size.height/24)
-                    
+                    //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
                         destination: RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))
                         )
@@ -69,6 +59,7 @@ struct HomePage: View {
                             .frame(width: geometry.size.height/2.6, height: geometry.size.height/2.6)
                     }
                     
+                    //status label
                     ZStack {
                         if filterByTime.couldNotFilter {
                             Text("No recipes matched either your time limits or ingredient specifications.")
@@ -84,18 +75,17 @@ struct HomePage: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
-                    if !(self.returnedFromIngSelect ?? false) {
+                    //link to ingredients selection page (SelectIngredientsOwned)
                         NavigationLink(destination: SelectIngredientsOwned(setData: self.lackIngData)) {
                             RectangleButton(text:"I'm short on ingredients.")
                         }
-                    }
-                    
-                    if !(self.returnedFromTimeSelect ?? false) {
+                 
+                   //link to time selection page (SelectTImeScreen)
                         NavigationLink(destination: SelectTimeScreen(setData: self.lackTimeData)) {
                             RectangleButton(text:"I'm short on time.")
                         }
-                    }
                     
+                    //link to recipe browse (RecipeList)
                     NavigationLink(destination:RecipeList()) {
                         Text("I have something specific in mind.")
                             .font(.system(size:16))
@@ -106,18 +96,23 @@ struct HomePage: View {
                     
                 }
             }
-        }.onAppear(perform: setCoreData)
+        }
+        //when the view appears, initialize CoreData (function only runs if CoreData is empty)
+        .onAppear(perform: setCoreData)
     }
     
     func setCoreData() {
-        //double-checks that CoreData is empty before proceeding
+        //double-checks that CoreData ingredient entity is empty before proceeding
         if self.ingStatus.count == 0 {
-            var counter = 0
+            //draw from the list of unique ingredients in SetUpIng singleton
             for ing in SetUpIng.list {
+                //initialize ingredient
                 let ingredient = IngredientsOwned(context: self.managedObjectContext)
+                //set ingredient name
                 ingredient.ingredientName = ing
+                //assume that all ingredients are owned
                 ingredient.isOwned = true
-                
+                //find frequency and store as "occurences" value
                 var occurences:Int16 = 0
                 
                 for counter in 0..<SetUpIng.AllIng(list: recipeData).count {
@@ -126,36 +121,38 @@ struct HomePage: View {
                         occurences += 1
                     }
                 }
-                
+                //set ingredient instances to match frequency
                 ingredient.instances = occurences
-                
+                //save ingredient ManagedObject, or throw an error
                 do {
                     try self.managedObjectContext.save()
                 } catch {
                     print(error)
                 }
-                counter += 1
-                print("Initialized ingredient number \(counter).")
             }
-            print("Finished initializing ingredients.")
         }
         
+        //repeat the process for CoreData time limit entity:
+        
+        //check that the entity is empty
         if self.timeValue.count == 0 {
-            var counter = 0
+            //draw from the list of unique time types in SetUpIng singleton
             for time in SetUpIng.timeList {
+                //initialize time limit
                 let timeLimit = TimeLimit(context: self.managedObjectContext)
+                //initialize time type
                 timeLimit.timeType = time
+                //initialize time value to 5 hours by default
                 timeLimit.timeLength = 300
-                
+                //save time ManagedObject, or throw an error
                 do {
                     try self.managedObjectContext.save()
                 } catch {
                     print(error)
                 }
-                counter += 1
-                print("Completed loop \(counter) for time limit initialization.")
+                
             }
-            print("Finished initializing time limits.")
+            
         }
 
     }
@@ -164,7 +161,7 @@ struct HomePage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone 8", "iPhone 11"], id: \.self) { deviceName in
-            HomePage(returnedFromIngSelect: Binding.constant(false))
+            HomePage()
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

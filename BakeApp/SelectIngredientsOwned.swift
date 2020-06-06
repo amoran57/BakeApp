@@ -34,8 +34,7 @@ struct SelectIngredientsOwned: View {
     }
     
     var body: some View {
-        
-        setCoreData()
+
         
         return GeometryReader { geometry in
             
