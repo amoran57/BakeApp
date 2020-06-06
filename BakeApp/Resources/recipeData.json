@@ -29,7 +29,8 @@
             "Turn the crumpets over, and cook for an additional 5 minutes, to finish cooking the insides and to brown the tops gently. This isn't traditional; real crumpets are white on top, but the crumpet police won't chastise you for adding a little color to the tops.",
             
             "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     
@@ -43,9 +44,9 @@
         "type": "cakes",
         "sysIng": ["sugar", "flour", "butter", "cocoa powder", "baking soda", "egg", "vanilla", "milk", "powdered sugar"],
         "ingredients": [
-            "2 cups white sugar",
-            "2 cups all-purpose flour",
-            "1 cup butter, melted",
+            "2 cups sugar",
+            "2 cups flour",
+            "1 cup melted butter",
             "1 cup water",
             "4 tablespoons cocoa powder",
             "1 teaspoon baking soda",
@@ -64,6 +65,14 @@
             "Beat in baking soda, 1/2 cup milk, eggs, and vanilla extract. Pour batter into prepared pan.",
             "Bake in preheated oven until a toothpick inserted into the center of cake comes out clean, 20 to 25 minutes. Remove from oven and allow to cool on a wire rack.",
             "Combine remaining 1/2 cup butter, 3 tablespoons cocoa powder, and milk in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Beat powdered sugar into the butter mixture, mixing until frosting is smooth. Pour over cooled cake."
+        ],
+        "ingxins": [
+        [],
+        [0,1],
+        [2,3,4],
+        [5,6,7,8],
+        [],
+        [9,10,11,12]
         ]
     },
     
@@ -100,7 +109,8 @@
             "Optional: Fold in chocolate chips.",
             "Pour batter into the loaf pan.",
             "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 70 minutes. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     
@@ -130,7 +140,8 @@
             "In a separate bowl, combine the flour, baking soda, and salt; stir into the creamed mixture.",
             "Mix in the oats until just combined. Drop by teaspoonfuls onto ungreased cookie sheets.",
             "Bake for 10 to 15 minutes in the preheated oven, or until just light brown. Cool."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     
@@ -164,7 +175,8 @@
             "Place on a lightly floured surface and pat into a 7- to 8-inch circle about 3/4-inch thick. Sprinkle with remaining 1 tsp. of sugar.",
             "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart.",
             "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     {
@@ -204,7 +216,8 @@
             
             "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
             
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     {
@@ -237,7 +250,8 @@
             "Roll the balls of dough in the sugar-cinnamon mixture. Make sure that the balls are completely covered.",
             "Place balls on an uncreased baking sheet, about 2 inches apart.",
             "Bake 8-12 minutes, until the cookies are well set. Let them cool on the sheet for several minutes."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
     {
@@ -268,7 +282,8 @@
             "Sprinkle a baking sheet with flour or cornmeal, and place the loaves on the sheet. Let the loaves rest for 5 minutes.",
             "Lightly slash the tops of the loaves 3 or more times diagonally and brush them with cold water.",
             "Bake at 400°F for 35 to 45 minutes, until the loaves are golden brown. They should sound hollow when tapped."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
 
@@ -296,7 +311,8 @@
     "Add egg and vanilla, and mix well.",
     "Add the dry ingredients (flour, baking powder, and salt). Mix well.",
     "Pour into the 8x8-inch pan and bake at 350°F for 25 minutes."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
 
@@ -328,7 +344,8 @@
     "Gradually stir the flour mixture into the egg mixture until blended.",
     "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
     "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
-        ]
+        ],
+        "ingxins": [[]]
     },
     
 
@@ -360,7 +377,8 @@
     "Let rise until dough is an inch over the top of the pan in the center (about 1-2 hours). As the dough finishes rising, preheat the oven to 350°F.",
     "Bake the bread for 30 minutes; do not overbake. If needed, tent the loaf with aluminum foil after the first 20 minutes, to prevent browning; whole wheat flour means this bread will tend to brown.",
     "Remove from oven and let cool on a rack. If desired, rub the crust with butter to create a softer crust. Let bread cool completely before slicing."
-        ]
+        ],
+        "ingxins": [[]]
     }
 ]
  

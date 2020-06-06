@@ -11,42 +11,45 @@ import SwiftUI
 struct StepByStep: View {
     
     var index:Int
-    var ingredients:[String] = ["Ing 1", "Ing 2", "Ing 3"]
-    var instructions:[String]
-    var reference:[[Int]] = [
-    [1],
-    [0,1],
-    []
-    ]
+    var recipe:Recipe
     
     var body: some View {
-      
+        
         VStack {
             
             VStack {
                 
-            Text("Step \(index+1):")
-                .foregroundColor(K.textColor)
-                .bold()
-                .font(.title)
-                .padding(.top)
-                
-            HStack {
-                VStack {
-                    ForEach(0..<self.ingredients.count) { index in
-                        Text(self.ingredients[index])
-                            .foregroundColor(K.textColor)
-                    }
-                }.padding(.horizontal)
-                
-                
-                Divider()
-                    .shadow(color: K.textColor, radius: 2, x: 1, y: 0)
-                
-                Text(self.instructions[self.index])
+                Text("Step \(index+1):")
                     .foregroundColor(K.textColor)
-                    .padding(.trailing)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .bold()
+                    .font(.title)
+                    .padding(.top)
+                
+                HStack {
+                    if recipe.ingxins[self.index].count > 0 {
+                        VStack {
+                            ForEach(0..<recipe.ingxins[self.index].count) { ing in
+                                
+                                Text("\(self.recipe.ingredients[self.recipe.ingxins[self.index][ing]])")
+                                    .foregroundColor(K.textColor)
+                                if ing != self.recipe.ingxins[self.index].count-1 {
+                                Divider()
+                                    .background(K.textColor)
+                                }
+                            }
+                        }.padding(.leading)
+                        
+                        
+                        Divider()
+                            .background(K.textColor)
+                           
+                    }
+                    
+                    Text(self.recipe.instructions[self.index])
+                        .foregroundColor(K.textColor)
+                        .padding(.horizontal, 5)
+                        .frame(minWidth: 180)
+                        .fixedSize(horizontal: false, vertical: true)
                 }.padding(.bottom)
                 
             }
@@ -54,62 +57,20 @@ struct StepByStep: View {
             .fixedSize(horizontal: false, vertical: true)
             .background(K.frameColor)
             .cornerRadius(20)
-             
+            
             
             
             Spacer()
                 .frame(height: 100)
             
-            
-            
-//            HStack {
-//                ForEach(0..<self.instructions.count) { index in
-//                    Circle()
-//                        .frame(width: index == self.index ? 10 : 8,
-//                               height: index == self.index ? 10 : 8)
-//                        .foregroundColor(index == self.index ? Color.blue : .white)
-//                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-//                        .padding(.bottom, 8)
-//                        .animation(.spring())
-//                }
-//            }
         }
         .frame(width: 375)
-        
-            
-//            HStack {
-//                if index != 0 {
-//                    NavigationLink(destination: StepByStep(index: self.index-1)) {
-//                        HStack {
-//                            Image(systemName: "arrow.left")
-//                            Text("Previous step")
-//                        }.foregroundColor(K.blue)
-//                    }
-//                }
-//
-//                Spacer()
-//
-//                if index < instructions.count-1 {
-//                    NavigationLink(destination: StepByStep(index: self.index+1)) {
-//                        HStack {
-//                            Text("Next step")
-//                            Image(systemName: "arrow.right")
-//                        }.foregroundColor(K.blue)
-//                    }
-//                } else if index == instructions.count-1 {
-//                    NavigationLink(destination: RecipeDetail(recipe: recipeData[2])) {
-//                        HStack {
-//                            Text("Done!")
-//                        }.foregroundColor(K.blue)
-//                    }
-//                }
-//            }.padding(.horizontal)
         
     }
 }
 
 struct StepByStep_Previews: PreviewProvider {
     static var previews: some View {
-        StepByStep(index:0, instructions: recipeData[0].instructions)
+        StepByStep(index:2, recipe: recipeData[1])
     }
 }

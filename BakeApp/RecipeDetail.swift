@@ -66,10 +66,6 @@ struct RecipeDetail: View {
                 ScrollInsPopup(recipe: self.recipe)
             }
             
-            
-            NavigationLink(destination: StepByStep(index:0, instructions: self.recipe.instructions)) {
-                       Text("View more detailed instructions.")
-                   }
         }
         
     }
@@ -77,6 +73,6 @@ struct RecipeDetail: View {
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: recipeData[8])
+        RecipeDetail(recipe: recipeData[1])
     }
 }

@@ -18,24 +18,16 @@ struct ScrollInsPopup: View {
             Spacer()
                 .frame(height: 200)
             ScrollView(.horizontal, showsIndicators: false) {
-                 
+                
                 HStack(alignment: .center, spacing: 50) {
-                    
                     ForEach(0...self.recipe.instructions.count-1, id: \.self) { index in
-                           
-                            StepByStep(index:index, instructions:self.recipe.instructions)
-                            
-                        
+                        StepByStep(index:index, recipe:self.recipe)
                     }
                 }
-                }
-            
-            Spacer()
-            
-            
-            HStack {
-                Text("\(self.recipe.instructions.count) total steps")
-            }.padding(.bottom)
+            }
+
+
+
         }
     }
 }
@@ -43,6 +35,6 @@ struct ScrollInsPopup: View {
 
 struct ScrollInsPopup_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollInsPopup(recipe: recipeData[8])
+        ScrollInsPopup(recipe: recipeData[1])
     }
 }
