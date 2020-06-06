@@ -52,7 +52,7 @@ struct HomePage: View {
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: geometry.size.height/2.6, height: geometry.size.height/2.6)
-                    }
+                    }.animation(.easeIn(duration: 5))
                     
                     //status label
                     ZStack {

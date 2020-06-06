@@ -7,10 +7,17 @@
 //
 
 import SwiftUI
+import UIKit
 
 //This is the ingredient selection page, where users can indicate whether they are missing certain ingredients
 
 struct SelectIngredientsOwned: View {
+    
+//    init() {
+//           //Use this if NavigationBarTitle is with Large Font
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: K.textColor]
+//       }
+    
     //CoreData setup
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
@@ -59,7 +66,7 @@ struct SelectIngredientsOwned: View {
                         }
                     }
                 }
-                }.navigationBarTitle("Missing:")
+                }.navigationBarTitle(Text("Missing ingredients").foregroundColor(K.textColor).font(.system(size: 20)))
                 
                 
                 ZStack {

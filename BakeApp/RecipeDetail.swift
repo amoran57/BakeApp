@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct RecipeDetail: View {
+    
+    @State private var showingSheet = false
     var recipe: Recipe
     
     var body: some View {
@@ -57,12 +59,24 @@ struct RecipeDetail: View {
             InsList(insList: self.recipe.instructions)
             
             }
+            
+            Button("Show sheet") {
+                self.showingSheet.toggle()
+            }.sheet(isPresented: $showingSheet) {
+                ScrollInsPopup(recipe: self.recipe)
+            }
+            
+            
+            NavigationLink(destination: StepByStep(index:0, instructions: self.recipe.instructions)) {
+                       Text("View more detailed instructions.")
+                   }
         }
+        
     }
 }
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: recipeData[5])
+        RecipeDetail(recipe: recipeData[8])
     }
 }
