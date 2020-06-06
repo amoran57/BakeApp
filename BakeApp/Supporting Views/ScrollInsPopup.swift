@@ -10,13 +10,32 @@ import SwiftUI
 
 struct ScrollInsPopup: View {
     
+     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var recipe:Recipe
     
     var body: some View {
         
         VStack {
-            Spacer()
-                .frame(height: 200)
+            
+            VStack {
+            Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Dismiss")
+                        .padding(.top)
+                        .padding(.leading)
+                }
+            }.frame(width: 375, alignment: .leading)
+            
+            Text("\(recipe.name)")
+                .fontWeight(.semibold)
+                .padding(.top, 50)
+                .foregroundColor(K.textColor)
+                .font(.title)
+            
+//            Spacer()
+           
             ScrollView(.horizontal, showsIndicators: false) {
                 
                 HStack(alignment: .center, spacing: 50) {
@@ -24,7 +43,7 @@ struct ScrollInsPopup: View {
                         StepByStep(index:index, recipe:self.recipe)
                     }
                 }
-            }
+            }.padding(.bottom, 20)
 
 
 
@@ -35,6 +54,6 @@ struct ScrollInsPopup: View {
 
 struct ScrollInsPopup_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollInsPopup(recipe: recipeData[1])
+        ScrollInsPopup(recipe: recipeData[0])
     }
 }

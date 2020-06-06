@@ -18,7 +18,6 @@ struct RecipeDetail: View {
         VStack {
             //tease preview
             CircleImage(image: recipe.image)
-                .padding(.top, -50)
             
             //name of recipe
             Text(recipe.name)
@@ -64,7 +63,7 @@ struct RecipeDetail: View {
                 self.showingSheet.toggle()
             }.sheet(isPresented: $showingSheet) {
                 ScrollInsPopup(recipe: self.recipe)
-            }
+            }.padding(.bottom)
             
         }
         
@@ -73,6 +72,6 @@ struct RecipeDetail: View {
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: recipeData[1])
+        RecipeDetail(recipe: recipeData[5])
     }
 }

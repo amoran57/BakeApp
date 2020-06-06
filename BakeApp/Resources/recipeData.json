@@ -9,20 +9,20 @@
         "type": "breads",
         "sysIng": ["milk", "butter", "flour", "yeast", "baking powder", "salt"],
         "ingredients": [
-            "1 1/2 cups (340g) lukewarm water",
-            "1 cup (227g) lukewarm milk",
-            "2 tablespoons (28g) melted butter",
-            "3 1/2 cups (418g) King Arthur Unbleached All-Purpose Flour",
-            "2 1/2 teaspoons instant yeast",
+            "1 ½ cups lukewarm water",
+            "1 cup lukewarm milk",
+            "2 tablespoons melted butter",
+            "3 ½ cups flour",
+            "2 ½ teaspoons yeast",
             "1 teaspoon baking powder",
-            "1 1/4 teaspoons salt"
+            "1 ¼ teaspoons salt"
         ],
         "instructions": [
             "Combine all of the ingredients in a bowl, and beat vigorously for 2 minutes. A stand or hand mixer, set on high speed, work well here.",
             
             "Cover the bowl, and let the batter rest at room temperature for 1 hour. It will expand and become bubbly. Towards the end of the rest, preheat a griddle to medium-low, about 325°F. If you don't have an electric griddle, preheat a frying pan; it shouldn't be as hot as the temperature you use to cook pancakes.",
             
-            "Lightly grease the griddle or frying pan, and place well-greased 3 3/4-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant 1/4-cupful into each ring; a muffin scoop works well here.",
+            "Lightly grease the griddle or frying pan, and place well-greased 3 ¾-inch English muffin rings in the pan, as many as will fit. (If you don't have English muffin rings, use well-cleaned tuna cans, from which you've removed the top and bottom.) Pour sticky batter by the scant ¼-cupful into each ring; a muffin scoop works well here.",
             
             "After about 4 minutes, use a pair of tongs to slip the rings off. Cook the crumpets for a total of about 10 minutes on the first side, until their tops are riddled with small bubbles/holes. They should be starting to look a bit dry around the edges. Their bottoms will be a mottled, light-golden brown. Note: They probably won't be as full of holes as store-bought crumpets; that's OK.",
             
@@ -30,7 +30,14 @@
             
             "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
         ],
-        "ingxins": [[]]
+        "ingxins": [
+        [0,1,2,3,4,5,6],
+        [],
+        [],
+        [],
+        [],
+        []
+        ]
     },
     
     
@@ -56,15 +63,15 @@
             "½ cup butter",
             "3 tablespoons unsweetened cocoa powder",
             "5 tablespoons milk",
-            "3 1/2 cups (1 box) confectioners' sugar"
+            "3 ½ cups (1 box) confectioners' sugar"
         ],
         "instructions": [
-            "Preheat oven to 350 degrees F (175 degrees C). Grease a 9x13 inch pan.",
+            "Preheat oven to 350°F (175°C). Grease a 9x13 inch pan.",
             "Mix white sugar and flour in a large bowl.",
             "Combine 1 cup melted butter, water, and 3 tablespoons cocoa powder in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Pour melted butter mixture over sugar and flour; beat well.",
-            "Beat in baking soda, 1/2 cup milk, eggs, and vanilla extract. Pour batter into prepared pan.",
+            "Beat in baking soda, ½ cup milk, eggs, and vanilla extract. Pour batter into prepared pan.",
             "Bake in preheated oven until a toothpick inserted into the center of cake comes out clean, 20 to 25 minutes. Remove from oven and allow to cool on a wire rack.",
-            "Combine remaining 1/2 cup butter, 3 tablespoons cocoa powder, and milk in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Beat powdered sugar into the butter mixture, mixing until frosting is smooth. Pour over cooled cake."
+            "Combine remaining ½ cup butter, 3 tablespoons cocoa powder, and milk in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Beat powdered sugar into the butter mixture, mixing until frosting is smooth. Pour over cooled cake."
         ],
         "ingxins": [
         [],
@@ -94,23 +101,33 @@
             "3 ripe bananas, mashed",
             "1 tablespoon milk",
             "2 teaspoons vanilla",
-            "1 teaspoon ground cinnamon, or to taste (optional)",
+            "cinnamon to taste (optional)",
             "½ cup butter, softened",
             "½ cup white sugar",
             "½ cup brown sugar",
             "2 eggs",
-            "1 cup semisweet chocolate chips (optional)"
+            "1 cup chocolate chips (optional)"
         ],
         "instructions": [
-            "Preheat oven to 325 degrees F (165 degrees C). Grease a 9x5-inch loaf pan.",
-            "Mix flour, baking powder, baking soda, and salt in a bowl. Stir bananas, milk, vanilla, and (optionally) cinnamon in another bowl.",
+            "Preheat oven to 325°F (165°C). Grease a 9x5-inch loaf pan.",
+            "Mix flour, baking powder, baking soda, and salt in a bowl.",
+            "Stir bananas, milk, vanilla, and (optionally) cinnamon in another bowl.",
             "Beat butter and both sugars in a third bowl until light and fluffy. Add eggs, one at a time, to butter mixture; beat thoroughly after adding each egg.",
             "Stir the banana mixture into the butter mixture. Next, stir in the dry mixture until thoroughly blended.",
             "Optional: Fold in chocolate chips.",
             "Pour batter into the loaf pan.",
             "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 70 minutes. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
         ],
-        "ingxins": [[]]
+        "ingxins": [
+        [],
+        [0,1,2,3],
+        [4,5,6,7],
+        [8,9,10,11],
+        [],
+        [12],
+        [],
+        []
+        ]
     },
     
     
@@ -135,13 +152,19 @@
             "1 ½ cup quick-cooking oats"
         ],
         "instructions": [
-            "Preheat oven to 350 degrees F (175 degrees C).",
+            "Preheat oven to 350°F (175°C).",
             "In a large bowl, cream together chilled butter, brown sugar, white sugar, and peanut butter until smooth. Beat in the eggs one at a time until well blended.",
             "In a separate bowl, combine the flour, baking soda, and salt; stir into the creamed mixture.",
             "Mix in the oats until just combined. Drop by teaspoonfuls onto ungreased cookie sheets.",
             "Bake for 10 to 15 minutes in the preheated oven, or until just light brown. Cool."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1,2,3,4],
+              [5,6,7],
+              [8],
+              []
+              ]
     },
     
     
@@ -161,22 +184,32 @@
             "¼ teaspoon baking soda",
             "½ teaspoon salt",
             "8 tablespoons unsalted butter, frozen",
-            "½ cup raisins (or dried currants)",
+            "½ cup raisins",
             "½ cup sour cream",
             "1 large egg"
         ],
         "instructions": [
-            "Adjust oven rack to lower-middle position and preheat oven to 400 degrees.",
-            "In a medium bowl, mix flour, 1/3 cup sugar, baking powder, baking soda and salt.",
+            "Adjust oven rack to lower-middle position and preheat oven to 400°F.",
+            "In a medium bowl, mix flour, sugar, baking powder, baking soda and salt.",
             "Using a cheese grater, grate the butter into the flour mixture. Work the butter in with your fingers until the mixture resembles coarse meal.",
             "Stir in the raisins.",
             "In a small bowl, whisk sour cream and egg until smooth.",
             "Using a fork, stir sour cream mixture into flour mixture until large dough clumps form. Use your hands to press the dough against the bowl into a ball.",
-            "Place on a lightly floured surface and pat into a 7- to 8-inch circle about 3/4-inch thick. Sprinkle with remaining 1 tsp. of sugar.",
+            "Place on a lightly floured surface and pat into a 7- to 8-inch circle about ¾-inch thick. Sprinkle with remaining 1 tsp. of sugar.",
             "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart.",
             "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1,2,3,4],
+              [5],
+              [6],
+              [7,8],
+              [],
+              [],
+              [],
+              []
+              ]
     },
     
     {
@@ -189,35 +222,43 @@
         "type": "cookies",
         "sysIng": ["brown sugar", "sugar", "butter", "salt", "vanilla", "vinegar", "baking soda", "egg", "flour", "chocolate chips"],
         "ingredients": [
-            "2/3 cup light brown sugar, firmly packed",
-            "2/3 cup granulated sugar",
-            "3/4 cup unsalted butter, room temperature",
-            "3/4 teaspoon salt",
-            "2 teaspoons vanilla extract",
+            "2/3 cup brown sugar",
+            "2/3 cup sugar",
+            "¾ cup softened butter",
+            "¾ teaspoon salt",
+            "2 teaspoons vanilla",
             "1 teaspoon vinegar",
             "1 teaspoon baking soda",
             "1 large egg",
-            "2 cups King Arthur Unbleached All-Purpose Flour",
-            "1 1/2 cups semisweet chocolate chips"
+            "2 cups flour",
+            "1 ½ cups chocolate chips"
         ],
         "instructions": [
             
-            "Preheat the oven to 375 degrees Fahrenheit Lightly grease (or line with parchment) two baking sheets",
+            "Preheat the oven to 375°F. Lightly grease (or line with parchment) two baking sheets",
             
-            "In a large bowl, combine the sugars, butter, salt, vanilla extract, vinegar, and baking soda, beating until smooth and creamy",
+            "In a large bowl, combine the sugars, butter, salt, vanilla, vinegar, and baking soda, beating until smooth and creamy",
             
             "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined.",
             
-            "Mix in the flour, then the chips.",
+            "Mix in the flour, then the chocolate chips.",
             
-            "Scoop 1 1/4-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread.",
+            "Scoop 1 ¼-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread.",
             
             "Bake the cookies for 11 to 12 minutes, until edges are golden brown.",
             
             "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
             
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1,2,3,4,5,6],
+              [7],
+              [8,9],
+              [],
+              [],
+              []
+              ]
     },
     
     {
@@ -243,7 +284,7 @@
         ],
         
         "instructions": [
-            "Preheat oven to 400 degrees F (200 degrees C).",
+            "Preheat oven to 400°F (200°C).",
             "In a large mixing bowl, cream butter and sugar until fluffy. Add eggs and vanilla.",
             "Blend in flour, cream of tartar, baking soda, and salt. Shape dough by rounded spoonfuls into balls.",
             "In a small bowl, stir together sugar and cinnamon.",
@@ -251,7 +292,15 @@
             "Place balls on an uncreased baking sheet, about 2 inches apart.",
             "Bake 8-12 minutes, until the cookies are well set. Let them cool on the sheet for several minutes."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1,2,3],
+              [4,5,6,7],
+              [8,9],
+              [],
+              [],
+              []
+              ]
     },
     
     {
@@ -268,12 +317,13 @@
             "1 tablespoon sugar",
             "1 tablespoon salt",
             "2 cups warm water (about 105°F, not more than 110°F)",
-            "5 1/2 to 6 cups flour",
+            "5 ½ to 6 cups flour",
             "Additional flour (or cornmeal) for dusting",
-            "Boiling water"
+            "Cold water"
         ],
         "instructions": [
-            "In a large bowl, mix yeast, sugar, salt and water until the yeast is dissolved.", "Gradually add the flour, one cup at a time, and mix thoroughly--the dough should begin to pull away from the sides of the bowl.",
+            "In a large bowl, mix yeast, sugar, salt and water until the yeast is dissolved.",
+            "Gradually add the flour, one cup at a time, and mix thoroughly--the dough should begin to pull away from the sides of the bowl.",
             "Turn the dough out onto a floured surface to knead.",
             "To knead the dough, fold the far edge of the dough back over on itself towards you. Push the heels of your hand into the dough, and push away. After each push, rotate the dough 90°. Repeat for about 10 minutes, sprinkling only enough flour on your kneading surface to prevent sticking.",
             "Next, grease the mixing bowl with some olive oil, butter, or non-stick spray.",
@@ -283,7 +333,18 @@
             "Lightly slash the tops of the loaves 3 or more times diagonally and brush them with cold water.",
             "Bake at 400°F for 35 to 45 minutes, until the loaves are golden brown. They should sound hollow when tapped."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [0,1,2,3],
+              [4],
+              [5],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [6],
+              []
+              ]
     },
     
 
@@ -297,13 +358,13 @@
         "type": "other",
         "sysIng": ["brown sugar", "butter", "flour", "egg", "baking powder", "salt", "vanilla"],
         "ingredients": [
-            "1/4 cup butter",
+            "¼ cup butter",
     "1 cup light brown sugar",
     "1 egg",
-    "1/2 teaspoon vanilla",
-    "3/4 cup flour",
+    "½ teaspoon vanilla",
+    "¾ cup flour",
     "1 teaspoon baking powder",
-    "1/2 teaspoon salt"
+    "½ teaspoon salt"
                     ],
         "instructions": [
     "Preheat oven to 350°F, and grease an 8x8-inch pan",
@@ -312,7 +373,13 @@
     "Add the dry ingredients (flour, baking powder, and salt). Mix well.",
     "Pour into the 8x8-inch pan and bake at 350°F for 25 minutes."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1],
+              [2,3],
+              [4,5,6],
+              []
+              ]
     },
     
 
@@ -345,7 +412,15 @@
     "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
     "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [],
+              [0,1,2],
+              [3],
+              [4,5,6,7],
+              [],
+              [8],
+              []
+              ]
     },
     
 
@@ -360,10 +435,10 @@
         "sysIng": ["flour", "yeast", "vegetable oil", "honey", "salt"],
         "ingredients": [
             "1 cup lukewarm water",
-    "1 packet (2 1/2 teaspoons) yeast",
+    "1 packet (2 ½ teaspoons) yeast",
     "1 teaspoon salt",
-    "1/4 cup honey",
-    "3 1/2 cups whole wheat flour",
+    "¼ cup honey",
+    "3 ½ cups whole wheat flour",
     "2 tablespoons vegetable oil",
     "2 tablespoons butter (optional)"
                     ],
@@ -378,7 +453,17 @@
     "Bake the bread for 30 minutes; do not overbake. If needed, tent the loaf with aluminum foil after the first 20 minutes, to prevent browning; whole wheat flour means this bread will tend to brown.",
     "Remove from oven and let cool on a rack. If desired, rub the crust with butter to create a softer crust. Let bread cool completely before slicing."
         ],
-        "ingxins": [[]]
+          "ingxins": [
+              [0,1,2,3],
+              [4,5],
+              [4],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [6]
+              ]
     }
 ]
  

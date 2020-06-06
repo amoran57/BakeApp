@@ -22,16 +22,19 @@ struct StepByStep: View {
                 Text("Step \(index+1):")
                     .foregroundColor(K.textColor)
                     .bold()
-                    .font(.title)
+                    .font(.system(size:24))
                     .padding(.top)
                 
                 HStack {
+                    //outer if statement is temporary until I update all recipes
+                    if recipe.ingxins.count > 1 {
                     if recipe.ingxins[self.index].count > 0 {
                         VStack {
                             ForEach(0..<recipe.ingxins[self.index].count) { ing in
                                 
                                 Text("\(self.recipe.ingredients[self.recipe.ingxins[self.index][ing]])")
                                     .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
                                 if ing != self.recipe.ingxins[self.index].count-1 {
                                 Divider()
                                     .background(K.textColor)
@@ -43,6 +46,7 @@ struct StepByStep: View {
                         Divider()
                             .background(K.textColor)
                            
+                    }
                     }
                     
                     Text(self.recipe.instructions[self.index])
@@ -60,17 +64,18 @@ struct StepByStep: View {
             
             
             
-            Spacer()
-                .frame(height: 100)
-            
+//            Spacer()
+//                .frame(height: 100)
+//
         }
-        .frame(width: 375)
+    .frame(minWidth: 375, idealWidth: 375, maxWidth: 375, minHeight: 350)
+        .fixedSize(horizontal:false, vertical:true)
         
     }
 }
 
 struct StepByStep_Previews: PreviewProvider {
     static var previews: some View {
-        StepByStep(index:2, recipe: recipeData[1])
+        StepByStep(index:5, recipe: recipeData[1])
     }
 }
