@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct K {
     static let blue = Color("BrandBlue")
@@ -30,6 +31,10 @@ struct K {
         static let italic = "Raleway-Italic"
     }
     
+    struct Defaults {
+        static let primaryViewIsTile = "primaryViewIsTile"
+    }
+    
     struct IngString {
         static let water = "water"
         static let milk = "milk"
@@ -47,4 +52,50 @@ struct K {
         static let chocChips = "chocolate chips"
     }
     
+}
+
+
+//struct ContentView : View {
+//
+//    @ObservedObject var settingsStore: SettingsStore
+//
+//    var body: some View {
+//        NavigationView {
+//            Form {
+//                Toggle(isOn: $settingsStore.settingActivated) {
+//                    Text("Setting Activated")
+//                }
+//            }.navigationBarTitle(Text("Settings"))
+//        }
+//    }
+//}
+
+class SettingsStore: ObservableObject {
+
+    let willChange = PassthroughSubject<Void, Never>()
+
+    var primaryViewIsTile: Bool = UserDefaults.primaryViewIsTile {
+        willSet {
+
+            UserDefaults.primaryViewIsTile = newValue
+
+            willChange.send()
+        }
+    }
+}
+
+extension UserDefaults {
+
+    private struct Keys {
+        static let primaryViewIsTile = "primaryViewIsTile"
+    }
+
+    static var primaryViewIsTile: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: Keys.primaryViewIsTile)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.primaryViewIsTile)
+        }
+    }
 }

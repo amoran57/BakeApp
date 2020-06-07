@@ -15,7 +15,7 @@ struct RecipeDetail: View {
     @State private var showingSheet = false
     @State private var showingSheet2 = false
     var recipe: Recipe
-    var primaryViewIsTile:Bool = false
+    var primaryViewIsTile:Bool = defaults.bool(forKey: K.Defaults.primaryViewIsTile)
     
     var body: some View {
         ScrollView {

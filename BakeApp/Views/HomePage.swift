@@ -129,6 +129,9 @@ struct HomePage: View {
                     print(error)
                 }
             }
+            //bonus: set default settings
+            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
+            
         }
         
         //repeat the process for CoreData time limit entity:

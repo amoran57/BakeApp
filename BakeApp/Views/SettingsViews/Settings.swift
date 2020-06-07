@@ -8,12 +8,12 @@
 
 import SwiftUI
 
+
+let defaults = UserDefaults.standard
+
 struct Settings: View {
     
-    let views = [RecipeDetail(recipe: recipeData[1]),
-                 RecipeDetail(recipe: recipeData[2]),
-                 RecipeDetail(recipe: recipeData[3]),
-                 RecipeDetail(recipe: recipeData[4])]
+    
     
     var body: some View {
         VStack {
@@ -32,7 +32,9 @@ struct Settings: View {
             Spacer()
             HStack {
                 Spacer()
+                NavigationLink(destination: SetRecipeDetailView()) {
                 SettingsTile(text: "Set recipe view settings")
+                }
                 Spacer()
                 SettingsTile(text: "Remove a recipe")
                 Spacer()
