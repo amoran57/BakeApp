@@ -59,19 +59,20 @@ struct RecipeDetail: View {
             
             }
             
-            Button("Show sheet") {
-                self.showingSheet.toggle()
-            }.sheet(isPresented: $showingSheet) {
-                ScrollInsPopup(recipe: self.recipe)
-            }.padding(.bottom)
-            
+            VStack {
+                Button("Show step-by-step detail ->") {
+                    self.showingSheet.toggle()
+                }.sheet(isPresented: $showingSheet) {
+                    ScrollInsPopup(recipe: self.recipe)
+                }.padding(.bottom)
+            }.frame(width: 375, alignment: .trailing)
+                .padding(.trailing)
         }
-        
     }
 }
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: recipeData[5])
+        RecipeDetail(recipe: recipeData[0])
     }
 }

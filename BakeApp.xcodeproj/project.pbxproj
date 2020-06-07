@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6F01F8B5248C373600972FCB /* ScrollInsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F01F8B4248C373600972FCB /* ScrollInsPopup.swift */; };
+		6F01F8B8248C778B00972FCB /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 6F01F8B7248C778B00972FCB /* Pages */; };
 		6F0968AF247FF71600F5741D /* IngredientsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968AE247FF71600F5741D /* IngredientsOwned.swift */; };
 		6F0968B1247FFEA800F5741D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968B0247FFEA800F5741D /* Extensions.swift */; };
 		6F1F30F8248BD71800F8FC93 /* SeeAllIng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */; };
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F01F8B8248C778B00972FCB /* Pages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +218,9 @@
 			dependencies = (
 			);
 			name = BakeApp;
+			packageProductDependencies = (
+				6F01F8B7248C778B00972FCB /* Pages */,
+			);
 			productName = BakeApp;
 			productReference = 6FD74DE42471F1A600D8FB80 /* BakeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 6FD74DDB2471F1A600D8FB80;
+			packageReferences = (
+				6F01F8B6248C778B00972FCB /* XCRemoteSwiftPackageReference "Pages" */,
+			);
 			productRefGroup = 6FD74DE52471F1A600D8FB80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -498,6 +506,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6F01F8B6248C778B00972FCB /* XCRemoteSwiftPackageReference "Pages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nachonavarro/Pages.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F01F8B7248C778B00972FCB /* Pages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F01F8B6248C778B00972FCB /* XCRemoteSwiftPackageReference "Pages" */;
+			productName = Pages;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6FD74DEB2471F1A600D8FB80 /* BakeApp.xcdatamodeld */ = {

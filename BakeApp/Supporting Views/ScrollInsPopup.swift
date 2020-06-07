@@ -54,6 +54,9 @@ struct ScrollInsPopup: View {
 
 struct ScrollInsPopup_Previews: PreviewProvider {
     static var previews: some View {
+//        ForEach(recipeData, id: \.self) { recipe in
+//        ScrollInsPopup(recipe: recipe)
+//        }
         ScrollInsPopup(recipe: recipeData[0])
     }
 }
