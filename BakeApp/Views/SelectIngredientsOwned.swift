@@ -24,18 +24,7 @@ struct SelectIngredientsOwned: View {
     //setup for custom back button
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    //custom back button
-//    var btnBack : some View { Button(action: {
-//        self.presentationMode.wrappedValue.dismiss()
-//    }) {
-//        HStack {
-//            Image(systemName: "arrow.left")
-//                .aspectRatio(contentMode: .fit)
-//            Text("Back")
-//        }.foregroundColor(K.blue)
-//    }.buttonStyle(PlainButtonStyle())
-//    }
-
+var showSettings = true
     //number of tiles per line
     var numPerLine:Int? = 3
 
@@ -61,7 +50,8 @@ struct SelectIngredientsOwned: View {
                         }
                     }
                 }
-                }.navigationBarTitle(Text("Missing ingredients").foregroundColor(K.textColor).font(.system(size: 20)))
+                }
+//                .navigationBarTitle(Text("Missing ingredients").foregroundColor(K.textColor).font(.system(size: 20)))
                 
                 
                 ZStack {
@@ -96,12 +86,16 @@ struct SelectIngredientsOwned: View {
                     
                 }.padding(.bottom)
                     .padding(.horizontal)
-//                    .padding(.leading, geometry.size.width - 140)
-                
+     
             }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                //use custom back button
-//                .navigationBarBackButtonHidden(true)
-//                .navigationBarItems(leading: self.btnBack)
+                .navigationBarTitle("Missing Ingredients")
+                .navigationBarItems(trailing:
+                    NavigationLink(destination:Settings()) {
+                             if self.showSettings {
+                            Text("Settings")
+                            }
+                        }
+                   )
         }
     }
     //functions to calculate the grid-style view of ingredient tiles

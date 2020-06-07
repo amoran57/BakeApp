@@ -66,13 +66,8 @@ struct StepByStep: View {
             .background(K.frameColor)
             .cornerRadius(20)
             
-            
-            
-//            Spacer()
-//                .frame(height: 100)
-//
         }
-    .frame(minWidth: 375, idealWidth: 375, maxWidth: 375)
+        .frame(width: 375)
         .fixedSize(horizontal:false, vertical:true)
         
     }

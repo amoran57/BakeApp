@@ -12,19 +12,17 @@ import SwiftUI
 let defaults = UserDefaults.standard
 
 struct Settings: View {
-    
-    
-    
+
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink(destination: SelectTimeScreen()) {
+                NavigationLink(destination: SelectTimeScreen(showSettings:false)) {
                 SettingsTile(text: "Permanently set time preferences")
                 }
                 Spacer()
-                NavigationLink(destination: SelectIngredientsOwned()) {
+                NavigationLink(destination: SelectIngredientsOwned(showSettings:false)) {
                 SettingsTile(text: "Permanently set ingredient preferences")
                 }
                 Spacer()
@@ -41,6 +39,7 @@ struct Settings: View {
             }
             Spacer()
         }.navigationBarTitle(Text("Settings").foregroundColor(K.textColor))
+          
     }
 }
 

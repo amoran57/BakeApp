@@ -34,19 +34,19 @@ struct SideList: View, Hashable {
                 .padding(.leading, 10)
                 .padding(.bottom, -6)
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
                     ForEach (self.createNewArray()!, id: \.self) { item in
-                        
-                        NavigationLink(destination:RecipeDetail(recipe: item)) {
-                                RecipeTile(recipe: item)
-                            }.buttonStyle(PlainButtonStyle())
-                            }
-                    }.padding(.leading)
+                        NavigationLink(destination:RecipeDetail(recipe: item, showSettings:false)) {
+                            RecipeTile(recipe: item)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
+                }.padding(.leading)
+            }
         }
     }
-    }
+}
 
 
 struct SideList_Previews: PreviewProvider {

@@ -21,30 +21,21 @@ struct HomePage: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
-
+    @State private var showingSheet = false
+    
     var body: some View {
         return GeometryReader { geometry in
             
             NavigationView {
                 VStack {
-                    //image slideshow on top
-                        recipeData[self.activeImageIndex].image
-                        .resizable()
-                        .frame(width: 500, height: 500)
-                        .clipShape(Circle())
-                        .padding(.top, -450)
-                            .shadow(color: K.textColor, radius: 10)
-                        .onReceive(self.imageSwitchTimer) { _ in
-                            // Go to the next image.
-                            self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
-                    }
                     
-                    NavigationLink(destination: Settings()) {
-                        Text("go to settings")
-                    }
+                    Spacer()
                     
-                   Spacer()
-                    .frame(height: geometry.size.height/24)
+                    NavigationLink(destination:Settings()) {
+                        Text("Settings")
+                    }.frame(width: 375, alignment: .trailing)
+                        .padding(.trailing)
+                    
                     
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
@@ -54,9 +45,10 @@ struct HomePage: View {
                         Image(K.bakeButton)
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: geometry.size.height/2.6, height: geometry.size.height/2.6)
-                    }.animation(.easeIn(duration: 5))
+                            .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
+                    }
                     
+               
                     //status label
                     ZStack {
                         if filterByTime.couldNotFilter {
@@ -70,19 +62,19 @@ struct HomePage: View {
                         }
                     }
                     .font(.system(size:12))
-                        .foregroundColor(K.textColor)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 300, height: geometry.size.height/12, alignment: .center)
+                    .foregroundColor(K.textColor)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                        NavigationLink(destination: SelectIngredientsOwned()) {
-                            RectangleButton(text:"I'm short on ingredients.")
-                        }
-                 
-                   //link to time selection page (SelectTImeScreen)
-                        NavigationLink(destination: SelectTimeScreen()) {
-                            RectangleButton(text:"I'm short on time.")
-                        }
+                    NavigationLink(destination: SelectIngredientsOwned()) {
+                        RectangleButton(text:"I'm short on ingredients.")
+                    }
+                    
+                    //link to time selection page (SelectTImeScreen)
+                    NavigationLink(destination: SelectTimeScreen()) {
+                        RectangleButton(text:"I'm short on time.")
+                    }
                     
                     //link to recipe browse (RecipeList)
                     NavigationLink(destination:RecipeList()) {
@@ -93,11 +85,14 @@ struct HomePage: View {
                             .foregroundColor(K.textColor)
                     }
                     
-                }
+                    Spacer()
+                    
+                }.frame(width:geometry.size.width, height:700)
+                
             }
         }
-        //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-        .onAppear(perform: setCoreData)
+            //when the view appears, initialize CoreData (function only runs if CoreData is empty)
+            .onAppear(perform: setCoreData)
     }
     
     func setCoreData() {
@@ -156,7 +151,7 @@ struct HomePage: View {
             }
             
         }
-
+        
     }
 }
 

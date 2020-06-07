@@ -10,13 +10,13 @@ import SwiftUI
 
 struct SelectTimeScreen: View {
     
-     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let formatter = DateComponentsFormatter()
-
+    var showSettings = true
     
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]
@@ -24,7 +24,8 @@ struct SelectTimeScreen: View {
         
         return GeometryReader { geometry in
             VStack {
-                
+                Spacer()
+                    .frame(height:35)
                 
                 Text("Set your preferred time limits:")
                     .font(.system(size:28))
@@ -60,7 +61,8 @@ struct SelectTimeScreen: View {
                 HStack {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
-                        }
+                        
+                    }
                     ) {
                         HStack {
                             Text("Continue")
@@ -71,7 +73,14 @@ struct SelectTimeScreen: View {
                 }.padding(.leading, geometry.size.width - 140)
                     .padding(.top)
                 
-            }
+            }.navigationBarTitle("Time Limits", displayMode: .inline)
+                .navigationBarItems(trailing:
+                    NavigationLink(destination:Settings()) {
+                        if self.showSettings {
+                            Text("Settings")
+                        }
+                    }
+            )
         }
     }
 }

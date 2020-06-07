@@ -35,6 +35,9 @@ struct RecipeList: View {
                 }
             }
             .navigationBarTitle("Recipes")
+            .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
+                Text("Settings")
+            })
 //            .navigationBarBackButtonHidden(true)
 //            .navigationBarItems(leading: self.btnBack)
         }

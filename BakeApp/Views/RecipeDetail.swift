@@ -15,6 +15,7 @@ struct RecipeDetail: View {
     @State private var showingSheet = false
     @State private var showingSheet2 = false
     var recipe: Recipe
+    var showSettings = true
     var primaryViewIsTile:Bool = defaults.bool(forKey: K.Defaults.primaryViewIsTile)
     
     var body: some View {
@@ -28,6 +29,7 @@ struct RecipeDetail: View {
                     .foregroundColor(K.textColor)
                     .font(.system(size: 32))
                     .fontWeight(.bold)
+                    .frame(width: 350)
                 .multilineTextAlignment(.center)
                 
                 //total time
@@ -110,6 +112,11 @@ struct RecipeDetail: View {
                 }
             }
         }.navigationBarTitle("\(recipe.name)", displayMode: .inline)
+            .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
+                if showSettings {
+            Text("Settings")
+                }
+        })
     }
 }
 
