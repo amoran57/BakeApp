@@ -12,17 +12,17 @@ struct RecipeList: View {
     
       @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var btnBack : some View { Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-                Image(systemName: "arrow.left")
-                .aspectRatio(contentMode: .fit)
-                Text("Back")
-            }.foregroundColor(K.blue)
-    }.buttonStyle(PlainButtonStyle())
-        
-    }
+//    var btnBack : some View { Button(action: {
+//        self.presentationMode.wrappedValue.dismiss()
+//        }) {
+//            HStack {
+//                Image(systemName: "arrow.left")
+//                .aspectRatio(contentMode: .fit)
+//                Text("Back")
+//            }.foregroundColor(K.blue)
+//    }.buttonStyle(PlainButtonStyle())
+//        
+//    }
     
     let practiceArray = ["breads", "pastries", "cakes", "cookies", "other"]
     
@@ -35,8 +35,8 @@ struct RecipeList: View {
                 }
             }
             .navigationBarTitle("Recipes")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: self.btnBack)
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarItems(leading: self.btnBack)
         }
     }
 }

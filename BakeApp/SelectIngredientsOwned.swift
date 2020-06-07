@@ -23,17 +23,18 @@ struct SelectIngredientsOwned: View {
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     //setup for custom back button
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     //custom back button
-    var btnBack : some View { Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-    }) {
-        HStack {
-            Image(systemName: "arrow.left")
-                .aspectRatio(contentMode: .fit)
-            Text("Back")
-        }.foregroundColor(K.blue)
-    }.buttonStyle(PlainButtonStyle())
-    }
+//    var btnBack : some View { Button(action: {
+//        self.presentationMode.wrappedValue.dismiss()
+//    }) {
+//        HStack {
+//            Image(systemName: "arrow.left")
+//                .aspectRatio(contentMode: .fit)
+//            Text("Back")
+//        }.foregroundColor(K.blue)
+//    }.buttonStyle(PlainButtonStyle())
+//    }
 
     //number of tiles per line
     var numPerLine:Int? = 3
@@ -42,13 +43,7 @@ struct SelectIngredientsOwned: View {
         return GeometryReader { geometry in
             
             VStack {
-//                //text heading
-//                Text("What are you missing?")
-//                    .foregroundColor(K.textColor)
-//                    .font(.system(size:24))
-//                    .bold()
-//                    .padding(.leading)
-//                    .padding(.top, -50)
+
                 
                 //body of view
                 ScrollView {
@@ -105,8 +100,8 @@ struct SelectIngredientsOwned: View {
                 
             }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                 //use custom back button
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: self.btnBack)
+//                .navigationBarBackButtonHidden(true)
+//                .navigationBarItems(leading: self.btnBack)
         }
     }
     //functions to calculate the grid-style view of ingredient tiles

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6F01F8B5248C373600972FCB /* ScrollInsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F01F8B4248C373600972FCB /* ScrollInsPopup.swift */; };
 		6F01F8B8248C778B00972FCB /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 6F01F8B7248C778B00972FCB /* Pages */; };
-		6F01F8BA248C798B00972FCB /* PlayWithPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F01F8B9248C798B00972FCB /* PlayWithPages.swift */; };
 		6F0968AF247FF71600F5741D /* IngredientsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968AE247FF71600F5741D /* IngredientsOwned.swift */; };
 		6F0968B1247FFEA800F5741D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0968B0247FFEA800F5741D /* Extensions.swift */; };
 		6F1F30F8248BD71800F8FC93 /* SeeAllIng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */; };
@@ -50,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		6F01F8B4248C373600972FCB /* ScrollInsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollInsPopup.swift; sourceTree = "<group>"; };
-		6F01F8B9248C798B00972FCB /* PlayWithPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithPages.swift; sourceTree = "<group>"; };
 		6F0968AE247FF71600F5741D /* IngredientsOwned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsOwned.swift; sourceTree = "<group>"; };
 		6F0968B0247FFEA800F5741D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6F1F30F7248BD71800F8FC93 /* SeeAllIng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllIng.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				6FEBE8782482A1BC003C1ABF /* TimeSlider.swift */,
 				6F01F8B4248C373600972FCB /* ScrollInsPopup.swift */,
 				6F1F3104248C120600F8FC93 /* StepByStep.swift */,
-				6F01F8B9248C798B00972FCB /* PlayWithPages.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 				6FD74E0B2471F26200D8FB80 /* RecipeList.swift in Sources */,
 				6F01F8B5248C373600972FCB /* ScrollInsPopup.swift in Sources */,
 				6FD74DED2471F1A700D8FB80 /* BakeApp.xcdatamodeld in Sources */,
-				6F01F8BA248C798B00972FCB /* PlayWithPages.swift in Sources */,
 				6FD74E1E2471F3C700D8FB80 /* InsList.swift in Sources */,
 				6FD74E052471F1E200D8FB80 /* Recipe.swift in Sources */,
 			);

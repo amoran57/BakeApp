@@ -27,7 +27,7 @@ struct StepByStep: View {
                 
                 HStack {
                     //outer if statement is temporary until I update all recipes
-                    if recipe.ingxins.count > 1 {
+                   
                     if recipe.ingxins[self.index].count > 0 {
                         VStack {
                             ForEach(0..<recipe.ingxins[self.index].count) { ing in
@@ -45,15 +45,21 @@ struct StepByStep: View {
                         
                         Divider()
                             .background(K.textColor)
-                           
+                        
                     }
+                    if recipe.ingxins[self.index].count > 0 {
+                        Text(self.recipe.instructions[self.index])
+                            .foregroundColor(K.textColor)
+                            .padding(.horizontal, 5)
+                            .frame(minWidth: 180)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } else {
+                        Text(self.recipe.instructions[self.index])
+                            .foregroundColor(K.textColor)
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    
-                    Text(self.recipe.instructions[self.index])
-                        .foregroundColor(K.textColor)
-                        .padding(.horizontal, 5)
-                        .frame(minWidth: 180)
-                        .fixedSize(horizontal: false, vertical: true)
                 }.padding(.bottom)
                 
             }
