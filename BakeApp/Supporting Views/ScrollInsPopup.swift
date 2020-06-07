@@ -7,12 +7,17 @@
 //
 
 import SwiftUI
+import Pages
 
 struct ScrollInsPopup: View {
     
      @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var recipe:Recipe
+     @State var index: Int = 0
+    var cars:[Int] {
+        return Array(repeating: 0, count: recipe.instructions.count)
+    }
     
     var body: some View {
         
@@ -36,14 +41,10 @@ struct ScrollInsPopup: View {
             
 //            Spacer()
            
-            ScrollView(.horizontal, showsIndicators: false) {
-                
-                HStack(alignment: .center, spacing: 50) {
-                    ForEach(0...self.recipe.instructions.count-1, id: \.self) { index in
-                        StepByStep(index:index, recipe:self.recipe)
-                    }
-                }
-            }.padding(.bottom, 20)
+            
+            ModelPages(recipe.instructions, currentPage: $index) { index, _  in
+                StepByStep(index: index, recipe: self.recipe)
+            }
 
 
 
