@@ -11,43 +11,46 @@ import Pages
 
 struct ScrollInsPopup: View {
     
-     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var recipe:Recipe
-     @State var index: Int = 0
-    var cars:[Int] {
-        return Array(repeating: 0, count: recipe.instructions.count)
-    }
+    var showDismiss:Bool = true
+    var showTitle:Bool = true
+    
+    @State var index: Int = 0
+    
     
     var body: some View {
         
         VStack {
+            if showDismiss {
+                VStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Dismiss")
+                            .padding(.top)
+                            .padding(.leading)
+                    }
+                }.frame(width: 375, alignment: .leading)
+            }
             
-            VStack {
-            Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Dismiss")
-                        .padding(.top)
-                        .padding(.leading)
-                }
-            }.frame(width: 375, alignment: .leading)
+            if showTitle {
+                Text("\(recipe.name)")
+                    .fontWeight(.semibold)
+                    .padding(.top, 50)
+                    .foregroundColor(K.textColor)
+                    .font(.title)
+            }
+            //            Spacer()
             
-            Text("\(recipe.name)")
-                .fontWeight(.semibold)
-                .padding(.top, 50)
-                .foregroundColor(K.textColor)
-                .font(.title)
-            
-//            Spacer()
-           
             
             ModelPages(recipe.instructions, currentPage: $index) { index, _  in
                 StepByStep(index: index, recipe: self.recipe)
             }
-
-
-
+            
+            
+            
         }
     }
 }
@@ -55,9 +58,9 @@ struct ScrollInsPopup: View {
 
 struct ScrollInsPopup_Previews: PreviewProvider {
     static var previews: some View {
-//        ForEach(recipeData, id: \.self) { recipe in
-//        ScrollInsPopup(recipe: recipe)
-//        }
+        //        ForEach(recipeData, id: \.self) { recipe in
+        //        ScrollInsPopup(recipe: recipe)
+        //        }
         ScrollInsPopup(recipe: recipeData[0])
     }
 }

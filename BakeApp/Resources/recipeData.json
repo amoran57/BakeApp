@@ -31,7 +31,7 @@
             "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
         ],
         "ingxins": [
-        [0,1,2,3,4,5,6],
+        [0,1,2,3],
         [],
         [],
         [],
@@ -237,7 +237,9 @@
             
             "Preheat the oven to 375°F. Lightly grease (or line with parchment) two baking sheets",
             
-            "In an electric mixer, combine the sugars, butter, salt, vanilla, vinegar, and baking soda, beating until smooth and creamy",
+            "In an electric mixer, combine the sugars with the butter.",
+            
+            "Add the salt, vanilla, vinegar, and baking soda, beating until smooth and creamy",
             
             "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined.",
             
@@ -252,7 +254,8 @@
         ],
           "ingxins": [
               [],
-              [0,1,2,3,4,5,6],
+              [0,1,2],
+              [3,4,5,6],
               [7],
               [8,9],
               [],

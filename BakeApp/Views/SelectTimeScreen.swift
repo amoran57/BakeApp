@@ -60,7 +60,8 @@ struct SelectTimeScreen: View {
                 HStack {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
-                    }) {
+                        }
+                    ) {
                         HStack {
                             Text("Continue")
                             Image(systemName: "arrow.right")

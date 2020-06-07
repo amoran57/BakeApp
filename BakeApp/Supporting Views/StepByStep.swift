@@ -26,8 +26,6 @@ struct StepByStep: View {
                     .padding(.top)
                 
                 HStack {
-                    //outer if statement is temporary until I update all recipes
-                   
                     if recipe.ingxins[self.index].count > 0 {
                         VStack {
                             ForEach(0..<recipe.ingxins[self.index].count) { ing in
@@ -74,7 +72,7 @@ struct StepByStep: View {
 //                .frame(height: 100)
 //
         }
-    .frame(minWidth: 375, idealWidth: 375, maxWidth: 375, minHeight: 350)
+    .frame(minWidth: 375, idealWidth: 375, maxWidth: 375)
         .fixedSize(horizontal:false, vertical:true)
         
     }
@@ -82,6 +80,6 @@ struct StepByStep: View {
 
 struct StepByStep_Previews: PreviewProvider {
     static var previews: some View {
-        StepByStep(index:5, recipe: recipeData[1])
+        StepByStep(index:0, recipe: recipeData[1])
     }
 }

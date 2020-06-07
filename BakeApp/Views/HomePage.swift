@@ -28,7 +28,7 @@ struct HomePage: View {
             NavigationView {
                 VStack {
                     //image slideshow on top
-                    recipeData[self.activeImageIndex].image
+                        recipeData[self.activeImageIndex].image
                         .resizable()
                         .frame(width: 500, height: 500)
                         .clipShape(Circle())
@@ -39,6 +39,9 @@ struct HomePage: View {
                             self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
                     }
                     
+                    NavigationLink(destination: Settings()) {
+                        Text("go to settings")
+                    }
                     
                    Spacer()
                     .frame(height: geometry.size.height/24)
