@@ -28,12 +28,12 @@ import SwiftUI
 struct IngList: View {
     //input as Ingredients type
     var ingList: [String]
-    
+    var text:String = "Ingredients"
     
     var body: some View {
         VStack {
             //heading
-            Text("Ingredients")
+            Text(text)
                 .foregroundColor(K.textColor)
                 .font(.system(size: 32))
                 .fontWeight(.regular)
@@ -56,11 +56,11 @@ struct IngList: View {
     }
 }
 
-struct IngList_Previews: PreviewProvider {
-    static var previews: some View {
-        IngList(ingList: recipeData[0].ingredients)
-    }
-}
-
-
-
+//struct IngList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IngList(ingList: recipeData[0].ingredients)
+//    }
+//}
+//
+//
+//

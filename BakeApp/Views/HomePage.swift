@@ -33,7 +33,7 @@ struct HomePage: View {
                         .frame(width: 500, height: 500)
                         .clipShape(Circle())
                         .padding(.top, -450)
-                        .shadow(radius: 10)
+                            .shadow(color: K.textColor, radius: 10)
                         .onReceive(self.imageSwitchTimer) { _ in
                             // Go to the next image.
                             self.activeImageIndex = Int.random(in: 0...recipeData.count-1)

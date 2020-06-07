@@ -61,21 +61,23 @@ struct RecipeDetail: View {
                     
                     HStack {
                         
-                        Button("Show all ingredients") {
+                        Button("Show ingredients") {
                             self.showingSheet.toggle()
                         }.sheet(isPresented: $showingSheet) {
                             ScrollView {
-                                IngList(ingList:self.recipe.ingredients)
+                                IngList(ingList:self.recipe.ingredients, text: "\(self.recipe.name): Ingredients")
                                     .padding(.top)
                             }
                         }.padding(.bottom)
                         
+                        Spacer()
+                            .frame(width: 75)
                         
-                        Button("Show all instructions") {
+                        Button("Show instructions") {
                             self.showingSheet2.toggle()
                         }.sheet(isPresented: $showingSheet2) {
                             ScrollView {
-                                InsList(insList: self.recipe.instructions)
+                                InsList(insList: self.recipe.instructions, text: "\(self.recipe.name): Instructions")
                                     .padding(.top)
                             }
                         }.padding(.bottom)

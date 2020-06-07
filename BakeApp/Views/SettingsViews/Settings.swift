@@ -40,7 +40,7 @@ struct Settings: View {
                 Spacer()
             }
             Spacer()
-        }.navigationBarTitle("Settings")
+        }.navigationBarTitle(Text("Settings").foregroundColor(K.textColor))
     }
 }
 

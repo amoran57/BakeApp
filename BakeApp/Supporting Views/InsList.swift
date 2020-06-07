@@ -12,11 +12,11 @@ import SwiftUI
 struct InsList: View {
     //input as array of Instructions
     var insList: [String]
-
+    var text:String = "Instructions"
     var body: some View {
         VStack {
             //heading
-            Text("Instructions")
+            Text(text)
                 .foregroundColor(K.textColor)
                 .font(.system(size: 32))
                 .fontWeight(.regular)
@@ -48,8 +48,8 @@ struct InsList: View {
     }
 }
 
-struct InsList_Previews: PreviewProvider {
-    static var previews: some View {
-        InsList(insList: recipeData[5].instructions)
-    }
-}
+//struct InsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InsList(insList: recipeData[5].instructions)
+//    }
+//}
