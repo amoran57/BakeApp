@@ -17,6 +17,7 @@ struct SelectTimeScreen: View {
     
     let formatter = DateComponentsFormatter()
     var showSettings = true
+    var isPermanent = true
     
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]

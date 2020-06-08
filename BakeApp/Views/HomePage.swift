@@ -48,7 +48,7 @@ struct HomePage: View {
                             .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
                     }
                     
-               
+                    
                     //status label
                     ZStack {
                         if filterByTime.couldNotFilter {
@@ -92,7 +92,7 @@ struct HomePage: View {
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear(perform: setCoreData)
+            .onAppear {self.setCoreData(); print("These are the times: \(SetUpIng.temporaryTimes[0].timeType), \(SetUpIng.temporaryTimes[1].timeType), \(SetUpIng.temporaryTimes[2].timeType)")}
     }
     
     func setCoreData() {
@@ -150,6 +150,14 @@ struct HomePage: View {
                 
             }
             
+        }
+        
+        for time in timeValue {
+            SetUpIng.temporaryTimes.append(time)
+        }
+        
+        for ing in ingStatus {
+            SetUpIng.temporaryIngredients.append(ing)
         }
         
     }

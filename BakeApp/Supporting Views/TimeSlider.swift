@@ -15,6 +15,7 @@ struct TimeSlider: View {
     
     var sliderName:String
     @State var sliderPosition:Double
+    var isPermanent = true
     
     let formatter = DateComponentsFormatter()
     
@@ -27,7 +28,7 @@ struct TimeSlider: View {
                 .font(.system(size: 24))
                 .foregroundColor(K.textColor)
             Slider(value: $sliderPosition, in: 0...18000, step: 900, onEditingChanged: {_ in
-                self.buttonPressed()
+                self.buttonPressed(permanent: self.isPermanent)
             })
                 .frame(width: 300)
             Text(formatter.string(from: TimeInterval(sliderPosition))!)
@@ -36,8 +37,9 @@ struct TimeSlider: View {
         }
     }
   
-    func buttonPressed() {
+    func buttonPressed(permanent:Bool) {
         //identify current slider
+        if permanent {
         for counter in 0...self.timeValue.count-1 {
             if self.timeValue[counter].timeType == self.sliderName {
                 //create constants to represent current slider and current value
@@ -54,6 +56,14 @@ struct TimeSlider: View {
                     print(error)
                 }
             }
+            }
         }
+        
+        for counter in 0...SetUpIng.temporaryTimes.count-1 {
+            if SetUpIng.temporaryTimes[counter].timeType == self.sliderName {
+                SetUpIng.temporaryTimes[counter].timeLength = self.sliderPosition/60
+            }
+        }
+        
     }
 }
