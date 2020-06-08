@@ -11,35 +11,44 @@ import SwiftUI
 //create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
 
+
+struct NavigationLazyView<Content: View>: View {
+    @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
+    @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
+    let build: () -> Content
+    init(_ build: @autoclosure @escaping () -> Content) {
+        self.build = build
+    }
+    var body: Content {
+        build()
+    }
+}
+
+
 struct HomePage: View {
     //fetch CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
-    
-    //slideshow:
-    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
-    let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
-        .autoconnect()
-    @State private var showingSheet = false
-    
-    @State var recipe:Recipe?
+
     
     var body: some View {
         return GeometryReader { geometry in
             
             NavigationView {
                 VStack {
-                    //button to go to random recipe; calls on global instance of FilterByTime
-                    NavigationLink(
-                        destination: RecipeDetail(recipe: self.recipe ?? recipeData[0])
-                        )
-                    {
-                        Image(K.bakeButton)
-                            .renderingMode(.original)
-                            .resizable()
-                            .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
-                    }
+                    
+                  
+                        //button to go to random recipe; calls on global instance of FilterByTime
+                        NavigationLink(
+                             destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))))
+                        {
+                            Image(K.bakeButton)
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
+                        }
+                    
                     
                     
                     //status label
@@ -125,6 +134,10 @@ struct HomePage: View {
                 }
             }
             
+            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
+            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
+            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
+          
         }
         
         //repeat the process for CoreData time limit entity:
@@ -186,17 +199,6 @@ struct HomePage: View {
                 print(error)
             }
         }
-        
-        //        if SetUpIng.firstOpen {
-        //
-        //            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
-        //            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
-        //            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
-        //
-        //            SetUpIng.firstOpen = false
-        //        }
-        
-        self.recipe = filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue)
         
     }
 }
