@@ -37,13 +37,14 @@ struct AllIngItem: View {
             HStack {
                 if trueFalse ?? ingredient.isOwned {
                     Text("\(self.ingredient.ingredientName!)")
+                    .foregroundColor(K.textColor)
                 } else {
                     Text("\(self.ingredient.ingredientName!)")
                         .strikethrough()
                         .fontWeight(.semibold)
                 }
             }
-            .foregroundColor(K.textColor)
+            
         }
     }
 }

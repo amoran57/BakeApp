@@ -31,12 +31,8 @@ struct HomePage: View {
             NavigationView {
                 VStack {
                     
-                    Spacer()
-                    
-                    NavigationLink(destination:Settings()) {
-                        Text("Settings")
-                    }.frame(width: 375, alignment: .trailing)
-                        .padding(.trailing)
+                  
+                  
 
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
@@ -86,14 +82,21 @@ struct HomePage: View {
                             .foregroundColor(K.textColor)
                     }
                     
-                    Spacer()
+                   
                     
                 }.frame(width:geometry.size.width, height:700)
+                .navigationBarHidden(false)
+                       .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
+                           Text("Settings")
+                            .foregroundColor(K.blue)
+                       }.frame(width: 375, alignment: .trailing)
+                           .padding(.trailing))
                 
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear {self.setCoreData(); print("These are the times: \(SetUpIng.temporaryTimes[0].timeType), \(SetUpIng.temporaryTimes[1].timeType), \(SetUpIng.temporaryTimes[2].timeType)")}
+       
     }
     
     func setCoreData() {
@@ -166,12 +169,13 @@ struct HomePage: View {
     }
 }
 
-//struct HomePage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ForEach(["iPhone 8", "iPhone 11"], id: \.self) { deviceName in
-//            HomePage()
-//                .previewDevice(PreviewDevice(rawValue: deviceName))
-//                .previewDisplayName(deviceName)
-//        }
-//    }
-//}
+struct HomePage_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(["iPhone 8"], id: \.self) { deviceName in
+            HomePage()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
+    }
+}
+
