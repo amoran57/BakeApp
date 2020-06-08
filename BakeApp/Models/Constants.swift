@@ -15,6 +15,8 @@ struct K {
     static let darkGray = Color("BrandDarkGray")
     static let textColor = Color("BrandTextColor")
     static let frameColor = Color("BrandFrameColor")
+    static let UITextColor = UIColor(named: "BrandTextColor")!
+    static let UIFrameColor = UIColor(named: "BrandFrameColor")!
     static let logo = "SplashScreenBowl"
     static let bakeButton = "BakeButton"
     

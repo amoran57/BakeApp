@@ -30,10 +30,6 @@ struct HomePage: View {
             
             NavigationView {
                 VStack {
-                    
-                  
-                  
-
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
                         destination: RecipeDetail(recipe: self.recipe ?? recipeData[0])
