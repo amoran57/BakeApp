@@ -1,31 +1,28 @@
 //
-//  SetRecipeDetailView.swift
+//  SetTimePermanence.swift
 //  BakeApp
 //
-//  Created by Alex Moran on 6/7/20.
+//  Created by Alex Moran on 6/8/20.
 //  Copyright © 2020 Alex Moran. All rights reserved.
 //
 
 import SwiftUI
 
-struct SetRecipeDetailView: View {
+struct SetTimePermanence: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     
     var body: some View {
         VStack {
             Button(action: {
-                defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
-                
+                defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
                 self.presentationMode.wrappedValue.dismiss()
             }) {
                 HStack {
-                    Text("View Step-by-Step by default")
+                    Text("Make changes to time settings permanent")
                         .padding()
                         .multilineTextAlignment(.center)
                         .foregroundColor(K.textColor)
-                    
                     
                     
                 }.frame(width: 300, height: 100)
@@ -35,21 +32,17 @@ struct SetRecipeDetailView: View {
             }
             
             Spacer()
-                .frame(height: 30)
+                .frame(height:30)
             
             Button(action: {
-                defaults.set(false, forKey: K.Defaults.primaryViewIsTile)
-                
+                defaults.set(false, forKey: K.Defaults.timeSettingIsPermanent)
                 self.presentationMode.wrappedValue.dismiss()
             }) {
                 HStack {
-                    Text("View ingredients and instructions by default")
+                    Text("Make changes to time settings temporary")
                         .padding()
                         .multilineTextAlignment(.center)
                         .foregroundColor(K.textColor)
-                    
-                    
-                    
                     
                 }.frame(width: 300, height: 100)
                     .background(K.frameColor)
@@ -57,18 +50,20 @@ struct SetRecipeDetailView: View {
                     .foregroundColor(K.textColor)
             }
             
-            Text("Current preference: \(defaults.bool(forKey: K.Defaults.primaryViewIsTile) ? "view step-by-step" : "view ingredients and instructions")")
-                .padding(.top)
-                .foregroundColor(K.textColor)
+            Text("Current preference: \(defaults.bool(forKey: K.Defaults.timeSettingIsPermanent) ? "time settings are permanent" : "time settings are temporary")")
                 .multilineTextAlignment(.center)
+                .padding()
             
-        }.navigationBarTitle("Recipe View Preferences", displayMode: .inline)
+            Spacer()
+                .frame(height: 30)
+            
+            
+        }.navigationBarTitle("Time Preferences", displayMode: .inline)
     }
 }
 
-struct SetRecipeDetailView_Previews: PreviewProvider {
+struct SetTimePermanence_Previews: PreviewProvider {
     static var previews: some View {
-        SetRecipeDetailView()
+        SetTimePermanence()
     }
 }
-

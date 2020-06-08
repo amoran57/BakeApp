@@ -11,7 +11,7 @@ import SwiftUI
 struct SettingsTile: View {
     
     var text:String
-    
+   
     var body: some View {
         
         ZStack {
@@ -19,10 +19,12 @@ struct SettingsTile: View {
                 .frame(width: 150, height: 250)
             .cornerRadius(20)
                 .foregroundColor(K.frameColor)
-            
+            VStack{
             Text(text)
                 .foregroundColor(K.textColor)
                 .multilineTextAlignment(.center)
+            
+            }
         }.frame(width: 150, height: 250)
     }
 }

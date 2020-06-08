@@ -35,6 +35,8 @@ struct K {
     
     struct Defaults {
         static let primaryViewIsTile = "primaryViewIsTile"
+        static let timeSettingIsPermanent = "timeSettingIsPermanent"
+        static let ingSettingIsPermanent = "ingSettingIsPermanent"
     }
     
     struct IngString {

@@ -78,21 +78,21 @@ struct HomePage: View {
                             .foregroundColor(K.textColor)
                     }
                     
-                   
+                    
                     
                 }.frame(width:geometry.size.width, height:700)
-                .navigationBarHidden(false)
-                       .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
-                           Text("Settings")
+                    .navigationBarHidden(false)
+                    .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
+                        Text("Settings")
                             .foregroundColor(K.blue)
-                       }.frame(width: 375, alignment: .trailing)
-                           .padding(.trailing))
+                    }.frame(width: 375, alignment: .trailing)
+                        .padding(.trailing))
                 
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear {self.setCoreData(); print("These are the times: \(SetUpIng.temporaryTimes[0].timeType), \(SetUpIng.temporaryTimes[1].timeType), \(SetUpIng.temporaryTimes[2].timeType)")}
-       
+            .onAppear {self.setCoreData()}
+        
     }
     
     func setCoreData() {
@@ -124,8 +124,6 @@ struct HomePage: View {
                     print(error)
                 }
             }
-            //bonus: set default settings
-            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
             
         }
         
@@ -147,20 +145,58 @@ struct HomePage: View {
                 } catch {
                     print(error)
                 }
-                
+            }
+        }
+        
+        
+        if !defaults.bool(forKey: K.Defaults.ingSettingIsPermanent) {
+            for ing in self.ingStatus {
+                ing.setValue(true, forKey: "isOwned")
             }
             
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                print(error)
+            }
         }
         
-        for time in timeValue {
-            SetUpIng.temporaryTimes.append(time)
+        if !defaults.bool(forKey: K.Defaults.timeSettingIsPermanent) {
+            
+            var totalTime:TimeLimit?
+            var prepTime:TimeLimit?
+            var bakeTime:TimeLimit?
+            
+            for time in self.timeValue {
+                if time.timeType == K.Time.totalTime {
+                    totalTime = time
+                } else if time.timeType == K.Time.prepTime {
+                    prepTime = time
+                } else if time.timeType == K.Time.bakeTime {
+                    bakeTime = time
+                }
+            }
+            totalTime?.setValue(300, forKey: "timeLength")
+            prepTime?.setValue(300, forKey: "timeLength")
+            bakeTime?.setValue(300, forKey: "timeLength")
+            
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                print(error)
+            }
         }
         
-        for ing in ingStatus {
-            SetUpIng.temporaryIngredients.append(ing)
-        }
+        //        if SetUpIng.firstOpen {
+        //
+        //            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
+        //            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
+        //            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
+        //
+        //            SetUpIng.firstOpen = false
+        //        }
         
-        self.recipe = filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: SetUpIng.temporaryTimes)
+        self.recipe = filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue)
         
     }
 }

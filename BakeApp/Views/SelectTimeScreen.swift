@@ -37,7 +37,7 @@ struct SelectTimeScreen: View {
                     .frame(height: 30)
                 
                 ForEach(0..<self.timeValue.count) { number in
-                    TimeSlider(sliderName: self.timeValue[number].timeType ?? K.Time.totalTime, sliderPosition: self.timeValue[number].timeLength*60, isPermanent: self.isPermanent)
+                    TimeSlider(sliderName: self.timeValue[number].timeType ?? K.Time.totalTime, sliderPosition: self.timeValue[number].timeLength*60)
                     Spacer()
                         .frame(height: 30)
                 }
@@ -58,6 +58,7 @@ struct SelectTimeScreen: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                 
+                if self.showSettings {
                 //continue button
                 HStack {
                     Button(action: {
@@ -73,6 +74,7 @@ struct SelectTimeScreen: View {
                     
                 }.padding(.leading, geometry.size.width - 140)
                     .padding(.top)
+            }
                 
             }.navigationBarTitle("Time Limits", displayMode: .inline)
                 .navigationBarItems(trailing:

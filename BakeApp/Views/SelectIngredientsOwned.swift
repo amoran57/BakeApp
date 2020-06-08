@@ -13,46 +13,44 @@ import UIKit
 
 struct SelectIngredientsOwned: View {
     
-//    init() {
-//           //Use this if NavigationBarTitle is with Large Font
-//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: K.textColor]
-//       }
+    //    init() {
+    //           //Use this if NavigationBarTitle is with Large Font
+    //        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: K.textColor]
+    //       }
     
     //CoreData setup
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     //setup for custom back button
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-var showSettings = true
+    
+    var showSettings = true
     //number of tiles per line
     var numPerLine:Int? = 3
-
+    
     var body: some View {
         return GeometryReader { geometry in
             
             VStack {
-
+                
                 
                 //body of view
                 ScrollView {
-                VStack {
-                    ForEach(0..<5) { number in
-                        //returns HStacks of length numPerLine
-                        HStack {
-                            ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
-                                if counter < self.ingStatus.count {
-                                    IngTile(counter: counter)
-                                        .padding(5)
-                                        .padding(.trailing,0)
+                    VStack {
+                        ForEach(0..<5) { number in
+                            //returns HStacks of length numPerLine
+                            HStack {
+                                ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
+                                    if counter < self.ingStatus.count {
+                                        IngTile(counter: counter)
+                                            .padding(5)
+                                            .padding(.trailing,0)
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                }
-//                .navigationBarTitle(Text("Missing ingredients").foregroundColor(K.textColor).font(.system(size: 20)))
-                
                 
                 ZStack {
                     if filterByTime.couldNotFilter {
@@ -69,33 +67,34 @@ var showSettings = true
                 
                 //continue button
                 HStack {
-                    NavigationLink(destination: SeeAllIng(searchText: "")) {
+                    NavigationLink(destination: SeeAllIng(searchText: "", showSettings: self.showSettings)) {
                         Text("See all ingredients")
                     }
                     
                     Spacer()
-                    
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    })
-                    { HStack {
+                    if self.showSettings {
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+                        { HStack {
                             Text("Continue")
                             Image(systemName: "arrow.right")
                         }.foregroundColor(K.blue)
-                    }.buttonStyle(PlainButtonStyle())
+                        }.buttonStyle(PlainButtonStyle())
+                    }
                     
                 }.padding(.bottom)
                     .padding(.horizontal)
-     
+                
             }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                 .navigationBarTitle("Missing Ingredients")
                 .navigationBarItems(trailing:
                     NavigationLink(destination:Settings()) {
-                             if self.showSettings {
+                        if self.showSettings {
                             Text("Settings")
-                            }
                         }
-                   )
+                    }
+            )
         }
     }
     //functions to calculate the grid-style view of ingredient tiles

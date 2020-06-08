@@ -13,6 +13,8 @@ struct SeeAllIng: View {
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus(alphabetical: true)) var ingStatus:FetchedResults<IngredientsOwned>
     @State var searchText:String
     
+    var showSettings = true
+    
     var body: some View {
         VStack {
             SearchBar(text: $searchText)
@@ -22,6 +24,13 @@ struct SeeAllIng: View {
                 AllIngItem(ingredient: ing)
             }
         }.navigationBarTitle("Ingredients", displayMode: .inline)
+            .navigationBarItems(trailing:
+                NavigationLink(destination:Settings()) {
+                    if self.showSettings {
+                        Text("Settings")
+                    }
+                }
+        )
     }
 }
 //
