@@ -56,7 +56,7 @@ struct RecipeDetail: View {
                     .frame(height: 20.0)
                 
                 if primaryViewIsTile {
-                    ModelPages(recipe.instructions, currentPage: $index) { index, _  in
+                    ModelPages(recipe.instructions, currentPage: $index, currentTintColor: K.UITextColor, tintColor: K.UIFrameColor) { index, _  in
                         StepByStep(index: index, recipe: self.recipe)
                     }.frame(minHeight: 500, maxHeight: .infinity)
                         .padding(.top, -50)
