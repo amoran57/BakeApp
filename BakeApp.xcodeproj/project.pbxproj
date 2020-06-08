@@ -65,6 +65,7 @@
 		6F1F3104248C120600F8FC93 /* StepByStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStep.swift; sourceTree = "<group>"; };
 		6F3CB453248E87E5008B8B96 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		6F3CB455248E8C7F008B8B96 /* AllIngItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIngItem.swift; sourceTree = "<group>"; };
+		6F3CB45D248EBC82008B8B96 /* Pages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Pages; path = ../Pages; sourceTree = "<group>"; };
 		6F699DC1248D2B31000C7D20 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6F699DC3248D3084000C7D20 /* SettingsTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTile.swift; sourceTree = "<group>"; };
 		6F699DC6248D457D000C7D20 /* SetRecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRecipeDetailView.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 			children = (
 				6FD74DE62471F1A600D8FB80 /* BakeApp */,
 				6FD74DE52471F1A600D8FB80 /* Products */,
+				6F3CB45D248EBC82008B8B96 /* Pages */,
 			);
 			sourceTree = "<group>";
 		};
