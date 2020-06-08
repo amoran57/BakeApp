@@ -23,6 +23,8 @@ struct HomePage: View {
         .autoconnect()
     @State private var showingSheet = false
     
+    @State var recipe:Recipe?
+    
     var body: some View {
         return GeometryReader { geometry in
             
@@ -35,11 +37,10 @@ struct HomePage: View {
                         Text("Settings")
                     }.frame(width: 375, alignment: .trailing)
                         .padding(.trailing)
-                    
-                    
+
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
-                        destination: RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))
+                        destination: RecipeDetail(recipe: self.recipe ?? recipeData[0])
                         )
                     {
                         Image(K.bakeButton)
@@ -160,15 +161,17 @@ struct HomePage: View {
             SetUpIng.temporaryIngredients.append(ing)
         }
         
+        self.recipe = filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: SetUpIng.temporaryTimes)
+        
     }
 }
 
-struct HomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(["iPhone 8", "iPhone 11"], id: \.self) { deviceName in
-            HomePage()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
-    }
-}
+//struct HomePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(["iPhone 8", "iPhone 11"], id: \.self) { deviceName in
+//            HomePage()
+//                .previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
+//    }
+//}

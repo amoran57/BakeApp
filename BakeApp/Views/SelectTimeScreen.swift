@@ -17,7 +17,7 @@ struct SelectTimeScreen: View {
     
     let formatter = DateComponentsFormatter()
     var showSettings = true
-    var isPermanent = true
+    var isPermanent = false
     
     var body: some View {
         formatter.allowedUnits = [.hour, .minute]
@@ -37,7 +37,7 @@ struct SelectTimeScreen: View {
                     .frame(height: 30)
                 
                 ForEach(0..<self.timeValue.count) { number in
-                    TimeSlider(sliderName: self.timeValue[number].timeType ?? K.Time.totalTime, sliderPosition: self.timeValue[number].timeLength*60)
+                    TimeSlider(sliderName: self.timeValue[number].timeType ?? K.Time.totalTime, sliderPosition: self.timeValue[number].timeLength*60, isPermanent: self.isPermanent)
                     Spacer()
                         .frame(height: 30)
                 }

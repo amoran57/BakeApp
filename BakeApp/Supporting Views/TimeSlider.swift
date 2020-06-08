@@ -15,7 +15,7 @@ struct TimeSlider: View {
     
     var sliderName:String
     @State var sliderPosition:Double
-    var isPermanent = true
+    var isPermanent:Bool
     
     let formatter = DateComponentsFormatter()
     
@@ -51,7 +51,7 @@ struct TimeSlider: View {
                 //push changes to CoreData
                 do {
                     try self.managedObjectContext.save()
-                    print("Successfully saved item.")
+                    print("Successfully saved item: \(self.timeValue[counter].timeType) for value \(self.timeValue[counter].timeLength)")
                 } catch {
                     print(error)
                 }
@@ -62,6 +62,7 @@ struct TimeSlider: View {
         for counter in 0...SetUpIng.temporaryTimes.count-1 {
             if SetUpIng.temporaryTimes[counter].timeType == self.sliderName {
                 SetUpIng.temporaryTimes[counter].timeLength = self.sliderPosition/60
+                print("\(SetUpIng.temporaryTimes[counter].timeType) set to \(SetUpIng.temporaryTimes[counter].timeLength) in the temporary array")
             }
         }
         

@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct SeeAllIng: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus(alphabetical: true)) var ingStatus:FetchedResults<IngredientsOwned>
+    @State var searchText:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            SearchBar(text: $searchText)
+                .padding(.top)
+            
+            List(ingStatus.filter({ searchText.isEmpty ? true : $0.ingredientName?.contains(searchText.lowercased()) as! Bool })) { ing in
+                AllIngItem(ingredient: ing)
+            }
+        }.navigationBarTitle("Ingredients", displayMode: .inline)
     }
 }
-
-struct SeeAllIng_Previews: PreviewProvider {
-    static var previews: some View {
-        SeeAllIng()
-    }
-}
+//
+//struct SeeAllIng_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SeeAllIng()
+//    }
+//}

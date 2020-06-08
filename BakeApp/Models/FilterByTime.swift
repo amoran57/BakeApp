@@ -10,14 +10,13 @@ import SwiftUI
 import CoreData
 
 struct FilterByTime {
-//    @Environment(\.managedObjectContext) var managedObjectContext
-//    @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
+
     var couldNotFilter:Bool = false
     var couldNotFilterByIng:Bool = false
     var couldNotFilterByTime:Bool = false
     let recipeScreener = RecipeScreener()
     
-    mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> [Recipe] {
+    mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:[TimeLimit]) -> [Recipe] {
         //creates array of recipes to filter; this array is pre-filtered by ingredient
         let inputRecipes:[Recipe] = recipeScreener.filterByIngredients(input:input)
         
@@ -95,7 +94,7 @@ struct FilterByTime {
         }
     }
     
-    mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> Recipe {
+    mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:[TimeLimit]) -> Recipe {
         
         let filteredRecipeList = filterByTime(ingredientData: input, timeData: timeData)
         

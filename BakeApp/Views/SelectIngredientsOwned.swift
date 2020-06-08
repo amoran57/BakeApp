@@ -69,7 +69,7 @@ var showSettings = true
                 
                 //continue button
                 HStack {
-                    NavigationLink(destination: SeeAllIng()) {
+                    NavigationLink(destination: SeeAllIng(searchText: "")) {
                         Text("See all ingredients")
                     }
                     
