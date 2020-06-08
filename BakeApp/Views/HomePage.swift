@@ -13,8 +13,6 @@ var filterByTime = FilterByTime()
 
 
 struct NavigationLazyView<Content: View>: View {
-    @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
-    @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     let build: () -> Content
     init(_ build: @autoclosure @escaping () -> Content) {
         self.build = build
@@ -30,7 +28,7 @@ struct HomePage: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
-
+    
     
     var body: some View {
         return GeometryReader { geometry in
@@ -38,18 +36,16 @@ struct HomePage: View {
             NavigationView {
                 VStack {
                     
-                  
-                        //button to go to random recipe; calls on global instance of FilterByTime
-                        NavigationLink(
-                             destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))))
-                        {
-                            Image(K.bakeButton)
-                                .renderingMode(.original)
-                                .resizable()
-                                .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
-                        }
                     
-                    
+                    //button to go to random recipe; calls on global instance of FilterByTime
+                    NavigationLink(
+                        destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))))
+                    {
+                        Image(K.bakeButton)
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
+                    }
                     
                     //status label
                     ZStack {
@@ -137,7 +133,7 @@ struct HomePage: View {
             defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
             defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
             defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
-          
+            
         }
         
         //repeat the process for CoreData time limit entity:

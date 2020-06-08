@@ -42,14 +42,16 @@ struct IngTile: View {
                 //appearance if isOwned == true
                 Text(self.ingStatus[counter].ingredientName!)
                     .foregroundColor(K.textColor)
+                    .multilineTextAlignment(.center)
                     .padding()
                     .background(K.frameColor)
                     .cornerRadius(10)
             } else {
                 //appearance if isOwned == false
                 Text(self.ingStatus[counter].ingredientName!)
-                    .foregroundColor(Color.white)
                     .strikethrough()
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.white)
                     .padding()
                     .background(K.blue)
                     .cornerRadius(10)

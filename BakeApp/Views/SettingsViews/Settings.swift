@@ -15,70 +15,108 @@ struct Settings: View {
     
     var body: some View {
         VStack {
+            
             Spacer()
+            
             HStack {
+                
                 Spacer()
+                
                 ZStack {
-                    Rectangle()
-                        .frame(width: 150, height: 250)
-                        .cornerRadius(20)
-                        .foregroundColor(K.frameColor)
+                    
                     VStack{
+                        
                         NavigationLink(destination: SetTimePermanence()) {
-                            Text("Make Time Preferences Permanent/Temporary")
-                                .foregroundColor(K.textColor)
-                                .multilineTextAlignment(.center)
-                                .frame(height: 120, alignment: .center)
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150, height: 120)
+                                    .cornerRadius(20)
+                                    .foregroundColor(K.frameColor)
+                                
+                                Text("Make Time Preferences Permanent/Temporary")
+                                    .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
+                                    .frame(width:150, height: 120, alignment: .center)
+                            }
+                            
                         }
                         
-                        Divider()
-                            .foregroundColor(K.textColor)
+                        Rectangle()
+                            .frame(width: 140, height: 2)
+                            .foregroundColor(K.frameColor)
+                            .padding(.vertical, -2)
                         
                         NavigationLink(destination:SelectTimeScreen(showSettings:false)) {
-                            Text("Adjust current time settings")
-                            .padding()
-                                .frame(height: 120)
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150, height: 120)
+                                    .cornerRadius(20)
+                                    .foregroundColor(K.frameColor)
+                                
+                                Text("Adjust current time settings")
+                                    .padding()
+                                    .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
+                                    .frame(width:150, height: 120, alignment: .center)
+                                
+                            }
                         }
-                        
                     }
                 }.frame(width: 150, height: 250)
                 Spacer()
                 
                 
                 ZStack {
-                    Rectangle()
-                        .frame(width: 150, height: 250)
-                        .cornerRadius(20)
-                        .foregroundColor(K.frameColor)
+                    
                     VStack{
+                        
                         NavigationLink(destination: SetIngredientPermanence()) {
-                            Text("Make Ingredient Preferences Permanent/Temporary")
-                                .foregroundColor(K.textColor)
-                                .multilineTextAlignment(.center)
-                                .frame(height: 120, alignment: .center)
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150, height: 120)
+                                    .cornerRadius(20)
+                                    .foregroundColor(K.frameColor)
+                                
+                                Text("Make Ingredient Preferences Permanent/Temporary")
+                                    .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
+                                    .frame(width:150, height: 120, alignment: .center)
+                            }
+                            
                         }
                         
-                        Divider()
-                        .foregroundColor(K.textColor)
+                        Rectangle()
+                            .frame(width: 140, height: 2)
+                            .foregroundColor(K.frameColor)
+                            .padding(.vertical, -2)
                         
                         NavigationLink(destination:SelectIngredientsOwned(showSettings:false)) {
-                            Text("Adjust current ingredient settings")
-                            .padding()
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.center)
-                                .frame(height: 120)
-//                            .fixedSize(horizontal: false, vertical: true)
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150, height: 120)
+                                    .cornerRadius(20)
+                                    .foregroundColor(K.frameColor)
+                                
+                                Text("Adjust current ingredient settings")
+                                    .padding()
+                                    .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
+                                    .frame(width:150, height: 120, alignment: .center)
+                                
+                            }
                         }
-                        
                     }
                 }.frame(width: 150, height: 250)
                 
                 Spacer()
             }
+            
             Spacer()
+            
             HStack {
                 Spacer()
                 NavigationLink(destination: SetRecipeDetailView()) {
