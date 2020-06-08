@@ -42,7 +42,6 @@ struct ScrollInsPopup: View {
                     .foregroundColor(K.textColor)
                     .font(.title)
             }
-            //            Spacer()
             
             
             ModelPages(recipe.instructions, currentPage: $index) { index, _  in
@@ -53,6 +52,7 @@ struct ScrollInsPopup: View {
             
         }
     }
+
 }
 
 

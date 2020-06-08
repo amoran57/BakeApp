@@ -66,11 +66,14 @@ struct RecipeDetail: View {
                         Button("Show ingredients") {
                             self.showingSheet.toggle()
                         }.sheet(isPresented: $showingSheet) {
-                            ScrollView {
+                        ScrollView {
                                 IngList(ingList:self.recipe.ingredients, text: "\(self.recipe.name): Ingredients")
                                     .padding(.top)
                             }
                         }.padding(.bottom)
+                            
+                            
+                            
                         
                         Spacer()
                             .frame(width: 75)
@@ -84,6 +87,7 @@ struct RecipeDetail: View {
                             }
                         }.padding(.bottom)
                     }
+                   
                     
                 } else {
                     //ingredients
