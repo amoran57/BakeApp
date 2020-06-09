@@ -9,22 +9,6 @@
 import SwiftUI
 
 
-
-    
-//    //list of ingredients
-//    VStack(alignment: .leading, spacing: 20.0) {
-//        InsListItem(inp: self.insList, stepNum: 1)
-//       InsListItem(inp: self.insList, stepNum: 2)
-//        InsListItem(inp: self.insList, stepNum: 3)
-//        InsListItem(inp: self.insList, stepNum: 4)
-//        InsListItem(inp: self.insList, stepNum: 5)
-//        InsListItem(inp: self.insList, stepNum: 6)
-//        
-//    }
-//    .padding(.leading, 10)
-
-
-
 struct IngList: View {
     //input as Ingredients type
     var ingList: [String]
@@ -56,11 +40,4 @@ struct IngList: View {
     }
 }
 
-//struct IngList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        IngList(ingList: recipeData[0].ingredients)
-//    }
-//}
-//
-//
-//
+

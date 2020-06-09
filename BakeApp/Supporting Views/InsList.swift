@@ -48,8 +48,3 @@ struct InsList: View {
     }
 }
 
-//struct InsList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InsList(insList: recipeData[5].instructions)
-//    }
-//}

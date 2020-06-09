@@ -130,9 +130,9 @@ struct HomePage: View {
                 }
             }
             
-            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
-            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
-            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
+//            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
+//            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
+//            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
             
         }
         

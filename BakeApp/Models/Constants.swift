@@ -59,35 +59,6 @@ struct K {
 }
 
 
-//struct ContentView : View {
-//
-//    @ObservedObject var settingsStore: SettingsStore
-//
-//    var body: some View {
-//        NavigationView {
-//            Form {
-//                Toggle(isOn: $settingsStore.settingActivated) {
-//                    Text("Setting Activated")
-//                }
-//            }.navigationBarTitle(Text("Settings"))
-//        }
-//    }
-//}
-
-class SettingsStore: ObservableObject {
-
-    let willChange = PassthroughSubject<Void, Never>()
-
-    var primaryViewIsTile: Bool = UserDefaults.primaryViewIsTile {
-        willSet {
-
-            UserDefaults.primaryViewIsTile = newValue
-
-            willChange.send()
-        }
-    }
-}
-
 extension UserDefaults {
 
     private struct Keys {
