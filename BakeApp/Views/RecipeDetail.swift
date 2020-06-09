@@ -148,7 +148,7 @@ struct RecipeDetail: View {
                 
             }
         }.navigationBarTitle("\(recipe.name)", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: Settings(recipe:recipe)) {
+            .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
                 if showSettings {
                     Text("Settings")
                 }

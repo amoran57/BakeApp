@@ -13,31 +13,55 @@ let defaults = UserDefaults.standard
 
 struct Settings: View {
     @ObservedObject var userSettings = UserSettings()
-    var recipe:Recipe?
+    @State private var showPopover = false
     var body: some View {
         
         VStack {
-                Form {
-                    Section() {
-                        Toggle(isOn: self.$userSettings.timeSettingIsPermanent) {
-                            Text("Time preferences are permanent")
-                        }
-                        Toggle(isOn: self.$userSettings.ingSettingIsPermanent) {
-                            Text("Ingredient preferences are permanent")
-                        }
-                        Toggle(isOn: self.$userSettings.primaryViewIsTile) {
-                            Text("Show instructions one at a time")
-                        }
+            Form {
+                Section() {
+                    Toggle( isOn: self.$userSettings.timeSettingIsPermanent) {
+                        Text("Time preferences are permanent")
+                    }
+                    
+                    Toggle(isOn: self.$userSettings.ingSettingIsPermanent) {
+                        Text("Ingredient preferences are permanent")
+                    }
+                    
+                    Toggle(isOn: self.$userSettings.primaryViewIsTile) {
+                        Text("Show instructions one at a time")
                     }
                 }
-            
-             
-        }.navigationBarTitle("Settings")
-            .onDisappear {
-                if let validRecipe = self.recipe {
+                
+                Section() {
+                    NavigationLink(destination: RemoveRecipe()) {
+                        Text("Remove recipe")
+                    }
+                    Button("Contact us") {
+                        self.showPopover.toggle()
+                    }.overlay(
+                        ZStack { if self.showPopover {
+                            Rectangle()
+                                .frame(width: 350, height: 70)
+                                .foregroundColor(K.frameColor)
+                                .cornerRadius(20)
+                            
+                            Text("Send us an email at bakeapp@gmail.com!")
+                                .foregroundColor(K.textColor)
+                                .frame(width: 350, height: 70)
+                            }
+                        }.frame(width: 350, height: 120, alignment:.bottom)
+                            .animation(.easeOut(duration: 0.3))
+                        , alignment: .topLeading
+                    )
+                    
+                    }
+                    
                     
                 }
-        }
+            
+            
+        }.navigationBarTitle("Settings")
+
         //
 //        VStack {
 //
