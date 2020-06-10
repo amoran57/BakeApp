@@ -14,7 +14,7 @@ import Foundation
 
 struct RecipeTile: View {
     var recipe: Recipe
-    
+    var remove:Bool = true
     var body: some View {
         
         VStack(alignment: .leading) {

@@ -17,6 +17,7 @@ struct RecipeDetail: View {
     @State private var showingSheet2 = false
     var recipe: Recipe
     var showSettings = true
+    var remove = false
     
     var body: some View {
         
@@ -147,11 +148,25 @@ struct RecipeDetail: View {
                     .padding(.trailing)
                 
             }
-        }.navigationBarTitle("\(recipe.name)", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
-                if showSettings {
+        }.background(Image("crumpet").opacity(0.2))
+            .edgesIgnoringSafeArea(.all)
+        
+        .navigationBarTitle("\(recipe.name)", displayMode: .inline)
+            .navigationBarItems(trailing:
+                
+                Group {
+               
+                if remove {
+                    
+                    Text("Remove recipe")
+                        .foregroundColor(.red)
+                }
+                    
+                else if showSettings {
+                     NavigationLink(destination: Settings()) {
                     Text("Settings")
                 }
+                    }
             })
             
     }
