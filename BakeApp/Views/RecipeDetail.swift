@@ -23,17 +23,17 @@ struct RecipeDetail: View {
         
         VStack {
             if userSettings.primaryViewIsTile  {
-                ScrollView {
+//                ScrollView {
                     //tease preview
 //                    CircleImage(image: recipe.image)
                     
-                    //name of recipe
-//                    Text(recipe.name)
-//                        .foregroundColor(K.textColor)
-//                        .font(.system(size: 32))
-//                        .fontWeight(.bold)
-//                        .frame(width: 350)
-//                        .multilineTextAlignment(.center)
+//                    name of recipe
+                    Text(recipe.name)
+                        .foregroundColor(K.textColor)
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .frame(width: 350)
+                        .lineLimit(1)
                     
                     //total time
                     Text("Total time: \(recipe.totTimeText)")
@@ -58,11 +58,13 @@ struct RecipeDetail: View {
                     Spacer()
                         .frame(height: 20.0)
                     
-                    ModelPages(recipe.instructions, currentPage: $index, currentTintColor: K.UITextColor, tintColor: K.UIFrameColor) { index, _  in
+                    ModelPages(recipe.instructions, currentPage: $index,
+                               currentTintColor: K.UITextColor, tintColor: K.UIFrameColor)
+                    { index, _  in
                         StepByStep(index: index, recipe: self.recipe)
                     }.frame(minHeight: 500, maxHeight: .infinity)
                         .padding(.top, -50)
-                }
+//                }
                 HStack {
                     
                     Button("Show ingredients") {
@@ -88,20 +90,20 @@ struct RecipeDetail: View {
                                 .padding(.top)
                         }
                     }.padding(.bottom)
-                }
+                }.padding(.bottom)
                 
             } else {
                 ScrollView {
                     //tease preview
-                    CircleImage(image: recipe.image)
+//                    CircleImage(image: recipe.image)
                     
                     //name of recipe
-                    Text(recipe.name)
-                        .foregroundColor(K.textColor)
-                        .font(.system(size: 32))
-                        .fontWeight(.bold)
-                        .frame(width: 350)
-                        .multilineTextAlignment(.center)
+//                    Text(recipe.name)
+//                        .foregroundColor(K.textColor)
+//                        .font(.system(size: 32))
+//                        .fontWeight(.bold)
+//                        .frame(width: 350)
+//                        .multilineTextAlignment(.center)
                     
                     //total time
                     Text("Total time: \(recipe.totTimeText)")
@@ -148,14 +150,10 @@ struct RecipeDetail: View {
                     .padding(.trailing)
                 
             }
-        }.background(recipe.image.opacity(0.2))
-//            .edgesIgnoringSafeArea(.all)
-        
-            .navigationBarTitle(
-                "\(recipe.name)"
-                .foregroundColor(K.textColor)
-                .multilineTextAlignment(.center)
-        )
+        }.background(recipe.image.opacity(0.2).edgesIgnoringSafeArea(.all))
+            
+       
+            .navigationBarTitle("\(userSettings.primaryViewIsTile ? "" : recipe.name)")
 //                .frame(width: 375, alignment: .center))
         
             .navigationBarItems(trailing:

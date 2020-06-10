@@ -42,8 +42,8 @@ struct SideList: View, Hashable {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                }.padding(.leading)
-            }
+                }.padding(.trailing)
+            }.edgesIgnoringSafeArea(.leading)
         }
     }
 }

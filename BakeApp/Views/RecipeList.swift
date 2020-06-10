@@ -29,18 +29,23 @@ struct RecipeList: View {
     
     var body: some View {
         VStack {
-            List {
+            ScrollView(showsIndicators: false) {
                 ForEach(self.practiceArray, id: \.self) { row in
+                    VStack {
                     SideList(typeOfBakedGood: String(row))
+                        if row != "other" {
+                    Divider()
+                        }
+                    }.padding(.leading)
+                }.padding(.bottom)
                 }
-            }
             .navigationBarTitle("Recipes")
             .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
                 Text("Settings")
             })
 //            .navigationBarBackButtonHidden(true)
 //            .navigationBarItems(leading: self.btnBack)
-        }
+        }.padding(.bottom, 5)
     }
 }
 
