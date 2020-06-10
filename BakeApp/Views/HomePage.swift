@@ -103,6 +103,12 @@ struct HomePage: View {
                     
                     
                 }.frame(width:geometry.size.width, height:700)
+                    .background(recipeData[self.activeImageIndex].image
+                        .resizable()
+                        .opacity(0.2)
+                        .edgesIgnoringSafeArea(.all)
+                        .aspectRatio(contentMode: .fill)
+                )
                     .navigationBarHidden(false)
                     .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
                         Text("Settings")
@@ -110,6 +116,8 @@ struct HomePage: View {
                     }.frame(width: 375, alignment: .trailing)
                         .padding(.trailing))
                 
+            }  .onReceive(self.imageSwitchTimer) { _ in
+                self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)

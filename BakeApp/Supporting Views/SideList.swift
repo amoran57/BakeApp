@@ -37,7 +37,9 @@ struct SideList: View, Hashable {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
                     ForEach (self.createNewArray()!, id: \.self) { item in
-                        NavigationLink(destination:RecipeDetail(recipe: item, showSettings:false)) {
+                        NavigationLink(destination:
+                        NavigationLazyView(RecipeDetail(recipe: item, showSettings:false))
+                        ) {
                             RecipeTile(recipe: item)
                         }
                         .buttonStyle(PlainButtonStyle())

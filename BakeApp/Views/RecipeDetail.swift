@@ -97,13 +97,13 @@ struct RecipeDetail: View {
                     //tease preview
 //                    CircleImage(image: recipe.image)
                     
-                    //name of recipe
-//                    Text(recipe.name)
-//                        .foregroundColor(K.textColor)
-//                        .font(.system(size: 32))
-//                        .fontWeight(.bold)
-//                        .frame(width: 350)
-//                        .multilineTextAlignment(.center)
+//                    name of recipe
+                    Text(recipe.name)
+                        .foregroundColor(K.textColor)
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .frame(width: 350)
+                        .multilineTextAlignment(.center)
                     
                     //total time
                     Text("Total time: \(recipe.totTimeText)")
@@ -138,6 +138,9 @@ struct RecipeDetail: View {
                     InsList(insList: self.recipe.instructions)
                 }
                 VStack {
+                    Rectangle()
+                        .frame(height:0.5)
+                        .foregroundColor(K.textColor)
                     Button(action: {
                         self.showingSheet.toggle()
                     }) {
@@ -145,17 +148,12 @@ struct RecipeDetail: View {
                     }
                     .sheet(isPresented: $showingSheet) {
                         ScrollInsPopup(recipe: self.recipe)
-                    }.padding(.bottom)
+                    }.padding([.bottom, .trailing])
                 }.frame(width: 375, alignment: .trailing)
-                    .padding(.trailing)
+                    
                 
             }
         }.background(recipe.image.opacity(0.2).edgesIgnoringSafeArea(.all))
-            
-       
-            .navigationBarTitle("\(userSettings.primaryViewIsTile ? "" : recipe.name)")
-//                .frame(width: 375, alignment: .center))
-        
             .navigationBarItems(trailing:
                 
                 Group {
@@ -172,6 +170,8 @@ struct RecipeDetail: View {
                 }
                     }
             })
+       
+            .navigationBarTitle("\(userSettings.primaryViewIsTile ? "" : recipe.name)", displayMode: .inline)
             
     }
 

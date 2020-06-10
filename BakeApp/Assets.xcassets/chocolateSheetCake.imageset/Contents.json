@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Texas-Sheet-Cake-Culinary-Hill-square.jpg",
+      "filename" : "chocolateSheetCake.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "chocolateSheetCake@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "chocolateSheetCake@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
