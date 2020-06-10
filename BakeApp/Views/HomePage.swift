@@ -5,7 +5,9 @@
 //  Created by Alex Moran on 5/29/20.
 //  Copyright © 2020 Alex Moran. All rights reserved.
 //
-
+        
+       
+                 
 import SwiftUI
 
 //create globally accessible instance of FilterByTime
@@ -29,6 +31,11 @@ struct HomePage: View {
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
+    //image slideshow stuff
+    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
+    
+    let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
+        .autoconnect()
     
     var body: some View {
         return GeometryReader { geometry in
@@ -36,6 +43,16 @@ struct HomePage: View {
             NavigationView {
                 VStack {
                     
+//                    recipeData[self.activeImageIndex].image
+//                        .resizable()
+//                        .frame(width: 500, height: 500)
+//                        .clipShape(Circle())
+//                        .padding(.top, -450)
+//                        .shadow(radius: 10)
+//                        .onReceive(self.imageSwitchTimer) { _ in
+//                        // Go to the next image.
+//                        self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
+//                    }
                     
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(

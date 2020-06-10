@@ -25,15 +25,15 @@ struct RecipeDetail: View {
             if userSettings.primaryViewIsTile  {
                 ScrollView {
                     //tease preview
-                    CircleImage(image: recipe.image)
+//                    CircleImage(image: recipe.image)
                     
                     //name of recipe
-                    Text(recipe.name)
-                        .foregroundColor(K.textColor)
-                        .font(.system(size: 32))
-                        .fontWeight(.bold)
-                        .frame(width: 350)
-                        .multilineTextAlignment(.center)
+//                    Text(recipe.name)
+//                        .foregroundColor(K.textColor)
+//                        .font(.system(size: 32))
+//                        .fontWeight(.bold)
+//                        .frame(width: 350)
+//                        .multilineTextAlignment(.center)
                     
                     //total time
                     Text("Total time: \(recipe.totTimeText)")
@@ -148,10 +148,16 @@ struct RecipeDetail: View {
                     .padding(.trailing)
                 
             }
-        }.background(Image("crumpet").opacity(0.2))
-            .edgesIgnoringSafeArea(.all)
+        }.background(recipe.image.opacity(0.2))
+//            .edgesIgnoringSafeArea(.all)
         
-        .navigationBarTitle("\(recipe.name)", displayMode: .inline)
+            .navigationBarTitle(
+                "\(recipe.name)"
+                .foregroundColor(K.textColor)
+                .multilineTextAlignment(.center)
+        )
+//                .frame(width: 375, alignment: .center))
+        
             .navigationBarItems(trailing:
                 
                 Group {
