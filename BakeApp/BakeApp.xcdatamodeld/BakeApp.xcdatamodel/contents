@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F96" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="IngredientsOwned" representedClassName=".IngredientsOwned" syncable="YES">
         <attribute name="ingredientName" optional="YES" attributeType="String"/>
-        <attribute name="instances" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="instances" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isOwned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="TimeLimit" representedClassName=".TimeLimit" syncable="YES">
@@ -10,7 +11,7 @@
         <attribute name="timeType" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="IngredientsOwned" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="IngredientsOwned" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="TimeLimit" positionX="-36" positionY="27" width="128" height="73"/>
     </elements>
 </model>

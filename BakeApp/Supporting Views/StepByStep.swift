@@ -96,8 +96,8 @@ struct GeometryGetterMod: ViewModifier {
 }
 
 
-struct StepByStep_Previews: PreviewProvider {
-    static var previews: some View {
-        StepByStep(index:0, recipe: recipeData[0])
-    }
-}
+//struct StepByStep_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StepByStep(index:0, recipe: recipeData[0])
+//    }
+//}

@@ -229,8 +229,8 @@ struct RecipeDetail: View {
     
 }
 
-struct RecipeDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeDetail(recipe: recipeData[0], practiceArray: .constant(nil))
-    }
-}
+//struct RecipeDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeDetail(recipe: recipeData[0], practiceArray: .constant(nil))
+//    }
+//}

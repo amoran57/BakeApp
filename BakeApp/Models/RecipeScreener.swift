@@ -43,7 +43,7 @@ struct RecipeScreener {
                     //check if the recipe has that ingredient
                     if ingMissing.lowercased() == ingRequired.lowercased() {
                         print("\(ingRequired) is required for recipe \(recipe.name), but that ingredient is not on hand.")
-                        //get the index number of that recipe in the recipeData array
+                        //get the index number of that recipe in the array
                         if let index = validRecipes.firstIndex(of: recipe) {
                             //remove the recipe at that index
                             validRecipes.remove(at: index)

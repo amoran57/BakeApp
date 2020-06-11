@@ -32,9 +32,9 @@ struct RecipeTile: View {
     }
 }
 
-struct RecipeTile_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeTile(recipe: recipeData[0])
-            .previewLayout(.fixed(width: 200, height: 200))
-    }
-}
+//struct RecipeTile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeTile(recipe: recipeData[0])
+//            .previewLayout(.fixed(width: 200, height: 200))
+//    }
+//}

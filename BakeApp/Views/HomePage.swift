@@ -36,10 +36,12 @@ struct HomePage: View {
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
     
+    @State var timerIndex:Int = 0
+    
     @State var filteredArray = recipeData
-        .enumerated()
-        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-        .map { $0.element }
+    //        .enumerated()
+    //        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+    //        .map { $0.element }
     
     @State var navigationLinkActive:Bool = false
     
@@ -52,19 +54,19 @@ struct HomePage: View {
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
                         "", destination:
-                        NavigationLazyView(
-                            RecipeDetail(
-                                recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
-                                practiceArray: .constant(nil))
+                        //                        NavigationLazyView(
+                        RecipeDetail(
+                            recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
+                            practiceArray: .constant(nil)
                         ),
                         isActive: self.$navigationLinkActive
                     )
                     Button(action: {
                         self.imageSwitchTimer.upstream.connect().cancel()
                         self.filteredArray = recipeData
-                        .enumerated()
-                        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-                        .map { $0.element }
+                            .enumerated()
+                            .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                            .map { $0.element }
                         self.navigationLinkActive = true
                     })
                     {
@@ -102,7 +104,7 @@ struct HomePage: View {
                     }
                     
                     //link to recipe browse (RecipeList)
-                    NavigationLink(destination:NavigationLazyView(RecipeList())) {
+                    NavigationLink(destination:RecipeList()) {
                         Text("I have something specific in mind.")
                             .font(.system(size:16))
                             .italic()
@@ -112,12 +114,13 @@ struct HomePage: View {
                     
                     
                     
-                }.frame(width:geometry.size.width, height:700)
-                    .background(recipeData[self.activeImageIndex].image
-                        .resizable()
-                        .opacity(0.2)
-                        .edgesIgnoringSafeArea(.all)
-                        .aspectRatio(contentMode: .fill)
+                }
+                .frame(width:geometry.size.width, height:700)
+                .background(recipeData[self.activeImageIndex].image
+                .resizable()
+                .opacity(0.2)
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
                 )
                     .navigationBarHidden(false)
                     .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
@@ -127,17 +130,22 @@ struct HomePage: View {
                         .padding(.trailing))
                 
             }
-            .onReceive(self.imageSwitchTimer) { _ in
-                var nextIndex = Int.random(in: 0...recipeData.count-1)
-                while nextIndex == self.activeImageIndex {
-                    print("Duplicate index; trying again")
-                    nextIndex = Int.random(in: 0...recipeData.count-1)
-                }
-                self.activeImageIndex = nextIndex
-            }
+            
+        }
+        .onReceive(self.imageSwitchTimer) { _ in
+
+            self.timerIndex += 1
+            print(self.timerIndex)
+//            var nextIndex = Int.random(in: 0...recipeData.count-1)
+//            while nextIndex == self.activeImageIndex {
+//                print("Duplicate index; trying again")
+//                nextIndex = Int.random(in: 0...recipeData.count-1)
+//            }
+//            self.activeImageIndex = nextIndex
+
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear (perform: {self.setCoreData(); self.imageSwitchTimer.upstream.runLoop })
+            .onAppear (perform: {self.setCoreData()})
         
     }
     
@@ -152,6 +160,7 @@ struct HomePage: View {
                 ingredient.ingredientName = ing
                 //assume that all ingredients are owned
                 ingredient.isOwned = true
+                ingredient.isHidden = false
                 //find frequency and store as "occurences" value
                 var occurences:Int16 = 0
                 
@@ -174,6 +183,7 @@ struct HomePage: View {
             defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
             defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
             defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
+            defaults.set([], forKey: K.Defaults.removedRecipeIndex)
             
         }
         
@@ -198,7 +208,7 @@ struct HomePage: View {
             }
         }
         
-        
+        //reset ingredients if needed
         if !defaults.bool(forKey: K.Defaults.ingSettingIsPermanent) {
             for ing in self.ingStatus {
                 ing.setValue(true, forKey: "isOwned")
@@ -211,6 +221,7 @@ struct HomePage: View {
             }
         }
         
+        //reset times if needed
         if !defaults.bool(forKey: K.Defaults.timeSettingIsPermanent) {
             
             var totalTime:TimeLimit?
@@ -237,8 +248,13 @@ struct HomePage: View {
             }
         }
         
-        //for now, reset every time the app opens:
-        defaults.set([], forKey: K.Defaults.removedRecipeIndex)
+        self.imageSwitchTimer.upstream.autoconnect()
+        
+        self.filteredArray = recipeData
+            .enumerated()
+            .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+            .map { $0.element }
+        
         
     }
 }

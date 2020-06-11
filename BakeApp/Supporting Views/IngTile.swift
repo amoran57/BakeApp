@@ -16,6 +16,12 @@ struct IngTile: View {
     var counter:Int
     @State private var trueFalse:Bool?
     
+//    var filteredIng:[IngredientsOwned] {
+//        ingStatus.filter { (<#IngredientsOwned#>) -> Bool in
+//            <#code#>
+//        }
+//    }
+    
     var body: some View {
         
         Button(action: {

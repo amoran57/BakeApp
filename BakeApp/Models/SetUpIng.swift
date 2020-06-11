@@ -47,21 +47,6 @@ struct SetUpIng: Hashable {
         return (unIng.sortByNumberOfOccurences()).unique()
     }
     
-    //fills our dictionary with keys drawn from uniqueIng function and values of "true" in every case
-    func createDict () -> [String:Bool] {
-        //sets our dictionary which will have a bool for every unique ingredient
-        var tempDict:[String:Bool] = [:]
-        for item in 0..<SetUpIng.uniqueIng(list: recipeData).count {
-            //initializes every ingredient to "true"
-            tempDict[SetUpIng.uniqueIng(list: recipeData)[item]] = true
-        }
-        return tempDict
-    }
-    
-    var dict: [String:Bool] {
-        createDict()
-    }
-    
     static var list: [String] {
         uniqueIng(list: recipeData)
     }
@@ -69,6 +54,5 @@ struct SetUpIng: Hashable {
     static var timeList:[String] = [K.Time.totalTime, K.Time.prepTime, K.Time.bakeTime]
     
     static var firstOpen:Bool = true
-//    let chunkedIng = uniqueIng(list: recipeData).chunked(into: 3)
 }
 

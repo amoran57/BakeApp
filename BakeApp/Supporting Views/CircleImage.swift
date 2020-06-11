@@ -21,8 +21,8 @@ struct CircleImage: View {
     }
 }
 
-struct CircleImage_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleImage(image: recipeData[0].image)
-    }
-}
+//struct CircleImage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CircleImage(image: recipeData[0].image)
+//    }
+//}

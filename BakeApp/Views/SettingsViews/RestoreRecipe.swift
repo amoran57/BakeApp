@@ -13,6 +13,9 @@ protocol RestoreDelegate {
 }
 
 struct RestoreRecipe: View, RestoreDelegate {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus(hideRemoved:false)) var ingStatus:FetchedResults<IngredientsOwned>
+    
     var userSettings = UserSettings()
     @State var searchText:String = ""
     @State private var practiceRecipes:[Recipe]? = recipeData
@@ -72,6 +75,34 @@ struct RestoreRecipe: View, RestoreDelegate {
                 print("Recipe removed from deleted list")
             }
            
+        }
+        
+        let recipe = recipeData[recipeDataIndex!]
+        print("Recipe: \(recipe.name)")
+        for ing in recipe.sysIng {
+            print("Proceeding for ingredient \(ing)")
+            var ingredient:IngredientsOwned?
+            
+            for counter in 0..<self.ingStatus.count {
+                print("Checking")
+                if ingStatus[counter].ingredientName! == ing  {
+                    ingredient = ingStatus[counter]
+                    print("Found corresponding ingredient in CoreData")
+                }
+            }
+            
+            if ingredient != nil {
+                ingredient!.setValue(false, forKey: "isHidden")
+                let instances = ingredient!.instances
+                ingredient!.setValue(instances+1, forKey: "instances")
+            }
+            
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+            
         }
     }
 }

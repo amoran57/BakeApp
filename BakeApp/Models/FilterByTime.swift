@@ -40,19 +40,19 @@ struct FilterByTime {
         
         for recipe in validRecipes {
             if recipe.totalTime > Int(totalTime?.timeLength ?? 120) {
-                //get the index number of that recipe in the recipeData array
+                //get the index number of that recipe in the array
                 if let index = validRecipes.firstIndex(of: recipe) {
                     //remove the recipe at that index
                     validRecipes.remove(at: index)
                 }
             } else if recipe.prepTime > Int(prepTime?.timeLength ?? 60) {
-                //get the index number of that recipe in the recipeData array
+                //get the index number of that recipe in the array
                 if let index = validRecipes.firstIndex(of: recipe) {
                     //remove the recipe at that index
                     validRecipes.remove(at: index)
                 }
             }  else if recipe.bakeTime > Int(bakeTime?.timeLength ?? 60) {
-                //get the index number of that recipe in the recipeData array
+                //get the index number of that recipe in the array
                 if let index = validRecipes.firstIndex(of: recipe) {
                     //remove the recipe at that index
                     validRecipes.remove(at: index)
