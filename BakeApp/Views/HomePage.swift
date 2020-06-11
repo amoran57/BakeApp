@@ -99,7 +99,7 @@ struct HomePage: View {
                     }
                     
                     //link to recipe browse (RecipeList)
-                    NavigationLink(destination:RecipeList()) {
+                    NavigationLink(destination:NavigationLazyView(RecipeList())) {
                         Text("I have something specific in mind.")
                             .font(.system(size:16))
                             .italic()

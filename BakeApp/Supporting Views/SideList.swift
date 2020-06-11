@@ -10,13 +10,14 @@ import SwiftUI
 
 struct SideList: View, Hashable {
     var typeOfBakedGood: String
-    
+    var filteredArray: [Recipe]
     
     func createNewArray() -> [Recipe]? {
+        
         var recipeArray: [Recipe] = []
-        for counter in 0..<recipeData.count {
-            if recipeData[counter].type == self.typeOfBakedGood {
-                recipeArray.append(recipeData[counter])
+        for counter in 0..<filteredArray.count {
+            if filteredArray[counter].type == self.typeOfBakedGood {
+                recipeArray.append(filteredArray[counter])
             }
         }
         return recipeArray
@@ -36,14 +37,29 @@ struct SideList: View, Hashable {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
-                    ForEach (self.createNewArray()!, id: \.self) { item in
+                    
+                    ForEach((filteredArray.filter({ $0.type.lowercased().contains(typeOfBakedGood.lowercased())})), id: \.self) {
+                        recipe in
                         NavigationLink(destination:
-                            NavigationLazyView(RecipeDetail(recipe: item, practiceArray: .constant(nil), showSettings:false))
+                            RecipeDetail(recipe: recipe, practiceArray: .constant(nil), showSettings:false)
                         ) {
-                            RecipeTile(recipe: item)
+                            RecipeTile(recipe: recipe)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
+                    
+                    
+                    
+//                    
+//                    ForEach (self.createNewArray()!, id: \.self) { item in
+//                        NavigationLink(destination:
+//                            NavigationLazyView(RecipeDetail(recipe: item, practiceArray: .constant(nil), showSettings:false))
+//                        ) {
+//                            RecipeTile(recipe: item)
+//                        }
+//                        .buttonStyle(PlainButtonStyle())
+//                    }
+                    
                 }.padding(.trailing)
             }.edgesIgnoringSafeArea(.leading)
         }
@@ -51,8 +67,8 @@ struct SideList: View, Hashable {
 }
 
 
-struct SideList_Previews: PreviewProvider {
-    static var previews: some View {
-        SideList(typeOfBakedGood: "bread")
-    }
-}
+//struct SideList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SideList(typeOfBakedGood: "bread")
+//    }
+//}

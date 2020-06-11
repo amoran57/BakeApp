@@ -10,19 +10,11 @@ import SwiftUI
 
 struct RecipeList: View {
     
-      @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-//    var btnBack : some View { Button(action: {
-//        self.presentationMode.wrappedValue.dismiss()
-//        }) {
-//            HStack {
-//                Image(systemName: "arrow.left")
-//                .aspectRatio(contentMode: .fit)
-//                Text("Back")
-//            }.foregroundColor(K.blue)
-//    }.buttonStyle(PlainButtonStyle())
-//        
-//    }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var filteredArray = recipeData
+        .enumerated()
+        .filter { !(SetUpIng.userSettings.removedRecipeIndex.contains($0.offset)) }
+        .map { $0.element }
     
     let practiceArray = ["breads", "pastries", "cakes", "cookies", "other"]
     
@@ -32,20 +24,27 @@ struct RecipeList: View {
             ScrollView(showsIndicators: false) {
                 ForEach(self.practiceArray, id: \.self) { row in
                     VStack {
-                    SideList(typeOfBakedGood: String(row))
+                        SideList(typeOfBakedGood: String(row), filteredArray: self.filteredArray)
                         if row != "other" {
-                    Divider()
+                            Divider()
                         }
                     }.padding(.leading)
                 }.padding(.bottom)
-                }
+            }
             .navigationBarTitle("Recipes")
             .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
                 Text("Settings")
             })
-//            .navigationBarBackButtonHidden(true)
-//            .navigationBarItems(leading: self.btnBack)
+            //            .navigationBarBackButtonHidden(true)
+            //            .navigationBarItems(leading: self.btnBack)
         }.padding(.bottom, 5)
+            .onAppear(perform: {
+                self.filteredArray = recipeData
+                    .enumerated()
+                    .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                    .map { $0.element }
+                
+            })
     }
 }
 

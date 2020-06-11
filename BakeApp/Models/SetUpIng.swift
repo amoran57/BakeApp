@@ -10,6 +10,12 @@ import Foundation
 
 struct SetUpIng: Hashable {
      
+    static let userSettings = UserSettings()
+    
+    static let filteredArray = recipeData
+    .enumerated()
+        .filter { !(userSettings.removedRecipeIndex.contains($0.offset)) }
+    .map { $0.element }
     
     static func AllIng (list: [Recipe]) -> [String] {
         //creates the non-unique string array and the unique one
