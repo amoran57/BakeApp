@@ -28,11 +28,18 @@ class UserSettings: ObservableObject {
         }
     }
     
+    @Published var removedRecipeIndex: [Int] {
+        didSet {
+            UserDefaults.standard.set(removedRecipeIndex, forKey:K.Defaults.removedRecipeIndex)
+        }
+    }
+    
     public var ringtones = ["Chimes", "Signal", "Waves"]
     
     init() {
         self.timeSettingIsPermanent = UserDefaults.standard.object(forKey: K.Defaults.timeSettingIsPermanent) as? Bool ?? true
         self.ingSettingIsPermanent = UserDefaults.standard.object(forKey: K.Defaults.ingSettingIsPermanent) as? Bool ?? true
         self.primaryViewIsTile = UserDefaults.standard.object(forKey: K.Defaults.primaryViewIsTile) as? Bool ?? true
+        self.removedRecipeIndex = UserDefaults.standard.object(forKey: K.Defaults.removedRecipeIndex) as? [Int] ?? []
     }
 }

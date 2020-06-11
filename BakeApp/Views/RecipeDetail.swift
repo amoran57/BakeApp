@@ -12,6 +12,7 @@ import Pages
 struct RecipeDetail: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
+    @State var showingAlert = false
     @State var index: Int = 0
     @State private var showingSheet = false
     @State private var showingSheet2 = false
@@ -165,23 +166,28 @@ struct RecipeDetail: View {
                     
                     if remove {
                         Button(action: {
-                            if let realArray = self.practiceArray {
-                                print("practiceArray exists")
-                                if let dlgt = self.delegate {
-                                    print("delegate exists")
-                                    dlgt.externalDelete(recipe:self.recipe.name)
-                                    print("recipe deleted")
-                                }
-                            }
                             
-                            print("exiting view")
-                            self.presentationMode.wrappedValue.dismiss()
-                            print("exited view")
-                            
+                            self.showingAlert = true
                         })
                         {
-                        Text("Remove recipe")
-                            .foregroundColor(.red)
+                            Text("Remove recipe")
+                                .foregroundColor(.red)
+                        }.alert(isPresented: $showingAlert) { () -> Alert in
+                            
+                            Alert(title: Text("Are you sure you want to delete this?"), message: Text("There is no undo"), primaryButton: .destructive(Text("Delete")) {
+                                if self.practiceArray != nil {
+                                    print("practiceArray exists")
+                                    if let dlgt = self.delegate {
+                                        print("delegate exists")
+                                        dlgt.externalDelete(recipe:self.recipe.name)
+                                        print("recipe deleted")
+                                    }
+                                }
+                                
+                                print("exiting view")
+                                self.presentationMode.wrappedValue.dismiss()
+                                print("exited view")
+                                }, secondaryButton: .cancel())
                         }
                     }
                         
