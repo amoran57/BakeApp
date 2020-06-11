@@ -11,9 +11,11 @@ import Combine
 
 let defaults = UserDefaults.standard
 
+
 struct Settings: View {
     @ObservedObject var userSettings = UserSettings()
     @State private var showPopover = false
+    @State private var disableRestore = true
     var body: some View {
         
         VStack {
@@ -34,15 +36,28 @@ struct Settings: View {
                 
                 Section() {
                     NavigationLink(destination: RemoveRecipe()) {
+                        VStack(alignment: .leading) {
                         Text("Remove recipe")
+                            Text("Tried one of our recipes and didn't like it? You can remove that recipe from BakeApp, so it will never come up again.")
+                                .font(.caption)
+                        }
                     }
                     
                     NavigationLink(destination: RestoreRecipe()) {
-                        Text("View removed recipes")
-                    }
-                    
-                    Button("Contact us") {
+                        VStack(alignment: .leading) {
+                        Text("Restore removed recipes")
+                        Text("Changed your mind? You can always restore your removed recipes here.")
+                        .font(.caption)
+                        }
+                    }.disabled(disableRestore)
+                }
+                
+                Section() {
+                    Button(action: {
                         self.showPopover.toggle()
+                    }) {
+                        Text("Contact us")
+                            .foregroundColor(K.blue)
                     }.overlay(
                         ZStack { if self.showPopover {
                             Rectangle()
@@ -60,129 +75,13 @@ struct Settings: View {
                     )
                     
                     }
-                    
-                    
-                }
+                     
+            }.foregroundColor(K.textColor)
             
-            
-        }.navigationBarTitle("Settings")
-
-        //
-//        VStack {
-//
-//            Spacer()
-//
-//            HStack {
-//
-//                Spacer()
-//
-//                ZStack {
-//
-//                    VStack{
-//
-//                        NavigationLink(destination: SetTimePermanence()) {
-//
-//                            ZStack {
-//                                Rectangle()
-//                                    .frame(width: 150, height: 120)
-//                                    .cornerRadius(20)
-//                                    .foregroundColor(K.frameColor)
-//
-//                                Text("Make Time Preferences \(userSettings.timeSettingIsPermanent ? "Temporary" : "Permanent")")
-//                                    .foregroundColor(K.textColor)
-//                                    .multilineTextAlignment(.center)
-//                                    .frame(width:150, height: 120, alignment: .center)
-//                            }
-//
-//                        }
-//
-//                        Rectangle()
-//                            .frame(width: 140, height: 2)
-//                            .foregroundColor(K.frameColor)
-//                            .padding(.vertical, -2)
-//
-//                        NavigationLink(destination:SelectTimeScreen(showSettings:false)) {
-//
-//                            ZStack {
-//                                Rectangle()
-//                                    .frame(width: 150, height: 120)
-//                                    .cornerRadius(20)
-//                                    .foregroundColor(K.frameColor)
-//
-//                                Text("Adjust current time settings")
-//                                    .padding()
-//                                    .foregroundColor(K.textColor)
-//                                    .multilineTextAlignment(.center)
-//                                    .frame(width:150, height: 120, alignment: .center)
-//
-//                            }
-//                        }
-//                    }
-//                }.frame(width: 150, height: 250)
-//                Spacer()
-//
-//
-//                ZStack {
-//
-//                    VStack{
-//
-//                        NavigationLink(destination: SetIngredientPermanence()) {
-//
-//                            ZStack {
-//                                Rectangle()
-//                                    .frame(width: 150, height: 120)
-//                                    .cornerRadius(20)
-//                                    .foregroundColor(K.frameColor)
-//
-//                                Text("Make Ingredient Preferences \(defaults.bool(forKey: K.Defaults.ingSettingIsPermanent) ? "Temporary" : "Permanent")")
-//                                    .foregroundColor(K.textColor)
-//                                    .multilineTextAlignment(.center)
-//                                    .frame(width:150, height: 120, alignment: .center)
-//                            }
-//
-//                        }
-//
-//                        Rectangle()
-//                            .frame(width: 140, height: 2)
-//                            .foregroundColor(K.frameColor)
-//                            .padding(.vertical, -2)
-//
-//                        NavigationLink(destination:SelectIngredientsOwned(showSettings:false)) {
-//
-//                            ZStack {
-//                                Rectangle()
-//                                    .frame(width: 150, height: 120)
-//                                    .cornerRadius(20)
-//                                    .foregroundColor(K.frameColor)
-//
-//                                Text("Adjust current ingredient settings")
-//                                    .padding()
-//                                    .foregroundColor(K.textColor)
-//                                    .multilineTextAlignment(.center)
-//                                    .frame(width:150, height: 120, alignment: .center)
-//
-//                            }
-//                        }
-//                    }
-//                }.frame(width: 150, height: 250)
-//
-//                Spacer()
-//            }
-//
-//            Spacer()
-//
-//            HStack {
-//                Spacer()
-//                NavigationLink(destination: SetRecipeDetailView()) {
-//                    SettingsTile(text: "Set recipe view settings")
-//                }
-//                Spacer()
-//                SettingsTile(text: "Remove a recipe")
-//                Spacer()
-//            }
-//            Spacer()
-//        }.navigationBarTitle(Text("Settings").foregroundColor(K.textColor))
-//
+        }
+        .navigationBarTitle("Settings")
+        .onAppear(perform: {self.disableRestore = (defaults.array(forKey: K.Defaults.removedRecipeIndex) as! Array<Int>).count == 0 ? true : false})
+       
     }
 }
 
