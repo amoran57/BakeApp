@@ -50,11 +50,9 @@ struct HomePage: View {
             
             NavigationView {
                 VStack {
-                    
-                    //button to go to random recipe; calls on global instance of FilterByTime
+            
                     NavigationLink(
                         "", destination:
-                        //                        NavigationLazyView(
                         RecipeDetail(
                             recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
                             practiceArray: .constant(nil)
@@ -142,7 +140,7 @@ struct HomePage: View {
 //                nextIndex = Int.random(in: 0...recipeData.count-1)
 //            }
 //            self.activeImageIndex = nextIndex
-
+//
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear (perform: {self.setCoreData()})
@@ -249,7 +247,7 @@ struct HomePage: View {
         }
         
         self.imageSwitchTimer.upstream.autoconnect()
-        
+        //set value for filteredArray
         self.filteredArray = recipeData
             .enumerated()
             .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }

@@ -96,6 +96,7 @@ struct RecipeDetail: View {
                         }
                     }.padding(.bottom)
                 }.padding(.bottom)
+                    .foregroundColor(.blue)
                 
             } else {
                 ScrollView {
