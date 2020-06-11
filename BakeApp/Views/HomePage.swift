@@ -5,9 +5,9 @@
 //  Created by Alex Moran on 5/29/20.
 //  Copyright © 2020 Alex Moran. All rights reserved.
 //
-        
-       
-                 
+
+
+
 import SwiftUI
 
 //create globally accessible instance of FilterByTime
@@ -32,12 +32,14 @@ struct HomePage: View {
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
     //image slideshow stuff
-    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1) // Index of the currently displayed image
-    
+    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
     
-   
+    @State var filteredArray = recipeData
+        .enumerated()
+        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+        .map { $0.element }
     
     @State var navigationLinkActive:Bool = false
     
@@ -47,21 +49,22 @@ struct HomePage: View {
             NavigationView {
                 VStack {
                     
-//                    Button(action: {
-//                        var recipeNames:[String] = []
-//                        for recipe in practiceRecipes {
-//                            recipeNames.append(recipe.name)
-//                        }
-//                        print("\(recipeNames)")
-//                    }) {
-//                        Text("Click to print")
-//                    }
-                    
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
-                        "", destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue), practiceArray: .constant(nil))), isActive: self.$navigationLinkActive)
+                        "", destination:
+                        NavigationLazyView(
+                            RecipeDetail(
+                                recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
+                                practiceArray: .constant(nil))
+                        ),
+                        isActive: self.$navigationLinkActive
+                    )
                     Button(action: {
                         self.imageSwitchTimer.upstream.connect().cancel()
+                        self.filteredArray = recipeData
+                        .enumerated()
+                        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                        .map { $0.element }
                         self.navigationLinkActive = true
                     })
                     {
@@ -134,8 +137,7 @@ struct HomePage: View {
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear {self.setCoreData(); self.imageSwitchTimer.upstream.runLoop}
-           
+            .onAppear (perform: {self.setCoreData(); self.imageSwitchTimer.upstream.runLoop })
         
     }
     

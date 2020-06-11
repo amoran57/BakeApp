@@ -27,8 +27,9 @@ struct RecipeScreener {
         return missing
     }
     
-    func filterByIngredients(input:FetchedResults<IngredientsOwned>) -> [Recipe] {
-        var validRecipes:[Recipe] = recipeData
+    func filterByIngredients(input:FetchedResults<IngredientsOwned>, recipeArray:[Recipe]) -> [Recipe] {
+        var validRecipes:[Recipe] = recipeArray
+        print("\(validRecipes.count) recipes to be filtered by ingredients")
         let missingIngArray = self.missingIngredients(input:input)
         
 
@@ -56,7 +57,7 @@ struct RecipeScreener {
         //only run if necessary
         if missingIngArray.count > 0 {
             //loop through each recipe in the system
-            for recipe in recipeData {
+            for recipe in recipeArray {
                 checkIngInRecipe(missingIngArray: missingIngArray, recipe: recipe)
             }
         }

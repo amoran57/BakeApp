@@ -31,6 +31,13 @@ struct RestoreRecipe: View, RestoreDelegate {
                 
             }
         }.navigationBarTitle("Restore Recipes")
+            .onAppear(perform: {
+                self.practiceRecipes = recipeData
+                    .enumerated()
+                    .filter { (defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                    .map { $0.element }
+                
+            })
     }
     
     func restoreRecipe(recipe:String) {

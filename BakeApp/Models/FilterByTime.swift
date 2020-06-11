@@ -16,13 +16,12 @@ struct FilterByTime {
     var couldNotFilterByTime:Bool = false
     let recipeScreener = RecipeScreener()
     
-    mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> [Recipe] {
+    mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> [Recipe] {
         //creates array of recipes to filter; this array is pre-filtered by ingredient
-        let inputRecipes:[Recipe] = recipeScreener.filterByIngredients(input:input)
+        let inputRecipes:[Recipe] = recipeScreener.filterByIngredients(input:input, recipeArray: recipeArray)
         
-        var validRecipes = inputRecipes.count > 0 ? inputRecipes : recipeData
-        
-//        var validRecipes:[Recipe] = inputRecipes ?? recipeData
+        var validRecipes = inputRecipes.count > 0 ? inputRecipes : recipeArray
+
         var totalTime:TimeLimit?
         var prepTime:TimeLimit?
         var bakeTime:TimeLimit?
@@ -89,14 +88,14 @@ struct FilterByTime {
                 couldNotFilter = true
                 couldNotFilterByIng = false
                 couldNotFilterByTime = false
-                return recipeData
+                return recipeArray
             }
         }
     }
     
-    mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>) -> Recipe {
+    mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> Recipe {
         
-        let filteredRecipeList = filterByTime(ingredientData: input, timeData: timeData)
+        let filteredRecipeList = filterByTime(ingredientData: input, timeData: timeData, recipeArray: recipeArray)
         
         let randNum = Int.random(in: 0..<filteredRecipeList.count)
         print("Generated index number: \(randNum)")

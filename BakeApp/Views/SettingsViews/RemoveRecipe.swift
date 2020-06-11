@@ -38,6 +38,13 @@ struct RemoveRecipe: View, DeleteDelegate {
                 }
             }
         }.navigationBarTitle("Remove Recipes")
+        .onAppear(perform: {
+            self.practiceRecipes = recipeData
+                .enumerated()
+                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                .map { $0.element }
+            
+        })
     }
     
     

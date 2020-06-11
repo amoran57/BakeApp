@@ -176,7 +176,7 @@ struct RecipeDetail: View {
                                 .foregroundColor(.red)
                         }.alert(isPresented: $showingAlert) { () -> Alert in
                             
-                            Alert(title: Text("Are you sure you want to delete this recipe?"), primaryButton: .destructive(Text("Delete")) {
+                            Alert(title: Text("Are you sure you want to remove this recipe?"), primaryButton: .destructive(Text("Remove")) {
                                 if self.practiceArray != nil {
                                     print("practiceArray exists")
                                     if let delegate = self.deleteDelegate {

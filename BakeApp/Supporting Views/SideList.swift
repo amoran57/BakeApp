@@ -12,19 +12,6 @@ struct SideList: View, Hashable {
     var typeOfBakedGood: String
     var filteredArray: [Recipe]
     
-    func createNewArray() -> [Recipe]? {
-        
-        var recipeArray: [Recipe] = []
-        for counter in 0..<filteredArray.count {
-            if filteredArray[counter].type == self.typeOfBakedGood {
-                recipeArray.append(filteredArray[counter])
-            }
-        }
-        return recipeArray
-    }
-    
-    
-    
     var body: some View {
         VStack {
             Text(typeOfBakedGood.capitalized)
@@ -47,19 +34,6 @@ struct SideList: View, Hashable {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                    
-                    
-                    
-//                    
-//                    ForEach (self.createNewArray()!, id: \.self) { item in
-//                        NavigationLink(destination:
-//                            NavigationLazyView(RecipeDetail(recipe: item, practiceArray: .constant(nil), showSettings:false))
-//                        ) {
-//                            RecipeTile(recipe: item)
-//                        }
-//                        .buttonStyle(PlainButtonStyle())
-//                    }
-                    
                 }.padding(.trailing)
             }.edgesIgnoringSafeArea(.leading)
         }

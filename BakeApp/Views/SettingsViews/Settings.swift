@@ -38,7 +38,7 @@ struct Settings: View {
                     }
                     
                     NavigationLink(destination: RestoreRecipe()) {
-                        Text("Restore deleted recipe")
+                        Text("View removed recipes")
                     }
                     
                     Button("Contact us") {
