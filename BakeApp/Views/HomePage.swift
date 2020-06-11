@@ -37,26 +37,33 @@ struct HomePage: View {
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
     
+   
+    
+    @State var navigationLinkActive:Bool = false
+    
     var body: some View {
         return GeometryReader { geometry in
             
             NavigationView {
                 VStack {
                     
-//                    recipeData[self.activeImageIndex].image
-//                        .resizable()
-//                        .frame(width: 500, height: 500)
-//                        .clipShape(Circle())
-//                        .padding(.top, -450)
-//                        .shadow(radius: 10)
-//                        .onReceive(self.imageSwitchTimer) { _ in
-//                        // Go to the next image.
-//                        self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
+//                    Button(action: {
+//                        var recipeNames:[String] = []
+//                        for recipe in practiceRecipes {
+//                            recipeNames.append(recipe.name)
+//                        }
+//                        print("\(recipeNames)")
+//                    }) {
+//                        Text("Click to print")
 //                    }
                     
                     //button to go to random recipe; calls on global instance of FilterByTime
                     NavigationLink(
-                        destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue))))
+                        "", destination: NavigationLazyView(RecipeDetail(recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue), practiceArray: .constant(nil))), isActive: self.$navigationLinkActive)
+                    Button(action: {
+                        self.imageSwitchTimer.upstream.connect().cancel()
+                        self.navigationLinkActive = true
+                    })
                     {
                         Image(K.bakeButton)
                             .renderingMode(.original)
@@ -116,12 +123,19 @@ struct HomePage: View {
                     }.frame(width: 375, alignment: .trailing)
                         .padding(.trailing))
                 
-            }  .onReceive(self.imageSwitchTimer) { _ in
-                self.activeImageIndex = Int.random(in: 0...recipeData.count-1)
+            }
+            .onReceive(self.imageSwitchTimer) { _ in
+                var nextIndex = Int.random(in: 0...recipeData.count-1)
+                while nextIndex == self.activeImageIndex {
+                    print("Duplicate index; trying again")
+                    nextIndex = Int.random(in: 0...recipeData.count-1)
+                }
+                self.activeImageIndex = nextIndex
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear {self.setCoreData()}
+           
         
     }
     

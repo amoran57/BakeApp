@@ -39,3 +39,4 @@ func load<T: Decodable>(_ filename:String) -> T {
 
 //reads from the bundle file "recipeData.json" and sets the read value as an array of Recipe types
 let recipeData: [Recipe] = load("recipeData.json")
+

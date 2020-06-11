@@ -63,7 +63,6 @@ struct SetUpIng: Hashable {
     static var timeList:[String] = [K.Time.totalTime, K.Time.prepTime, K.Time.bakeTime]
     
     static var firstOpen:Bool = true
-    
 //    let chunkedIng = uniqueIng(list: recipeData).chunked(into: 3)
 }
 

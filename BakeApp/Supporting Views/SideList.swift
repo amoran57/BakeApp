@@ -38,7 +38,7 @@ struct SideList: View, Hashable {
                 HStack() {
                     ForEach (self.createNewArray()!, id: \.self) { item in
                         NavigationLink(destination:
-                        NavigationLazyView(RecipeDetail(recipe: item, showSettings:false))
+                            NavigationLazyView(RecipeDetail(recipe: item, practiceArray: .constant(nil), showSettings:false))
                         ) {
                             RecipeTile(recipe: item)
                         }
