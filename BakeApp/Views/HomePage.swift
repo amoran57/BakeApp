@@ -134,7 +134,7 @@ struct HomePage: View {
             }
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear {self.setCoreData()}
+            .onAppear {self.setCoreData(); self.imageSwitchTimer.upstream.runLoop}
            
         
     }

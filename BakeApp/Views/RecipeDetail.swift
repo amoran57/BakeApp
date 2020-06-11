@@ -20,7 +20,9 @@ struct RecipeDetail: View {
     @Binding var practiceArray:[Recipe]?
     var showSettings = true
     var remove = false
-    var delegate:DeleteDelegate?
+    var restore = false
+    var deleteDelegate:DeleteDelegate?
+    var restoreDelegate:RestoreDelegate?
     
     var body: some View {
         
@@ -174,12 +176,12 @@ struct RecipeDetail: View {
                                 .foregroundColor(.red)
                         }.alert(isPresented: $showingAlert) { () -> Alert in
                             
-                            Alert(title: Text("Are you sure you want to delete this?"), message: Text("There is no undo"), primaryButton: .destructive(Text("Delete")) {
+                            Alert(title: Text("Are you sure you want to delete this recipe?"), primaryButton: .destructive(Text("Delete")) {
                                 if self.practiceArray != nil {
                                     print("practiceArray exists")
-                                    if let dlgt = self.delegate {
+                                    if let delegate = self.deleteDelegate {
                                         print("delegate exists")
-                                        dlgt.externalDelete(recipe:self.recipe.name)
+                                        delegate.externalDelete(recipe:self.recipe.name)
                                         print("recipe deleted")
                                     }
                                 }
@@ -189,8 +191,31 @@ struct RecipeDetail: View {
                                 print("exited view")
                                 }, secondaryButton: .cancel())
                         }
+                    } else if restore {
+                        Button(action: {
+                            self.showingAlert = true
+                        })
+                        {
+                            Text("Restore recipe")
+                                .foregroundColor(.green)
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Are you sure you want to restore this recipe?"), primaryButton: .default(Text("Restore")) {
+                                if self.practiceArray != nil {
+                                    print("practiceArray exists")
+                                    if let delegate = self.restoreDelegate {
+                                        print("delegate exists")
+                                        delegate.restoreRecipe(recipe:self.recipe.name)
+                                        print("recipe restored")
+                                    }
+                                }
+                                
+                                print("exiting view")
+                                self.presentationMode.wrappedValue.dismiss()
+                                print("exited view")
+                                
+                                }, secondaryButton: .cancel())
+                        }
                     }
-                        
                     else if showSettings {
                         NavigationLink(destination: Settings()) {
                             Text("Settings")

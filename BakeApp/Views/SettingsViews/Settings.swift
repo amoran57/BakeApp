@@ -36,6 +36,11 @@ struct Settings: View {
                     NavigationLink(destination: RemoveRecipe()) {
                         Text("Remove recipe")
                     }
+                    
+                    NavigationLink(destination: RestoreRecipe()) {
+                        Text("Restore deleted recipe")
+                    }
+                    
                     Button("Contact us") {
                         self.showPopover.toggle()
                     }.overlay(

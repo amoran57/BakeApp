@@ -19,22 +19,25 @@ struct RemoveRecipe: View, DeleteDelegate {
     //    @State var currentIndexOffset:Int = 0
     //    @State var indexesRemoved:[Int] = []
     //    @State var secondIndex:[Int] = []
-    @State private var practiceRecipes:[Recipe]? = load("recipeData.json")
+    @State private var practiceRecipes:[Recipe]? = recipeData
+        .enumerated()
+        .filter { !((defaults.array(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset)) }
+        .map { $0.element }
+    
     @State var searchText:String = ""
     var body: some View {
         VStack{
-            SearchBar(text: $searchText)
+            SearchBar(text: $searchText, placeholder: "Find recipe...")
             
             List {
                 ForEach((practiceRecipes?.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) }))!, id: \.self) { recipe in
-                    NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, remove:true, delegate:self)) {
+                    NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, remove:true, deleteDelegate:self)) {
                         RecipeTile(recipe: recipe)
                     }
                     
                 }
-                //                .onDelete(perform: delete)
             }
-        }
+        }.navigationBarTitle("Remove Recipes")
     }
     
     
