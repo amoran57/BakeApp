@@ -10,6 +10,9 @@ import SwiftUI
 import Pages
 
 struct RecipeDetail: View {
+    
+  
+      
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
     @State var showingAlert = false
@@ -23,16 +26,12 @@ struct RecipeDetail: View {
     var restore = false
     var deleteDelegate:DeleteDelegate?
     var restoreDelegate:RestoreDelegate?
-    
+   
     var body: some View {
         
-        VStack {
+        Group {
             if userSettings.primaryViewIsTile  {
-                //                ScrollView {
-                //tease preview
-                //                    CircleImage(image: recipe.image)
-                
-                //                    name of recipe
+                VStack {
                 Text(recipe.name)
                     .foregroundColor(K.textColor)
                     .font(.system(size: 32))
@@ -97,11 +96,10 @@ struct RecipeDetail: View {
                     }.padding(.bottom)
                 }.padding(.bottom)
                     .foregroundColor(.blue)
+                }
                 
             } else {
                 ScrollView {
-                    //tease preview
-                    //                    CircleImage(image: recipe.image)
                     
                     //                    name of recipe
                     Text(recipe.name)
@@ -142,7 +140,7 @@ struct RecipeDetail: View {
                     
                     //instructions
                     InsList(insList: self.recipe.instructions)
-                }
+
                 VStack {
                     Rectangle()
                         .frame(height:0.5)
@@ -156,27 +154,29 @@ struct RecipeDetail: View {
                         ScrollInsPopup(recipe: self.recipe)
                     }.padding([.bottom, .trailing])
                 }.frame(width: 375, alignment: .trailing)
-                
+            }
                 
             }
         }.background(recipe.image.resizable()
             .opacity(0.2)
             .edgesIgnoringSafeArea(.all)
             .aspectRatio(contentMode: .fill))
+            .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
+            
+         
             .navigationBarItems(trailing:
-                
                 Group {
-                    
+
                     if remove {
                         Button(action: {
-                            
+
                             self.showingAlert = true
                         })
                         {
                             Text("Remove recipe")
                                 .foregroundColor(.red)
                         }.alert(isPresented: $showingAlert) { () -> Alert in
-                            
+
                             Alert(title: Text("Are you sure you want to remove this recipe?"), primaryButton: .destructive(Text("Remove")) {
                                 if self.practiceArray != nil {
                                     print("practiceArray exists")
@@ -186,7 +186,7 @@ struct RecipeDetail: View {
                                         print("recipe deleted")
                                     }
                                 }
-                                
+
                                 print("exiting view")
                                 self.presentationMode.wrappedValue.dismiss()
                                 print("exited view")
@@ -209,11 +209,11 @@ struct RecipeDetail: View {
                                         print("recipe restored")
                                     }
                                 }
-                                
+
                                 print("exiting view")
                                 self.presentationMode.wrappedValue.dismiss()
                                 print("exited view")
-                                
+
                                 }, secondaryButton: .cancel())
                         }
                     }
@@ -223,12 +223,14 @@ struct RecipeDetail: View {
                         }
                     }
             })
-            
-            .navigationBarTitle("\(userSettings.primaryViewIsTile ? "" : recipe.name)", displayMode: .inline)
-        
+           
+           
     }
     
 }
+
+
+
 
 //struct RecipeDetail_Previews: PreviewProvider {
 //    static var previews: some View {
