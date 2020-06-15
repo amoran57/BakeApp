@@ -11,14 +11,15 @@ import Pages
 
 struct RecipeDetail: View {
     
-  
-      
+    
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
     @State var showingAlert = false
     @State var index: Int = 0
     @State private var showingSheet = false
     @State private var showingSheet2 = false
+    @State private var showOverlay = false
     var recipe: Recipe
     @Binding var practiceArray:[Recipe]?
     var showSettings = true
@@ -26,76 +27,83 @@ struct RecipeDetail: View {
     var restore = false
     var deleteDelegate:DeleteDelegate?
     var restoreDelegate:RestoreDelegate?
-   
+    
     var body: some View {
         
         Group {
             if userSettings.primaryViewIsTile  {
                 VStack {
-                Text(recipe.name)
-                    .foregroundColor(K.textColor)
-                    .font(.system(size: 32))
-                    .fontWeight(.bold)
-                    .frame(width: 350)
-                    .lineLimit(1)
-                
-                //total time
-                Text("Total time: \(recipe.totTimeText)")
-                    .foregroundColor(K.textColor)
-                    .font(.system(size: 20))
-                
-                //prep and bake times
-                HStack {
-                    Text("Prep time: \(recipe.prepTimeText)")
+                    Text(recipe.name)
                         .foregroundColor(K.textColor)
-                        .multilineTextAlignment(.trailing)
-                    Text("|")
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .frame(width: 350)
+                        .lineLimit(1)
+                    
+                    
+                    
+                    //total time
+                    Text("Total time: \(recipe.totTimeText)")
                         .foregroundColor(K.textColor)
-                        .multilineTextAlignment(.center)
-                    Text("Bake time: \(recipe.bakeTimeText)")
-                        .foregroundColor(K.textColor)
-                        .multilineTextAlignment(.leading)
-                }.font(.system(size: 12))
-                    .frame(width: 400)
-                    .fixedSize(horizontal: true, vertical: true)
-                
-                Spacer()
-                    .frame(height: 20.0)
-                
-                ModelPages(recipe.instructions, currentPage: $index,
-                           currentTintColor: K.UITextColor, tintColor: K.UIFrameColor)
-                { index, _  in
-                    StepByStep(index: index, recipe: self.recipe)
-                }.frame(minHeight: 500, maxHeight: .infinity)
-                    .padding(.top, -50)
-                //                }
-                HStack {
+                        .font(.system(size: 20))
                     
-                    Button("Show ingredients") {
-                        self.showingSheet.toggle()
-                    }.sheet(isPresented: $showingSheet) {
-                        ScrollView {
-                            IngList(ingList:self.recipe.ingredients, text: "\(self.recipe.name): Ingredients")
-                                .padding(.top)
-                        }
-                    }.padding(.bottom)
-                    
-                    
-                    
+                    //prep and bake times
+                    HStack {
+                        Text("Prep time: \(recipe.prepTimeText)")
+                            .foregroundColor(K.textColor)
+                            .multilineTextAlignment(.trailing)
+                        Text("|")
+                            .foregroundColor(K.textColor)
+                            .multilineTextAlignment(.center)
+                        Text("Bake time: \(recipe.bakeTimeText)")
+                            .foregroundColor(K.textColor)
+                            .multilineTextAlignment(.leading)
+                    }.font(.system(size: 12))
+                        .frame(width: 400)
+                        .fixedSize(horizontal: true, vertical: true)
                     
                     Spacer()
-                        .frame(width: 75)
+                        .frame(height: 20.0)
                     
-                    Button("Show instructions") {
-                        self.showingSheet2.toggle()
-                    }.sheet(isPresented: $showingSheet2) {
-                        ScrollView {
-                            InsList(insList: self.recipe.instructions, text: "\(self.recipe.name): Instructions")
-                                .padding(.top)
-                        }
+                    ModelPages(recipe.instructions, currentPage: $index,
+                               currentTintColor: K.UITextColor, tintColor: K.UIFrameColor)
+                    { index, _  in
+                        StepByStep(index: index, recipe: self.recipe)
+                    }.frame(minHeight: 500, maxHeight: .infinity)
+                        .padding(.top, -50)
+                    //                }
+                    HStack {
+                        
+                        Button("Show ingredients") {
+                            self.showingSheet.toggle()
+                        }.sheet(isPresented: $showingSheet) {
+                            ScrollView {
+                                IngList(ingList:self.recipe.ingredients, text: "\(self.recipe.name): Ingredients")
+                                    .padding(.top)
+                                Button(action:{
+                                    self.showOverlay.toggle()
+                                }) {
+                                    Text("Missing ingredients?")
+                                }
+                            }
+                        }.padding(.bottom)
+                        
+                        
+                        
+                        
+                        Spacer()
+                            .frame(width: 75)
+                        
+                        Button("Show instructions") {
+                            self.showingSheet2.toggle()
+                        }.sheet(isPresented: $showingSheet2) {
+                            ScrollView {
+                                InsList(insList: self.recipe.instructions, text: "\(self.recipe.name): Instructions")
+                                    .padding(.top)
+                            }
+                        }.padding(.bottom)
                     }.padding(.bottom)
-                }.padding(.bottom)
-                    .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                 }
                 
             } else {
@@ -140,21 +148,21 @@ struct RecipeDetail: View {
                     
                     //instructions
                     InsList(insList: self.recipe.instructions)
-
-                VStack {
-                    Rectangle()
-                        .frame(height:0.5)
-                        .foregroundColor(K.textColor)
-                    Button(action: {
-                        self.showingSheet.toggle()
-                    }) {
-                        Text("Show step-by-step detail")
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                        ScrollInsPopup(recipe: self.recipe)
-                    }.padding([.bottom, .trailing])
-                }.frame(width: 375, alignment: .trailing)
-            }
+                    
+                    VStack {
+                        Rectangle()
+                            .frame(height:0.5)
+                            .foregroundColor(K.textColor)
+                        Button(action: {
+                            self.showingSheet.toggle()
+                        }) {
+                            Text("Show step-by-step detail")
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            ScrollInsPopup(recipe: self.recipe)
+                        }.padding([.bottom, .trailing])
+                    }.frame(width: 375, alignment: .trailing)
+                }
                 
             }
         }.background(recipe.image.resizable()
@@ -162,21 +170,38 @@ struct RecipeDetail: View {
             .edgesIgnoringSafeArea(.all)
             .aspectRatio(contentMode: .fill))
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
-            
-         
+            .overlay(
+                VStack {
+                    if self.showOverlay {
+                        ZStack {
+                            Rectangle()
+                                .frame(width:1000, height:1000)
+                                .foregroundColor(.black)
+                                .opacity(0.6)
+                                .onTapGesture { self.showOverlay = false }
+                            Substitutions(ingredients: recipe.sysIng)
+                        }.frame(width: 1000, height: 1000)
+                        //                        .background(Color.black)
+                        //                            .opacity(0.6)
+                        //                            .onTapGesture { self.showOverlay = false }
+                    } else {
+                        EmptyView()
+                    }
+                }
+        )
             .navigationBarItems(trailing:
                 Group {
-
+                    
                     if remove {
                         Button(action: {
-
+                            
                             self.showingAlert = true
                         })
                         {
                             Text("Remove recipe")
                                 .foregroundColor(.red)
                         }.alert(isPresented: $showingAlert) { () -> Alert in
-
+                            
                             Alert(title: Text("Are you sure you want to remove this recipe?"), primaryButton: .destructive(Text("Remove")) {
                                 if self.practiceArray != nil {
                                     print("practiceArray exists")
@@ -186,7 +211,7 @@ struct RecipeDetail: View {
                                         print("recipe deleted")
                                     }
                                 }
-
+                                
                                 print("exiting view")
                                 self.presentationMode.wrappedValue.dismiss()
                                 print("exited view")
@@ -209,11 +234,11 @@ struct RecipeDetail: View {
                                         print("recipe restored")
                                     }
                                 }
-
+                                
                                 print("exiting view")
                                 self.presentationMode.wrappedValue.dismiss()
                                 print("exited view")
-
+                                
                                 }, secondaryButton: .cancel())
                         }
                     }
@@ -223,8 +248,8 @@ struct RecipeDetail: View {
                         }
                     }
             })
-           
-           
+        
+        
     }
     
 }
