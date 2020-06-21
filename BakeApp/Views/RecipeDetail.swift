@@ -28,6 +28,7 @@ struct RecipeDetail: View {
     var restore = false
     var deleteDelegate:DeleteDelegate?
     var restoreDelegate:RestoreDelegate?
+    @Binding var goToIngSelect2:Bool
     
     
     
@@ -37,10 +38,10 @@ struct RecipeDetail: View {
             
             if userSettings.primaryViewIsTile  {
                 VStack {
-                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
-                        Text("")
-                    }.frame(width:0, height:0)
-                    
+//                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
+//                        Text("")
+//                    }.frame(width:0, height:0)
+//
                     
                     Text(recipe.name)
                         .foregroundColor(K.textColor)

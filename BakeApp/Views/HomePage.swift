@@ -44,6 +44,7 @@ struct HomePage: View {
     //        .map { $0.element }
     
     @State var navigationLinkActive:Bool = false
+    @State var goToIngSelect = false
     
     var body: some View {
         return GeometryReader { geometry in
@@ -51,11 +52,13 @@ struct HomePage: View {
             NavigationView {
                 VStack {
             
+                    NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
+                    
                     NavigationLink(
                         "", destination:
                         RecipeDetail(
                             recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
-                            practiceArray: .constant(nil)
+                            practiceArray: .constant(nil), goToIngSelect2: self.$goToIngSelect
                         ),
                         isActive: self.$navigationLinkActive
                     )

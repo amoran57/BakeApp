@@ -28,7 +28,7 @@ struct RestoreRecipe: View, RestoreDelegate {
             SearchBar(text: $searchText, placeholder: "Find recipe...")
             
             List((practiceRecipes?.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) }))!, id: \.self) { recipe in
-                NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, restore:true, restoreDelegate:self)) {
+                NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, restore:true, restoreDelegate:self, goToIngSelect2: .constant(false))) {
                     RecipeTile(recipe: recipe)
                 }
                 

@@ -28,7 +28,7 @@ struct SideList: View, Hashable {
                     ForEach((filteredArray.filter({ $0.type.lowercased().contains(typeOfBakedGood.lowercased())})), id: \.self) {
                         recipe in
                         NavigationLink(destination:
-                            RecipeDetail(recipe: recipe, practiceArray: .constant(nil), showSettings:false)
+                            RecipeDetail(recipe: recipe, practiceArray: .constant(nil), showSettings:false, goToIngSelect2: .constant(false))
                         ) {
                             RecipeTile(recipe: recipe)
                         }

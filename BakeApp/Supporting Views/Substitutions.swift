@@ -48,18 +48,17 @@ struct Substitutions: View {
                 .frame(height: 10)
             
             Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you.")
-                .padding(.horizontal, 5)
+                .padding(.horizontal)
             
             Button(action: {
                 self.showOverlay = false
                 self.showingSheet = false
+                self.delegate.goToIngSelect2 = true
                 self.delegate.presentationMode.wrappedValue.dismiss()
-//                self.goToIngSelect = true
-            
             }) {
-                Text("Indicate missing ingredients")
+                Text("Go Back to Home Page")
                     .foregroundColor(.blue)
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 50)
                     .padding(.top)
             }
             
@@ -76,7 +75,7 @@ struct Substitutions: View {
                         Text("For ") +
                             Text("\(self.ingredients[index]), ").fontWeight(.black) +
                         Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
-                        }.padding(5)
+                        }.padding(.horizontal)
                     }
                 }
             }

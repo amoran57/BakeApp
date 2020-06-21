@@ -75,7 +75,10 @@ struct SelectIngredientsOwned: View {
                             self.presentationMode.wrappedValue.dismiss()
                         })
                         {
-                            Text("Continue to home page")
+                            HStack{
+                            Text("Continue")
+                                Image(systemName: "arrow.right")
+                            }
                                 .foregroundColor(K.blue)
                             
                         }.buttonStyle(PlainButtonStyle())

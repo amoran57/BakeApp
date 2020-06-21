@@ -32,7 +32,7 @@ struct RemoveRecipe: View, DeleteDelegate {
             
             List {
                 ForEach((practiceRecipes?.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) }))!, id: \.self) { recipe in
-                    NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, remove:true, deleteDelegate:self)) {
+                    NavigationLink(destination: RecipeDetail(recipe:recipe, practiceArray: self.$practiceRecipes, remove:true, deleteDelegate:self, goToIngSelect2: .constant(false))) {
                         RecipeTile(recipe: recipe)
                     }
                     
