@@ -9,9 +9,9 @@
 import SwiftUI
 import Pages
 
+
 struct RecipeDetail: View {
-    
-    
+
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
@@ -20,6 +20,7 @@ struct RecipeDetail: View {
     @State private var showingSheet = false
     @State private var showingSheet2 = false
     @State private var showOverlay = false
+    @State var goToIngSelect:Bool = false
     var recipe: Recipe
     @Binding var practiceArray:[Recipe]?
     var showSettings = true
@@ -28,11 +29,19 @@ struct RecipeDetail: View {
     var deleteDelegate:DeleteDelegate?
     var restoreDelegate:RestoreDelegate?
     
+    
+    
     var body: some View {
         
         Group {
+            
             if userSettings.primaryViewIsTile  {
                 VStack {
+                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
+                        Text("")
+                    }.frame(width:0, height:0)
+                    
+                    
                     Text(recipe.name)
                         .foregroundColor(K.textColor)
                         .font(.system(size: 32))
@@ -86,6 +95,27 @@ struct RecipeDetail: View {
                                     Text("Missing ingredients?")
                                 }
                             }
+                            .overlay(
+                                VStack {
+                                    if self.showOverlay {
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(width:1000, height:1000)
+                                                .foregroundColor(.black)
+                                                .opacity(0.9)
+                                                .onTapGesture { self.showOverlay = false }
+                                            Substitutions(goToIngSelect: self.$goToIngSelect,
+                                                          showingSheet: self.$showingSheet,
+                                                          showOverlay: self.$showOverlay,
+                                                          delegate: self,
+                                                          ingredients: self.recipe.sysIng)
+                                        }.frame(width: 1000, height: 1000)
+                                    } else {
+                                        EmptyView()
+                                    }
+                                }
+                            )
+                            
                         }.padding(.bottom)
                         
                         
@@ -170,25 +200,25 @@ struct RecipeDetail: View {
             .edgesIgnoringSafeArea(.all)
             .aspectRatio(contentMode: .fill))
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
-            .overlay(
-                VStack {
-                    if self.showOverlay {
-                        ZStack {
-                            Rectangle()
-                                .frame(width:1000, height:1000)
-                                .foregroundColor(.black)
-                                .opacity(0.6)
-                                .onTapGesture { self.showOverlay = false }
-                            Substitutions(ingredients: recipe.sysIng)
-                        }.frame(width: 1000, height: 1000)
-                        //                        .background(Color.black)
-                        //                            .opacity(0.6)
-                        //                            .onTapGesture { self.showOverlay = false }
-                    } else {
-                        EmptyView()
-                    }
-                }
-        )
+//            .overlay(
+//                VStack {
+//                    if self.showOverlay {
+//                        ZStack {
+//                            Rectangle()
+//                                .frame(width:1000, height:1000)
+//                                .foregroundColor(.black)
+//                                .opacity(0.6)
+//                                .onTapGesture { self.showOverlay = false }
+//                            Substitutions(ingredients: recipe.sysIng)
+//                        }.frame(width: 1000, height: 1000)
+//                        //                        .background(Color.black)
+//                        //                            .opacity(0.6)
+//                        //                            .onTapGesture { self.showOverlay = false }
+//                    } else {
+//                        EmptyView()
+//                    }
+//                }
+//        )
             .navigationBarItems(trailing:
                 Group {
                     

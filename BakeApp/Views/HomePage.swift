@@ -77,13 +77,13 @@ struct HomePage: View {
                     //status label
                     ZStack {
                         if filterByTime.couldNotFilter {
-                            Text("No recipes matched either your time limits or ingredient specifications.")
+                            Text("None of our recipes fit either your time limits or your ingredient specifications.")
                         } else if filterByTime.couldNotFilterByIng {
-                            Text("We were able to find a recipe within your time limits, but were unable to filter by your ingredient specifications.")
+                            Text("We've got a recipe that fits your time limits, but not your ingredient specifications.")
                         } else if filterByTime.couldNotFilterByTime {
-                            Text("We were able to find a recipe with your ingredient specifications, but were unable to filter by your requested time limits.")
+                            Text("We've got a recipe that fit your ingredient specifications, but not your requested time limits.")
                         } else {
-                            Text("Ready to generate your recipe!")
+                            Text("We've got a recipe for you--click the button to bake!")
                         }
                     }
                     .font(.system(size:12))
@@ -92,7 +92,7 @@ struct HomePage: View {
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                    NavigationLink(destination: SelectIngredientsOwned()) {
+                    NavigationLink(destination: SelectIngredientsOwned(goToHomePage:true)) {
                         RectangleButton(text:"I'm short on ingredients.")
                     }
                     

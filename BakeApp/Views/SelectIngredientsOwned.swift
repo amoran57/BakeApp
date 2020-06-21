@@ -13,11 +13,6 @@ import UIKit
 
 struct SelectIngredientsOwned: View {
     
-    //    init() {
-    //           //Use this if NavigationBarTitle is with Large Font
-    //        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: K.textColor]
-    //       }
-    
     //CoreData setup
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
@@ -25,6 +20,8 @@ struct SelectIngredientsOwned: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var showSettings = true
+    var goToHomePage = false
+    
     //number of tiles per line
     var numPerLine:Int? = 3
     
@@ -32,7 +29,6 @@ struct SelectIngredientsOwned: View {
         return GeometryReader { geometry in
             
             VStack {
-                
                 
                 //body of view
                 ScrollView {
@@ -54,11 +50,13 @@ struct SelectIngredientsOwned: View {
                 
                 ZStack {
                     if filterByTime.couldNotFilter {
-                        Text("No recipes matched either your time limits or ingredient specifications.")
+                        Text("None of our recipes fit either your time limits or your ingredient specifications.")
                     } else if filterByTime.couldNotFilterByIng {
-                        Text("We were able to find a recipe within your time limits, but were unable to filter by your ingredient specifications.")
+                        Text("We couldn't find a recipe with your ingredient specifications!")
                     } else if filterByTime.couldNotFilterByTime {
-                        Text("We were able to find a recipe with your ingredient specifications, but were unable to filter by your requested time limits.")
+                        Text("We've got a recipe that fit your ingredient specifications, but not your requested time limits.")
+                    }  else {
+                        Text("Ready to generate your recipe!")
                     }
                 }.font(.system(size:12))
                     .foregroundColor(K.textColor)
@@ -72,14 +70,14 @@ struct SelectIngredientsOwned: View {
                     }
                     
                     Spacer()
-                    if self.showSettings {
+                    if self.goToHomePage {
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         })
-                        { HStack {
-                            Text("Continue")
-                            Image(systemName: "arrow.right")
-                        }.foregroundColor(K.blue)
+                        {
+                            Text("Continue to home page")
+                                .foregroundColor(K.blue)
+                            
                         }.buttonStyle(PlainButtonStyle())
                     }
                     

@@ -45,12 +45,12 @@ struct SelectTimeScreen: View {
                 //warning view
                 ZStack {
                     if filterByTime.couldNotFilter {
-                        Text("No recipes matched either your time limits or ingredient specifications.")
+                        Text("None of our recipes fit either your time limits or your ingredient specifications.")
                     } else if filterByTime.couldNotFilterByIng {
-                        Text("We were able to find a recipe within your time limits, but were unable to filter by your ingredient specifications.")
+                        Text("We've got a recipe that fits your time limits, but not your ingredient specifications.")
                     } else if filterByTime.couldNotFilterByTime {
-                        Text("We were able to find a recipe with your ingredient specifications, but were unable to filter by your requested time limits.")
-                    } else {
+                        Text("We couldn't find a recipe within your requested time limits!")
+                    }  else {
                         Text("Ready to generate your recipe!")
                     }
                 }.font(.system(size:12))

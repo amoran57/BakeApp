@@ -9,19 +9,28 @@
 import SwiftUI
 
 struct Substitutions: View {
-    let predefinedSubstitutes:[String:String] = [
-        "cream of tartar":"stuff stuff stuff",
-        "buttermilk":"stuff stuff",
-        "unrelated ingredient":"nothing to report"
-    ]
+    
+    @Binding var goToIngSelect:Bool
+    @Binding var showingSheet:Bool
+    @Binding var showOverlay:Bool
+    var delegate:RecipeDetail
+    
     var ingredients:[String]
     
-    var relevantDict:[String:String] {
-        var value:[String:String] = [:]
+    let predefinedSubstitutes:[String:String] = [
+        "cream of tartar":"sdkjfskghsidsks fdjfd sdkfd skjdh",
+        "buttermilk":"stuff stuff",
+        "flour":"almond flour!",
+        "unrelated ingredient":"nothing to report"
+    ]
+    
+    
+    var areSubs:Bool {
+        var value:Bool = false
         for counter in 0..<ingredients.count {
             let sub = predefinedSubstitutes.filter({ $0.key == ingredients[counter]})
             if !sub.isEmpty {
-                value.updateValue(sub.first?.value ?? "", forKey: sub.first?.key ?? "")
+                value = true
             }
         }
         return value
@@ -29,30 +38,51 @@ struct Substitutions: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
             Text("Missing some ingredients?")
-                .font(.system(size:24))
+                .font(.system(size:22))
                 .bold()
-            Spacer()
-                .frame(height: 30)
-            Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you.")
                 .padding()
-            NavigationLink(destination: SelectIngredientsOwned()) {
-                Text("Indicate missing ingredients")
-                    .padding(.horizontal, 40)
-            }
+            
             Spacer()
-                .frame(height: 50)
-            if relevantDict.count > 0 {
+                .frame(height: 10)
+            
+            Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you.")
+                .padding(.horizontal, 5)
+            
+            Button(action: {
+                self.showOverlay = false
+                self.showingSheet = false
+                self.delegate.presentationMode.wrappedValue.dismiss()
+//                self.goToIngSelect = true
+            
+            }) {
+                Text("Indicate missing ingredients")
+                    .foregroundColor(.blue)
+                .padding(.horizontal, 40)
+                    .padding(.top)
+            }
+            
+            
+            Spacer()
+                .frame(height: 10)
+            
+            if areSubs {
                 Text("Or, if you're missing one of the following ingredients, you can try making a substitution instead:")
                     .padding()
-                ForEach(0..<ingredients.count) {index in
+                ForEach(0..<ingredients.count) { index in
                     if self.predefinedSubstitutes[self.ingredients[index]] != nil {
-                        Text(self.predefinedSubstitutes[self.ingredients[index]]!)
-                            .padding(.bottom)
+                        Group {
+                        Text("For ") +
+                            Text("\(self.ingredients[index]), ").fontWeight(.black) +
+                        Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
+                        }.padding(5)
                     }
                 }
             }
+            
             Spacer()
+            
         }.frame(width: 300, height: 500)
             .background(K.frameColor)
             .cornerRadius(10)
@@ -60,9 +90,9 @@ struct Substitutions: View {
         
     }
 }
-
-struct Substitutions_Previews: PreviewProvider {
-    static var previews: some View {
-        Substitutions(ingredients:recipeData[3].sysIng)
-    }
-}
+//
+//struct Substitutions_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Substitutions(goToIngSelect: .constant(false), showingSheet:.constant(false), showOverlay: .constant(false), delegate: RecipeDetail(),ingredients:recipeData[6].sysIng)
+//    }
+//}
