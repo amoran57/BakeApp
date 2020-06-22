@@ -47,7 +47,7 @@ struct Substitutions: View {
             Spacer()
                 .frame(height: 10)
             
-            Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you.")
+            Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you:")
                 .padding(.horizontal)
             
             Button(action: {
@@ -56,9 +56,9 @@ struct Substitutions: View {
                 self.delegate.goToIngSelect2 = true
                 self.delegate.presentationMode.wrappedValue.dismiss()
             }) {
-                Text("Go Back to Home Page")
+                Text("Indicate missing ingredients")
                     .foregroundColor(.blue)
-                .padding(.horizontal, 50)
+                .padding(.horizontal, 40)
                     .padding(.top)
             }
             
@@ -73,7 +73,7 @@ struct Substitutions: View {
                     if self.predefinedSubstitutes[self.ingredients[index]] != nil {
                         Group {
                         Text("For ") +
-                            Text("\(self.ingredients[index]), ").fontWeight(.black) +
+                        Text("\(self.ingredients[index]), ").fontWeight(.black) +
                         Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
                         }.padding(.horizontal)
                     }
@@ -89,9 +89,9 @@ struct Substitutions: View {
         
     }
 }
-//
-//struct Substitutions_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Substitutions(goToIngSelect: .constant(false), showingSheet:.constant(false), showOverlay: .constant(false), delegate: RecipeDetail(),ingredients:recipeData[6].sysIng)
-//    }
-//}
+
+struct Substitutions_Previews: PreviewProvider {
+    static var previews: some View {
+        Substitutions(goToIngSelect: .constant(false), showingSheet:.constant(false), showOverlay: .constant(false), delegate: RecipeDetail(recipe: recipeData[6], practiceArray: .constant(nil), goToIngSelect2: .constant(false)),ingredients:recipeData[6].sysIng)
+    }
+}

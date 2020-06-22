@@ -50,6 +50,7 @@ struct HomePage: View {
         return GeometryReader { geometry in
             
             NavigationView {
+               
                 VStack {
             
                     NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
@@ -95,7 +96,7 @@ struct HomePage: View {
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                    NavigationLink(destination: SelectIngredientsOwned(goToHomePage:true)) {
+                    NavigationLink(destination: SelectIngredientsOwned()) {
                         RectangleButton(text:"I'm short on ingredients.")
                     }
                     
@@ -117,7 +118,8 @@ struct HomePage: View {
                     
                 }
                 .frame(width:geometry.size.width, height:700)
-                .background(recipeData[self.activeImageIndex].image
+                .background(
+                recipeData[self.activeImageIndex].image
                 .resizable()
                 .opacity(0.2)
                 .edgesIgnoringSafeArea(.all)
@@ -131,19 +133,18 @@ struct HomePage: View {
                         .padding(.trailing))
                 
             }
-            
+           
         }
         .onReceive(self.imageSwitchTimer) { _ in
 
             self.timerIndex += 1
             print(self.timerIndex)
-//            var nextIndex = Int.random(in: 0...recipeData.count-1)
-//            while nextIndex == self.activeImageIndex {
-//                print("Duplicate index; trying again")
-//                nextIndex = Int.random(in: 0...recipeData.count-1)
-//            }
-//            self.activeImageIndex = nextIndex
-//
+            var nextIndex = Int.random(in: 0...recipeData.count-1)
+            while nextIndex == self.activeImageIndex {
+                print("Duplicate index; trying again")
+                nextIndex = Int.random(in: 0...recipeData.count-1)
+            }
+            self.activeImageIndex = nextIndex
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear (perform: {self.setCoreData()})

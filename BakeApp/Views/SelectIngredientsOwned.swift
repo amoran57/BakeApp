@@ -20,7 +20,6 @@ struct SelectIngredientsOwned: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var showSettings = true
-    var goToHomePage = false
     
     //number of tiles per line
     var numPerLine:Int? = 3
@@ -70,7 +69,7 @@ struct SelectIngredientsOwned: View {
                     }
                     
                     Spacer()
-                    if self.goToHomePage {
+                    
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         })
@@ -82,7 +81,7 @@ struct SelectIngredientsOwned: View {
                                 .foregroundColor(K.blue)
                             
                         }.buttonStyle(PlainButtonStyle())
-                    }
+                    
                     
                 }.padding(.bottom)
                     .padding(.horizontal)

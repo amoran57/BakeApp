@@ -10,32 +10,32 @@ import SwiftUI
 
 struct HomeBackground: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
-    var imageSwitchTimer:Timer.TimerPublisher
+       let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
+           .autoconnect()
     @State var timerIndex:Int = 0
     var body: some View {
         Group {
-        recipeData[self.activeImageIndex].image
-            .resizable()
-            .opacity(0.2)
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill)
-            .onReceive(self.imageSwitchTimer) { _ in
-                
-                self.timerIndex += 1
-                print(self.timerIndex)
-                //            var nextIndex = Int.random(in: 0...recipeData.count-1)
-                //            while nextIndex == self.activeImageIndex {
-                //                print("Duplicate index; trying again")
-                //                nextIndex = Int.random(in: 0...recipeData.count-1)
-                //            }
-                //            self.activeImageIndex = nextIndex
+            recipeData[self.activeImageIndex].image
+                .resizable()
+                .opacity(0.2)
+                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .onReceive(self.imageSwitchTimer) { _ in
+                    self.timerIndex += 1
+                    print(self.timerIndex)
+                    var nextIndex = Int.random(in: 0...recipeData.count-1)
+                    while nextIndex == self.activeImageIndex {
+                        print("Duplicate index; trying again")
+                        nextIndex = Int.random(in: 0...recipeData.count-1)
+                    }
+                    self.activeImageIndex = nextIndex
             }
         }
     }
 }
 
-//struct HomeBackground_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeBackground()
-//    }
-//}
+struct HomeBackground_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeBackground()
+    }
+}
