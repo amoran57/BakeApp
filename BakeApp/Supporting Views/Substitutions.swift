@@ -18,10 +18,18 @@ struct Substitutions: View {
     var ingredients:[String]
     
     let predefinedSubstitutes:[String:String] = [
-        "cream of tartar":"sdkjfskghsidsks fdjfd sdkfd skjdh",
-        "buttermilk":"stuff stuff",
-        "flour":"almond flour!",
-        "unrelated ingredient":"nothing to report"
+        "baking powder":"one part baking soda, one part cornstarch, and two parts cream of tartar.",
+        "baking soda":"baking powder, 3x as much as called for. Note that this will taste salty, so consider using less salt than you would otherwise.",
+        "brown sugar":"sixteen parts white sugar to one part molasses (or maple syrup). The ratio is that of 1 cup : 1 tablespoon.",
+        "butter":"coconut oil, although this substitution may slightly affect the flavor.",
+        "cocoa powder":"hot chocolate mix--note that you may want to reduce the amount of sugar you use, to compensate.",
+        "cream of tartar":"lemon juice.",
+        "egg":"one-quarter cup applesauce for every egg.",
+        "honey":"agave nectar, coconut nectar, maple syrup, or molasses.",
+        "milk":"half and half, or cream and water in a 3:2 ratio.",
+        "sour cream":"greek yogurt, cottage cheese, or buttermilk.",
+        "vegatable oil":"coconut oil, canola oil, or butter.",
+        "vinegar":"lemon juice"
     ]
     
     
@@ -37,6 +45,7 @@ struct Substitutions: View {
     }
     
     var body: some View {
+        ScrollView {
         VStack(alignment: .leading) {
             
             Text("Missing some ingredients?")
@@ -77,11 +86,11 @@ struct Substitutions: View {
                         Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
                         }.padding(.horizontal)
                     }
-                }
+                }.padding(.bottom)
             }
             
             Spacer()
-            
+            }
         }.frame(width: 300, height: 500)
             .background(K.frameColor)
             .cornerRadius(10)
