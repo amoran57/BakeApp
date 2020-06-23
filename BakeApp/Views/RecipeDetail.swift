@@ -15,19 +15,26 @@ struct RecipeDetail: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
+    
     @State var showingAlert = false
     @State var index: Int = 0
+    
     @State private var showingSheet = false
     @State private var showingSheet2 = false
     @State private var showOverlay = false
+    
     @State var goToIngSelect:Bool = false
+    var fromHomePage = false
+    
     var recipe: Recipe
     @Binding var practiceArray:[Recipe]?
+    
     var showSettings = true
     var remove = false
     var restore = false
     var deleteDelegate:DeleteDelegate?
     var restoreDelegate:RestoreDelegate?
+    
     @Binding var goToIngSelect2:Bool
     
     
@@ -94,7 +101,7 @@ struct RecipeDetail: View {
                                     self.showOverlay.toggle()
                                 }) {
                                     Text("Missing ingredients?")
-                                }
+                                }.padding()
                             }
                             .overlay(
                                 VStack {
@@ -109,6 +116,7 @@ struct RecipeDetail: View {
                                                           showingSheet: self.$showingSheet,
                                                           showOverlay: self.$showOverlay,
                                                           delegate: self,
+                                                          fromHomePage: self.fromHomePage,
                                                           ingredients: self.recipe.sysIng)
                                         }.frame(width: 1000, height: 1000)
                                     } else {

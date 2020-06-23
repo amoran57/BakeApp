@@ -15,6 +15,8 @@ struct Substitutions: View {
     @Binding var showOverlay:Bool
     var delegate:RecipeDetail
     
+    var fromHomePage:Bool
+    
     var ingredients:[String]
     
     let predefinedSubstitutes:[String:String] = [
@@ -46,50 +48,83 @@ struct Substitutions: View {
     
     var body: some View {
         ScrollView {
-        VStack(alignment: .leading) {
-            
-            Text("Missing some ingredients?")
-                .font(.system(size:22))
-                .bold()
-                .padding()
-            
-            Spacer()
-                .frame(height: 10)
-            
-            Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you:")
-                .padding(.horizontal)
-            
-            Button(action: {
-                self.showOverlay = false
-                self.showingSheet = false
-                self.delegate.goToIngSelect2 = true
-                self.delegate.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Indicate missing ingredients")
-                    .foregroundColor(.blue)
-                .padding(.horizontal, 40)
-                    .padding(.top)
-            }
-            
-            
-            Spacer()
-                .frame(height: 10)
-            
-            if areSubs {
-                Text("Or, if you're missing one of the following ingredients, you can try making a substitution instead:")
-                    .padding()
-                ForEach(0..<ingredients.count) { index in
-                    if self.predefinedSubstitutes[self.ingredients[index]] != nil {
-                        Group {
-                        Text("For ") +
-                        Text("\(self.ingredients[index]), ").fontWeight(.black) +
-                        Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
-                        }.padding(.horizontal)
+            if fromHomePage {
+                VStack(alignment: .leading) {
+                    
+                    Text("Missing some ingredients?")
+                        .font(.system(size:22))
+                        .bold()
+                        .padding()
+                    
+                    Spacer()
+                        .frame(height: 10)
+                    
+                    Text("You can let us know which ingredients you're missing, and we'll find a new recipe for you:")
+                        .padding(.horizontal)
+                    
+                    Button(action: {
+                        self.showOverlay = false
+                        self.showingSheet = false
+                        self.delegate.goToIngSelect2 = true
+                        self.delegate.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Indicate missing ingredients")
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 40)
+                            .padding(.top)
                     }
-                }.padding(.bottom)
-            }
-            
-            Spacer()
+                    
+                    
+                    Spacer()
+                        .frame(height: 10)
+                    
+                    if areSubs {
+                        Text("Or, if you're missing one of the following ingredients, you can try making a substitution instead:")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(3)
+                            .padding()
+                        ForEach(0..<ingredients.count) { index in
+                            if self.predefinedSubstitutes[self.ingredients[index]] != nil {
+                                Group {
+                                    Text("For ") +
+                                        Text("\(self.ingredients[index]), ").fontWeight(.black) +
+                                        Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
+                                }.padding(.horizontal)
+                            }
+                        }.padding(.bottom)
+                    }
+                    
+                    Spacer()
+                }
+            } else {
+                if areSubs {
+                    VStack(alignment: .leading) {
+                    
+                    Text("Missing some ingredients?")
+                        .font(.system(size:22))
+                        .bold()
+                        .padding()
+                    
+                    Spacer()
+                        .frame(height: 10)
+                        
+                    Text("If you're missing one of the following ingredients, you can try making a substitution:")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(3)
+                        .padding()
+                    ForEach(0..<ingredients.count) { index in
+                        if self.predefinedSubstitutes[self.ingredients[index]] != nil {
+                            Group {
+                                Text("For ") +
+                                    Text("\(self.ingredients[index]), ").fontWeight(.black) +
+                                    Text("use \(self.predefinedSubstitutes[self.ingredients[index]]!)")
+                            }.padding(.horizontal)
+                        }
+                    }.padding(.bottom)
+                }
+                } else {
+                    Text("None of the ingredients in this recipe have substitutes.")
+                }
             }
         }.frame(width: 300, height: 500)
             .background(K.frameColor)
@@ -101,6 +136,6 @@ struct Substitutions: View {
 
 struct Substitutions_Previews: PreviewProvider {
     static var previews: some View {
-        Substitutions(goToIngSelect: .constant(false), showingSheet:.constant(false), showOverlay: .constant(false), delegate: RecipeDetail(recipe: recipeData[6], practiceArray: .constant(nil), goToIngSelect2: .constant(false)),ingredients:recipeData[6].sysIng)
+        Substitutions(goToIngSelect: .constant(false), showingSheet:.constant(false), showOverlay: .constant(false), delegate: RecipeDetail(recipe: recipeData[6], practiceArray: .constant(nil), goToIngSelect2: .constant(false)), fromHomePage:false, ingredients:recipeData[1].sysIng)
     }
 }

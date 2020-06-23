@@ -58,8 +58,10 @@ struct HomePage: View {
                     NavigationLink(
                         "", destination:
                         RecipeDetail(
+                            fromHomePage: true,
                             recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
-                            practiceArray: .constant(nil), goToIngSelect2: self.$goToIngSelect
+                            practiceArray: .constant(nil),
+                            goToIngSelect2: self.$goToIngSelect
                         ),
                         isActive: self.$navigationLinkActive
                     )
