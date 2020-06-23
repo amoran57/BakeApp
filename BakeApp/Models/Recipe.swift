@@ -12,9 +12,13 @@ import CoreLocation
 //creates basic type "Recipe" which all recipes will conform to
 struct Recipe: Codable, Identifiable, Hashable {
     
-    var id: Int
     var name: String
+    var id: Int
+    var yield: String
+    var credit: String
+    var materials: [String]
     fileprivate var imageName: String
+    var imageCredit: String
     var ingredients: [String]
     var instructions: [String]
     var totalTime: Int

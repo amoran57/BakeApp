@@ -2,10 +2,14 @@
     {
         "name": "Crumpets",
         "id": 1001,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 15,
         "totalTime": 105,
         "imageName": "crumpet",
+        "imageCredit": "",
         "type": "breads",
         "sysIng": ["milk", "butter", "flour", "yeast", "baking powder", "salt"],
         "ingredients": [
@@ -31,12 +35,12 @@
             "Remove the crumpets from the pan, and repeat with the remaining batter, until all the crumpets are cooked. Serve warm. Or cool completely, wrap in plastic, and store at room temperature. To enjoy, warm in the toaster. Serve with butter, or butter and jam."
         ],
         "ingxins": [
-        [0,1,2,3],
-        [],
-        [],
-        [],
-        [],
-        []
+            [0,1,2,3],
+            [],
+            [],
+            [],
+            [],
+            []
         ]
     },
     
@@ -44,10 +48,14 @@
     {
         "name": "Chocolate Sheet Cake",
         "id": 1002,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 30,
         "bakeTime": 20,
         "totalTime": 110,
         "imageName": "chocolateSheetCake",
+        "imageCredit": "",
         "type": "cakes",
         "sysIng": ["sugar", "flour", "butter", "cocoa powder", "baking soda", "egg", "vanilla", "milk", "powdered sugar"],
         "ingredients": [
@@ -74,12 +82,12 @@
             "Combine remaining ½ cup butter, 3 tablespoons cocoa powder, and milk in a small saucepan; stir over medium heat until butter is melted and mixture is well combined. Beat powdered sugar into the butter mixture, mixing until frosting is smooth. Pour over cooled cake."
         ],
         "ingxins": [
-        [],
-        [0,1],
-        [2,3,4],
-        [5,6,7,8],
-        [],
-        [9,10,11,12]
+            [],
+            [0,1],
+            [2,3,4],
+            [5,6,7,8],
+            [],
+            [9,10,11,12]
         ]
     },
     
@@ -87,10 +95,14 @@
     {
         "name": "Banana Bread",
         "id": 1003,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 70,
         "totalTime": 85,
         "imageName": "bananaBread",
+        "imageCredit": "",
         "type": "breads",
         "sysIng": ["flour", "baking soda", "banana", "milk", "butter", "baking powder", "salt", "sugar", "brown sugar", "egg"],
         "ingredients": [
@@ -119,14 +131,14 @@
             "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 70 minutes. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
         ],
         "ingxins": [
-        [],
-        [0,1,2,3],
-        [4,5,6,7],
-        [8,9,10,11],
-        [],
-        [12],
-        [],
-        []
+            [],
+            [0,1,2,3],
+            [4,5,6,7],
+            [8,9,10,11],
+            [],
+            [12],
+            [],
+            []
         ]
     },
     
@@ -134,10 +146,14 @@
     {
         "name": "Peanut Butter Oatmeal Cookies",
         "id": 1004,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 15,
         "totalTime": 60,
         "imageName": "peanutButterOatmealCookies",
+        "imageCredit": "",
         "type": "cookies",
         "sysIng": ["brown sugar", "sugar", "butter", "flour", "peanut butter", "egg", "baking soda", "salt", "oatmeal"],
         "ingredients": [
@@ -158,23 +174,27 @@
             "Mix in the oats until just combined. Drop by teaspoonfuls onto ungreased cookie sheets.",
             "Bake for 10 to 15 minutes in the preheated oven, or until just light brown. Cool."
         ],
-          "ingxins": [
-              [],
-              [0,1,2,3,4],
-              [5,6,7],
-              [8],
-              []
-              ]
+        "ingxins": [
+            [],
+            [0,1,2,3,4],
+            [5,6,7],
+            [8],
+            []
+        ]
     },
     
     
     {
         "name": "Scones",
         "id": 1005,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 20,
         "bakeTime": 17,
         "totalTime": 75,
         "imageName": "scones",
+        "imageCredit": "",
         "type": "pastries",
         "sysIng": ["sugar", "baking soda", "butter", "flour", "raisins", "baking powder", "salt", "sour cream", "egg"],
         "ingredients": [
@@ -199,26 +219,30 @@
             "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart.",
             "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
         ],
-          "ingxins": [
-              [],
-              [0,1,2,3,4],
-              [5],
-              [6],
-              [7,8],
-              [],
-              [],
-              [],
-              []
-              ]
+        "ingxins": [
+            [],
+            [0,1,2,3,4],
+            [5],
+            [6],
+            [7,8],
+            [],
+            [],
+            [],
+            []
+        ]
     },
     
     {
         "name": "Chocolate Chip Cookies",
         "id": 1006,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 25,
         "bakeTime": 12,
         "totalTime": 45,
         "imageName": "ChocChip",
+        "imageCredit": "",
         "type": "cookies",
         "sysIng": ["brown sugar", "sugar", "butter", "salt", "vanilla", "vinegar", "baking soda", "egg", "flour", "chocolate chips"],
         "ingredients": [
@@ -252,25 +276,29 @@
             "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
             
         ],
-          "ingxins": [
-              [],
-              [0,1,2],
-              [3,4,5,6],
-              [7],
-              [8,9],
-              [],
-              [],
-              []
-              ]
+        "ingxins": [
+            [],
+            [0,1,2],
+            [3,4,5,6],
+            [7],
+            [8,9],
+            [],
+            [],
+            []
+        ]
     },
     
     {
         "name": "Snickerdoodles",
         "id": 1007,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 10,
         "totalTime": 30,
         "imageName": "snickerdoodles",
+        "imageCredit": "",
         "type": "cookies",
         "sysIng": ["sugar", "butter", "flour", "egg", "baking soda", "vanilla", "cream of tartar", "salt", "cinnamon"],
         "ingredients": [
@@ -295,24 +323,28 @@
             "Place balls on an uncreased baking sheet, about 2 inches apart.",
             "Bake 8-12 minutes, until the cookies are well set. Let them cool on the sheet for several minutes."
         ],
-          "ingxins": [
-              [],
-              [0,1,2,3],
-              [4,5,6,7],
-              [8,9],
-              [],
-              [],
-              []
-              ]
+        "ingxins": [
+            [],
+            [0,1,2,3],
+            [4,5,6,7],
+            [8,9],
+            [],
+            [],
+            []
+        ]
     },
     
     {
         "name": "Easy Bread",
         "id": 1008,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 25,
         "bakeTime": 40,
         "totalTime": 180,
         "imageName": "easyBread",
+        "imageCredit": "",
         "type": "breads",
         "sysIng": ["sugar", "flour", "yeast", "salt"],
         "ingredients": [
@@ -336,137 +368,387 @@
             "Lightly slash the tops of the loaves 3 or more times diagonally and brush them with cold water.",
             "Bake at 400°F for 35 to 45 minutes, until the loaves are golden brown. They should sound hollow when tapped."
         ],
-          "ingxins": [
-              [0,1,2,3],
-              [4],
-              [5],
-              [],
-              [],
-              [],
-              [],
-              [],
-              [6],
-              []
-              ]
+        "ingxins": [
+            [0,1,2,3],
+            [4],
+            [5],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [6],
+            []
+        ]
     },
     
-
+    
     {
         "name": "Blonde Brownies",
         "id": 1009,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 25,
         "totalTime": 40,
         "imageName": "blondeBrownies",
+        "imageCredit": "",
         "type": "other",
         "sysIng": ["brown sugar", "butter", "flour", "egg", "baking powder", "salt", "vanilla"],
         "ingredients": [
             "¼ cup butter",
-    "1 cup light brown sugar",
-    "1 egg",
-    "½ teaspoon vanilla",
-    "¾ cup flour",
-    "1 teaspoon baking powder",
-    "½ teaspoon salt"
-                    ],
-        "instructions": [
-    "Preheat oven to 350°F, and grease an 8x8-inch pan",
-              "Melt butter. Remove from heat. Add brown sugar; blend well and cool.",
-    "Add egg and vanilla, and mix well.",
-    "Add the dry ingredients (flour, baking powder, and salt). Mix well.",
-    "Pour into the 8x8-inch pan and bake at 350°F for 25 minutes."
+            "1 cup light brown sugar",
+            "1 egg",
+            "½ teaspoon vanilla",
+            "¾ cup flour",
+            "1 teaspoon baking powder",
+            "½ teaspoon salt"
         ],
-          "ingxins": [
-              [],
-              [0,1],
-              [2,3],
-              [4,5,6],
-              []
-              ]
+        "instructions": [
+            "Preheat oven to 350°F, and grease an 8x8-inch pan",
+            "Melt butter. Remove from heat. Add brown sugar; blend well and cool.",
+            "Add egg and vanilla, and mix well.",
+            "Add the dry ingredients (flour, baking powder, and salt). Mix well.",
+            "Pour into the 8x8-inch pan and bake at 350°F for 25 minutes."
+        ],
+        "ingxins": [
+            [],
+            [0,1],
+            [2,3],
+            [4,5,6],
+            []
+        ]
     },
     
-
+    
     {
         "name": "Brownies",
         "id": 1010,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 15,
         "bakeTime": 35,
         "totalTime": 50,
         "imageName": "brownies",
+        "imageCredit": "",
         "type": "other",
         "sysIng": ["sugar", "butter", "flour", "vanilla", "egg", "cocoa powder", "salt", "chocolate chips"],
         "ingredients": [
             "1 cup butter",
-    "3 cups white sugar",
-    "1 tablespoon vanilla",
-    "4 eggs",
-    "1 ½ cups flour",
-    "1 cup cocoa powder",
-    "½ teaspoon salt",
-    "½ teaspoon baking soda (optional)",
-    "1 cup chocolate chips"
-                    ],
-        "instructions": [
-              "Preheat oven to 350°F (175°C). Lightly grease a 9x13-inch pan.",
-    "Melt the butter and, in a large bowl, combine with the sugar and vanilla.",
-    "Beat in the eggs, one at a time, and mix well after adding each egg.",
-    "In a separate bowl, whisk together flour, cocoa powder, and salt (and, optionally, the baking soda).",
-    "Gradually stir the flour mixture into the egg mixture until blended.",
-    "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
-    "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
+            "3 cups white sugar",
+            "1 tablespoon vanilla",
+            "4 eggs",
+            "1 ½ cups flour",
+            "1 cup cocoa powder",
+            "½ teaspoon salt",
+            "½ teaspoon baking soda (optional)",
+            "1 cup chocolate chips"
         ],
-          "ingxins": [
-              [],
-              [0,1,2],
-              [3],
-              [4,5,6,7],
-              [],
-              [8],
-              []
-              ]
+        "instructions": [
+            "Preheat oven to 350°F (175°C). Lightly grease a 9x13-inch pan.",
+            "Melt the butter and, in a large bowl, combine with the sugar and vanilla.",
+            "Beat in the eggs, one at a time, and mix well after adding each egg.",
+            "In a separate bowl, whisk together flour, cocoa powder, and salt (and, optionally, the baking soda).",
+            "Gradually stir the flour mixture into the egg mixture until blended.",
+            "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
+            "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
+        ],
+        "ingxins": [
+            [],
+            [0,1,2],
+            [3],
+            [4,5,6,7],
+            [],
+            [8],
+            []
+        ]
     },
     
-
+    
     {
         "name": "Honey Whole Wheat Bread",
         "id": 1011,
+        "yield":"",
+        "credit":"",
+        "materials": [""],
         "prepTime": 40,
         "bakeTime": 40,
         "totalTime": 285,
         "imageName": "honeyWholeWheatBread",
+        "imageCredit": "",
         "type": "breads",
         "sysIng": ["flour", "yeast", "vegetable oil", "honey", "salt"],
         "ingredients": [
             "1 cup lukewarm water",
-    "1 packet (2 ½ teaspoons) yeast",
-    "1 teaspoon salt",
-    "¼ cup honey",
-    "3 ½ cups whole wheat flour",
-    "2 tablespoons vegetable oil",
-    "2 tablespoons butter (optional)"
-                    ],
-        "instructions": [
-              "In a large bowl, mix together the warm water, the yeast, the salt, and the honey, until the mixture is consistent throughout.",
-    "Add in 2 cups of flour and the vegetable oil, and beat until smooth.",
-    "Stir in the remaining flour until the dough begins to leave the sides of the bowl. Dough should be soft and easy to handle.",
-    "Let the dough sit 20-30 minutes, then transfer to lightly oiled surface and knead for about 8 minutes. Dough should be supple",
-    "Transfer the dough to a greased bowl, cover with a warm, damp cloth, and let sit 1-2 hours, until puffy (dough need not necessarily be doubled in size).",
-    "Return the dough to a lightly oiled surface and shape into a loaf; place the loaf in a loaf pan and cover with greased plastic wrap.",
-    "Let rise until dough is an inch over the top of the pan in the center (about 1-2 hours). As the dough finishes rising, preheat the oven to 350°F.",
-    "Bake the bread for 30 minutes; do not overbake. If needed, tent the loaf with aluminum foil after the first 20 minutes, to prevent browning; whole wheat flour means this bread will tend to brown.",
-    "Remove from oven and let cool on a rack. If desired, rub the crust with butter to create a softer crust. Let bread cool completely before slicing."
+            "1 packet (2 ½ teaspoons) yeast",
+            "1 teaspoon salt",
+            "¼ cup honey",
+            "3 ½ cups whole wheat flour",
+            "2 tablespoons vegetable oil",
+            "2 tablespoons butter (optional)"
         ],
-          "ingxins": [
-              [0,1,2,3],
-              [4,5],
-              [4],
-              [],
-              [],
-              [],
-              [],
-              [],
-              [6]
-              ]
+        "instructions": [
+            "In a large bowl, mix together the warm water, the yeast, the salt, and the honey, until the mixture is consistent throughout.",
+            "Add in 2 cups of flour and the vegetable oil, and beat until smooth.",
+            "Stir in the remaining flour until the dough begins to leave the sides of the bowl. Dough should be soft and easy to handle.",
+            "Let the dough sit 20-30 minutes, then transfer to lightly oiled surface and knead for about 8 minutes. Dough should be supple",
+            "Transfer the dough to a greased bowl, cover with a warm, damp cloth, and let sit 1-2 hours, until puffy (dough need not necessarily be doubled in size).",
+            "Return the dough to a lightly oiled surface and shape into a loaf; place the loaf in a loaf pan and cover with greased plastic wrap.",
+            "Let rise until dough is an inch over the top of the pan in the center (about 1-2 hours). As the dough finishes rising, preheat the oven to 350°F.",
+            "Bake the bread for 30 minutes; do not overbake. If needed, tent the loaf with aluminum foil after the first 20 minutes, to prevent browning; whole wheat flour means this bread will tend to brown.",
+            "Remove from oven and let cool on a rack. If desired, rub the crust with butter to create a softer crust. Let bread cool completely before slicing."
+        ],
+        "ingxins": [
+            [0,1,2,3],
+            [4,5],
+            [4],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [6]
+        ]
+    },
+    
+    {
+        "name": "Blueberry Muffins",
+        "id": 1012,
+        "yield": "12 muffins",
+        "credit":"",
+        "materials": [""],
+        "prepTime": 15,
+        "bakeTime": 20,
+        "totalTime": 40,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "pastries",
+        "sysIng": ["flour", "brown sugar", "sugar", "salt", "baking powder", "vegetable oil", "egg", "milk", "blueberries", "butter", "cinnamon"],
+        "ingredients": [
+            "⅓ cup brown sugar",
+            "2 tablespoons flour",
+            "1 tablespoon butter, in tiny cubes",
+            "½ teaspoon ground cinnamon",
+            "1 ½ cups flour",
+            "¾ cup sugar",
+            "½ teaspoon salt",
+            "2 teaspoons baking powder",
+            "⅓ cup vegetable oil",
+            "1 egg",
+            "⅓ cup milk",
+            "1 cup fresh blueberries"
+        ],
+        "instructions": [
+            "Preheat oven to 400°F (200°C). Grease muffin cups or line with muffin liners.",
+            
+            "First, make the topping mixture: with a fork, mix together brown sugar, flour, butter, and cinnamon. Set aside.",
+            
+            "In a large bowl, combine flour, sugar, salt, and baking powder.",
+            
+            "In a separate bowl, mix vegetable oil with the egg and milk. Stir into the flour mixture.",
+            
+            "Fold in blueberries. Fill muffin cups about two-thirds full, and sprinkle with crumb topping mixture.",
+            
+            "Bake for 18 to 20 minutes at 400°F, or until done."
+        ],
+        
+        "ingxins": [
+            [],
+            [0,1,2,3],
+            [4,5,6,7],
+            [8,9,10],
+            [11],
+            []
+        ]
+    },
+    
+    {
+        "name": "Buttermilk Biscuits",
+        "id": 1013,
+        "yield": "12 biscuits",
+        "credit":"",
+        "materials": [""],
+        "prepTime": 15,
+        "bakeTime": 30,
+        "totalTime": 45,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "other",
+        "sysIng": ["flour", "butter", "sugar", "buttermilk", "baking powder", "salt"],
+        "ingredients": [
+            "2 ¼ cups flour",
+            "4 teaspoons baking powder",
+            "1 teaspoon salt",
+            "1 teaspoon sugar",
+            "½ cup chilled butter, cubed",
+            "1 cup buttermilk"
+        ],
+        "instructions": [
+            "Preheat the oven to 375°F.",
+            "Whisk flour, baking powder, salt, and sugar in a large bowl.",
+            "Add the chilled butter, and work it into the mixture until the whole thing resembles coarse meal.",
+            "Add the buttermilk and stir until a soft dough forms.",
+            "Scoop the dough out onto a baking sheet in ¼-cup portions.",
+            "Bake at 375°F for 25-30 minutes, until golden brown."
+        ],
+        
+        "ingxins": [
+            [],
+            [0,1,2,3],
+            [4],
+            [5],
+            [],
+            []
+        ]
+    },
+    
+    {
+        "name": "Cutout Cookies",
+        "id": 1014,
+        "yield": "4 dozen cookies",
+        "credit": "Aunt Melanie",
+        "materials": [""],
+        "prepTime": 20,
+        "bakeTime": 15,
+        "totalTime": 240,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "cookies",
+        "sysIng": ["butter", "honey", "sugar", "bourbon", "lemon", "egg", "flour", "baking soda", "salt", "cinnamon", "cloves", "black pepper", "nutmeg"],
+        "ingredients": [
+            "3 tablespoons butter",
+            "5 tablespoons honey",
+            "1/2 cups sugar",
+            "3 tablespoons bourbon",
+            "Zest of 1 lemon",
+            "1 egg",
+            "3 cups flour",
+            "1 ¼ teaspoons baking soda",
+            "¼ teaspoon salt",
+            "¼ teaspoon cinnamon",
+            "¼ teaspoon cloves",
+            "¼ teaspoon black pepper",
+            "¼ teaspoon nutmeg"
+        ],
+        "instructions": [
+            "Place butter and honey in a saucepan. Melt, stirring often.",
+            "Add sugar, bourbon, and lemon zest. Mix until sugar is melted. In a separate bowl, mix together the flour and the baking soda.",
+            "While the mixture cools, mix the dry ingredients together in a separate bowl.",
+            "Once the honey mixture is cool, add the egg. Mix. Then add the wet ingredients to the dry mixture.",
+            "Wrap with plastic wrap and chill in the fridge for 3 hours.",
+            "Preheat the oven to 300°F. Sprinkle a countertop with flour, then divide the dough into thirds and roll out the dough. Put the dough that you're not working on back into the fridge.",
+            "Cut the dough using cookie cutters or the opening of a drinking glass.",
+            "Bake at 300°F for 12 minutes, or until just browned. Let cool."
+        ],
+        
+        "ingxins": [
+            [0,1],
+            [2,3,4,6,7],
+            [8,9,10,11,12],
+            [5],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    
+    {
+        "name": "Biscotti",
+        "id": 1015,
+        "yield": "2 dozen cookies",
+        "credit":"Aunt Melanie",
+        "materials":["parchment paper","mixer"],
+        "prepTime": 15,
+        "bakeTime": 100,
+        "totalTime": 120,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "cookies",
+        "sysIng": ["flour", "butter", "sugar", "egg", "baking powder", "salt", "almonds", "aniseed"],
+        "ingredients": [
+            "2 1/2 cups flour",
+            "1 1/2 teaspoons baking powder",
+            "1/2 teaspoon salt",
+            "8 tablespoons cold butter",
+            "1 ¼ cups sugar",
+            "2 eggs",
+            "1 cup toasted almonds, chopped",
+            "1 tablespoon aniseed"
+        ],
+        "instructions": [
+            "Preheat oven to 300°F. Line two large baking sheets with parchment paper.",
+            "Sift or whisk the flour, baking powder, and salt together in a bowl. Set aside.",
+            "Beat the butter and sugar together until just combined. Add eggs and beat. Do not overmix.",
+            "Add the flour mixture, the almonds, and the aniseed to the butter mixture until just combined.",
+            "Divide the dough in half. Lightly flour the countertop and roll each half of the dough into a log.",
+            "Put a log on each baking sheet and bake for 45 minutes. Then switch the sheets in the oven, reversing from front to back and top to bottom, and bake for another 45 minutes.",
+            "Remove from oven. While the logs are still hot, slice them into 1/2-inch wide pieces.",
+            "Line the biscotti back on the baking tray and bake for another 10 minutes. Take out and let cool on a rack."
+            
+        ],
+        
+        "ingxins": [
+            [],
+            [0,1,2],
+            [3,4,5],
+            [6,7],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    
+    {
+        "name": "Ginger Creams",
+        "id": 1016,
+        "yield": "3 dozen cookies",
+        "credit":"Aunt Melanie",
+        "materials": ["parchment paper","mixer"],
+        "prepTime": 15,
+        "bakeTime": 10,
+        "totalTime": 90,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "cookies",
+        "sysIng": ["butter", "sugar", "egg", "molasses", "rum", "flour", "salt", "baking soda", "nutmeg", "cloves", "dried ginger", "fresh ginger", "powdered sugar", "vanilla"],
+        "ingredients": [
+            "1/3 cup butter",
+            "1/2 cup sugar",
+            "1 egg",
+            "1/2 cup molasses",
+            "1/2 cup rum",
+            "2 cups flour",
+            "1/2 teaspoon salt",
+            "1/2 teaspoon baking soda",
+            "1/2 teaspoon nutmeg",
+            "1/2 teaspoon cloves",
+            "1 teaspoon dried ginger",
+            "1 teaspoon freshly grated ginger",
+            "3 tablespoons softened butter",
+            "1 1/2 cups powdered sugar",
+            "1 teaspoon vanilla"
+        ],
+        "instructions": [
+            "Mix butter, sugar, egg, molasses, and rum.",
+            "In a separate bowl, mix together the dry ingredients.",
+            "Add the ginger, and then mix the dry ingredients together with the wet ingredients.",
+            "Cover and let chill for one hour. While the dough chills, prepare the frosting by mixing the butter, powdered sugar, and vanilla.",
+            "Heat oven to 400°F. Using a teaspoon or a small cookie scoop, drop the dough onto baking sheets lined with parchment paper.",
+            "Bake 8 minutes at 400°F, or until just set. Remove from oven and cool."
+        ],
+        
+        "ingxins": [
+            [0,1,2,3,4],
+            [5,6,7,8,9],
+            [10,11],
+            [12,13,14],
+            [],
+            []
+        ]
     }
 ]
  
