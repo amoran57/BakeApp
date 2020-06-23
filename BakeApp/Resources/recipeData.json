@@ -55,7 +55,7 @@
         "bakeTime": 20,
         "totalTime": 110,
         "imageName": "chocolateSheetCake",
-        "imageCredit": "",
+        "imageCredit": "https://www.culinaryhill.com/wp-content/uploads/2016/11/Texas-Sheet-Cake-Culinary-Hill-square.jpg (2)",
         "type": "cakes",
         "sysIng": ["sugar", "flour", "butter", "cocoa powder", "baking soda", "egg", "vanilla", "milk", "powdered sugar"],
         "ingredients": [
@@ -102,7 +102,7 @@
         "bakeTime": 70,
         "totalTime": 85,
         "imageName": "bananaBread",
-        "imageCredit": "",
+        "imageCredit": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2020/03/sk-ultimate-banana-bread.jpg?fit=1200%2C800&ssl=1 (2)",
         "type": "breads",
         "sysIng": ["flour", "baking soda", "banana", "milk", "butter", "baking powder", "salt", "sugar", "brown sugar", "egg"],
         "ingredients": [
@@ -153,7 +153,7 @@
         "bakeTime": 15,
         "totalTime": 60,
         "imageName": "peanutButterOatmealCookies",
-        "imageCredit": "",
+        "imageCredit": "https://bakingmischief.com/wp-content/uploads/2019/01/peanut-butter-oatmeal-cookies-image-square-1.jpg (2)",
         "type": "cookies",
         "sysIng": ["brown sugar", "sugar", "butter", "flour", "peanut butter", "egg", "baking soda", "salt", "oatmeal"],
         "ingredients": [
@@ -194,7 +194,7 @@
         "bakeTime": 17,
         "totalTime": 75,
         "imageName": "scones",
-        "imageCredit": "",
+        "imageCredit": "https://cdn.sallysbakingaddiction.com/wp-content/uploads/2019/04/scone-varieties.jpg (2)",
         "type": "pastries",
         "sysIng": ["sugar", "baking soda", "butter", "flour", "raisins", "baking powder", "salt", "sour cream", "egg"],
         "ingredients": [
@@ -298,7 +298,7 @@
         "bakeTime": 10,
         "totalTime": 30,
         "imageName": "snickerdoodles",
-        "imageCredit": "",
+        "imageCredit": "https://www.modernhoney.com/wp-content/uploads/2018/12/The-Best-Snickerdoodle-Cookie-Recipe-9jpg.jpg (2)",
         "type": "cookies",
         "sysIng": ["sugar", "butter", "flour", "egg", "baking soda", "vanilla", "cream of tartar", "salt", "cinnamon"],
         "ingredients": [
@@ -344,7 +344,7 @@
         "bakeTime": 40,
         "totalTime": 180,
         "imageName": "easyBread",
-        "imageCredit": "",
+        "imageCredit": "https://sugargeekshow.com/wp-content/uploads/2020/03/fast-bread-recipe-featured2.jpg (2)",
         "type": "breads",
         "sysIng": ["sugar", "flour", "yeast", "salt"],
         "ingredients": [
@@ -393,7 +393,7 @@
         "bakeTime": 25,
         "totalTime": 40,
         "imageName": "blondeBrownies",
-        "imageCredit": "",
+        "imageCredit": "https://www.fifteenspatulas.com/wp-content/uploads/2018/03/Brown-Butter-Blondies-Fifteen-Spatulas-1-640x959.jpg (2)",
         "type": "other",
         "sysIng": ["brown sugar", "butter", "flour", "egg", "baking powder", "salt", "vanilla"],
         "ingredients": [
@@ -477,7 +477,7 @@
         "bakeTime": 40,
         "totalTime": 285,
         "imageName": "honeyWholeWheatBread",
-        "imageCredit": "",
+        "imageCredit": "https://d2gk7xgygi98cy.cloudfront.net/1638-3-large.jpg (2)",
         "type": "breads",
         "sysIng": ["flour", "yeast", "vegetable oil", "honey", "salt"],
         "ingredients": [
@@ -522,8 +522,8 @@
         "prepTime": 15,
         "bakeTime": 20,
         "totalTime": 40,
-        "imageName": "crumpet",
-        "imageCredit": "",
+        "imageName": "blueberryMuffins",
+        "imageCredit": "https://bakerbynature.com/blueberry-muffins/",
         "type": "pastries",
         "sysIng": ["flour", "brown sugar", "sugar", "salt", "baking powder", "vegetable oil", "egg", "milk", "blueberries", "butter", "cinnamon"],
         "ingredients": [
@@ -573,8 +573,8 @@
         "prepTime": 15,
         "bakeTime": 30,
         "totalTime": 45,
-        "imageName": "crumpet",
-        "imageCredit": "",
+        "imageName": "buttermilkBiscuits",
+        "imageCredit": "https://www.jocooks.com/recipes/buttermilk-biscuits/",
         "type": "other",
         "sysIng": ["flour", "butter", "sugar", "buttermilk", "baking powder", "salt"],
         "ingredients": [
@@ -613,8 +613,8 @@
         "prepTime": 20,
         "bakeTime": 15,
         "totalTime": 240,
-        "imageName": "crumpet",
-        "imageCredit": "",
+        "imageName": "cutoutCookies",
+        "imageCredit": "https://www.inkatrinaskitchen.com/best-sugar-cookie-recipe-ever/",
         "type": "cookies",
         "sysIng": ["butter", "honey", "sugar", "bourbon", "lemon", "egg", "flour", "baking soda", "salt", "cinnamon", "cloves", "black pepper", "nutmeg"],
         "ingredients": [
@@ -664,8 +664,8 @@
         "prepTime": 15,
         "bakeTime": 100,
         "totalTime": 120,
-        "imageName": "crumpet",
-        "imageCredit": "",
+        "imageName": "biscotti",
+        "imageCredit": "https://www.shelovesbiscotti.com/almond-biscotti/",
         "type": "cookies",
         "sysIng": ["flour", "butter", "sugar", "egg", "baking powder", "salt", "almonds", "aniseed"],
         "ingredients": [
@@ -711,8 +711,8 @@
         "prepTime": 15,
         "bakeTime": 10,
         "totalTime": 90,
-        "imageName": "crumpet",
-        "imageCredit": "",
+        "imageName": "gingerCreams",
+        "imageCredit": "https://www.tasteofhome.com/recipes/frosted-ginger-cookies/",
         "type": "cookies",
         "sysIng": ["butter", "sugar", "egg", "molasses", "rum", "flour", "salt", "baking soda", "nutmeg", "cloves", "dried ginger", "fresh ginger", "powdered sugar", "vanilla"],
         "ingredients": [
