@@ -119,10 +119,9 @@ struct HomePage: View {
                     
                     
                 }
-                .frame(width:geometry.size.width, height:700)
+                .frame(width:geometry.size.width, height:750)
                 .background(
-                recipeData[self.activeImageIndex].image
-                .resizable()
+                recipeData[self.activeImageIndex].image.resizable()
                 .opacity(0.2)
                 .edgesIgnoringSafeArea(.all)
                 .aspectRatio(contentMode: .fill)

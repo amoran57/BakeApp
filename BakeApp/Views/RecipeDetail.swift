@@ -11,7 +11,7 @@ import Pages
 
 
 struct RecipeDetail: View {
-
+    
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
@@ -45,39 +45,55 @@ struct RecipeDetail: View {
             
             if userSettings.primaryViewIsTile  {
                 VStack {
-//                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
-//                        Text("")
-//                    }.frame(width:0, height:0)
-//
-                    
-                    Text(recipe.name)
+                    //                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
+                    //                        Text("")
+                    //                    }.frame(width:0, height:0)
+                    //
+                    VStack {
+                        Text(recipe.name)
+                            .foregroundColor(K.textColor)
+                            .font(.system(size: 32))
+                            .fontWeight(.bold)
+                            .frame(width: 350)
+                            .lineLimit(1)
+                        
+                        
+                        
+                        //total time
+                        Text("Total time: \(recipe.totTimeText)")
+                            .foregroundColor(K.textColor)
+                            .font(.system(size: 20))
+                        
+                        //prep and bake times
+                        HStack {
+                            Text("Prep time: \(recipe.prepTimeText)")
+                                .foregroundColor(K.textColor)
+                                .multilineTextAlignment(.trailing)
+                            Text("|")
+                                .foregroundColor(K.textColor)
+                                .multilineTextAlignment(.center)
+                            Text("Bake time: \(recipe.bakeTimeText)")
+                                .foregroundColor(K.textColor)
+                                .multilineTextAlignment(.leading)
+                        }.font(.system(size: 12))
+                            .frame(width: 400)
+                            .fixedSize(horizontal: true, vertical: true)
+                        
+                        HStack {
+                            Text("Recipe credit: \(recipe.credit)")
+                                .italic()
+                            Text("Image credit: \(recipe.imageCredit)")
+                                .italic()
+                        }
+                        .font(.system(size: 10))
                         .foregroundColor(K.textColor)
-                        .font(.system(size: 32))
-                        .fontWeight(.bold)
-                        .frame(width: 350)
-                        .lineLimit(1)
-                    
-                    
-                    
-                    //total time
-                    Text("Total time: \(recipe.totTimeText)")
-                        .foregroundColor(K.textColor)
-                        .font(.system(size: 20))
-                    
-                    //prep and bake times
-                    HStack {
-                        Text("Prep time: \(recipe.prepTimeText)")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.trailing)
-                        Text("|")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.center)
-                        Text("Bake time: \(recipe.bakeTimeText)")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.leading)
-                    }.font(.system(size: 12))
                         .frame(width: 400)
                         .fixedSize(horizontal: true, vertical: true)
+                        
+                    }
+                    .padding(.top, -40)
+                    
+                    
                     
                     Spacer()
                         .frame(height: 20.0)
@@ -209,25 +225,25 @@ struct RecipeDetail: View {
             .edgesIgnoringSafeArea(.all)
             .aspectRatio(contentMode: .fill))
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
-//            .overlay(
-//                VStack {
-//                    if self.showOverlay {
-//                        ZStack {
-//                            Rectangle()
-//                                .frame(width:1000, height:1000)
-//                                .foregroundColor(.black)
-//                                .opacity(0.6)
-//                                .onTapGesture { self.showOverlay = false }
-//                            Substitutions(ingredients: recipe.sysIng)
-//                        }.frame(width: 1000, height: 1000)
-//                        //                        .background(Color.black)
-//                        //                            .opacity(0.6)
-//                        //                            .onTapGesture { self.showOverlay = false }
-//                    } else {
-//                        EmptyView()
-//                    }
-//                }
-//        )
+            //            .overlay(
+            //                VStack {
+            //                    if self.showOverlay {
+            //                        ZStack {
+            //                            Rectangle()
+            //                                .frame(width:1000, height:1000)
+            //                                .foregroundColor(.black)
+            //                                .opacity(0.6)
+            //                                .onTapGesture { self.showOverlay = false }
+            //                            Substitutions(ingredients: recipe.sysIng)
+            //                        }.frame(width: 1000, height: 1000)
+            //                        //                        .background(Color.black)
+            //                        //                            .opacity(0.6)
+            //                        //                            .onTapGesture { self.showOverlay = false }
+            //                    } else {
+            //                        EmptyView()
+            //                    }
+            //                }
+            //        )
             .navigationBarItems(trailing:
                 Group {
                     
