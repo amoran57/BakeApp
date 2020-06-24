@@ -26,7 +26,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var prepTime: Int
     var type: String
     var sysIng: [String]
-    var ingxins: [[Int]]
+    var ingxins: [[Int]]?
 }
 
 //pulls the image from Assets and includes it in Recipe

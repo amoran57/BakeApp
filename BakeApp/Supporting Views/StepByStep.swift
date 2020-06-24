@@ -12,42 +12,42 @@ struct StepByStep: View {
     @State private var rect1: CGRect = CGRect()
     var index:Int
     var recipe:Recipe
-    
+
     var body: some View {
-        
+
         VStack {
-            
+
             Spacer()
                 .frame(height: 140)
             VStack {
-                
+
                 Text("Step \(self.index+1):")
                     .foregroundColor(K.textColor)
                     .bold()
                     .font(.system(size:24))
                     .padding(.top)
-                
+
                 HStack {
-                    if self.recipe.ingxins[self.index].count > 0 {
+                    if self.recipe.ingxins![self.index].count > 0 {
                         VStack {
-                            ForEach(0..<self.recipe.ingxins[self.index].count) { ing in
-                                
-                                Text("\(self.recipe.ingredients[self.recipe.ingxins[self.index][ing]])")
+                            ForEach(0..<self.recipe.ingxins![self.index].count) { ing in
+
+                                Text("\(self.recipe.ingredients[self.recipe.ingxins![self.index][ing]])")
                                     .foregroundColor(K.textColor)
                                     .multilineTextAlignment(.center)
-                                if ing != self.recipe.ingxins[self.index].count-1 {
+                                if ing != self.recipe.ingxins![self.index].count-1 {
                                     Divider()
                                         .background(K.textColor)
                                 }
                             }
                         }.padding(.leading)
-                        
-                        
+
+
                         Divider()
                             .background(K.textColor)
-                        
+
                     }
-                    if self.recipe.ingxins[self.index].count > 0 {
+                    if self.recipe.ingxins![self.index].count > 0 {
                         Text(self.recipe.instructions[self.index])
                             .foregroundColor(K.textColor)
                             .padding(.horizontal, 5)
@@ -61,22 +61,22 @@ struct StepByStep: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }.padding(.bottom)
-                
+
             }
             .frame(width: 325)
             .fixedSize(horizontal: false, vertical: true)
             .background(K.frameColor)
             .cornerRadius(20)
-            
+
             Spacer()
-            
+
         }
         .frame(width: 375, height: 700)
 //        .fixedSize(horizontal:false, vertical:true)
 //    .overlay(Color.clear.modifier(GeometryGetterMod(rect: $rect1)))
-        
+
     }
-    
+
 }
 
 struct GeometryGetterMod: ViewModifier {

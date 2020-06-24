@@ -9,6 +9,7 @@
 
 
 import SwiftUI
+import Firebase
 
 //create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
@@ -35,8 +36,6 @@ struct HomePage: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
-    
-    @State var timerIndex:Int = 0
     
     @State var filteredArray = recipeData
     //        .enumerated()
@@ -137,9 +136,6 @@ struct HomePage: View {
            
         }
         .onReceive(self.imageSwitchTimer) { _ in
-
-            self.timerIndex += 1
-            print(self.timerIndex)
             var nextIndex = Int.random(in: 0...recipeData.count-1)
             while nextIndex == self.activeImageIndex {
                 print("Duplicate index; trying again")
