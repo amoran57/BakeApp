@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 @UIApplicationMain
@@ -18,61 +19,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
-        let db = Firestore.firestore()
-       
-        let webRecipe = db.collection("recipes").document("2")
-        var ingxins = [[Int]]()
-        webRecipe.getDocument { (document, error) in
-            if let data = document?.data() {
-                var tempRecipe = data
-                if let ingxinsString = data["secretingxins"] as? String {
-                    let array = ingxinsString.components(separatedBy: "|")
-                    var doubleArray = Array(repeating: [], count: array.count)
-                    for index in 0..<array.count {
-                        let value = array[index]
-                        if value != "nil" {
-                            let smallArray = value.components(separatedBy: ",")
-                            var intArray = Array(repeating: 0, count: smallArray.count)
-                            for counter in 0..<smallArray.count {
-                                let val = smallArray[counter]
-                                let intVal = Int(val)
-                                intArray[counter] = intVal ?? 0
-                            }
-                            doubleArray[index] = intArray
-                        }
-                    }
-                    ingxins = doubleArray as? [[Int]] ?? [[0]]
-                    tempRecipe["ingxins"] = ingxins
-                    print("\(tempRecipe)")
-                }
-            }
-            
-            print("Global var ingxins: \(ingxins)")
-            
-            let result = Result {
-                try document?.data(as: Recipe.self)
-            }
-            
-            switch result {
-            case .success(let recipe):
-                if recipe != nil {
-                    var realRecipe = recipe!
-                    realRecipe.ingxins = ingxins
-                    // A `Recipe` value was successfully initialized from the DocumentSnapshot.
-                    print("Recipe: \(realRecipe)")
-                    recipeData.append(realRecipe)
-                } else {
-                    // A nil value was successfully initialized from the DocumentSnapshot,
-                    // or the DocumentSnapshot was nil.
-                    print("Document does not exist")
-                }
-            case .failure(let error):
-                // A `Recipe` value could not be initialized from the DocumentSnapshot.
-                print("Error decoding recipe: \(error)")
-            }
-        }
+//        func getWebRecipe() -> Recipe? {
+//            FirebaseApp.configure()
+//            let db = Firestore.firestore()
+//            var newRecipe:Recipe? = nil
+//            let webRecipe = db.collection("recipes").document("2")
+//            var ingxins = [[Int]]()
+//            webRecipe.getDocument { (document, error) in
+//                if let data = document?.data() {
+//                    var tempRecipe = data
+//                    if let ingxinsString = data["secretingxins"] as? String {
+//                        let array = ingxinsString.components(separatedBy: "|")
+//                        var doubleArray = Array(repeating: [], count: array.count)
+//                        for index in 0..<array.count {
+//                            let value = array[index]
+//                            if value != "nil" {
+//                                let smallArray = value.components(separatedBy: ",")
+//                                var intArray = Array(repeating: 0, count: smallArray.count)
+//                                for counter in 0..<smallArray.count {
+//                                    let val = smallArray[counter]
+//                                    let intVal = Int(val)
+//                                    intArray[counter] = intVal ?? 0
+//                                }
+//                                doubleArray[index] = intArray
+//                            }
+//                        }
+//                        ingxins = doubleArray as? [[Int]] ?? [[0]]
+//                        tempRecipe["ingxins"] = ingxins
+//                        print("\(tempRecipe)")
+//                    }
+//                }
+//
+//                print("Global var ingxins: \(ingxins)")
+//
+//                let result = Result {
+//                    try document?.data(as: Recipe.self)
+//                }
+//
+//                switch result {
+//                case .success(let recipe):
+//                    if recipe != nil {
+//                        var realRecipe = recipe!
+//                        realRecipe.ingxins = ingxins
+//                        // A `Recipe` value was successfully initialized from the DocumentSnapshot.
+//                        print("Recipe: \(realRecipe)")
+//                        newRecipe = realRecipe
+//                    } else {
+//                        // A nil value was successfully initialized from the DocumentSnapshot,
+//                        // or the DocumentSnapshot was nil.
+//                        print("Document does not exist")
+//                    }
+//                case .failure(let error):
+//                    // A `Recipe` value could not be initialized from the DocumentSnapshot.
+//                    print("Error decoding recipe: \(error)")
+//                }
+//            }
+//            return newRecipe
+//
+//        }
         
+        recipeData = systemRecipes
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            recipeData.append(getWebRecipe()!)
+        })
         
         return true
     }

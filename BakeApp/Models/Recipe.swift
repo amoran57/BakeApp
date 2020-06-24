@@ -9,6 +9,9 @@
 import SwiftUI
 import CoreLocation
 
+
+
+
 //creates basic type "Recipe" which all recipes will conform to
 struct Recipe: Codable, Identifiable, Hashable {
     
@@ -18,6 +21,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var credit: String
     var materials: [String]
     fileprivate var imageName: String
+    fileprivate var imageURL: String?
     var imageCredit: String
     var ingredients: [String]
     var instructions: [String]

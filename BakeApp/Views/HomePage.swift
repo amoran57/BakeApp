@@ -38,9 +38,6 @@ struct HomePage: View {
         .autoconnect()
     
     @State var filteredArray = recipeData
-    //        .enumerated()
-    //        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-    //        .map { $0.element }
     
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
@@ -52,6 +49,8 @@ struct HomePage: View {
                
                 VStack {
             
+                    Text("\(recipeData.last!.name)")
+                    
                     NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
@@ -64,6 +63,7 @@ struct HomePage: View {
                         ),
                         isActive: self.$navigationLinkActive
                     )
+                    
                     Button(action: {
                         self.imageSwitchTimer.upstream.connect().cancel()
                         self.filteredArray = recipeData
