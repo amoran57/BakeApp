@@ -10,6 +10,7 @@
 
 import SwiftUI
 import Firebase
+import URLImage
 
 //create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
@@ -120,10 +121,27 @@ struct HomePage: View {
                 }
                 .frame(width:geometry.size.width, height:750)
                 .background(
-                recipeData[self.activeImageIndex].image.resizable()
-                .opacity(0.2)
-                .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                    
+                    Group {
+                        if recipeData[self.activeImageIndex].imageURL != nil {
+                            URLImage(URL(string: recipeData[self.activeImageIndex].imageURL!)!)
+                            { proxy in
+                                proxy.image
+                                    .resizable()
+                                    .opacity(0.2)
+                                    .edgesIgnoringSafeArea(.all)
+                                    .aspectRatio(contentMode: .fill)
+                            }
+                                
+                            
+
+                        } else {
+                            recipeData[self.activeImageIndex].image.resizable()
+                                .opacity(0.2)
+                                .edgesIgnoringSafeArea(.all)
+                                .aspectRatio(contentMode: .fill)
+                        }
+                    }
                 )
                     .navigationBarHidden(false)
                     .navigationBarItems(trailing: NavigationLink(destination:Settings()) {

@@ -47,7 +47,7 @@ struct Substitutions: View {
     }
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             if fromHomePage {
                 VStack(alignment: .leading) {
                     
@@ -124,9 +124,11 @@ struct Substitutions: View {
                 }
                 } else {
                     Text("None of the ingredients in this recipe have substitutes.")
+                        .padding(.top)
                 }
             }
         }.frame(width: 300, height: 500)
+            .padding(.vertical)
             .background(K.frameColor)
             .cornerRadius(10)
             .foregroundColor(K.textColor)

@@ -138,8 +138,7 @@ struct RecipeDetail: View {
                             )
                             
                         }.padding(.bottom)
-                        
-                        
+                            
                         
                         
                         Spacer()
@@ -237,10 +236,6 @@ struct RecipeDetail: View {
                         .aspectRatio(contentMode: .fill)
                 }
             }
-//                        recipe.image.resizable()
-//                        .opacity(0.2)
-//                        .edgesIgnoringSafeArea(.all)
-//                        .aspectRatio(contentMode: .fill)
             
         )
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
