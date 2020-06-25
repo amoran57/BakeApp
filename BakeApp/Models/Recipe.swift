@@ -7,10 +7,7 @@
 //
 
 import SwiftUI
-import CoreLocation
-
-
-
+import Combine
 
 //creates basic type "Recipe" which all recipes will conform to
 struct Recipe: Codable, Identifiable, Hashable {
@@ -36,7 +33,11 @@ struct Recipe: Codable, Identifiable, Hashable {
 //pulls the image from Assets and includes it in Recipe
 extension Recipe {
     var image: Image {
-        Image(imageName)
+        if imageURL != nil {
+            return ImageViewContainer(imageURL: imageURL!).getImage()
+        } else {
+            return Image(imageName)
+        }
     }
 }
 
@@ -73,4 +74,35 @@ extension Recipe {
         timeToText(time: bakeTime)
     }
     
+}
+
+
+class RemoteImageURL:ObservableObject {
+   @Published var data = Data()
+    
+    init(imageURL:String) {
+        guard let url = URL(string: imageURL) else {return}
+        print("Created URL from string")
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            print("Created URLSession")
+            guard let data = data else {return}
+            print("Data exists")
+            DispatchQueue.main.async {
+                self.data = data
+                print("Set data equal to data: \(self.data.description)")
+            }
+        }.resume()
+    }
+}
+
+struct ImageViewContainer {
+    @ObservedObject var remoteImageURL:RemoteImageURL
+    
+    init(imageURL:String) {
+        remoteImageURL = RemoteImageURL(imageURL:imageURL)
+    }
+    
+    func getImage() -> Image {
+       return Image(uiImage: (remoteImageURL.data.isEmpty ? UIImage(imageLiteralResourceName: "crumpet") : UIImage(data: remoteImageURL.data))!)
+    }
 }
