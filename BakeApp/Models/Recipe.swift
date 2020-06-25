@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import CoreLocation
+import Combine
 
 //creates basic type "Recipe" which all recipes will conform to
 struct Recipe: Codable, Identifiable, Hashable {
@@ -18,6 +18,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var credit: String
     var materials: [String]
     fileprivate var imageName: String
+    var imageURL: String?
     var imageCredit: String
     var ingredients: [String]
     var instructions: [String]
@@ -26,7 +27,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var prepTime: Int
     var type: String
     var sysIng: [String]
-    var ingxins: [[Int]]
+    var ingxins: [[Int]]?
 }
 
 //pulls the image from Assets and includes it in Recipe
@@ -69,4 +70,50 @@ extension Recipe {
         timeToText(time: bakeTime)
     }
     
+}
+
+
+class RemoteImageURL:ObservableObject {
+   @Published var data = Data()
+    
+    init(imageURL:String) {
+        guard let url = URL(string: imageURL) else {return}
+        print("Created URL from string")
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            print("Created URLSession")
+            guard let data = data else {return}
+            print("Data exists")
+            DispatchQueue.main.async {
+                self.data = data
+                print("Set data equal to data: \(self.data.description)")
+            }
+        }.resume()
+    }
+}
+
+struct ImageViewContainer {
+    @ObservedObject var remoteImageURL:RemoteImageURL
+    
+    init(imageURL:String) {
+        remoteImageURL = RemoteImageURL(imageURL:imageURL)
+    }
+    
+    func getImage() -> Image {
+       return Image(uiImage: (remoteImageURL.data.isEmpty ? UIImage(imageLiteralResourceName: "crumpet") : UIImage(data: remoteImageURL.data))!)
+    }
+}
+
+class ImageLoader: ObservableObject {
+    @Published var data:Data?
+    
+    init(urlString:String) {
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.data = data
+            }
+        }
+        task.resume()
+    }
 }

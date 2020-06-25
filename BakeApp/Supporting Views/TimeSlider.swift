@@ -49,7 +49,7 @@ struct TimeSlider: View {
                 //push changes to CoreData
                 do {
                     try self.managedObjectContext.save()
-                    print("Successfully saved item: \(self.timeValue[counter].timeType) for value \(self.timeValue[counter].timeLength)")
+//                    print("Successfully saved item: \(self.timeValue[counter].timeType) for value \(self.timeValue[counter].timeLength)")
                 } catch {
                     print(error)
                 }

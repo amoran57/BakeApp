@@ -9,6 +9,8 @@
 
 
 import SwiftUI
+import Firebase
+import URLImage
 
 //create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
@@ -36,12 +38,7 @@ struct HomePage: View {
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
     
-    @State var timerIndex:Int = 0
-    
     @State var filteredArray = recipeData
-    //        .enumerated()
-    //        .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-    //        .map { $0.element }
     
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
@@ -53,6 +50,8 @@ struct HomePage: View {
                
                 VStack {
             
+                    Text("\(recipeData.last!.name)")
+                    
                     NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
@@ -65,6 +64,7 @@ struct HomePage: View {
                         ),
                         isActive: self.$navigationLinkActive
                     )
+                    
                     Button(action: {
                         self.imageSwitchTimer.upstream.connect().cancel()
                         self.filteredArray = recipeData
@@ -78,7 +78,7 @@ struct HomePage: View {
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
-                    }
+                    }.padding(.top, -50)
                     
                     //status label
                     ZStack {
@@ -119,13 +119,29 @@ struct HomePage: View {
                     
                     
                 }
-                .frame(width:geometry.size.width, height:700)
+                .frame(width:geometry.size.width, height:750)
                 .background(
-                recipeData[self.activeImageIndex].image
-                .resizable()
-                .opacity(0.2)
-                .edgesIgnoringSafeArea(.all)
-                .aspectRatio(contentMode: .fill)
+                    
+                    Group {
+                        if recipeData[self.activeImageIndex].imageURL != nil {
+                            URLImage(URL(string: recipeData[self.activeImageIndex].imageURL!)!)
+                            { proxy in
+                                proxy.image
+                                    .resizable()
+                                    .opacity(0.2)
+                                    .edgesIgnoringSafeArea(.all)
+                                    .aspectRatio(contentMode: .fill)
+                            }
+                                
+                            
+
+                        } else {
+                            recipeData[self.activeImageIndex].image.resizable()
+                                .opacity(0.2)
+                                .edgesIgnoringSafeArea(.all)
+                                .aspectRatio(contentMode: .fill)
+                        }
+                    }
                 )
                     .navigationBarHidden(false)
                     .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
@@ -138,9 +154,6 @@ struct HomePage: View {
            
         }
         .onReceive(self.imageSwitchTimer) { _ in
-
-            self.timerIndex += 1
-            print(self.timerIndex)
             var nextIndex = Int.random(in: 0...recipeData.count-1)
             while nextIndex == self.activeImageIndex {
                 print("Duplicate index; trying again")
@@ -252,7 +265,7 @@ struct HomePage: View {
             }
         }
         
-        self.imageSwitchTimer.upstream.autoconnect()
+//        self.imageSwitchTimer.upstream.autoconnect()
         //set value for filteredArray
         self.filteredArray = recipeData
             .enumerated()

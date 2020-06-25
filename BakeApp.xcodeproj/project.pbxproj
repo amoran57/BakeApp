@@ -23,6 +23,7 @@
 		6F3CB46B248FD8D8008B8B96 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3CB46A248FD8D8008B8B96 /* UserSettings.swift */; };
 		6F3CB471248FE5DE008B8B96 /* RemoveRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3CB470248FE5DE008B8B96 /* RemoveRecipe.swift */; };
 		6F67C6AD2498017E00810D94 /* Substitutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67C6AC2498017E00810D94 /* Substitutions.swift */; };
+		6F67C6B324A2A0D700810D94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F67C6B224A2A0D700810D94 /* GoogleService-Info.plist */; };
 		6F699DC2248D2B31000C7D20 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC1248D2B31000C7D20 /* Settings.swift */; };
 		6F699DC4248D3084000C7D20 /* SettingsTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC3248D3084000C7D20 /* SettingsTile.swift */; };
 		6F757B97248463B100064839 /* FilterByTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F757B96248463B100064839 /* FilterByTime.swift */; };
@@ -54,9 +55,11 @@
 		6FEBE8792482A1BC003C1ABF /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE8782482A1BC003C1ABF /* TimeSlider.swift */; };
 		6FEBE87B2482D218003C1ABF /* SelectTimeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE87A2482D218003C1ABF /* SelectTimeScreen.swift */; };
 		6FEBE87D2482E2A1003C1ABF /* RecipeScreener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE87C2482E2A1003C1ABF /* RecipeScreener.swift */; };
+		7E25D2555F0588042EB8E103 /* Pods_BakeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED54DB4D170290A573E43D4 /* Pods_BakeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050A03C664AE514832E187EB /* Pods-BakeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BakeApp.debug.xcconfig"; path = "Target Support Files/Pods-BakeApp/Pods-BakeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6F01F8B4248C373600972FCB /* ScrollInsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollInsPopup.swift; sourceTree = "<group>"; };
 		6F0968AE247FF71600F5741D /* IngredientsOwned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsOwned.swift; sourceTree = "<group>"; };
 		6F0968B0247FFEA800F5741D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		6F3CB46A248FD8D8008B8B96 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		6F3CB470248FE5DE008B8B96 /* RemoveRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRecipe.swift; sourceTree = "<group>"; };
 		6F67C6AC2498017E00810D94 /* Substitutions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Substitutions.swift; sourceTree = "<group>"; };
+		6F67C6B224A2A0D700810D94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F699DC1248D2B31000C7D20 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6F699DC3248D3084000C7D20 /* SettingsTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTile.swift; sourceTree = "<group>"; };
 		6F757B96248463B100064839 /* FilterByTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByTime.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		6FEBE8782482A1BC003C1ABF /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
 		6FEBE87A2482D218003C1ABF /* SelectTimeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeScreen.swift; sourceTree = "<group>"; };
 		6FEBE87C2482E2A1003C1ABF /* RecipeScreener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScreener.swift; sourceTree = "<group>"; };
+		9ED54DB4D170290A573E43D4 /* Pods_BakeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BakeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0A66B070E71913DA1461156 /* Pods-BakeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BakeApp.release.xcconfig"; path = "Target Support Files/Pods-BakeApp/Pods-BakeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F01F8B8248C778B00972FCB /* Pages in Frameworks */,
+				7E25D2555F0588042EB8E103 /* Pods_BakeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,9 +166,12 @@
 		6FD74DDB2471F1A600D8FB80 = {
 			isa = PBXGroup;
 			children = (
+				6F67C6B224A2A0D700810D94 /* GoogleService-Info.plist */,
 				6FD74DE62471F1A600D8FB80 /* BakeApp */,
 				6FD74DE52471F1A600D8FB80 /* Products */,
 				6F3CB45D248EBC82008B8B96 /* Pages */,
+				DEEF4F7861D09C0EDBA69A6E /* Pods */,
+				BF0B8EC3A8DF74987ECD3A84 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +257,23 @@
 			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
+		BF0B8EC3A8DF74987ECD3A84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ED54DB4D170290A573E43D4 /* Pods_BakeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEEF4F7861D09C0EDBA69A6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				050A03C664AE514832E187EB /* Pods-BakeApp.debug.xcconfig */,
+				A0A66B070E71913DA1461156 /* Pods-BakeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FD74DFB2471F1AA00D8FB80 /* Build configuration list for PBXNativeTarget "BakeApp" */;
 			buildPhases = (
+				DCD0FE781F3CAEC92215C66C /* [CP] Check Pods Manifest.lock */,
 				6FD74DE02471F1A600D8FB80 /* Sources */,
 				6FD74DE12471F1A600D8FB80 /* Frameworks */,
 				6FD74DE22471F1A600D8FB80 /* Resources */,
+				4D229115943EB4CBFFABAB60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,12 +347,55 @@
 				6F1F3102248BDA2000F8FC93 /* Raleway-LightItalic.ttf in Resources */,
 				6F1F3101248BDA2000F8FC93 /* Raleway-Light.ttf in Resources */,
 				6FD74DF42471F1AA00D8FB80 /* Preview Assets.xcassets in Resources */,
+				6F67C6B324A2A0D700810D94 /* GoogleService-Info.plist in Resources */,
 				6F1F30FF248BDA2000F8FC93 /* Raleway-Bold.ttf in Resources */,
 				6FD74DF12471F1AA00D8FB80 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D229115943EB4CBFFABAB60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakeApp/Pods-BakeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakeApp/Pods-BakeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BakeApp/Pods-BakeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCD0FE781F3CAEC92215C66C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BakeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6FD74DE02471F1A600D8FB80 /* Sources */ = {
@@ -500,6 +572,7 @@
 		};
 		6FD74DFC2471F1AA00D8FB80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 050A03C664AE514832E187EB /* Pods-BakeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +580,7 @@
 				DEVELOPMENT_TEAM = H355V9HRKT;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BakeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,12 +588,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = amoran.BakeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		6FD74DFD2471F1AA00D8FB80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0A66B070E71913DA1461156 /* Pods-BakeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +602,7 @@
 				DEVELOPMENT_TEAM = H355V9HRKT;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BakeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = amoran.BakeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

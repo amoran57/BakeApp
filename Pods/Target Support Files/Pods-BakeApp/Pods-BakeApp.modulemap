@@ -1,0 +1,6 @@
+framework module Pods_BakeApp {
+  umbrella header "Pods-BakeApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
