@@ -9,19 +9,33 @@
 import SwiftUI
 import UIKit
 import Foundation
-
+import URLImage
 
 
 struct RecipeTile: View {
     var recipe: Recipe
     var remove:Bool = true
+    
+ 
+    
     var body: some View {
         
         VStack(alignment: .leading) {
+            if recipe.imageURL != nil {
+                URLImage(URL(string: recipe.imageURL!)!) { proxy in
+                    proxy.image
+                    .resizable()
+                    .frame(width: 104, height: 104)
+                    .aspectRatio(contentMode: .fill)
+                    .cornerRadius(10)
+                }
+                
+            } else {
            recipe.image
                 .resizable()
                 .frame(width: 104, height: 104)
                 .cornerRadius(10)
+            }
             Text(recipe.name)
                 .foregroundColor(K.textColor)
                 .font(.system(size: 12))

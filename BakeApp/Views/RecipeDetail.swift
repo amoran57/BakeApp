@@ -8,7 +8,7 @@
 
 import SwiftUI
 import Pages
-
+import URLImage
 
 struct RecipeDetail: View {
     
@@ -45,10 +45,6 @@ struct RecipeDetail: View {
             
             if userSettings.primaryViewIsTile  {
                 VStack {
-                    //                    NavigationLink(destination: SelectIngredientsOwned(), isActive: $goToIngSelect) {
-                    //                        Text("")
-                    //                    }.frame(width:0, height:0)
-                    //
                     VStack {
                         Text(recipe.name)
                             .foregroundColor(K.textColor)
@@ -220,10 +216,33 @@ struct RecipeDetail: View {
                 }
                 
             }
-        }.background(recipe.image.resizable()
-            .opacity(0.2)
-            .edgesIgnoringSafeArea(.all)
-            .aspectRatio(contentMode: .fill))
+        }.background(
+            Group {
+                if recipe.imageURL != nil {
+                    URLImage(URL(string: recipe.imageURL!)!)
+                    { proxy in
+                        proxy.image
+                            .resizable()
+                            .opacity(0.2)
+                            .edgesIgnoringSafeArea(.all)
+                            .aspectRatio(contentMode: .fill)
+                    }
+                        
+                    
+
+                } else {
+                    recipe.image.resizable()
+                        .opacity(0.2)
+                        .edgesIgnoringSafeArea(.all)
+                        .aspectRatio(contentMode: .fill)
+                }
+            }
+//                        recipe.image.resizable()
+//                        .opacity(0.2)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .aspectRatio(contentMode: .fill)
+            
+        )
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
             //            .overlay(
             //                VStack {

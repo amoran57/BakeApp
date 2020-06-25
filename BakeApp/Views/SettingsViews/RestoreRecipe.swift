@@ -59,7 +59,7 @@ struct RestoreRecipe: View, RestoreDelegate {
         for counter in 0..<recipeData.count {
             if recipe == recipeData[counter].name {
                 recipeDataIndex = counter
-                print("recipeDataIndex is \(recipeDataIndex)")
+                print("recipeDataIndex is \(String(describing: recipeDataIndex))")
             }
         }
         

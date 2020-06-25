@@ -77,7 +77,7 @@ struct HomePage: View {
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: geometry.size.height/2.2, height: geometry.size.height/2.2)
-                    }
+                    }.padding(.top, -50)
                     
                     //status label
                     ZStack {
@@ -247,7 +247,7 @@ struct HomePage: View {
             }
         }
         
-        self.imageSwitchTimer.upstream.autoconnect()
+//        self.imageSwitchTimer.upstream.autoconnect()
         //set value for filteredArray
         self.filteredArray = recipeData
             .enumerated()

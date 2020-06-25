@@ -18,7 +18,7 @@ struct Recipe: Codable, Identifiable, Hashable {
     var credit: String
     var materials: [String]
     fileprivate var imageName: String
-    fileprivate var imageURL: String?
+    var imageURL: String?
     var imageCredit: String
     var ingredients: [String]
     var instructions: [String]
@@ -33,11 +33,7 @@ struct Recipe: Codable, Identifiable, Hashable {
 //pulls the image from Assets and includes it in Recipe
 extension Recipe {
     var image: Image {
-        if imageURL != nil {
-            return ImageViewContainer(imageURL: imageURL!).getImage()
-        } else {
-            return Image(imageName)
-        }
+        Image(imageName)
     }
 }
 
@@ -104,5 +100,20 @@ struct ImageViewContainer {
     
     func getImage() -> Image {
        return Image(uiImage: (remoteImageURL.data.isEmpty ? UIImage(imageLiteralResourceName: "crumpet") : UIImage(data: remoteImageURL.data))!)
+    }
+}
+
+class ImageLoader: ObservableObject {
+    @Published var data:Data?
+    
+    init(urlString:String) {
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.data = data
+            }
+        }
+        task.resume()
     }
 }
