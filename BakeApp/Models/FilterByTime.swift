@@ -9,14 +9,15 @@
 import SwiftUI
 import CoreData
 
-struct FilterByTime {
+class FilterByTime: ObservableObject {
 
-    var couldNotFilter:Bool = false
-    var couldNotFilterByIng:Bool = false
-    var couldNotFilterByTime:Bool = false
+    @Published var couldNotFilter:Bool = false
+    @Published var couldNotFilterByIng:Bool = false
+    @Published var couldNotFilterByTime:Bool = false
+    
     let recipeScreener = RecipeScreener()
     
-    mutating func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> [Recipe] {
+    func filterByTime(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> [Recipe] {
         //creates array of recipes to filter; this array is pre-filtered by ingredient
         let inputRecipes:[Recipe] = recipeScreener.filterByIngredients(input:input, recipeArray: recipeArray)
         
@@ -93,7 +94,7 @@ struct FilterByTime {
         }
     }
     
-    mutating func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> Recipe {
+    func randomIndex(ingredientData input:FetchedResults<IngredientsOwned>, timeData:FetchedResults<TimeLimit>, recipeArray:[Recipe]) -> Recipe {
         
         let filteredRecipeList = filterByTime(ingredientData: input, timeData: timeData, recipeArray: recipeArray)
         

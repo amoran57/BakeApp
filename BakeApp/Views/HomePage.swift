@@ -9,26 +9,14 @@
 
 
 import SwiftUI
-import Firebase
 import URLImage
 
 //create globally accessible instance of FilterByTime
 var filterByTime = FilterByTime()
-
-
-struct NavigationLazyView<Content: View>: View {
-    let build: () -> Content
-    init(_ build: @autoclosure @escaping () -> Content) {
-        self.build = build
-    }
-    var body: Content {
-        build()
-    }
-}
+var errorLoadingCoreData:Bool = false
 
 
 struct HomePage: View {
-    
     //fetch CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
@@ -38,19 +26,18 @@ struct HomePage: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
-   
+    
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
+    
+    
     
     var body: some View {
         return GeometryReader { geometry in
             
             NavigationView {
-               
+                
                 VStack {
-            
-                    Text("\(recipeData.last!.name)")
-                    
                     NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
@@ -58,10 +45,10 @@ struct HomePage: View {
                         RecipeDetail(
                             fromHomePage: true,
                             recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue,
-                             recipeArray: recipeData
-                                .enumerated()
-                                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-                                .map { $0.element }),
+                                                             recipeArray: recipeData
+                                                                .enumerated()
+                                                                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                                                                .map { $0.element }),
                             practiceArray: .constant(nil),
                             goToIngSelect2: self.$goToIngSelect
                         ),
@@ -131,9 +118,9 @@ struct HomePage: View {
                                     .edgesIgnoringSafeArea(.all)
                                     .aspectRatio(contentMode: .fill)
                             }
-                                
                             
-
+                            
+                            
                         } else {
                             recipeData[self.activeImageIndex].image.resizable()
                                 .opacity(0.2)
@@ -148,9 +135,22 @@ struct HomePage: View {
                             .foregroundColor(K.blue)
                     }.frame(width: 375, alignment: .trailing)
                         .padding(.trailing))
+                    .overlay(
+                        Group {
+                            if errorLoadingCoreData {
+                                ZStack {
+                                    Text("We couldn't load your previous ingredient or time preferences. The app will still work, we just won't be able to account for your preferences. Swipe down to dismiss.")
+                                        .frame(width: 300)
+                                        .multilineTextAlignment(.center)
+                                }.frame(width: 500, height: 1000, alignment: .center)
+                                    .background(Color.black.opacity(0.8))
+                            } else {
+                                EmptyView()
+                            }
+                    })
                 
             }
-           
+            
         }
         .onReceive(self.imageSwitchTimer) { _ in
             var nextIndex = Int.random(in: 0...recipeData.count-1)
@@ -162,6 +162,7 @@ struct HomePage: View {
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear (perform: {self.setCoreData()})
+        
         
     }
     
