@@ -55,4 +55,3 @@ struct SetUpIng: Hashable {
     
     static var firstOpen:Bool = true
 }
-

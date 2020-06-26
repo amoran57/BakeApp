@@ -28,6 +28,7 @@ struct NavigationLazyView<Content: View>: View {
 
 
 struct HomePage: View {
+    
     //fetch CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>

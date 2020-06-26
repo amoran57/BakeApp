@@ -53,6 +53,17 @@ struct Settings: View {
                 }
                 
                 Section() {
+                    NavigationLink(destination: SuggestRecipe()) {
+                        VStack(alignment: .leading) {
+                        Text("Suggest a recipe")
+                            Text("Have a recipe you think would be perfect for BakeApp? Let us know about it!")
+                                .font(.caption)
+                        }
+                    }
+                    
+                    
+                    
+                    
                     Button(action: {
                         self.showPopover.toggle()
                     }) {
