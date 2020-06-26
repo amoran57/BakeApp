@@ -38,9 +38,7 @@ struct HomePage: View {
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
-    
-    @State var filteredArray = recipeData
-    
+   
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
     
@@ -59,7 +57,11 @@ struct HomePage: View {
                         "", destination:
                         RecipeDetail(
                             fromHomePage: true,
-                            recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue, recipeArray: self.filteredArray),
+                            recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue,
+                             recipeArray: recipeData
+                                .enumerated()
+                                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
+                                .map { $0.element }),
                             practiceArray: .constant(nil),
                             goToIngSelect2: self.$goToIngSelect
                         ),
@@ -68,10 +70,6 @@ struct HomePage: View {
                     
                     Button(action: {
                         self.imageSwitchTimer.upstream.connect().cancel()
-                        self.filteredArray = recipeData
-                            .enumerated()
-                            .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-                            .map { $0.element }
                         self.navigationLinkActive = true
                     })
                     {
@@ -265,15 +263,6 @@ struct HomePage: View {
                 print(error)
             }
         }
-        
-//        self.imageSwitchTimer.upstream.autoconnect()
-        //set value for filteredArray
-        self.filteredArray = recipeData
-            .enumerated()
-            .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-            .map { $0.element }
-        
-        
     }
 }
 
