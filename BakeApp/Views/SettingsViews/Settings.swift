@@ -37,7 +37,7 @@ struct Settings: View {
                 Section() {
                     NavigationLink(destination: RemoveRecipe()) {
                         VStack(alignment: .leading) {
-                        Text("Remove recipe")
+                            Text("Remove recipe")
                             Text("Tried one of our recipes and didn't like it? You can remove that recipe from BakeApp, so it will never come up again.")
                                 .font(.caption)
                         }
@@ -45,9 +45,9 @@ struct Settings: View {
                     
                     NavigationLink(destination: RestoreRecipe()) {
                         VStack(alignment: .leading) {
-                        Text("Restore removed recipes")
-                        Text("Changed your mind? You can always restore your removed recipes here.")
-                        .font(.caption)
+                            Text("Restore removed recipes")
+                            Text("Changed your mind? You can always restore your removed recipes here.")
+                                .font(.caption)
                         }
                     }.disabled(disableRestore)
                 }
@@ -55,7 +55,7 @@ struct Settings: View {
                 Section() {
                     NavigationLink(destination: SuggestRecipe()) {
                         VStack(alignment: .leading) {
-                        Text("Suggest a recipe")
+                            Text("Suggest a recipe")
                             Text("Have a recipe you think would be perfect for BakeApp? Let us know about it!")
                                 .font(.caption)
                         }
@@ -65,35 +65,14 @@ struct Settings: View {
                         Text("Contact us")
                     }
                     
-                    Button(action: {
-                        self.showPopover.toggle()
-                    }) {
-                        Text("Contact us")
-                            .foregroundColor(K.blue)
-                    }.overlay(
-                        ZStack { if self.showPopover {
-                            Rectangle()
-                                .frame(width: 350, height: 70)
-                                .foregroundColor(K.frameColor)
-                                .cornerRadius(20)
-                            
-                            Text("Send us an email at bakeapp@gmail.com!")
-                                .foregroundColor(K.textColor)
-                                .frame(width: 350, height: 70)
-                            }
-                        }.frame(width: 350, height: 120, alignment:.bottom)
-                            .animation(.easeOut(duration: 0.3))
-                        , alignment: .topLeading
-                    )
-                    
-                    }
-                     
+                }
+                
             }.foregroundColor(K.textColor)
             
         }
         .navigationBarTitle("Settings")
         .onAppear(perform: {self.disableRestore = (defaults.array(forKey: K.Defaults.removedRecipeIndex) as! Array<Int>).count == 0 ? true : false})
-       
+        
     }
 }
 

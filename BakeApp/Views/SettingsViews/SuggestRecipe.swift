@@ -62,7 +62,7 @@ struct SuggestRecipe: View {
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(K.textColor))
             
             
-            VStack {
+           
                 Button(action: {
                     if self.emailText == "" || self.recipeText == "" {
                         self.fieldLeftBlank = true
@@ -77,8 +77,10 @@ struct SuggestRecipe: View {
                         .padding()
                 }
                 
+            Text("Or, submit a picture of your recipe instead.")
+            
                 Spacer()
-            }
+            
             
         }
         .overlay(
