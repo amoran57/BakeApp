@@ -15,24 +15,92 @@ struct ContactUs: View {
     
     @State var message:String = ""
     @State var messageSubmitted:Bool = false
+    @State var fieldLeftBlank:Bool = false
+    
+     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack {
+            VStack {
             Text("Let us know how we can improve the app!")
+                .padding(.horizontal)
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .foregroundColor(K.textColor)
+            
+                ZStack {
+                    if self.fieldLeftBlank {
+                        Text("Don't just leave us a blank message!")
+                    }
+                }
+                .frame(height: 15)
+            }
+            .padding(.top, -50)
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
+            
+            ScrollView {
+                MultilineTextField("Message...", text: self.$message)
+                    .frame(width:350, alignment: .topLeading)
+                    .padding(.horizontal, 5)
+                    .cornerRadius(8)
+            }.frame(width: 350, height: 180)
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(K.textColor))
+            
             Spacer()
-            TextField("Type here...", text: self.$message)
-            Spacer()
+                .frame(height: 10)
+            
             Button(action: {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                if self.message != "" {
                 self.submitMessage(message: self.message)
+                    self.message = ""
+                } else {
+                    self.fieldLeftBlank = true
+                }
             }) {
                 Text("Submit")
+                    .foregroundColor(.blue)
             }
             
-            if self.messageSubmitted {
-                Text("Thanks for the feedback!")
+            Spacer()
+        } .overlay(
+            Group {
+                if messageSubmitted {
+                    ZStack {
+                        Rectangle()
+                            .frame(width:1000, height:1000)
+                            .foregroundColor(.black)
+                            .opacity(0.9)
+                            .onTapGesture { self.messageSubmitted = false }
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(20)
+                                .foregroundColor(K.frameColor)
+                            VStack {
+                                Text("Feedback submitted! Thanks for your help improving BakeApp!")
+                                    .foregroundColor(K.textColor)
+                                    .multilineTextAlignment(.center)
+                                    .padding()
+                                
+                                Button(action: {
+                                    self.messageSubmitted = false
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }) {
+                                    Text("Go back")
+                                        .foregroundColor(.blue)
+                                        .padding()
+                                }
+                            }.frame(width: 300, height: 300)
+                        }
+                    }.frame(width: 1000, height: 1000)
+                } else {
+                    EmptyView()
+                }
             }
-            
-        }
+        )
     }
     
     func submitMessage(message:String) {

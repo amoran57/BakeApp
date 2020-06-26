@@ -59,7 +59,7 @@ struct SuggestRecipe: View {
                     .padding(.horizontal, 5)
                     .cornerRadius(8)
             }.frame(width: 350, height: 100)
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(K.textColor))
             
             
             VStack {

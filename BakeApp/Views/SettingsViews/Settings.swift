@@ -61,8 +61,9 @@ struct Settings: View {
                         }
                     }
                     
-                    
-                    
+                    NavigationLink(destination:ContactUs()) {
+                        Text("Contact us")
+                    }
                     
                     Button(action: {
                         self.showPopover.toggle()
