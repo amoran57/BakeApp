@@ -26,6 +26,8 @@ struct SuggestRecipe: View {
     
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage? = nil
+    @State private var percentComplete: Double?
+    @State private var showProgress:Bool = false
     
     var body: some View {
         VStack {
@@ -110,6 +112,23 @@ struct SuggestRecipe: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 350, height: 350)
+                    .overlay(
+                    
+                        ZStack {
+                            if self.showProgress {
+                            Rectangle()
+                                .foregroundColor(.black)
+                                .opacity(0.7)
+                                .frame(width: 350, height: 350)
+                                
+                                Text("\((self.percentComplete != nil ? self.percentComplete! : 0.00), specifier: "%.1f") % complete")
+                                
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                    )
+                    
                     
                 } else {
                     Image("SplashScreenBowl")
@@ -134,6 +153,7 @@ struct SuggestRecipe: View {
                             //upload image and email
                             if self.image != nil && self.emailText != "" {
                                 self.submitImage(with: self.image!, email: self.emailText)
+                                self.showProgress = true
                                 self.emailText = ""
                             } else {
                                 self.fieldLeftBlank = true
@@ -196,12 +216,18 @@ struct SuggestRecipe: View {
         
         if let data = input.jpegData(compressionQuality: 0.6) {
             // Create a reference to the file you want to upload
-            let imageRef = storageRef.child("\(email)/\(Date().description).jpg")
+            let imageRef = storageRef.child("\(Date().description)/\(email).jpg")
             
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
             // Upload the file to the path "images/rivers.jpg"
             let uploadTask = imageRef.putData(data, metadata: metadata)
+            
+            uploadTask.observe(.progress) { snapshot in
+              // Upload reported progress
+                self.percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            }
             
             uploadTask.observe(.success) { _ in self.recipeSubmitted = true; self.image = nil }
         }
