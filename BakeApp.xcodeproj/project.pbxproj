@@ -28,6 +28,8 @@
 		6F699DC2248D2B31000C7D20 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC1248D2B31000C7D20 /* Settings.swift */; };
 		6F699DC4248D3084000C7D20 /* SettingsTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC3248D3084000C7D20 /* SettingsTile.swift */; };
 		6F757B97248463B100064839 /* FilterByTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F757B96248463B100064839 /* FilterByTime.swift */; };
+		6F7A96FD24A63B05004CDE90 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */; };
+		6F7A96FF24A63B2A004CDE90 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */; };
 		6F7C354C2492C53900AE03AA /* HomeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C354B2492C53900AE03AA /* HomeBackground.swift */; };
 		6F9B05BA24819039004D5D3D /* IngTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B05B924819039004D5D3D /* IngTile.swift */; };
 		6F9B05BC24819BDD004D5D3D /* SelectIngredientsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B05BB24819BDD004D5D3D /* SelectIngredientsOwned.swift */; };
@@ -84,6 +86,8 @@
 		6F699DC1248D2B31000C7D20 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6F699DC3248D3084000C7D20 /* SettingsTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTile.swift; sourceTree = "<group>"; };
 		6F757B96248463B100064839 /* FilterByTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByTime.swift; sourceTree = "<group>"; };
+		6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		6F7C354B2492C53900AE03AA /* HomeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackground.swift; sourceTree = "<group>"; };
 		6F9B05B924819039004D5D3D /* IngTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngTile.swift; sourceTree = "<group>"; };
 		6F9B05BB24819BDD004D5D3D /* SelectIngredientsOwned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIngredientsOwned.swift; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 				6F7C354B2492C53900AE03AA /* HomeBackground.swift */,
 				6F67C6AC2498017E00810D94 /* Substitutions.swift */,
 				6F2B930C24A570E500D0CAC4 /* MultilineTextField.swift */,
+				6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */,
+				6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -427,7 +433,9 @@
 				6F3CB46B248FD8D8008B8B96 /* UserSettings.swift in Sources */,
 				6F67C6AD2498017E00810D94 /* Substitutions.swift in Sources */,
 				6F2B930D24A570E500D0CAC4 /* MultilineTextField.swift in Sources */,
+				6F7A96FF24A63B2A004CDE90 /* PhotoCaptureView.swift in Sources */,
 				6F1F30F8248BD71800F8FC93 /* SeeAllIng.swift in Sources */,
+				6F7A96FD24A63B05004CDE90 /* ImagePicker.swift in Sources */,
 				6FD74DE82471F1A600D8FB80 /* AppDelegate.swift in Sources */,
 				6F3CB471248FE5DE008B8B96 /* RemoveRecipe.swift in Sources */,
 				6FFA51DC24A55409000F6CC5 /* SuggestRecipe.swift in Sources */,

@@ -5,20 +5,27 @@
 //  Created by Alex Moran on 6/25/20.
 //  Copyright © 2020 Alex Moran. All rights reserved.
 //
-
+import UIKit
 import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
 
 struct SuggestRecipe: View {
     let db = Firestore.firestore()
-    
+    let storage = Storage.storage()
+    let storageRef = Storage.storage().reference()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var emailText:String = ""
     @State var recipeText:String = ""
     @State var recipeSubmitted:Bool = false
     @State var fieldLeftBlank:Bool = false
+    
+    @State private var uploadImage:Bool = false
+    @State private var enterText:Bool = false
+    
+    @State private var showImagePicker: Bool = false
+    @State private var image: UIImage? = nil
     
     var body: some View {
         VStack {
@@ -42,28 +49,47 @@ struct SuggestRecipe: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
-            TextField("Email", text: self.$emailText)
-                .frame(width:340, alignment: .topLeading)
-                .padding(.horizontal, 5)
-                .textContentType(.emailAddress)
-                .keyboardType(.emailAddress)
-                .cornerRadius(8)
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
-            
-            Spacer()
-                .frame(height: 10)
-            
-            ScrollView {
-                MultilineTextField("Recipe", text: self.$recipeText)
-                    .frame(width:350, alignment: .topLeading)
-                    .padding(.horizontal, 5)
-                    .cornerRadius(8)
-            }.frame(width: 350, height: 100)
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(K.textColor))
-            
-            
-           
+            if !uploadImage && !enterText {
                 Button(action: {
+                    self.uploadImage = true
+                }) {
+                    Text("I'd like to upload an image")
+                        .foregroundColor(.blue)
+                }.padding()
+                
+                Button(action: {
+                    self.enterText = true
+                }) {
+                    Text("I'd like to enter a recipe manually")
+                        .foregroundColor(.blue)
+                }.padding()
+            }
+            
+            if uploadImage || enterText {
+                TextField("Email", text: self.$emailText)
+                    .frame(width:340, alignment: .topLeading)
+                    .padding(.horizontal, 5)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
+                    .cornerRadius(8)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
+                
+                Spacer()
+                    .frame(height: 10)
+            }
+            
+            if enterText {
+                ScrollView {
+                    MultilineTextField("Recipe", text: self.$recipeText)
+                        .frame(width:350, alignment: .topLeading)
+                        .padding(.horizontal, 5)
+                        .cornerRadius(8)
+                }.frame(width: 350, height: 100)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(K.textColor))
+                
+                Button(action: {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
                     if self.emailText == "" || self.recipeText == "" {
                         self.fieldLeftBlank = true
                     } else {
@@ -76,12 +102,56 @@ struct SuggestRecipe: View {
                         .foregroundColor(.blue)
                         .padding()
                 }
-                
-            Text("Or, submit a picture of your recipe instead.")
+            }
             
-                Spacer()
-            
-            
+            if uploadImage {
+                if image != nil {
+                    Image(uiImage: image!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 350, height: 350)
+                    
+                } else {
+                    Image("SplashScreenBowl")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 350, height: 350)
+                    
+                }
+                HStack {
+                    Button(action: {
+                        self.showImagePicker = true
+                    }) {
+                        Text("Select \(self.image == nil ? "" : "a Different ")Image")
+                            .padding()
+                            .background(K.textColor)
+                            .foregroundColor(.blue)
+                            .cornerRadius(10)
+                    }
+                    
+                    if self.image != nil {
+                        Button(action:{
+                            //upload image and email
+                            if self.image != nil && self.emailText != "" {
+                                self.submitImage(with: self.image!, email: self.emailText)
+                                self.emailText = ""
+                            } else {
+                                self.fieldLeftBlank = true
+                            }
+                        }) {
+                            Text("Submit")
+                                .padding()
+                                .background(K.textColor)
+                                .foregroundColor(.blue)
+                                .cornerRadius(10)
+                            
+                        }
+                    }
+                }
+            }
+            Spacer()
+        }.sheet(isPresented: self.$showImagePicker) {
+            PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$image)
         }
         .overlay(
             Group {
@@ -122,7 +192,20 @@ struct SuggestRecipe: View {
         
     }
     
-    
+    func submitImage(with input:UIImage, email:String) {
+        
+        if let data = input.jpegData(compressionQuality: 0.6) {
+            // Create a reference to the file you want to upload
+            let imageRef = storageRef.child("\(email)/\(Date().description).jpg")
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            // Upload the file to the path "images/rivers.jpg"
+            let uploadTask = imageRef.putData(data, metadata: metadata)
+            
+            uploadTask.observe(.success) { _ in self.recipeSubmitted = true; self.image = nil }
+        }
+    }
     
     
     func submitRecipe(email:String?,recipe:String?) {

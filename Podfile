@@ -9,6 +9,7 @@ target 'BakeApp' do
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
 pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
 # Optionally, include the Swift extensions if you're using Swift.
 pod 'FirebaseFirestoreSwift'
 pod 'URLImage'
