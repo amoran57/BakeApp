@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alex Moran. All rights reserved.
 //
 
-
-
 import SwiftUI
 import URLImage
 
