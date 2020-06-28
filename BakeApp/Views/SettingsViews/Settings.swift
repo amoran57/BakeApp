@@ -30,7 +30,7 @@ struct Settings: View {
                     }
                     
                     Toggle(isOn: self.$userSettings.primaryViewIsTile) {
-                        Text("Show instructions one at a time")
+                        Text("Use recommended view for recipe instructions")
                     }
                 }
                 

@@ -13,7 +13,6 @@ import URLImage
 var filterByTime = FilterByTime()
 var errorLoadingCoreData:Bool = false
 
-
 struct HomePage: View {
     //fetch CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -21,32 +20,33 @@ struct HomePage: View {
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
     //image slideshow stuff
-    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
-    let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
-        .autoconnect()
+    //    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
+    //    let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
+    //        .autoconnect()
+    
+    
     
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
     
-    
+    @State var timerIsRunning:Bool = true
     
     var body: some View {
         return GeometryReader { geometry in
-            
-            NavigationView {
-                
-                VStack {
+                NavigationView {
+                    VStack {
                     NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
                         "", destination:
                         RecipeDetail(
                             fromHomePage: true,
-                            recipe: filterByTime.randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue,
-                                                             recipeArray: recipeData
-                                                                .enumerated()
-                                                                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as! Array).contains($0.offset) }
-                                                                .map { $0.element }),
+                            recipe: filterByTime
+                                .randomIndex(ingredientData: self.ingStatus, timeData: self.timeValue,
+                                             recipeArray: recipeData
+                                                .enumerated()
+                                                .filter { !(defaults.object(forKey: K.Defaults.removedRecipeIndex) as? Array ?? []).contains($0.offset) }
+                                                .map { $0.element }),
                             practiceArray: .constant(nil),
                             goToIngSelect2: self.$goToIngSelect
                         ),
@@ -54,7 +54,6 @@ struct HomePage: View {
                     )
                     
                     Button(action: {
-                        self.imageSwitchTimer.upstream.connect().cancel()
                         self.navigationLinkActive = true
                     })
                     {
@@ -103,65 +102,32 @@ struct HomePage: View {
                     
                     
                 }
-                .frame(width:geometry.size.width, height:750)
-                .background(
-                    
+                    .frame(width:geometry.size.width, height:750)
+                    .background(BackgroundView(isTriggered: self.$timerIsRunning))
+                .navigationBarHidden(false)
+                .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
+                    Text("Settings")
+                        .foregroundColor(K.blue)
+                }.frame(width: 375, alignment: .trailing)
+                    .padding(.trailing))
+                .overlay(
                     Group {
-                        if recipeData[self.activeImageIndex].imageURL != nil {
-                            URLImage(URL(string: recipeData[self.activeImageIndex].imageURL!)!)
-                            { proxy in
-                                proxy.image
-                                    .resizable()
-                                    .opacity(0.2)
-                                    .edgesIgnoringSafeArea(.all)
-                                    .aspectRatio(contentMode: .fill)
-                            }
-                            
-                            
-                            
+                        if errorLoadingCoreData {
+                            ZStack {
+                                Text("We couldn't load your previous ingredient or time preferences. The app will still work, we just won't be able to account for your preferences. Swipe down to dismiss.")
+                                    .frame(width: 300)
+                                    .multilineTextAlignment(.center)
+                            }.frame(width: 500, height: 1000, alignment: .center)
+                                .background(Color.black.opacity(0.8))
                         } else {
-                            recipeData[self.activeImageIndex].image.resizable()
-                                .opacity(0.2)
-                                .edgesIgnoringSafeArea(.all)
-                                .aspectRatio(contentMode: .fill)
+                            EmptyView()
                         }
-                    }
-                )
-                    .navigationBarHidden(false)
-                    .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
-                        Text("Settings")
-                            .foregroundColor(K.blue)
-                    }.frame(width: 375, alignment: .trailing)
-                        .padding(.trailing))
-                    .overlay(
-                        Group {
-                            if errorLoadingCoreData {
-                                ZStack {
-                                    Text("We couldn't load your previous ingredient or time preferences. The app will still work, we just won't be able to account for your preferences. Swipe down to dismiss.")
-                                        .frame(width: 300)
-                                        .multilineTextAlignment(.center)
-                                }.frame(width: 500, height: 1000, alignment: .center)
-                                    .background(Color.black.opacity(0.8))
-                            } else {
-                                EmptyView()
-                            }
-                    })
-                
-            }
-            
-        }
-        .onReceive(self.imageSwitchTimer) { _ in
-            var nextIndex = Int.random(in: 0...recipeData.count-1)
-            while nextIndex == self.activeImageIndex {
-                print("Duplicate index; trying again")
-                nextIndex = Int.random(in: 0...recipeData.count-1)
-            }
-            self.activeImageIndex = nextIndex
+                })
+                }
+            //end GeometryReader
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
             .onAppear (perform: {self.setCoreData()})
-        
-        
     }
     
     func setCoreData() {
@@ -262,6 +228,26 @@ struct HomePage: View {
                 print(error)
             }
         }
+        
+        
+        //for some reason I needed this to jolt the background view into action
+        let ingredient = self.ingStatus[0]
+        
+        func toggleVal() {
+            ingredient.setValue(!ingredient.isOwned, forKey: "isOwned")
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            toggleVal()
+            toggleVal()
+        }
+
+        
     }
 }
 

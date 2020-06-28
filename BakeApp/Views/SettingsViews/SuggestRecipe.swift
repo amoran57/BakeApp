@@ -134,21 +134,21 @@ struct SuggestRecipe: View {
                     Image("SplashScreenBowl")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 350, height: 350)
-                    
+                        .frame(width: 100, height: 100)
+                        .border(K.textColor, width: 1)
                 }
                 HStack {
+                    Spacer()
                     Button(action: {
                         self.showImagePicker = true
                     }) {
                         Text("Select \(self.image == nil ? "" : "a Different ")Image")
                             .padding()
-                            .background(K.textColor)
                             .foregroundColor(.blue)
-                            .cornerRadius(10)
                     }
                     
                     if self.image != nil {
+                        Spacer()
                         Button(action:{
                             //upload image and email
                             if self.image != nil && self.emailText != "" {
@@ -161,12 +161,10 @@ struct SuggestRecipe: View {
                         }) {
                             Text("Submit")
                                 .padding()
-                                .background(K.textColor)
                                 .foregroundColor(.blue)
-                                .cornerRadius(10)
-                            
                         }
                     }
+                    Spacer()
                 }
             }
             Spacer()
