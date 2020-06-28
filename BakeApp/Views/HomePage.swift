@@ -19,23 +19,15 @@ struct HomePage: View {
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     @FetchRequest(fetchRequest: TimeLimit.getTimeValue()) var timeValue:FetchedResults<TimeLimit>
     
-    //image slideshow stuff
-    //    @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
-    //    let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
-    //        .autoconnect()
-    
-    
-    
+    //hidden NavigationLink variables
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
-    
-    @State var timerIsRunning:Bool = true
-    
+   
     var body: some View {
         return GeometryReader { geometry in
                 NavigationView {
                     VStack {
-                    NavigationLink("",destination: SelectIngredientsOwned(), isActive: self.$goToIngSelect)
+                        NavigationLink("",destination: SelectIngredientsOwned(geo: geometry.size.height), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
                         "", destination:
@@ -81,7 +73,7 @@ struct HomePage: View {
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                    NavigationLink(destination: SelectIngredientsOwned()) {
+                        NavigationLink(destination: SelectIngredientsOwned(geo:geometry.size.height)) {
                         RectangleButton(text:"I'm short on ingredients.")
                     }
                     
@@ -103,7 +95,7 @@ struct HomePage: View {
                     
                 }
                     .frame(width:geometry.size.width, height:750)
-                    .background(BackgroundView(isTriggered: self.$timerIsRunning))
+                    .background(BackgroundView())
                 .navigationBarHidden(false)
                 .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
                     Text("Settings")

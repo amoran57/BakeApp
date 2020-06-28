@@ -14,17 +14,22 @@ import UIKit
 struct SelectIngredientsOwned: View {
     
     //CoreData setup
-    @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
     //setup for custom back button
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var showSettings = true
     
+    var geo:CGFloat
+    
     //number of tiles per line
     var numPerLine:Int = 3
-    var numOfLines:Int = 6
-    
+    //6 is good for iPhone 8, 9 is better for iPhone 11
+    var numOfLines:Int {
+        Int(self.geo/100)
+    }
+  
+
     var ingredientNames: [String] {
         let numOfIng = self.numPerLine*self.numOfLines
         var stringArray = Array(repeating: "", count: numOfIng)
@@ -39,12 +44,13 @@ struct SelectIngredientsOwned: View {
     }
     
     var body: some View {
+        
         return GeometryReader { geometry in
             
             VStack {
                 //body of view
                 VStack {
-                    ForEach(0..<self.numOfLines) { number in
+                    ForEach(0..<Int(self.numOfLines)) { number in
                         //returns HStacks of length numPerLine
                         HStack {
                             ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
@@ -97,7 +103,7 @@ struct SelectIngredientsOwned: View {
                 }.padding(.bottom)
                     .padding(.horizontal)
                 
-            }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+            }
                 .navigationBarTitle("Missing Ingredients")
                 .navigationBarItems(trailing:
                     NavigationLink(destination:Settings()) {

@@ -15,8 +15,6 @@ struct BackgroundView: View {
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
 
-    @Binding var isTriggered:Bool
-    
     var body: some View {
         Group {
             if recipeData[self.activeImageIndex].imageURL != nil {
@@ -50,6 +48,6 @@ struct BackgroundView: View {
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView(isTriggered: .constant(true))
+        BackgroundView()
     }
 }

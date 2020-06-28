@@ -124,12 +124,14 @@ struct RecipeDetail: View {
                                                 .foregroundColor(.black)
                                                 .opacity(0.9)
                                                 .onTapGesture { self.showOverlay = false }
+                                            
                                             Substitutions(goToIngSelect: self.$goToIngSelect,
                                                           showingSheet: self.$showingSheet,
                                                           showOverlay: self.$showOverlay,
                                                           delegate: self,
                                                           fromHomePage: self.fromHomePage,
                                                           ingredients: self.recipe.sysIng)
+                                            
                                         }.frame(width: 1000, height: 1000)
                                     } else {
                                         EmptyView()
