@@ -22,12 +22,12 @@ struct HomePage: View {
     //hidden NavigationLink variables
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
-   
+    
     var body: some View {
         return GeometryReader { geometry in
-                NavigationView {
-                    VStack {
-                        NavigationLink("",destination: SelectIngredientsOwned(geo: geometry.size.height), isActive: self.$goToIngSelect)
+            NavigationView {
+                VStack {
+                    NavigationLink("",destination: SelectIngredientsOwned(geo: geometry.size.height), isActive: self.$goToIngSelect)
                     
                     NavigationLink(
                         "", destination:
@@ -73,7 +73,7 @@ struct HomePage: View {
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                     
                     //link to ingredients selection page (SelectIngredientsOwned)
-                        NavigationLink(destination: SelectIngredientsOwned(geo:geometry.size.height)) {
+                    NavigationLink(destination: SelectIngredientsOwned(geo:geometry.size.height)) {
                         RectangleButton(text:"I'm short on ingredients.")
                     }
                     
@@ -94,28 +94,34 @@ struct HomePage: View {
                     
                     
                 }
-                    .frame(width:geometry.size.width, height:750)
-                    .background(BackgroundView())
-                .navigationBarHidden(false)
-                .navigationBarItems(trailing: NavigationLink(destination:Settings()) {
-                    Text("Settings")
-                        .foregroundColor(K.blue)
-                }.frame(width: 375, alignment: .trailing)
-                    .padding(.trailing))
-                .overlay(
-                    Group {
-                        if errorLoadingCoreData {
-                            ZStack {
-                                Text("We couldn't load your previous ingredient or time preferences. The app will still work, we just won't be able to account for your preferences. Swipe down to dismiss.")
-                                    .frame(width: 300)
-                                    .multilineTextAlignment(.center)
-                            }.frame(width: 500, height: 1000, alignment: .center)
-                                .background(Color.black.opacity(0.8))
-                        } else {
-                            EmptyView()
-                        }
+                .frame(height:750)
+                .background(BackgroundView())
+                .navigationBarItems(
+                    leading:
+                    NavigationLink(destination: HelpView()) {
+                        Image(systemName: "questionmark.circle")
+                        .resizable()
+                            .frame(width: 30, height: 30)
+                        .aspectRatio(contentMode: .fit)
+                        
+                    },
+                    trailing: NavigationLink(destination:Settings()) {
+                        Text("Settings")
                 })
-                }
+                    .overlay(
+                        Group {
+                            if errorLoadingCoreData {
+                                ZStack {
+                                    Text("We couldn't load your previous ingredient or time preferences. The app will still work, we just won't be able to account for your preferences. Swipe down to dismiss.")
+                                        .frame(width: 300)
+                                        .multilineTextAlignment(.center)
+                                }.frame(width: 500, height: 1000, alignment: .center)
+                                    .background(Color.black.opacity(0.8))
+                            } else {
+                                EmptyView()
+                            }
+                    })
+            }
             //end GeometryReader
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
@@ -238,7 +244,7 @@ struct HomePage: View {
             toggleVal()
             toggleVal()
         }
-
+        
         
     }
 }

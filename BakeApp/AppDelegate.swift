@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("DOCUMENT ID: \(document.documentID)")
+                    print("Found recipe, with ID: \(document.documentID)")
                     addRecipeToRecipeData(document:document)
                 }
             }
@@ -70,9 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if recipe != nil {
                     var realRecipe = recipe!
                     realRecipe.ingxins = ingxins
-                    // A `Recipe` value was successfully initialized from the DocumentSnapshot.
-                    print("Recipe: \(realRecipe)")
                     recipeData.append(realRecipe)
+                    print("\(realRecipe.name) appended to recipeData")
                 } else {
                     // A nil value was successfully initialized from the DocumentSnapshot,
                     // or the DocumentSnapshot was nil.

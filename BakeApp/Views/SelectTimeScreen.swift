@@ -25,13 +25,9 @@ struct SelectTimeScreen: View {
         
         return GeometryReader { geometry in
             VStack {
-                Spacer()
-                    .frame(height:35)
-                
                 Text("Set your preferred time limits:")
                     .font(.system(size:28))
                     .foregroundColor(K.textColor)
-                    .padding(.top, -50)
                 
                 Spacer()
                     .frame(height: 30)
@@ -58,38 +54,15 @@ struct SelectTimeScreen: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 300, height: geometry.size.height/12, alignment: .center)
                 
-                if self.showSettings {
-                //continue button
-                HStack {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                        
-                    }
-                    ) {
-                        HStack {
-                            Text("Continue")
-                            Image(systemName: "arrow.right")
-                        }.foregroundColor(K.blue)
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                }.padding(.leading, geometry.size.width - 140)
-                    .padding(.top)
-            }
+                Spacer()
                 
-            }.navigationBarTitle("Time Limits", displayMode: .inline)
-                .navigationBarItems(trailing:
-                    NavigationLink(destination:Settings()) {
-                        if self.showSettings {
-                            Text("Settings")
-                        }
-                    }
+            }.navigationBarItems(trailing:
+                Button("Done") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             )
         }
     }
 }
 
-//struct SelectTimeScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SelectTimeScreen()
-//    }
-//}
+

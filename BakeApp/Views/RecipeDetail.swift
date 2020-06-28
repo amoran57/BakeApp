@@ -107,7 +107,7 @@ struct RecipeDetail: View {
                             self.showingSheet.toggle()
                         }.sheet(isPresented: $showingSheet) {
                             ScrollView {
-                                IngList(ingList:self.recipe.ingredients, text: "\(self.recipe.name): Ingredients")
+                                IngList(ingList:self.recipe.ingredients, showDismiss:true, showSheet: self.$showingSheet, text: "\(self.recipe.name): Ingredients")
                                     .padding(.top)
                                 Button(action:{
                                     self.showOverlay.toggle()
@@ -150,7 +150,7 @@ struct RecipeDetail: View {
                             self.showingSheet2.toggle()
                         }.sheet(isPresented: $showingSheet2) {
                             ScrollView {
-                                InsList(insList: self.recipe.instructions, text: "\(self.recipe.name): Instructions")
+                                InsList(insList: self.recipe.instructions, showDismiss: true, showSheet: self.$showingSheet2, text: "\(self.recipe.name): Instructions")
                                     .padding(.top)
                             }
                         }.padding(.bottom)
@@ -193,13 +193,13 @@ struct RecipeDetail: View {
                         .frame(height: 20.0)
                     
                     //ingredients
-                    IngList(ingList: self.recipe.ingredients)
+                    IngList(ingList: self.recipe.ingredients, showDismiss: false, showSheet: .constant(false))
                     
                     Spacer()
                         .frame(height: 20.0)
                     
                     //instructions
-                    InsList(insList: self.recipe.instructions)
+                    InsList(insList: self.recipe.instructions, showDismiss: false, showSheet: .constant(false))
                     
                     VStack {
                         Rectangle()

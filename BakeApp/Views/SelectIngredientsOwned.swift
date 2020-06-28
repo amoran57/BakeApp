@@ -26,7 +26,7 @@ struct SelectIngredientsOwned: View {
     var numPerLine:Int = 3
     //6 is good for iPhone 8, 9 is better for iPhone 11
     var numOfLines:Int {
-        Int(self.geo/100)
+        Int(self.geo/100) + 1
     }
   
 
@@ -48,6 +48,13 @@ struct SelectIngredientsOwned: View {
         return GeometryReader { geometry in
             
             VStack {
+                
+                Text("Select any missing ingredients:")
+                                  .font(.system(size:28))
+                                  .foregroundColor(K.textColor)
+                    .padding(.bottom)
+                    .padding(.top, -10)
+                              
                 //body of view
                 VStack {
                     ForEach(0..<Int(self.numOfLines)) { number in
@@ -77,39 +84,23 @@ struct SelectIngredientsOwned: View {
                 }.font(.system(size:12))
                     .foregroundColor(K.textColor)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 100, alignment: .center)
+                    .frame(width: 300, height: 50, alignment: .center)
                 
                 //continue button
                 HStack {
-                    NavigationLink(destination: SeeAllIng(searchText: "", showSettings: self.showSettings)) {
-                        Text("See all ingredients")
-                    }
-                    
                     Spacer()
                     
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        })
-                        {
-                            HStack{
-                            Text("Continue")
-                                Image(systemName: "arrow.right")
-                            }
-                                .foregroundColor(K.blue)
-                            
-                        }.buttonStyle(PlainButtonStyle())
-                    
+                    NavigationLink(destination: SeeAllIng()) {
+                        Text("See all ingredients")
+                            .padding(.bottom)
+                    }
                     
                 }.padding(.bottom)
                     .padding(.horizontal)
                 
-            }
-                .navigationBarTitle("Missing Ingredients")
-                .navigationBarItems(trailing:
-                    NavigationLink(destination:Settings()) {
-                        if self.showSettings {
-                            Text("Settings")
-                        }
+            }.navigationBarItems(trailing:
+                    Button("Done") {
+                        self.presentationMode.wrappedValue.dismiss()
                     }
             )
         }
@@ -128,5 +119,11 @@ struct SelectIngredientsOwned: View {
     func fourthNumber(number:Int) -> Int {
         let fourthNumber = numPerLine + numPerLine*number
         return fourthNumber
+    }
+}
+
+struct SelectIngredientsOwned_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectIngredientsOwned(geo: 667)
     }
 }

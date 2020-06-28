@@ -12,17 +12,31 @@ import SwiftUI
 struct InsList: View {
     //input as array of Instructions
     var insList: [String]
+    
+    var showDismiss:Bool
+    @Binding var showSheet:Bool
+    
     var text:String = "Instructions"
     var body: some View {
         VStack {
             //heading
-            Text(text)
-                .foregroundColor(K.textColor)
-                .font(.system(size: 32))
-                .fontWeight(.regular)
-                .frame(width: 360, alignment: .leading)
-                .padding(.leading, 10)
-            
+            HStack(alignment: .top) {
+                Text(text)
+                    .foregroundColor(K.textColor)
+                    .font(.system(size: 32))
+                    .fontWeight(.regular)
+                    //                    .frame(width: 360, alignment: .leading)
+                    .padding(.horizontal, 5)
+                if self.showDismiss {
+                    Button(action:{
+                        self.showSheet = false
+                    }) {
+                        Text("Dismiss")
+                            .foregroundColor(.blue)
+                            .padding([.trailing, .top], 5)
+                    }
+                }
+            }
             Spacer()
             
             

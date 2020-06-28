@@ -56,7 +56,7 @@ struct Substitutions: View {
                 }) {
                     Text("Dismiss")
                         .foregroundColor(.blue)
-                        .padding()
+                        .padding([.horizontal, .top])
                 }
             }
             ScrollView(.vertical, showsIndicators: false) {
@@ -140,6 +140,7 @@ struct Substitutions: View {
                     }
                 }
             }
+            .frame(width: 300, height: 480)
         }.frame(width: 300, height: 500)
             .padding(.vertical)
             .background(K.frameColor)

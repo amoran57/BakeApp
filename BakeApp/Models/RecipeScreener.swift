@@ -20,7 +20,6 @@ struct RecipeScreener {
             if ingredient.isOwned == false {
                 print("We don't have \(ingredient.ingredientName ?? "nameless ingredient")")
                 missing.append(ingredient.ingredientName!)
-                print("Current array of missing ingredients: \(missing)")
             }
         }
         print("Successfully created array of missing ingredients: \(missing)")

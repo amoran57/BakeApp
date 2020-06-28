@@ -11,9 +11,10 @@ import SwiftUI
 struct SeeAllIng: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus(alphabetical: true)) var ingStatus:FetchedResults<IngredientsOwned>
-    @State var searchText:String
     
-    var showSettings = true
+     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State var searchText:String = ""
     
     var body: some View {
         VStack {
@@ -25,10 +26,8 @@ struct SeeAllIng: View {
             }
         }.navigationBarTitle("Ingredients", displayMode: .inline)
             .navigationBarItems(trailing:
-                NavigationLink(destination:Settings()) {
-                    if self.showSettings {
-                        Text("Settings")
-                    }
+                Button("Done") {
+                    self.presentationMode.wrappedValue.dismiss()
                 }
         )
     }

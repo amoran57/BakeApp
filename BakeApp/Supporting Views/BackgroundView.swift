@@ -34,10 +34,8 @@ struct BackgroundView: View {
                     .aspectRatio(contentMode: .fill)
             }
         }.onReceive(self.imageSwitchTimer) { _ in
-            print("Received signal from timer")
             var nextIndex = Int.random(in: 0...recipeData.count-1)
             while nextIndex == self.activeImageIndex {
-                print("Duplicate index; trying again")
                 nextIndex = Int.random(in: 0...recipeData.count-1)
             }
             self.activeImageIndex = nextIndex

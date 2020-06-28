@@ -35,8 +35,6 @@ struct RecipeList: View {
             .navigationBarItems(trailing: NavigationLink(destination: Settings()) {
                 Text("Settings")
             })
-            //            .navigationBarBackButtonHidden(true)
-            //            .navigationBarItems(leading: self.btnBack)
         }.padding(.bottom, 5)
             .onAppear(perform: {
                 self.filteredArray = recipeData
