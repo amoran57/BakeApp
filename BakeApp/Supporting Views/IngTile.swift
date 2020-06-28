@@ -12,23 +12,17 @@ import SwiftUI
 struct IngTile: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: IngredientsOwned.getAllIngStatus()) var ingStatus:FetchedResults<IngredientsOwned>
-    
-    var counter:Int
-    @State private var trueFalse:Bool?
 
+    var name:String
+    var ingredient:IngredientsOwned {
+        self.ingStatus[self.ingStatus.firstIndex{$0.ingredientName == name}!]
+    }
+    
     var body: some View {
         
         Button(action: {
-            
-            let ingredient = self.ingStatus[self.counter]
-            //fetch bool value
-            self.trueFalse = ingredient.isOwned
-            
-            //toggle bool value
-            self.trueFalse = !self.trueFalse!
-            
             //update value
-            ingredient.setValue(self.trueFalse, forKey: "isOwned")
+            self.ingredient.setValue(!self.ingredient.isOwned, forKey: "isOwned")
             
             //save updated value to CoreData
             do {
@@ -38,21 +32,23 @@ struct IngTile: View {
             }
         })
         {
-            if self.ingStatus[counter].isOwned  {
+            if self.ingredient.isOwned  {
                 //appearance if isOwned == true
-                Text(self.ingStatus[counter].ingredientName!)
+                Text(self.ingredient.ingredientName!)
                     .foregroundColor(K.textColor)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(.horizontal, 8)
+                    .padding(.vertical)
                     .background(K.frameColor)
                     .cornerRadius(10)
             } else {
                 //appearance if isOwned == false
-                Text(self.ingStatus[counter].ingredientName!)
+                Text(self.ingredient.ingredientName!)
                     .strikethrough()
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
-                    .padding()
+                    .padding(.horizontal, 8)
+                    .padding(.vertical)
                     .background(K.blue)
                     .cornerRadius(10)
             }
@@ -60,3 +56,9 @@ struct IngTile: View {
     }
 }
 
+
+struct IngTile_Previews: PreviewProvider {
+    static var previews: some View {
+        IngTile(name: "flour")
+    }
+}

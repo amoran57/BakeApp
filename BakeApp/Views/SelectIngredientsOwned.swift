@@ -22,25 +22,36 @@ struct SelectIngredientsOwned: View {
     var showSettings = true
     
     //number of tiles per line
-    var numPerLine:Int? = 3
+    var numPerLine:Int = 3
+    var numOfLines:Int = 6
+    
+    var ingredientNames: [String] {
+        let numOfIng = self.numPerLine*self.numOfLines
+        var stringArray = Array(repeating: "", count: numOfIng)
+        
+        for counter in 0..<numOfIng {
+            let name = self.ingStatus[counter].ingredientName!
+            stringArray[counter] = name
+        }
+        
+        stringArray.sort()
+        return stringArray
+    }
     
     var body: some View {
         return GeometryReader { geometry in
             
             VStack {
-                
                 //body of view
-                ScrollView {
-                    VStack {
-                        ForEach(0..<5) { number in
-                            //returns HStacks of length numPerLine
-                            HStack {
-                                ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
-                                    if counter < self.ingStatus.count {
-                                        IngTile(counter: counter)
-                                            .padding(5)
-                                            .padding(.trailing,0)
-                                    }
+                VStack {
+                    ForEach(0..<self.numOfLines) { number in
+                        //returns HStacks of length numPerLine
+                        HStack {
+                            ForEach(self.thirdNumber(number:number)..<self.fourthNumber(number:number)) { counter in
+                                if counter < self.ingStatus.count {
+                                    IngTile(name: self.ingredientNames[counter])
+                                        .padding(5)
+                                        .padding(.trailing,0)
                                 }
                             }
                         }
@@ -99,17 +110,17 @@ struct SelectIngredientsOwned: View {
     }
     //functions to calculate the grid-style view of ingredient tiles
     func secondNumber() -> Int {
-        let secondNumber = ((self.ingStatus.count-1)/numPerLine!)+1
+        let secondNumber = ((self.ingStatus.count-1)/numPerLine)+1
         return secondNumber
     }
     
     func thirdNumber(number:Int) -> Int {
-        let thirdNumber = (1+numPerLine!*number)-1
+        let thirdNumber = (1+numPerLine*number)-1
         return thirdNumber
     }
     
     func fourthNumber(number:Int) -> Int {
-        let fourthNumber = numPerLine! + numPerLine!*number
+        let fourthNumber = numPerLine + numPerLine*number
         return fourthNumber
     }
 }

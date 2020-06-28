@@ -30,7 +30,7 @@ extension IngredientsOwned {
         if alphabetical {
             sortDescriptor = NSSortDescriptor(key: "ingredientName", ascending: true)
         } else {
-            sortDescriptor = NSSortDescriptor(key: "instances", ascending: false)
+            sortDescriptor = NSSortDescriptor(key: "instances", ascending: true)
         }
         
         request.sortDescriptors = [sortDescriptor]
