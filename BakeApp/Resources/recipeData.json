@@ -235,7 +235,7 @@
     {
         "name": "Chocolate Chip Cookies",
         "id": 1006,
-        "yield":"",
+        "yield":"2 dozen",
         "credit":"",
         "materials": [""],
         "prepTime": 25,
@@ -259,21 +259,21 @@
         ],
         "instructions": [
             
-            "Preheat the oven to 375°F. Lightly grease (or line with parchment) two baking sheets",
+            "Preheat the oven to 375°F. Lightly grease two baking sheets",
             
-            "In an electric mixer, combine the sugars with the butter.",
+            "Using an electric mixer, beat the butter until it is fluffy. Then, combine the sugars with the butter and beat well.",
             
             "Add the salt, vanilla, vinegar, and baking soda, beating until smooth and creamy",
             
-            "Beat in the egg, again beating until smooth. Scrape the bottom and sides of the bowl with a spatula to make sure everything is thoroughly combined.",
+            "Add in the egg and beat until smooth. Make sure to thoroughly scrape the bowl so that the entire mixture has the same consistency.",
             
             "Mix in the flour, then the chocolate chips.",
             
-            "Scoop 1 ¼-inch balls of dough onto the prepared baking sheets, leaving 2 inches between them on all sides; they’ll spread.",
+            "Scoop tablespoonful balls of dough onto the baking sheets. Leave some room on all sides of the dough, since it will spread.",
             
             "Bake the cookies for 11 to 12 minutes, until edges are golden brown.",
             
-            "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Repeat with the remaining dough."
+            "Remove the cookies from the oven, and cool on the pan until they’ve set enough to move without breaking. Once the cookies are sufficiently cool, move them to a plate or platter to finish cooling. Repeat with the remaining dough."
             
         ],
         "ingxins": [
@@ -524,7 +524,7 @@
         "totalTime": 40,
         "imageName": "blueberryMuffins",
         "imageCredit": "https://bakerbynature.com/blueberry-muffins/",
-        "type": "pastries",
+        "type": "other",
         "sysIng": ["flour", "brown sugar", "sugar", "salt", "baking powder", "vegetable oil", "egg", "milk", "blueberries", "butter", "cinnamon"],
         "ingredients": [
             "⅓ cup brown sugar",
@@ -749,6 +749,55 @@
             [],
             []
         ]
+    },
+    
+
+    {
+        "name": "Lemon Ricotta Muffins",
+        "id": 1017,
+    "yield": "1 dozen muffins",
+    "credit":"Whole and Heavenly Oven",
+    "materials": ["muffin liners"],
+        "prepTime": 15,
+        "bakeTime": 20,
+        "totalTime": 35,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "other",
+        "sysIng": ["ricotta cheese", "sugar", "flour", "honey", "baking powder", "salt", "lemon", "egg", "vegetable oil", "milk", "raspberries"],
+        "ingredients": [
+            "2 cups flour",
+    "1 tablespoon baking powder",
+    "1/4 teaspoon salt",
+    "1 cup ricotta cheese",
+    "1/2 cup sugar",
+    "1/4 cup honey",
+    "1/4 cup lemon juice",
+    "2 tablespoons grated lemon zest",
+    "2 large eggs",
+    "1/4 cup vegetable oil",
+    "1/2 cup milk",
+    "1 cup fresh (or unthawed frozen) raspberries",
+    "1 tablespoon flour",
+    "Powdered sugar (optional)"
+                    ],
+        "instructions": [
+              "Preheat oven to 425°F. Line a 12-cup muffin tin with muffin liners.",
+    "In a medium bowl, whisk together the flour, baking powder, and salt. Set aside",
+    "In a large bowl, whisk together the ricotta cheese, sugar, honey, lemon juice, zest, eggs, oil, and milk. Fold the flour mixture into the liquid mixture until the batter is just combined.",
+    "In a small bowl, toss the raspberries with some flour. Very gently, fold the raspberries into the muffin batter.",
+    "Fill the muffin cups 3/4 full of batter. Garnish with extra raspberries, if you wish. Bake at 425°F for five minutes, then reduce the heat to 375°F and bake another 15-20 minutes or until a toothpick comes out clean.",
+    "Remove the muffins from the tin and allow to cool on a wire rack. Dust with sugar, if desired."
+        ],
+    "ingxins": [
+                [],
+                [0,1,2],
+                [3,4,5,6,7,8,9,10],
+                [11,12],
+                [],
+                []
+            ]
+
     }
 ]
  
