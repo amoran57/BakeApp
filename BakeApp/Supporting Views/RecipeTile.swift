@@ -16,7 +16,7 @@ struct RecipeTile: View {
     var recipe: Recipe
     var remove:Bool = true
     
- 
+    
     
     var body: some View {
         
@@ -24,24 +24,32 @@ struct RecipeTile: View {
             if recipe.imageURL != nil {
                 URLImage(URL(string: recipe.imageURL!)!) { proxy in
                     proxy.image
-                    .resizable()
-                    .frame(width: 104, height: 104)
-                    .aspectRatio(contentMode: .fill)
-                    .cornerRadius(10)
+                        .resizable()
+                        .frame(width: 104, height: 104)
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(10)
                 }
                 
             } else {
-           recipe.image
-                .resizable()
-                .frame(width: 104, height: 104)
-                .cornerRadius(10)
+                recipe.image
+                    .resizable()
+                    .frame(width: 104, height: 104)
+                    .cornerRadius(10)
             }
-            Text(recipe.name)
-                .foregroundColor(K.textColor)
-                .font(.system(size: 12))
-                .fontWeight(.regular)
-                .padding(.top, -5)
-            
+            HStack {
+                if recipe.isVegan {
+                    Image(systemName: "v.circle.fill")
+                        .foregroundColor(K.textColor)
+                        .font(.system(size: 12))
+                        .padding(.top, -5)
+//                        .padding(.trailing, 2)
+                }
+                Text(recipe.name)
+                    .foregroundColor(K.textColor)
+                    .font(.system(size: 12))
+                    .fontWeight(.regular)
+                    .padding(.top, -5)
+            }
         }.frame(width:111, height: 120)
     }
 }

@@ -35,6 +35,20 @@ extension Recipe {
     var image: Image {
         Image(imageName)
     }
+    
+    var isVegan:Bool {
+        let nonVeganIng:[String] = ["milk", "sour cream", "egg", "butter", "buttermilk", "ricotta cheese"]
+        let nonVeganSet:Set<String> = Set(nonVeganIng)
+        let sysIngSet:Set<String> = Set(sysIng)
+        let overlap = nonVeganSet.intersection(sysIngSet)
+        
+        if overlap.count > 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }
 
 

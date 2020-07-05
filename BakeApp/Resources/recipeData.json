@@ -761,7 +761,7 @@
         "prepTime": 15,
         "bakeTime": 20,
         "totalTime": 35,
-        "imageName": "crumpet",
+        "imageName": "lemonRicottaMuffins",
         "imageCredit": "",
         "type": "other",
         "sysIng": ["ricotta cheese", "sugar", "flour", "honey", "baking powder", "salt", "lemon", "egg", "vegetable oil", "milk", "raspberries"],
@@ -773,7 +773,7 @@
     "1/2 cup sugar",
     "1/4 cup honey",
     "1/4 cup lemon juice",
-    "2 tablespoons grated lemon zest",
+    "2 tablespoons lemon zest",
     "2 large eggs",
     "1/4 cup vegetable oil",
     "1/2 cup milk",
@@ -784,6 +784,7 @@
         "instructions": [
               "Preheat oven to 425°F. Line a 12-cup muffin tin with muffin liners.",
     "In a medium bowl, whisk together the flour, baking powder, and salt. Set aside",
+    "Zest and juice your lemons to produce the proper amount of lemon juice and lemon zest.",
     "In a large bowl, whisk together the ricotta cheese, sugar, honey, lemon juice, zest, eggs, oil, and milk. Fold the flour mixture into the liquid mixture until the batter is just combined.",
     "In a small bowl, toss the raspberries with some flour. Very gently, fold the raspberries into the muffin batter.",
     "Fill the muffin cups 3/4 full of batter. Garnish with extra raspberries, if you wish. Bake at 425°F for five minutes, then reduce the heat to 375°F and bake another 15-20 minutes or until a toothpick comes out clean.",
@@ -792,10 +793,11 @@
     "ingxins": [
                 [],
                 [0,1,2],
-                [3,4,5,6,7,8,9,10],
+                [6,7],
+                [3,4,5,8,9,10],
                 [11,12],
                 [],
-                []
+                [13]
             ]
 
     }

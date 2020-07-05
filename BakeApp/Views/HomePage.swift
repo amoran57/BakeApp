@@ -100,9 +100,9 @@ struct HomePage: View {
                     leading:
                     NavigationLink(destination: HelpView()) {
                         Image(systemName: "questionmark.circle")
-                        .resizable()
+                            .resizable()
                             .frame(width: 30, height: 30)
-                        .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fit)
                         
                     },
                     trailing: NavigationLink(destination:Settings()) {
@@ -125,10 +125,21 @@ struct HomePage: View {
             //end GeometryReader
         }
             //when the view appears, initialize CoreData (function only runs if CoreData is empty)
-            .onAppear (perform: {self.setCoreData()})
+            .onAppear (perform: {self.setUpView()})
     }
     
-    func setCoreData() {
+    func initializeDefaults() {
+        //this should trigger only on the first open
+        if self.ingStatus.count == 0 {
+            
+            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
+            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
+            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
+            defaults.set([], forKey: K.Defaults.removedRecipeIndex)
+        }
+    }
+    
+    func setIngCoreData() {
         //double-checks that CoreData ingredient entity is empty before proceeding
         if self.ingStatus.count == 0 {
             //draw from the list of unique ingredients in SetUpIng singleton
@@ -159,15 +170,11 @@ struct HomePage: View {
                 }
             }
             
-            defaults.set(true, forKey: K.Defaults.primaryViewIsTile)
-            defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
-            defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
-            defaults.set([], forKey: K.Defaults.removedRecipeIndex)
-            
         }
-        
-        //repeat the process for CoreData time limit entity:
-        
+    }
+    
+    //repeat the process for CoreData time limit entity:
+    func setTimeCoreData() {
         //check that the entity is empty
         if self.timeValue.count == 0 {
             //draw from the list of unique time types in SetUpIng singleton
@@ -186,7 +193,9 @@ struct HomePage: View {
                 }
             }
         }
-        
+    }
+    
+    func resetPreferencesIfTemporary() {
         //reset ingredients if needed
         if !defaults.bool(forKey: K.Defaults.ingSettingIsPermanent) {
             for ing in self.ingStatus {
@@ -226,8 +235,9 @@ struct HomePage: View {
                 print(error)
             }
         }
-        
-        
+    }
+    
+    func triggerTimer() {
         //for some reason I needed this to jolt the background view into action
         let ingredient = self.ingStatus[0]
         
@@ -244,9 +254,16 @@ struct HomePage: View {
             toggleVal()
             toggleVal()
         }
-        
-        
     }
+    
+    func setUpView() {
+        self.initializeDefaults()
+        self.setIngCoreData()
+        self.setTimeCoreData()
+        self.resetPreferencesIfTemporary()
+        self.triggerTimer()
+    }
+    
 }
 
 struct HomePage_Previews: PreviewProvider {
