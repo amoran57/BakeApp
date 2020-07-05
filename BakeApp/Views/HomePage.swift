@@ -23,6 +23,8 @@ struct HomePage: View {
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
     
+    @State var showHelp = false
+    
     var body: some View {
         return GeometryReader { geometry in
             NavigationView {
@@ -98,7 +100,9 @@ struct HomePage: View {
                 .background(BackgroundView())
                 .navigationBarItems(
                     leading:
-                    NavigationLink(destination: HelpView()) {
+                    Button(action: {
+                        self.showHelp.toggle()
+                    }) {
                         Image(systemName: "questionmark.circle")
                             .resizable()
                             .frame(width: 30, height: 30)
@@ -121,10 +125,25 @@ struct HomePage: View {
                                 EmptyView()
                             }
                     })
+                .overlay(
+                    Group {
+                        if self.showHelp {
+                            VStack {
+                            VStack {
+                            HelpView()
+                            }.frame(width:geometry.size.width, height:geometry.size.height)
+                            
+                            }.frame(width: 500, height: 1000)
+                            .background(Color.black.opacity(0.8))
+                        } else {
+                            EmptyView()
+                        }
+                    }
+                )
             }
             //end GeometryReader
         }
-            //when the view appears, initialize CoreData (function only runs if CoreData is empty)
+            //when the view appears, initialize everything below
             .onAppear (perform: {self.setUpView()})
     }
     

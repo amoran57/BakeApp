@@ -7,10 +7,22 @@
 //
 
 import SwiftUI
+import Pages
 
 struct HelpView: View {
+    let pages:[Image] = [
+    Image("page1"),
+    Image("page2")
+    ]
+       @State var index: Int = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        return GeometryReader { geometry in
+            ModelPages(self.pages, currentPage: self.$index) { num, _  in
+            HelpViewPage(image: self.pages[num])
+          }.padding(.top, -90)
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            
+        }
     }
 }
 

@@ -48,8 +48,6 @@ struct ScrollInsPopup: View {
                 StepByStep(index: index, recipe: self.recipe)
             }
             
-            
-            
         }
     }
 

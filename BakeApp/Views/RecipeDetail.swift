@@ -75,16 +75,16 @@ struct RecipeDetail: View {
                             .frame(width: 400)
                             .fixedSize(horizontal: true, vertical: true)
                         
-                        HStack {
-                            Text("Recipe credit: \(recipe.credit)")
-                                .italic()
-                            Text("Image credit: \(recipe.imageCredit)")
-                                .italic()
-                        }
-                        .font(.system(size: 10))
-                        .foregroundColor(K.textColor)
-                        .frame(width: 400)
-                        .fixedSize(horizontal: true, vertical: true)
+//                        HStack {
+//                            Text("Recipe credit: \(recipe.credit)")
+//                                .italic()
+//                            Text("Image credit: \(recipe.imageCredit)")
+//                                .italic()
+//                        }
+//                        .font(.system(size: 10))
+//                        .foregroundColor(K.textColor)
+//                        .frame(width: 400)
+//                        .fixedSize(horizontal: true, vertical: true)
                         
                     }
                     .padding(.top, -40)

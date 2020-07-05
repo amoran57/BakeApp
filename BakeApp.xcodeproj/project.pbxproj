@@ -27,6 +27,7 @@
 		6F67C6B324A2A0D700810D94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F67C6B224A2A0D700810D94 /* GoogleService-Info.plist */; };
 		6F699DC2248D2B31000C7D20 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC1248D2B31000C7D20 /* Settings.swift */; };
 		6F699DC4248D3084000C7D20 /* SettingsTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F699DC3248D3084000C7D20 /* SettingsTile.swift */; };
+		6F71A61124B23D660096C809 /* HelpViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F71A61024B23D660096C809 /* HelpViewPage.swift */; };
 		6F757B97248463B100064839 /* FilterByTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F757B96248463B100064839 /* FilterByTime.swift */; };
 		6F7A96FD24A63B05004CDE90 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */; };
 		6F7A96FF24A63B2A004CDE90 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */; };
@@ -87,6 +88,7 @@
 		6F67C6B224A2A0D700810D94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F699DC1248D2B31000C7D20 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6F699DC3248D3084000C7D20 /* SettingsTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTile.swift; sourceTree = "<group>"; };
+		6F71A61024B23D660096C809 /* HelpViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewPage.swift; sourceTree = "<group>"; };
 		6F757B96248463B100064839 /* FilterByTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByTime.swift; sourceTree = "<group>"; };
 		6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				6F7A96FC24A63B05004CDE90 /* ImagePicker.swift */,
 				6F7A96FE24A63B2A004CDE90 /* PhotoCaptureView.swift */,
 				6F7A970024A79C95004CDE90 /* BackgroundView.swift */,
+				6F71A61024B23D660096C809 /* HelpViewPage.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				6FD74E0B2471F26200D8FB80 /* RecipeList.swift in Sources */,
 				6F01F8B5248C373600972FCB /* ScrollInsPopup.swift in Sources */,
 				6F699DC4248D3084000C7D20 /* SettingsTile.swift in Sources */,
+				6F71A61124B23D660096C809 /* HelpViewPage.swift in Sources */,
 				6FFA51DE24A56390000F6CC5 /* ContactUs.swift in Sources */,
 				6FD74DED2471F1A700D8FB80 /* BakeApp.xcdatamodeld in Sources */,
 				6FD74E1E2471F3C700D8FB80 /* InsList.swift in Sources */,
