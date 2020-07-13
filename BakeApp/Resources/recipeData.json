@@ -758,48 +758,93 @@
     "yield": "1 dozen muffins",
     "credit":"Whole and Heavenly Oven",
     "materials": ["muffin liners"],
-        "prepTime": 15,
-        "bakeTime": 20,
-        "totalTime": 35,
+        "prepTime": 25,
+        "bakeTime": 25,
+        "totalTime": 50,
         "imageName": "lemonRicottaMuffins",
         "imageCredit": "",
         "type": "other",
         "sysIng": ["ricotta cheese", "sugar", "flour", "honey", "baking powder", "salt", "lemon", "egg", "vegetable oil", "milk", "raspberries"],
         "ingredients": [
+            "1 large lemon",
+            "1 cup fresh raspberries",
             "2 cups flour",
     "1 tablespoon baking powder",
     "1/4 teaspoon salt",
     "1 cup ricotta cheese",
     "1/2 cup sugar",
     "1/4 cup honey",
-    "1/4 cup lemon juice",
-    "2 tablespoons lemon zest",
     "2 large eggs",
     "1/4 cup vegetable oil",
     "1/2 cup milk",
-    "1 cup fresh (or unthawed frozen) raspberries",
     "1 tablespoon flour",
     "Powdered sugar (optional)"
                     ],
         "instructions": [
               "Preheat oven to 425°F. Line a 12-cup muffin tin with muffin liners.",
-    "In a medium bowl, whisk together the flour, baking powder, and salt. Set aside",
-    "Zest and juice your lemons to produce the proper amount of lemon juice and lemon zest.",
-    "In a large bowl, whisk together the ricotta cheese, sugar, honey, lemon juice, zest, eggs, oil, and milk. Fold the flour mixture into the liquid mixture until the batter is just combined.",
+              "Zest and juice the large lemon. You should get about 1/4 cup of juice and 2 tablespoons of zest. Rinse and drain the raspberries",
+    "In a medium bowl, whisk together the flour, baking powder, and salt. Set aside. Keep the flour handy; you'll need it for a later step.",
+    "In a large bowl, vigorously whisk together the ricotta cheese, sugar, honey, lemon juice, zest, eggs, oil, and milk. Fold the flour mixture into the liquid mixture until the batter is just combined.",
     "In a small bowl, toss the raspberries with some flour. Very gently, fold the raspberries into the muffin batter.",
     "Fill the muffin cups 3/4 full of batter. Garnish with extra raspberries, if you wish. Bake at 425°F for five minutes, then reduce the heat to 375°F and bake another 15-20 minutes or until a toothpick comes out clean.",
     "Remove the muffins from the tin and allow to cool on a wire rack. Dust with sugar, if desired."
         ],
     "ingxins": [
                 [],
-                [0,1,2],
-                [6,7],
-                [3,4,5,8,9,10],
-                [11,12],
+                [0,1],
+                [2,3,4],
+                [5,6,7,0,8,9,10],
+                [1,11],
                 [],
-                [13]
+                [12]
             ]
 
+    },
+    
+
+    {
+        "name": "Earl Grey Cookies",
+        "id": 1018,
+        "yield": "2 dozen",
+        "credit":"BakeApp",
+        "materials": [""],
+        "prepTime": 15,
+        "bakeTime": 15,
+        "totalTime": 30,
+        "imageName": "crumpet",
+        "imageCredit": "",
+        "type": "cookies",
+        "sysIng": ["flour", "Earl Grey tea", "baking powder", "salt", "black pepper", "butter", "sugar", "egg", "vanilla"],
+        "ingredients": [
+        "2 1/4 cup flour",
+    "2 tablespoons Earl Grey tea (~6 bags)",
+    "2 teaspoons baking powder",
+    "1/2 teaspoon salt",
+    "1 teaspoon black pepper",
+    "1 cup butter, softened",
+    "1 1/4 cup sugar",
+    "1 large egg",
+    "2 teaspoons vanilla"
+                    ],
+        "instructions": [
+              "Preheat the oven to 350°F. Set 1 cup of butter out to soften. Take six bags of Earl Grey tea and cut them open; measure out 2 tablespoons. If you have loose leaf tea rather than bags, you may want to grind the leaves to a finer consistency.",
+    "In a medium bowl, whisk together the flour, tea, baking powder, salt, and black pepper. Set aside.",
+    "In a mixer, whip the butter at high speed until battered, then add the sugar. Beat on high for about 2 minutes. The mixture should be light and nigh fluffy.",
+    "Add the egg and the vanilla, beating until just combined.",
+    "Slowly add the dry mixture, beating until just combined.",
+    "Scoop out tablespoon-sized balls of dough, and flatten them gently between your hands. Set them about 3 inches apart on a baking sheet.",
+    "Bake at 350°F for 13 minutes, until set in the center. Remove the cookies from the sheet as soon as they are cool enough to do so, and put them in the fridge to cool. Cookies are best served chilled."
+
+        ],
+        "ingxins": [
+                [5,1],
+                [0,1,2,3,4],
+                [5,6],
+                [7,8],
+                [],
+                [],
+                []
+            ]
     }
 ]
  
