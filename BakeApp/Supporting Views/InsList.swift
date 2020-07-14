@@ -25,18 +25,19 @@ struct InsList: View {
                     .foregroundColor(K.textColor)
                     .font(.system(size: 32))
                     .fontWeight(.regular)
-                    //                    .frame(width: 360, alignment: .leading)
                     .padding(.horizontal, 5)
                 if self.showDismiss {
+                    Spacer()
                     Button(action:{
                         self.showSheet = false
                     }) {
                         Text("Dismiss")
                             .foregroundColor(.blue)
-                            .padding([.trailing, .top], 5)
+                            .padding([.top, .horizontal], 5)
                     }
                 }
-            }
+            }.frame(width: 360)
+            
             Spacer()
             
             

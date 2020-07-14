@@ -35,6 +35,7 @@ struct StepByStep: View {
                                 Text("\(self.recipe.ingredients[self.recipe.ingxins![self.index][ing]])")
                                     .foregroundColor(K.textColor)
                                     .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 if ing != self.recipe.ingxins![self.index].count-1 {
                                     Divider()
                                         .background(K.textColor)
