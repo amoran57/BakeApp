@@ -96,7 +96,7 @@
         "name": "Banana Bread",
         "id": 1003,
         "yield":"",
-        "credit":"",
+        "credit":"BakeApp",
         "materials": [""],
         "prepTime": 15,
         "bakeTime": 70,
@@ -106,11 +106,11 @@
         "type": "breads",
         "sysIng": ["flour", "baking soda", "banana", "milk", "butter", "baking powder", "salt", "sugar", "brown sugar", "egg"],
         "ingredients": [
-            "2 cups all-purpose flour",
+            "2 cups flour",
             "1 teaspoon baking powder",
             "1 teaspoon baking soda",
             "1 teaspoon salt",
-            "3 ripe bananas, mashed",
+            "3 ripe bananas",
             "1 tablespoon milk",
             "2 teaspoons vanilla",
             "cinnamon to taste (optional)",
@@ -121,23 +121,19 @@
             "1 cup chocolate chips (optional)"
         ],
         "instructions": [
-            "Preheat oven to 325°F (165°C). Grease a 9x5-inch loaf pan.",
-            "Mix flour, baking powder, baking soda, and salt in a bowl.",
-            "Stir bananas, milk, vanilla, and (optionally) cinnamon in another bowl.",
-            "Beat butter and both sugars in a third bowl until light and fluffy. Add eggs, one at a time, to butter mixture; beat thoroughly after adding each egg.",
-            "Stir the banana mixture into the butter mixture. Next, stir in the dry mixture until thoroughly blended.",
-            "Optional: Fold in chocolate chips.",
-            "Pour batter into the loaf pan.",
-            "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 70 minutes. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
+            "Preheat oven to 325°F, and grease a 9x5-inch loaf pan.",
+            "Mix together the flour, baking powder, baking soda, and salt in a small bowl.",
+            "In another small bowl, mash the bananas. Then add milk, vanilla, and (optionally) cinnamon.",
+            "In a large bowl, beat butter until light and fluffy; then beat in the sugars. The mixture should be fluffy and consistent. Add eggs, one at a time, and beat thoroughly after adding each egg.",
+            "Stir the banana mixture into the butter mixture until combined. Next, stir in the dry mixture until thoroughly blended. At this point, you can fold in the chocolate chips, if you want them.",
+            "Pour batter into the loaf pan. Bake at 325°F about 70 minutes, or until a toothpick inserted into the center comes out clean. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
         ],
         "ingxins": [
             [],
             [0,1,2,3],
             [4,5,6,7],
             [8,9,10,11],
-            [],
             [12],
-            [],
             []
         ]
     },
@@ -146,8 +142,8 @@
     {
         "name": "Peanut Butter Oatmeal Cookies",
         "id": 1004,
-        "yield":"",
-        "credit":"",
+        "yield":"4 dozen cookies",
+        "credit":"BakeApp",
         "materials": [""],
         "prepTime": 15,
         "bakeTime": 15,
@@ -169,10 +165,10 @@
         ],
         "instructions": [
             "Preheat oven to 350°F (175°C).",
-            "In a large bowl, cream together chilled butter, brown sugar, white sugar, and peanut butter until smooth. Beat in the eggs one at a time until well blended.",
-            "In a separate bowl, combine the flour, baking soda, and salt; stir into the creamed mixture.",
-            "Mix in the oats until just combined. Drop by teaspoonfuls onto ungreased cookie sheets.",
-            "Bake for 10 to 15 minutes in the preheated oven, or until just light brown. Cool."
+            "In a large bowl, beat the chilled butter. Beat in the brown sugar, white sugar, and peanut butter until smooth.  Add the eggs, one at a time, until the mixture is smooth and consistent.",
+            "In a separate bowl, combine the flour, baking soda, and salt; stir this into the peanut butter mixture.",
+            "Add the oats, mixing until just combined. Drop teaspoon-sized balls of dough onto ungreased baking sheets.",
+            "Bake at 350°F for 10 to 15 minutes, or until just light brown. Cool."
         ],
         "ingxins": [
             [],
@@ -198,7 +194,7 @@
         "type": "pastries",
         "sysIng": ["sugar", "baking soda", "butter", "flour", "raisins", "baking powder", "salt", "sour cream", "egg"],
         "ingredients": [
-            "2 cups all-purpose flour",
+            "2 cups flour",
             "⅓ cup sugar",
             "1 teaspoon baking powder",
             "¼ teaspoon baking soda",
@@ -209,9 +205,9 @@
             "1 large egg"
         ],
         "instructions": [
-            "Adjust oven rack to lower-middle position and preheat oven to 400°F.",
+            "Preheat oven to 400°F. Put the butter in the freezer.",
             "In a medium bowl, mix flour, sugar, baking powder, baking soda and salt.",
-            "Using a cheese grater, grate the butter into the flour mixture. Work the butter in with your fingers until the mixture resembles coarse meal.",
+            "Using a cheese grater, grate the frozen butter into the flour mixture. Work the butter in with your fingers until the mixture resembles coarse meal.",
             "Stir in the raisins.",
             "In a small bowl, whisk sour cream and egg until smooth.",
             "Using a fork, stir sour cream mixture into flour mixture until large dough clumps form. Use your hands to press the dough against the bowl into a ball.",
@@ -220,7 +216,7 @@
             "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
         ],
         "ingxins": [
-            [],
+            [5],
             [0,1,2,3,4],
             [5],
             [6],
@@ -425,20 +421,21 @@
     {
         "name": "Brownies",
         "id": 1010,
-        "yield":"",
-        "credit":"",
+        "yield":"12 large brownies",
+        "credit":"BakeApp",
         "materials": [""],
         "prepTime": 15,
-        "bakeTime": 35,
-        "totalTime": 50,
+        "bakeTime": 40,
+        "totalTime": 55,
         "imageName": "brownies",
         "imageCredit": "",
         "type": "other",
-        "sysIng": ["sugar", "butter", "flour", "vanilla", "egg", "cocoa powder", "salt", "chocolate chips"],
+        "sysIng": ["sugar", "brown sugar", "butter", "flour", "vanilla", "egg", "cocoa powder", "salt", "chocolate chips"],
         "ingredients": [
             "1 cup butter",
-            "3 cups white sugar",
-            "1 tablespoon vanilla",
+            "2 cups sugar",
+            "1 cup brown sugar",
+            "2 teaspoons vanilla",
             "4 eggs",
             "1 ½ cups flour",
             "1 cup cocoa powder",
@@ -447,21 +444,21 @@
             "1 cup chocolate chips"
         ],
         "instructions": [
-            "Preheat oven to 350°F (175°C). Lightly grease a 9x13-inch pan.",
-            "Melt the butter and, in a large bowl, combine with the sugar and vanilla.",
+            "Preheat the oven to 350°F, and lightly grease a 9x13-inch pan.",
+            "Melt the butter and, in a large bowl, combine with the sugars and vanilla.",
             "Beat in the eggs, one at a time, and mix well after adding each egg.",
-            "In a separate bowl, whisk together flour, cocoa powder, and salt (and, optionally, the baking soda).",
+            "In a separate bowl, whisk together flour, cocoa powder, and salt (and, optionally, the baking soda). The dry mixture should be light and airy.",
             "Gradually stir the flour mixture into the egg mixture until blended.",
-            "Stir in the chocolate chips. Spread the batter evenly into the prepared baking dish.",
-            "Bake at 350°F until an inserted toothpick comes out clean (about 35 to 40 minutes). Allow to cool before cutting."
+            "Stir in the chocolate chips. Use a spoon or spatula to spread the batter into the 9x13-inch pan.",
+            "Bake at 350°F for 35-40 minutes, or until an inserted toothpick comes out clean. Allow to cool before cutting."
         ],
         "ingxins": [
             [],
-            [0,1,2],
-            [3],
-            [4,5,6,7],
+            [0,1,2,3],
+            [4],
+            [5,6,7,8],
             [],
-            [8],
+            [9],
             []
         ]
     },
