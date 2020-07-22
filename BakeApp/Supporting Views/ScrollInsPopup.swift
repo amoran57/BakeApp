@@ -30,9 +30,9 @@ struct ScrollInsPopup: View {
                     }) {
                         Text("Dismiss")
                             .padding(.top)
-                            .padding(.leading)
+                            .padding(.trailing)
                     }
-                }.frame(width: 375, alignment: .leading)
+                }.frame(width: 375, alignment: .trailing)
             }
             
             if showTitle {

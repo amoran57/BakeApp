@@ -33,6 +33,7 @@ struct RecipeTile: View {
             } else {
                 recipe.image
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 104, height: 104)
                     .cornerRadius(10)
             }
@@ -42,7 +43,7 @@ struct RecipeTile: View {
                         .foregroundColor(K.textColor)
                         .font(.system(size: 12))
                         .padding(.top, -5)
-//                        .padding(.trailing, 2)
+
                 }
                 Text(recipe.name)
                     .foregroundColor(K.textColor)

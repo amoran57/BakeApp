@@ -11,6 +11,8 @@ import URLImage
 
 struct BackgroundView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var activeImageIndex = Int.random(in: 0...recipeData.count-1)
     let imageSwitchTimer = Timer.publish(every: 3, on: .main, in: .common)
         .autoconnect()
@@ -22,14 +24,15 @@ struct BackgroundView: View {
                 { proxy in
                     proxy.image
                         .resizable()
-                        .opacity(0.2)
+                        .opacity(self.colorScheme == .dark ? 0.2 : 0.5)
                         .edgesIgnoringSafeArea(.all)
                         .aspectRatio(contentMode: .fill)
                 }
                 
             } else {
-                recipeData[self.activeImageIndex].image.resizable()
-                    .opacity(0.2)
+                recipeData[self.activeImageIndex].image
+                    .resizable()
+                    .opacity(colorScheme == .dark ? 0.2 : 0.5)
                     .edgesIgnoringSafeArea(.all)
                     .aspectRatio(contentMode: .fill)
             }

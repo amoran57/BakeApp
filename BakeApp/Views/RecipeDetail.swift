@@ -12,6 +12,7 @@ import URLImage
 
 struct RecipeDetail: View {
     
+    @Environment(\.colorScheme) var colorScheme
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userSettings = UserSettings()
@@ -75,16 +76,23 @@ struct RecipeDetail: View {
                             .frame(width: 400)
                             .fixedSize(horizontal: true, vertical: true)
                         
-//                        HStack {
-//                            Text("Recipe credit: \(recipe.credit)")
-//                                .italic()
-//                            Text("Image credit: \(recipe.imageCredit)")
-//                                .italic()
-//                        }
-//                        .font(.system(size: 10))
-//                        .foregroundColor(K.textColor)
-//                        .frame(width: 400)
-//                        .fixedSize(horizontal: true, vertical: true)
+                        Text("Yield: \(recipe.yield)")
+                            .foregroundColor(K.textColor)
+                            .font(.system(size: 12))
+                        
+                        HStack {
+                            Text("Recipe credit: \(recipe.credit)")
+                                .italic()
+                                .lineLimit(2)
+                            Text("Image credit: \(recipe.imageCredit)")
+                                .italic()
+                                .lineLimit(2)
+                        }
+                        .padding(.horizontal)
+                        .font(.system(size: 10))
+                        .foregroundColor(K.textColor)
+                        .frame(width: 400)
+                        .fixedSize()
                         
                     }
                     .padding(.top, -40)
@@ -140,7 +148,7 @@ struct RecipeDetail: View {
                             )
                             
                         }.padding(.bottom)
-                            
+                        
                         
                         
                         Spacer()
@@ -224,16 +232,16 @@ struct RecipeDetail: View {
                     { proxy in
                         proxy.image
                             .resizable()
-                            .opacity(0.2)
+                            .opacity(self.colorScheme == .dark ? 0.2 : 0.5)
                             .edgesIgnoringSafeArea(.all)
                             .aspectRatio(contentMode: .fill)
                     }
-                        
                     
-
+                    
+                    
                 } else {
                     recipe.image.resizable()
-                        .opacity(0.2)
+                        .opacity(self.colorScheme == .dark ? 0.2 : 0.5)
                         .edgesIgnoringSafeArea(.all)
                         .aspectRatio(contentMode: .fill)
                 }
@@ -241,25 +249,6 @@ struct RecipeDetail: View {
             
         )
             .navigationBarTitle("", displayMode: userSettings.primaryViewIsTile ? .automatic : .inline)
-            //            .overlay(
-            //                VStack {
-            //                    if self.showOverlay {
-            //                        ZStack {
-            //                            Rectangle()
-            //                                .frame(width:1000, height:1000)
-            //                                .foregroundColor(.black)
-            //                                .opacity(0.6)
-            //                                .onTapGesture { self.showOverlay = false }
-            //                            Substitutions(ingredients: recipe.sysIng)
-            //                        }.frame(width: 1000, height: 1000)
-            //                        //                        .background(Color.black)
-            //                        //                            .opacity(0.6)
-            //                        //                            .onTapGesture { self.showOverlay = false }
-            //                    } else {
-            //                        EmptyView()
-            //                    }
-            //                }
-            //        )
             .navigationBarItems(trailing:
                 Group {
                     

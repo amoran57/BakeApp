@@ -103,10 +103,19 @@ struct HomePage: View {
                     Button(action: {
                         self.showHelp.toggle()
                     }) {
-                        Image(systemName: "questionmark.circle")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .aspectRatio(contentMode: .fit)
+                        
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .aspectRatio(contentMode: .fit)
+                            
+                            Spacer()
+                            if self.showHelp {
+                                 Text("Hide help")
+                            }
+                           
+                        }.frame(width: 110, alignment: .leading)
                         
                     },
                     trailing: NavigationLink(destination:Settings()) {
