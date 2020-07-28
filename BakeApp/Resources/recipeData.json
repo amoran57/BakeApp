@@ -808,8 +808,8 @@
         "prepTime": 15,
         "bakeTime": 15,
         "totalTime": 30,
-        "imageName": "earlGreyCookies",
-        "imageCredit": "https://www.hummingbirdhigh.com/wp-content/uploads/2020/04/01_Lavender-Earl-Grey-Cookies_IMG_0007.jpg",
+        "imageName": "earlGreyCookie",
+        "imageCredit": "BakeApp",
         "type": "cookies",
         "sysIng": ["flour", "Earl Grey tea", "baking powder", "salt", "black pepper", "butter", "sugar", "egg", "vanilla"],
         "ingredients": [
@@ -830,7 +830,7 @@
     "Add the egg and the vanilla, beating until just combined.",
     "Slowly add the dry mixture, beating until just combined.",
     "Scoop out tablespoon-sized balls of dough, and flatten them gently between your hands. Set them about 3 inches apart on a baking sheet.",
-    "Bake at 350°F for 13 minutes, until set in the center. Remove the cookies from the sheet as soon as they are cool enough to do so, and put them in the fridge to cool. Cookies are best served chilled."
+    "Bake at 350°F for 13-17 minutes, depending whether you like your cookies soft and a bit doughy or firm and a bit crunchy. Either way, bake at least until set in the center. Remove the cookies from the sheet as soon as they are cool enough to do so, and put them in the fridge to cool. Cookies are best served chilled."
 
         ],
         "ingxins": [
@@ -839,6 +839,91 @@
                 [5,6],
                 [7,8],
                 [],
+                [],
+                []
+            ]
+    },
+    
+
+    {
+        "name": "Dinner Rolls",
+        "id": 1019,
+        "yield": "2 dozen rolls",
+        "credit":"BakeApp",
+        "materials": [""],
+        "prepTime": 40,
+        "bakeTime": 24,
+        "totalTime": 160,
+        "imageName": "dinnerRolls",
+        "imageCredit": "BakeApp",
+        "type": "breads",
+        "sysIng": ["milk", "butter", "flour", "yeast", "egg", "salt", "sugar"],
+        "ingredients": [
+    "5 tablespoons melted butter",
+    "1 1/2 cup milk",
+    "1/4 cup sugar",
+    "3 teaspoons yeast",
+    "5 cups flour",
+    "1 teaspoon salt",
+    "1 egg",
+    "An egg for topping",
+    "Salt for topping"
+                    ],
+        "instructions": [
+              "On a stovetop, melt the butter. Heat the milk to 110°F. In a large mixing bowl, combine the milk, butter, and sugar, until sugar is dissolved.",
+    "Sprinkle the yeast on top of the warm milk mixture. Stir until the yeast is dissolved, then let sit for 5 minutes. While waiting, combine the flour and salt in a separate bowl.",
+    "In a small bowl, beat an egg. Add it to the milk mixture. Slowly mix the flour mixture into the milk mixture, until just combined. Remove from bowl and knead for 5 to 10 minutes.",
+    "Grease a large bowl and place the dough inside. Cover with a cloth and put in a warm place. Let the dough rise for an hour; it should roughly double in size.",
+    "Grease a 9x13-inch pan. Punch the dough down and knead it again. Divide into 24 equally-sized balls, and place in the pan. Cover again and let rise for 30 minutes. Preheat the oven to 375°F.",
+    "In a small bowl, beat the egg. Brush onto the the tops of the rolls. Sprinkle with salt. Bake at 375°F for 24 minutes, until golden brown and cooked through.",
+    "Remove. Serve while warm, or cool before storing."
+        ],
+        "ingxins": [
+                [0,1,2],
+                [3,4,5],
+                [6],
+                [],
+                [],
+                [7,8],
+                []
+            ]
+    },
+    
+
+    {
+        "name": "Flourless Chocolate Cookies",
+        "id": 1020,
+        "yield": "2 dozen cookies",
+        "credit":"Delish",
+        "materials": [""],
+        "prepTime": 20,
+        "bakeTime": 12,
+        "totalTime": 40,
+        "imageName": "gfChocCookies",
+        "imageCredit": "BakeApp",
+        "type": "cookies",
+        "sysIng": ["egg", "powdered sugar", "cocoa powder", "vanilla", "chocolate chips", "salt"],
+        "ingredients": [
+        "2 1/2 cups powdered sugar",
+    "3/4 cup cocoa powder",
+    "1/2 teaspoon salt",
+    "4 large eggs",
+    "2 teaspoons vanilla",
+    "1 1/2 cups chocolate chips"
+                    ],
+        "instructions": [
+              "Preheat the oven to 350°F. Line two baking sheets with parchment paper, or grease well. These cookies will stick if you're not careful.",
+    "In a large bowl, combine the powdered sugar, the cocoa powder, and the salt.",
+    "Separate the eggs and keep the whites, in a smaller bowl. Add vanilla.",
+    "Stir the egg white mixture into the cocoa mixture until consistent. The combination really should resemble cookie dough. Next, beat in the chocolate chips.",
+    "Place the dough on the baking sheets in tablespoon-sized scoops and let bake at 350°F, 10 to 12 minutes. The cookies should be set.",
+    "Let the cookies cool on the sheets for 5 or 10 minutes before you remove them to a cooling rack. Do not try to take the cookies off the sheets right away--this is guaranteed to result in disaster."
+        ],
+        "ingxins": [
+                [],
+                [0,1,2],
+                [3,4],
+                [5],
                 [],
                 []
             ]

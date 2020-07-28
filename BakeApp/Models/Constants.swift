@@ -38,6 +38,7 @@ struct K {
         static let timeSettingIsPermanent = "timeSettingIsPermanent"
         static let ingSettingIsPermanent = "ingSettingIsPermanent"
         static let removedRecipeIndex = "removedRecipeIndex"
+        static let timesAppOpened = "timesAppOpened"
     }
     
     struct IngString {

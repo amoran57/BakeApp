@@ -23,7 +23,7 @@ struct HomePage: View {
     @State var navigationLinkActive:Bool = false
     @State var goToIngSelect = false
     
-    @State var showHelp = false
+    @State var showHelp:Bool = defaults.integer(forKey: K.Defaults.timesAppOpened) == 0 ? true : false
     
     var body: some View {
         return GeometryReader { geometry in
@@ -49,6 +49,8 @@ struct HomePage: View {
                     
                     Button(action: {
                         self.navigationLinkActive = true
+                        let numTimesOpened =  defaults.integer(forKey: K.Defaults.timesAppOpened)
+                        defaults.set(numTimesOpened + 1, forKey: K.Defaults.timesAppOpened)
                     })
                     {
                         Image(K.bakeButton)
@@ -164,7 +166,13 @@ struct HomePage: View {
             defaults.set(true, forKey: K.Defaults.ingSettingIsPermanent)
             defaults.set(true, forKey: K.Defaults.timeSettingIsPermanent)
             defaults.set([], forKey: K.Defaults.removedRecipeIndex)
+            
         }
+        
+        if defaults.object(forKey: K.Defaults.timesAppOpened) == nil {
+            defaults.set(0, forKey: K.Defaults.timesAppOpened)
+        }
+        
     }
     
     func setIngCoreData() {
