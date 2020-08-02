@@ -98,11 +98,11 @@
         "yield":"1 loaf banana bread",
         "credit":"BakeApp",
         "materials": [""],
-        "prepTime": 15,
-        "bakeTime": 70,
-        "totalTime": 85,
+        "prepTime": 20,
+        "bakeTime": 85,
+        "totalTime": 120,
         "imageName": "bananaBread",
-        "imageCredit": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2020/03/sk-ultimate-banana-bread.jpg?fit=1200%2C800&ssl=1 (2)",
+        "imageCredit": "Eliott Moran",
         "type": "breads",
         "sysIng": ["flour", "baking soda", "banana", "milk", "butter", "baking powder", "salt", "sugar", "brown sugar", "egg"],
         "ingredients": [
@@ -117,23 +117,22 @@
             "½ cup butter, softened",
             "½ cup white sugar",
             "½ cup brown sugar",
-            "2 eggs",
-            "1 cup chocolate chips (optional)"
+            "2 eggs"
         ],
         "instructions": [
-            "Preheat oven to 325°F, and grease a 9x5-inch loaf pan.",
+            "Preheat oven to 325°F, and grease a 9x5-inch loaf pan. Set the butter out to soften.",
             "Mix together the flour, baking powder, baking soda, and salt in a small bowl.",
             "In another small bowl, mash the bananas. Then add milk, vanilla, and (optionally) cinnamon.",
             "In a large bowl, beat butter until light and fluffy; then beat in the sugars. The mixture should be fluffy and consistent. Add eggs, one at a time, and beat thoroughly after adding each egg.",
-            "Stir the banana mixture into the butter mixture until combined. Next, stir in the dry mixture until thoroughly blended. At this point, you can fold in the chocolate chips, if you want them.",
-            "Pour batter into the loaf pan. Bake at 325°F about 70 minutes, or until a toothpick inserted into the center comes out clean. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
+            "Stir the banana mixture into the butter mixture until combined. Next, stir in the dry mixture until thoroughly blended.",
+            "Pour batter into the loaf pan. Bake at 325°F about 1 hour and 25 minutes, or until a toothpick inserted into the center comes out clean. Cool in the pan for 10 minutes, then move to wire rack to let cool completely."
         ],
         "ingxins": [
-            [],
+            [8],
             [0,1,2,3],
             [4,5,6,7],
             [8,9,10,11],
-            [12],
+            [],
             []
         ]
     },
@@ -188,7 +187,7 @@
         "materials": [""],
         "prepTime": 20,
         "bakeTime": 17,
-        "totalTime": 75,
+        "totalTime": 45,
         "imageName": "scones",
         "imageCredit": "BakeApp",
         "type": "pastries",
@@ -207,22 +206,16 @@
         "instructions": [
             "Preheat oven to 400°F. Put the butter in the freezer.",
             "In a medium bowl, mix flour, sugar, baking powder, baking soda and salt.",
-            "Using a cheese grater, grate the frozen butter into the flour mixture. Work the butter in with your fingers until the mixture resembles coarse meal.",
-            "Stir in the raisins.",
-            "In a small bowl, whisk sour cream and egg until smooth.",
-            "Using a fork, stir sour cream mixture into flour mixture until large dough clumps form. Use your hands to press the dough against the bowl into a ball.",
-            "Place on a lightly floured surface and pat into a 7- to 8-inch circle about ¾-inch thick. Sprinkle with remaining 1 tsp. of sugar.",
-            "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart.",
-            "Bake until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
+            "Take the butter out of the freezer and cut into cubes (ideally, 32 or more cubes). Work the butter in with your fingers until the mixture resembles coarse meal. Stir in the raisins.",
+            "In a small bowl, whisk sour cream and egg until smooth. Using a fork, stir sour cream mixture into flour mixture until large dough clumps form. Use your hands to press the dough against the bowl into a ball.",
+            "Place on a lightly floured surface and pat into a 7- to 8-inch circle about ¾-inch thick. Optionally, sprinkle with a bit of sugar.",
+            "Use a sharp knife to cut into 8 triangles; place on a cookie sheet (preferably lined with parchment paper), about 1 inch apart. Bake at 400°F until golden, about 15 to 17 minutes. Cool for 5 minutes and serve warm or at room temperature."
         ],
         "ingxins": [
             [5],
             [0,1,2,3,4],
-            [5],
-            [6],
+            [5,6],
             [7,8],
-            [],
-            [],
             [],
             []
         ]
