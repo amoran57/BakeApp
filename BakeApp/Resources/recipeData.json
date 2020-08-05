@@ -920,6 +920,53 @@
                 [],
                 []
             ]
+    },
+    
+    {
+        "name": "Pretzels",
+        "id": 1021,
+        "yield": "1 dozen pretzels",
+        "credit":"BakeApp",
+        "materials": [""],
+        "prepTime": 40,
+        "bakeTime": 18,
+        "totalTime": 80,
+        "imageName": "pretzel",
+        "imageCredit": "BakeApp",
+        "type": "breads",
+        "sysIng": ["milk", "butter", "flour", "yeast", "salt", "brown sugar", "baking soda"],
+        "ingredients": [
+            "1 1/2 cups warm milk (115°F)",
+    "2 1/4 teaspoons yeast",
+    "1 tablespoon brown sugar",
+    "1 tablespoon softened butter",
+    "1 teaspoon salt",
+    "4 cups flour",
+    "1/2 cup baking soda",
+    "Coarse sea salt"
+                    ],
+        "instructions": [
+              "Set the butter out to soften. Begin boiling 9-10 cups of water on the stove. Heat the milk.",
+    "In a large mixing bowl, whisk together the warm milk with the yeast. Let sit for 3 minutes.",
+    "Add the brown sugar, butter, and salt. Stir until the butter is melted and the mixture is combined.",
+    "Stir in 3 cups flour until combined, then the remaining cup. Turn the dough out onto a well-floured surface and knead for 5 minutes.",
+    "Place the dough back in the mixing bowl, cover with a cloth, and let rise for 10-15 minutes. In the meantime, preheat the oven to 400°F and grease two baking sheets well.",
+    "Cut the dough into 12 equally-sized pieces. Roll each piece out into an 18-22 inch log, then twist the ends together and fold them forward to make a pretzel shape.",
+    "Add the baking soda to the boiling water. Dip the pretzels into the water, one at a time, for 20-30 seconds each. Remove with a slotted spoon and place on the greased baking sheets, taking care not to get too much water onto the sheets.",
+    "Sprinkle with sea salt and bake at 400°F until golden, about 15-18 minutes.",
+    "Remove from the oven and let cool for a few minutes. Enjoy warm, or store in the fridge in an airtight bag."
+        ],
+        "ingxins": [
+                [3,0],
+                [0,1],
+                [2,3,4],
+                [5],
+                [],
+                [],
+                [6],
+                [7],
+            []
+            ]
     }
 ]
  
