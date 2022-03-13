@@ -18,7 +18,7 @@ struct RecipeDetail: View {
     @ObservedObject var userSettings = UserSettings()
     
     @State var showingAlert = false
-    @State var index: Int = 0
+//    @State var index: Int = 0
     
     @State private var showingSheet = false
     @State private var showingSheet2 = false
@@ -42,72 +42,13 @@ struct RecipeDetail: View {
     
     var body: some View {
         
-        Group {
+        VStack {
             
             if userSettings.primaryViewIsTile  {
                 VStack {
-                    VStack {
-                        Text(recipe.name)
-                            .foregroundColor(K.textColor)
-                            .font(.system(size: 32))
-                            .fontWeight(.bold)
-                            .frame(width: 350)
-                            .lineLimit(1)
-                        
-                        
-                        
-                        //total time
-                        Text("Total time: \(recipe.totTimeText)")
-                            .foregroundColor(K.textColor)
-                            .font(.system(size: 20))
-                        
-                        //prep and bake times
-                        HStack {
-                            Text("Prep time: \(recipe.prepTimeText)")
-                                .foregroundColor(K.textColor)
-                                .multilineTextAlignment(.trailing)
-                            Text("|")
-                                .foregroundColor(K.textColor)
-                                .multilineTextAlignment(.center)
-                            Text("Bake time: \(recipe.bakeTimeText)")
-                                .foregroundColor(K.textColor)
-                                .multilineTextAlignment(.leading)
-                        }.font(.system(size: 12))
-                            .frame(width: 400)
-                            .fixedSize(horizontal: true, vertical: true)
-                        
-                        Text("Yield: \(recipe.yield)")
-                            .foregroundColor(K.textColor)
-                            .font(.system(size: 12))
-                        
-                        HStack {
-                            Text("Recipe credit: \(recipe.credit)")
-                                .italic()
-                                .lineLimit(2)
-                            Text("Image credit: \(recipe.imageCredit)")
-                                .italic()
-                                .lineLimit(2)
-                        }
-                        .padding(.horizontal)
-                        .font(.system(size: 10))
-                        .foregroundColor(K.textColor)
-                        .frame(width: 400)
-                        .fixedSize()
-                        
-                    }
-                    .padding(.top, -40)
                     
-                    
-                    
-                    Spacer()
-                        .frame(height: 20.0)
-                    
-                    ModelPages(recipe.instructions, currentPage: $index,
-                               currentTintColor: K.UITextColor, tintColor: K.UIFrameColor)
-                    { index, _  in
-                        StepByStep(index: index, recipe: self.recipe)
-                    }.frame(minHeight: 500, maxHeight: .infinity)
-                        .padding(.top, -50)
+                    RecipeTop(recipe:recipe)
+
                     //                }
                     HStack {
                         
@@ -168,46 +109,8 @@ struct RecipeDetail: View {
                 
             } else {
                 ScrollView {
-                    
-                    //                    name of recipe
-                    Text(recipe.name)
-                        .foregroundColor(K.textColor)
-                        .font(.system(size: 32))
-                        .fontWeight(.bold)
-                        .frame(width: 350)
-                        .multilineTextAlignment(.center)
-                    
-                    //total time
-                    Text("Total time: \(recipe.totTimeText)")
-                        .foregroundColor(K.textColor)
-                        .font(.system(size: 20))
-                    
-                    //prep and bake times
-                    HStack {
-                        Text("Prep time: \(recipe.prepTimeText)")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.trailing)
-                        Text("|")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.center)
-                        Text("Bake time: \(recipe.bakeTimeText)")
-                            .foregroundColor(K.textColor)
-                            .multilineTextAlignment(.leading)
-                    }.font(.system(size: 12))
-                        .frame(width: 400)
-                        .fixedSize(horizontal: true, vertical: true)
-                    
-                    Spacer()
-                        .frame(height: 20.0)
-                    
-                    //ingredients
-                    IngList(ingList: self.recipe.ingredients, showDismiss: false, showSheet: .constant(false))
-                    
-                    Spacer()
-                        .frame(height: 20.0)
-                    
-                    //instructions
-                    InsList(insList: self.recipe.instructions, showDismiss: false, showSheet: .constant(false))
+                  
+                    RecipeScroll(recipe:recipe)
                     
                     VStack {
                         Rectangle()
@@ -310,8 +213,8 @@ struct RecipeDetail: View {
             })
         
         
-    }
     
+    }
 }
 
 
@@ -319,6 +222,6 @@ struct RecipeDetail: View {
 
 //struct RecipeDetail_Previews: PreviewProvider {
 //    static var previews: some View {
-//        RecipeDetail(recipe: recipeData[0], practiceArray: .constant(nil))
+//        RecipeDetail(recipe: recipeData[0], practiceArray: .constant(nil), goToIngSelect2: true)
 //    }
 //}
